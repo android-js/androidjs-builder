@@ -7,10 +7,11 @@ const myglobalmodule = 'androidjs';
 var copydir = require('copy-dir');
 
 const os = require('os');
-const platform = os.platform();
+// const platform = os.platform();
 
 const args = getArgs();
-let pwd = (process.env.PWD === undefined) ? '.' : process.env.PWD;
+
+let pwd = (process.env.PWD === undefined) ? process.cwd() : process.env.PWD;
 
 // if no argument is passed !
 if (Object.keys(args).length === 0 && process.argv.length === 2) {
@@ -160,34 +161,24 @@ function build() {
 
 function __build(__src, __dest) {
     console.log(__src, __dest);
-    const mapping = {
-        linux: path.join(__dirname, '..', 'lib', 'linux'),
-        mac: path.join(__dirname, '..', 'lib', 'mac'),
-        win: path.join(__dirname, '..', 'lib', 'win'),
-    };
 
-    if (platform !== undefined && mapping[platform] !== undefined) {
-        const compile_tools = require(path.join(mapping[platform] , 'index'));
+    const compile_tools = require(path.join(path.join(__dirname, '..', 'lib') , 'index'));
 
-        // copy the pre-decompiled source to the user side
-        // copy only if require
-        compile_tools.decompile(__dest).then(()=>{
-            console.log('Copied the pre-decompiled source to the user side');
+    // copy the pre-decompiled source to the user side
+    // copy only if require
+    compile_tools.decompile(__dest).then(()=>{
+        console.log('Copied the pre-decompiled source to the user side');
 
-            // copy the user's data to the assets folder
-            compile_tools.copy(__src, path.join(__dest, 'app-debug', 'assets', 'myapp'), 'copying user files').then(()=>{
-                console.log('Copied the user data to the assets folder');
+        // copy the user's data to the assets folder
+        compile_tools.copy(__src, path.join(__dest, 'app-debug', 'assets', 'myapp'), 'copying user files').then(()=>{
+            console.log('Copied the user data to the assets folder');
 
-                compile_tools.build(path.join(__src, 'dist', 'app-debug'), path.join(__src, 'dist', 'app')).then(()=>{
-                    console.log('Build finished');
-                }).then(()=>{
+            compile_tools.build(path.join(__src, 'dist', 'app-debug'), path.join(__src, 'dist', 'app')).then(()=>{
+                console.log('Build finished');
+            }).then(()=>{
 
-                    compile_tools.sign(__src);
-                });
+                compile_tools.sign(__src);
             });
         });
-
-    } else {
-        console.log('invalid platform', platform);
-    }
+    });
 }
