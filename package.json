@@ -2,13 +2,18 @@
   "name": "androidjs",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./lib/index.js"
   },
+  "bin": {
+    "androidjs": "./bin/run.js"
+  },
+  "preferGlobal": true,
   "author": "",
-  "license": "MIT",
+  "license": "ISC",
   "dependencies": {
-    "socket.io": "^2.2.0"
+    "copy-dir": "^0.4.0",
+    "recursive-copy": "^2.0.10"
   }
 }
