@@ -1,0 +1,1780 @@
+Signature-Version: 1.0
+X-Android-APK-Signed: 2
+SHA-256-Digest-Manifest: 2jMgKyqBxxE2iZ/gav3llsiggzqg9onLBjVKAIh5hZI=
+Created-By: 1.0 (Android)
+
+Name: assets/myapp/node_modules/engine.io-client/node_modules/ms/index
+ .js
+SHA-256-Digest: S9kiCcudrPPjdz5yWst6rsQ+qeeFQDJOTQ9z5c6a3vc=
+
+Name: assets/myapp/node_modules/socket.io-parser/node_modules/ms/packa
+ ge.json
+SHA-256-Digest: yh8WBm6jkIPmjJp79mx+/Wxk3/WwI8NV0f++z85WIgE=
+
+Name: res/drawable-xxhdpi-v4/abc_ic_star_half_black_16dp.png
+SHA-256-Digest: XSYy3/spelJXwJKhqb00BpK8HO9SdNyiy8Shyc0V+c4=
+
+Name: assets/myapp/node_modules/component-bind/Readme.md
+SHA-256-Digest: /O/unKWbhMuIzGHz9MeXyEt4LxHKJH/DeQ1wRgSKovg=
+
+Name: assets/myapp/package.json
+SHA-256-Digest: EuD7hPE5i8t7VweFqROL7V7r+qW9k+Qneg9fqpRGrjE=
+
+Name: assets/myapp/node_modules/socket.io/lib/client.js
+SHA-256-Digest: qxsUSOOBfVeypj/SwxCiqgghaVEFnzeH7595ihMgELE=
+
+Name: res/drawable-xhdpi-v4/notification_bg_low_pressed.9.png
+SHA-256-Digest: IDQyIvn3ndVlw6IkhJTUUucIIKwcQ3Fzw4ut1F+WKv0=
+
+Name: assets/myapp/node_modules/callsite/History.md
+SHA-256-Digest: czYe+y634icKIraB6n5y5l9FhrSQbuQE1i4SClUIs50=
+
+Name: res/color-v23/abc_btn_colored_text_material.xml
+SHA-256-Digest: QVTY0LLLS88VfhbxAV7Y2goakoKqmGaZ1crFtTBIP18=
+
+Name: assets/myapp/node_modules/socket.io-client/node_modules/debug/ka
+ rma.conf.js
+SHA-256-Digest: JDCGmtthpeJKNhIRCptJqUjm20OrfpR8ADqcGcR45gk=
+
+Name: assets/myapp/node_modules/component-inherit/Readme.md
+SHA-256-Digest: C18m0Zj+jtLo3Mk/AWDE2I0o0V/UiNOCTixPc8mAplQ=
+
+Name: assets/myapp/node_modules/engine.io/lib/transports/polling-jsonp
+ .js
+SHA-256-Digest: bYKhwVeWmmmGSSMU7nNGpKYz9/kFudjleTaTpofmPI4=
+
+Name: assets/myapp/node_modules/socket.io-client/node_modules/ms/index
+ .js
+SHA-256-Digest: S9kiCcudrPPjdz5yWst6rsQ+qeeFQDJOTQ9z5c6a3vc=
+
+Name: assets/myapp/node_modules/parseuri/package.json
+SHA-256-Digest: h4WHWT33OCoBQeU7KH6qghNFxGaat6LDzLftofEfu9A=
+
+Name: assets/myapp/node_modules/engine.io-parser/lib/keys.js
+SHA-256-Digest: oFyKNTA0twlyQVhVzp9n+k9Bllm3ZOkLgpTACVVs1kU=
+
+Name: res/drawable/notification_bg_low.xml
+SHA-256-Digest: blvD+yxBki5ik7P9etg0bk0ZVC2fMNlnsqvcfoEDYXo=
+
+Name: res/drawable/abc_list_selector_background_transition_holo_light.
+ xml
+SHA-256-Digest: FydmGa63IhgMvU64CJkN2+Xt8MsvzKnCqUEmxVIO1Qc=
+
+Name: assets/myapp/node_modules/has-binary2/package.json
+SHA-256-Digest: ySlKKI14p4Qst4Ynew3huDLcIdSNELp2MXn30msAMBI=
+
+Name: assets/myapp/node_modules/accepts/README.md
+SHA-256-Digest: oFIcF0DJXkMpG7ahheOFDPU+Xne3CPK4ecN9RrH4phk=
+
+Name: res/drawable-xxhdpi-v4/abc_textfield_search_default_mtrl_alpha.9
+ .png
+SHA-256-Digest: tumCXcsmQtdaTsC0+77DDC/NE4wVEpDTMwaCtYizcU8=
+
+Name: res/layout-v11/notification_media_action.xml
+SHA-256-Digest: FcwsBwp8XWi2CtVvRZbcSXN+rY6ffsPvoCkUaRqqvxY=
+
+Name: res/color/abc_primary_text_disable_only_material_dark.xml
+SHA-256-Digest: UDwsRW9R/QWzcBbxy2eDdBjQdds+9XAPK8S9iZ/PMgA=
+
+Name: assets/myapp/node_modules/socket.io-client/dist/socket.io.slim.j
+ s.map
+SHA-256-Digest: hYE5KviJRPnAUlCrKIZapYzs3PMv/YlvcJwsIg3GjE4=
+
+Name: res/mipmap-hdpi-v4/ic_launcher.png
+SHA-256-Digest: Q4TZ5OXV6ySqLOSNIdSGZZ0xT97LZavZpsLuSphwKF0=
+
+Name: res/layout/abc_alert_dialog_button_bar_material.xml
+SHA-256-Digest: s2tBdddqjmpN8idPDcUuFbZMGvUSH/u+0xCyyJj49kk=
+
+Name: assets/myapp/node_modules/xmlhttprequest-ssl/tests/test-headers.
+ js
+SHA-256-Digest: 0UFMH5y3TncC/+zj9lXZBz1iiax58TwDxTtMQfWj8ls=
+
+Name: res/drawable-xxhdpi-v4/abc_ic_star_black_16dp.png
+SHA-256-Digest: /ABPnNdQOpxLQZsXjCuj4kqhkaFFiAOYZb4jVQe929o=
+
+Name: assets/myapp/node_modules/component-emitter/LICENSE
+SHA-256-Digest: v5uAU96tOJ2xaq+aJjSryZKX8s23IUT0dK8MrlqnLDI=
+
+Name: assets/myapp/node_modules/cookie/package.json
+SHA-256-Digest: 4Bi2HhPIWnj9eM1Z7jUPOStBT428cYpjoTtBrQHmS6g=
+
+Name: resources.arsc
+SHA-256-Digest: TNDf3JzU+/nzETBBq+BhRcVi29on6XP56vS3hXE2R34=
+
+Name: assets/myapp/node_modules/ws/lib/receiver.js
+SHA-256-Digest: IeCnY19vQoPT3eK8LNMdtH+FD3eWae+U2c7HR/wzWXE=
+
+Name: res/drawable-xxhdpi-v4/abc_list_pressed_holo_dark.9.png
+SHA-256-Digest: gFg5t3UT7EG0v0suXuEu0GE40xliHu0VuwSdMRZc4Is=
+
+Name: publicsuffixes.gz
+SHA-256-Digest: vo2mhtIIs05LPwv5CqLgt2OClWQRMsPwyqgbA0mQMv8=
+
+Name: res/drawable/abc_list_selector_background_transition_holo_dark.x
+ ml
+SHA-256-Digest: LstzTOOZqV5uwcHaN+OS9071x2x7KgrNaHXZRS2dogc=
+
+Name: res/color/abc_tint_spinner.xml
+SHA-256-Digest: qhb7tVrbOkkGjzBC/eBJ4mjZnKQHqFXDjfjGDQjYWgY=
+
+Name: assets/myapp/node_modules/engine.io-client/node_modules/debug/no
+ de.js
+SHA-256-Digest: mWs4HzU1VcsXLrsoArsqcyNEL/Z7e1MMwmg0BY1/MaI=
+
+Name: assets/myapp/node_modules/socket.io-client/node_modules/ms/licen
+ se.md
+SHA-256-Digest: ZlKDDCYHxyK2bxtX3hWHerj8XcpAbMWzNa/rNl0PMsE=
+
+Name: res/drawable/abc_cab_background_top_material.xml
+SHA-256-Digest: abYrJWKprI3y7++2PADCTfyXXnbAtGVhlzoQZCGJOUw=
+
+Name: res/color/abc_primary_text_material_light.xml
+SHA-256-Digest: LDLVF7WjqiHRJO9W/S0Nhn7WL1muikFEUPFTfuso05I=
+
+Name: assets/myapp/node_modules/left-pad/COPYING
+SHA-256-Digest: rpI0KkOCFc1aRTWfsH6C0StCtasBlptW5lou2tkUq9k=
+
+Name: res/layout/abc_screen_simple_overlay_action_mode.xml
+SHA-256-Digest: 0sTGg5xxDj1qgql9/6XPSODbu97JXjf1IUiEA1DiLq0=
+
+Name: res/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png
+SHA-256-Digest: ZZim4HvYh2kJ64huu3VSm7kfqGd+DlcYrDjrKWKDPaM=
+
+Name: assets/myapp/node_modules/socket.io-client/README.md
+SHA-256-Digest: UomzBe7EPPh3wRCrjhIvWOWZERzNajsAqRpx5JeHS+k=
+
+Name: res/drawable-xxhdpi-v4/abc_cab_background_top_mtrl_alpha.9.png
+SHA-256-Digest: lmEDwLsHIykt+8QVZTNjzUry2HS3dipcGXqaWqGZczA=
+
+Name: assets/myapp/node_modules/engine.io/lib/socket.js
+SHA-256-Digest: EXJdrLNBhZIu70irtH4MEtMgWcYdgxZGitPhwSWSmQU=
+
+Name: assets/myapp/node_modules/has-binary2/index.js
+SHA-256-Digest: Sa485bwHAsZGD6WGdFuY+DKlG5EQBXuYRq0J+Hh0HRs=
+
+Name: res/color/abc_primary_text_disable_only_material_light.xml
+SHA-256-Digest: o0zHywpp2x4N3FJ1U12aAf6YQjOooYGZPtnvD4tlIHE=
+
+Name: assets/myapp/node_modules/socket.io-client/dist/socket.io.dev.js
+ .map
+SHA-256-Digest: LAqRef47xe9Mnz655pmCJVcy5JYQl9qPALe1qK0s1TU=
+
+Name: res/anim/abc_fade_in.xml
+SHA-256-Digest: qslZbc7yrHlrdPLCtMFJ6aZrAE6GSzfoInB1LGaxI00=
+
+Name: res/layout/activity_main.xml
+SHA-256-Digest: ESfMGGFh2NW3KOC+8OVzC8NHwNHg0Sie6+Q11MeWmEs=
+
+Name: res/anim/abc_popup_exit.xml
+SHA-256-Digest: eYzCWuDRM7Do2kVMnkacbIY/V29yZmhqKHUu80uAMCU=
+
+Name: assets/myapp/node_modules/component-bind/History.md
+SHA-256-Digest: y9yEWoTxJGlMBFu2CCeaezZUSQiOLrzDrSwgFYyn+DQ=
+
+Name: assets/myapp/node_modules/engine.io-client/LICENSE
+SHA-256-Digest: u5lqVmXI4YBBJR6DPlK1kPDaUFDBh4qj46R/cbsW+m0=
+
+Name: assets/myapp/node_modules/ws/lib/buffer-util.js
+SHA-256-Digest: zefdBeCOZPy2kw0/2KgWRWdPrFfA5qW6f7doCqR5h8U=
+
+Name: assets/myapp/node_modules/engine.io/lib/transports/index.js
+SHA-256-Digest: WlU4n4RcD0dSTHuM4iXHgVvwcdlGVXhw6L+MX0l/jmA=
+
+Name: res/color/abc_search_url_text.xml
+SHA-256-Digest: Wh6tsl4tHEJEoB5sAzZ8dXKBLNy6OntOqwU9fhHYZQk=
+
+Name: assets/myapp/node_modules/parseuri/test.js
+SHA-256-Digest: DXIkAtPI+3tJ5BRkTkMi4Zp6cLijquGCLwdLpzWE7IU=
+
+Name: assets/myapp/node_modules/engine.io-parser/lib/utf8.js
+SHA-256-Digest: ++espnKbJKFbA3w6+Gd+R+2pzfOeuOwipgMVT7X5O5g=
+
+Name: res/layout-v11/notification_template_big_media.xml
+SHA-256-Digest: cLa+jsfpEzgxD56OPxsJzR5Q7lUGkA6FJBEjFMNCJ6M=
+
+Name: res/drawable/notification_icon_background.xml
+SHA-256-Digest: sjbJSMJ+vL3wgoUZprP9q86S2Zq8Fc8DusWSHGc0e9E=
+
+Name: assets/myapp/node_modules/engine.io/node_modules/debug/Makefile
+SHA-256-Digest: ZxChfhVy7SNgC1dGy2uuY7sPontGxOWhYE5FlW7bzOo=
+
+Name: assets/myapp/node_modules/mime-db/index.js
+SHA-256-Digest: olMqzjJxGukN60rkZUxbxOVvCh4hvdFbomM0v3I9+wk=
+
+Name: res/mipmap-xxxhdpi-v4/ic_launcher_round.png
+SHA-256-Digest: PuAwmkSrmnCbBQ3HBbQMRWDjk9EIUvKkwoFZUOhoQnY=
+
+Name: lib/x86/libnative-lib.so
+SHA-256-Digest: rztnOyZHnGxdLWmCPKF6BUq3p5qAbYjZUnQ+4qLnZp4=
+
+Name: res/drawable-xxhdpi-v4/abc_scrubber_control_to_pressed_mtrl_005.
+ png
+SHA-256-Digest: Ty+MKnsELlWqj0P0zoE0syF+6c2kMsX/jUwz0J2G32g=
+
+Name: assets/myapp/node_modules/arraybuffer.slice/LICENCE
+SHA-256-Digest: WhpIoAzGdiykOddrXmcdqZA38AxyLdm4AkbHCQagtgU=
+
+Name: assets/myapp/node_modules/engine.io/README.md
+SHA-256-Digest: 2xH+wJHha4lkGhNtwZwGhqjheZZg0iujY/q0bteUzo8=
+
+Name: assets/myapp/node_modules/socket.io-parser/is-buffer.js
+SHA-256-Digest: 9kvzGnxEoKibsL84DT79C6d3T29KJCwInii5CfpHSeI=
+
+Name: res/drawable-xxhdpi-v4/abc_text_select_handle_middle_mtrl_dark.p
+ ng
+SHA-256-Digest: U/r+ClYvDtt1m9vuAgxaN5UgFZk0fvWz5L2Dn4qiT1k=
+
+Name: assets/myapp/node_modules/engine.io/node_modules/ms/readme.md
+SHA-256-Digest: yaxn/xA8AYcbD/CeLwlGMZkZCMH9DcCL21Moflp2CuU=
+
+Name: assets/myapp/package-lock.json
+SHA-256-Digest: R+F08B+DcFIf6Ephca2hDl0eKFxkuqov+S0kYuflaPQ=
+
+Name: assets/myapp/node_modules/socket.io-adapter/index.js
+SHA-256-Digest: /2nnYMVDaoHB3x/Vg3lENgSlqktVuPRMM14SRbx/P6Y=
+
+Name: res/drawable/abc_ratingbar_material.xml
+SHA-256-Digest: PiVkGkIVVSfsPakvN40uqigLLjbypPnY8dG4Yokg+oc=
+
+Name: res/drawable/abc_ic_voice_search_api_material.xml
+SHA-256-Digest: tJcm79R6uZkThKOtiVXz5/u4k7tbzswMrIRTGzUvDcw=
+
+Name: res/drawable/abc_ic_ab_back_material.xml
+SHA-256-Digest: 95kRIpCLTv+fhx9ooGymbUFw8N1x3O75VDonP1Nar7I=
+
+Name: assets/myapp/node_modules/async-limiter/coverage/lcov-report/sor
+ ter.js
+SHA-256-Digest: 82s7urgf9DFRsuX0XepHcObj8kNu1BBgeSQCAVwmlE0=
+
+Name: assets/myapp/node_modules/left-pad/test.js
+SHA-256-Digest: QYo5wucGG4PMC+TNSXsoFTfxc596Sj2imsrOehiRf1c=
+
+Name: assets/myapp/node_modules/callsite/index.js
+SHA-256-Digest: lIycGiSIJByq/iXE+Q9b/gbTvglCmJ106ughgo8xo1s=
+
+Name: assets/myapp/node_modules/socket.io/lib/index.js
+SHA-256-Digest: UJaYVcxh2CPr92X3ECjsjq9/SoRakMIMvx8imYfwXms=
+
+Name: res/layout/abc_dialog_title_material.xml
+SHA-256-Digest: ZxP4ZD4PuzCdUGA7y2jJpq1n56H3p9YLwjfMXLiX+uA=
+
+Name: res/layout/notification_template_part_time.xml
+SHA-256-Digest: tYSGfvNyaE+VVwK0XWoC6HRs0Y88dhcLAbtk+2W1A9s=
+
+Name: res/drawable-xxhdpi-v4/abc_ic_star_half_black_48dp.png
+SHA-256-Digest: YTgOuustar+NvU7rkbuCJLOyDlmpzrkT5q+aSQWpjQA=
+
+Name: res/color-v23/abc_btn_colored_borderless_text_material.xml
+SHA-256-Digest: hgCXFiypOvDzCwISoc+4MyGEBWys4yn4KdJGtRHGjWw=
+
+Name: assets/myapp/node_modules/engine.io/lib/server.js
+SHA-256-Digest: 1t+ksFU8+L5FVPuVoj5yTybOdgJwWXNA9W9uaxKtt5w=
+
+Name: assets/myapp/node_modules/socket.io-client/node_modules/debug/sr
+ c/browser.js
+SHA-256-Digest: /weX0n0Eun9pSFq7BDV+wnTW4OiWiW5s9kDSmp05m7A=
+
+Name: res/drawable-xxhdpi-v4/abc_scrubber_control_off_mtrl_alpha.png
+SHA-256-Digest: E20I+rD+QW/H4OypxJjmPGg1eyyqQkH0RLvD8m+adMk=
+
+Name: assets/myapp/node_modules/indexof/package.json
+SHA-256-Digest: W3Kv/d8ANp2aDMKTM9WY3yEj0gd7bN39bjs0M+fcDKU=
+
+Name: assets/myapp/node_modules/engine.io/lib/transports/polling.js
+SHA-256-Digest: 4libCWUGqOav54AUp5kc74VGQpmJmR3qTzBtNbrthYY=
+
+Name: res/anim/abc_popup_enter.xml
+SHA-256-Digest: YlQe/DkqMCVb3FNMBZI/dBwM+fRNSAy1Cr70JbcpVXo=
+
+Name: lib/arm64-v8a/libnative-lib.so
+SHA-256-Digest: 928iEQYEzTkQMxeMHpezsEVSONeTu38EAfF5Fuj/xB0=
+
+Name: assets/myapp/node_modules/socket.io-parser/node_modules/debug/RE
+ ADME.md
+SHA-256-Digest: XWzLv7w7ru2AynJTrmZB6fKLR0bl7vXkCV9mNeLjr1c=
+
+Name: res/color/abc_tint_switch_track.xml
+SHA-256-Digest: 8oHoRso1E0iRW93Wh0SJdaabRmYTgp74IgQsy1kwjZo=
+
+Name: assets/myapp/node_modules/engine.io/node_modules/debug/src/index
+ .js
+SHA-256-Digest: J6NAuyOGWy7ucF1/3AAFOK0mZFZL/SFI8wzFkhzrci4=
+
+Name: res/mipmap-xhdpi-v4/ic_launcher.png
+SHA-256-Digest: 0sV+9EypI3S3bJJJQJfo66nLewOVwC6M4qPIyrpRwXo=
+
+Name: assets/myapp/node_modules/engine.io-client/node_modules/debug/pa
+ ckage.json
+SHA-256-Digest: CclH+aqO2r3QP3tOKD3EEDTeWV41HdTkOsObCisDtuA=
+
+Name: assets/myapp/node_modules/engine.io/node_modules/debug/karma.con
+ f.js
+SHA-256-Digest: JDCGmtthpeJKNhIRCptJqUjm20OrfpR8ADqcGcR45gk=
+
+Name: assets/myapp/node_modules/socket.io-parser/node_modules/debug/pa
+ ckage.json
+SHA-256-Digest: FVGk/58feBz7c2mVIS9+UYKLDvX9GZR4dOYbOtWXO+A=
+
+Name: res/drawable-xxhdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.png
+SHA-256-Digest: S7Ti7Gne0+dIomUiuQo9Exh5Vod4c3SgXccR8pJbRGQ=
+
+Name: assets/myapp/node_modules/blob/test/index.js
+SHA-256-Digest: w047+zFm9sp0zLHdSwxHPRWya6UnXvACx+27UUftcvw=
+
+Name: res/color/abc_hint_foreground_material_light.xml
+SHA-256-Digest: Fw2hEK8McBtvYuiGWfsvENqwloKnOSob2jWq0Ahwa3k=
+
+Name: assets/myapp/node_modules/socket.io-client/dist/socket.io.js
+SHA-256-Digest: yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=
+
+Name: res/mipmap-xxhdpi-v4/ic_launcher_round.png
+SHA-256-Digest: swjaYwqOjx/z4AgtjfsT+mEnMwHT4ohOJUzS8KClpOQ=
+
+Name: assets/myapp/node_modules/socket.io-parser/Readme.md
+SHA-256-Digest: gfS41hYXTqnQhehYbhWzB7gFRC8MQCiqwxGOQNO0SUw=
+
+Name: assets/myapp/node_modules/ms/license.md
+SHA-256-Digest: ZlKDDCYHxyK2bxtX3hWHerj8XcpAbMWzNa/rNl0PMsE=
+
+Name: res/color-v23/abc_tint_spinner.xml
+SHA-256-Digest: NqCUE3hzIVDeiK/iPkNb0ADUuutGZX21gQN4M1P0v1A=
+
+Name: assets/myapp/node_modules/socket.io-adapter/package.json
+SHA-256-Digest: eyeu7yDidvv40k1vU4TT0MLx35P+LOPnJ08m/WeGxJ4=
+
+Name: lib/arm64-v8a/libnode.so
+SHA-256-Digest: xd7IBVb1fq6BcEOIjE72/6ZaPZ15GLzQbKtD1G24QKk=
+
+Name: assets/myapp/node_modules/ws/lib/sender.js
+SHA-256-Digest: O6z+tLUHVDhUoe2VtNLdfEQ7pxmNpgT/gby809ca3XQ=
+
+Name: assets/myapp/node_modules/socket.io-client/node_modules/debug/sr
+ c/debug.js
+SHA-256-Digest: wt9TGc+HaNG7ZPmfdOfcFBiKlFWyBQm5qMS9EmorXk4=
+
+Name: res/layout/abc_search_view.xml
+SHA-256-Digest: m8DvYFMQI8iU0N0M1atJuf9oEEHEj7B0+uPh5427d4s=
+
+Name: res/drawable-xxhdpi-v4/abc_btn_check_to_on_mtrl_000.png
+SHA-256-Digest: GGIMFRMwKJu6GWwcweJpn5gGGjW+NVGHYpaoxNWSuhc=
+
+Name: assets/myapp/node_modules/isarray/package.json
+SHA-256-Digest: F7kstqvXNTvCsbA+It/t5tN6XhlJczcmHhKStSUAKDY=
+
+Name: assets/myapp/node_modules/mime-db/README.md
+SHA-256-Digest: U9taPWbgMqjGid3KaNPxF8AJr9EsSNC9rpWbtrt1Xc4=
+
+Name: res/drawable-xxhdpi-v4/abc_ic_commit_search_api_mtrl_alpha.png
+SHA-256-Digest: 9fNJwelJ8OZjdPg7Zn/A0PR3N5YU82kSreIqKZ8hlNU=
+
+Name: assets/myapp/node_modules/async-limiter/coverage/coverage.json
+SHA-256-Digest: eGmNfrbIVPQ8JTlz54+NvW/+3ZAlWwv9xo/k6VRkt6g=
+
+Name: assets/myapp/node_modules/engine.io-client/lib/transports/index.
+ js
+SHA-256-Digest: r1mMVUmACxBW/zZI87/qwYJKComMsfx7zhSixP39YJ0=
+
+Name: res/drawable-v21/abc_ratingbar_small_material.xml
+SHA-256-Digest: BrPFOZ3OwRTDMxT4DvOwaQnYi05CVTuFVZw58NXm4KU=
+
+Name: assets/myapp/node_modules/to-array/README.md
+SHA-256-Digest: 6l8QuTyfh1sZZQG5oGBXYyCWGqpEEfHUFaXanNaqjMA=
+
+Name: res/drawable-xxhdpi-v4/abc_list_focused_holo.9.png
+SHA-256-Digest: jGhG9BBe8cAhB+hCFC6c5gsIgZKW6VELLQwSz0VgxeE=
+
+Name: assets/myapp/node_modules/blob/package.json
+SHA-256-Digest: drygvvki88u+BB01QT6O5GmwUrmcB/YqKSSx9jYe4Ao=
+
+Name: assets/myapp/node_modules/engine.io-parser/LICENSE
+SHA-256-Digest: KhkCcZd8KtR8hangjMBdB4/pKTZDBh1GbSronOjlwvE=
+
+Name: res/drawable-xhdpi-v4/notification_bg_normal.9.png
+SHA-256-Digest: VZv3g9dlwCM46XlSvcnGaJx/+ZCQuMmBM2kRjaiwgPA=
+
+Name: res/drawable/abc_ic_go_search_api_material.xml
+SHA-256-Digest: yYFDh/3Qf9lItKI4OltBOFmqXwZf10f/fXUOfGFh/dY=
+
+Name: assets/myapp/node_modules/xmlhttprequest-ssl/package.json
+SHA-256-Digest: YioE5kOVCu3fgNgP7jSVWmLDSU7seAt3p6pIOejwz04=
+
+Name: assets/myapp/node_modules/has-binary2/README.md
+SHA-256-Digest: GkAA6TR8hg/cyttrFBBFBT020tuxg0u+VW2Mc0MB+0M=
+
+Name: assets/myapp/node_modules/base64-arraybuffer/README.md
+SHA-256-Digest: QBVBNG4bfiOKdX5nB/n24CkH4XuEr58zN/OS66i5EH0=
+
+Name: res/drawable-xxhdpi-v4/abc_btn_check_to_on_mtrl_015.png
+SHA-256-Digest: caK6Y6XU6R98FDJPocPrkpC3PLezx4KAGNBa2xz6q0U=
+
+Name: assets/myapp/node_modules/component-emitter/package.json
+SHA-256-Digest: RwPJck18eV5Eah/y2dxhAsdKKeaUowQQvE8ForQ+u5c=
+
+Name: lib/x86/libnode.so
+SHA-256-Digest: BM/9G6Xp2Pl2mrrnTHplMSGbG7CzvTrYPtiKoJuRzFQ=
+
+Name: lib/x86/libc++_shared.so
+SHA-256-Digest: eDC8U1ML57yFTfdxO0gRTKInyJv7lI1mFdPpooHRErg=
+
+Name: assets/myapp/node_modules/engine.io-client/node_modules/ms/packa
+ ge.json
+SHA-256-Digest: LgkwtJnpDqTeo1HzaVXweR+TEd5GX8YwOVaXH6ECpuY=
+
+Name: assets/myapp/node_modules/socket.io-parser/package.json
+SHA-256-Digest: 0eGLict4oALhV+Z2qmbpLTcCv9T1X1fDvqea7k0qS5o=
+
+Name: assets/myapp/node_modules/arraybuffer.slice/test/slice-buffer.js
+SHA-256-Digest: WwfdloB+y1JRoSXW8aDGqPtzRx0GJPqU29kVAWRx7K8=
+
+Name: assets/myapp/node_modules/engine.io-parser/lib/browser.js
+SHA-256-Digest: qhAEZPFuezpipOtph94HBsc0bZFzRLkq2APcmJ7SpyE=
+
+Name: res/drawable-xxhdpi-v4/abc_text_select_handle_right_mtrl_light.p
+ ng
+SHA-256-Digest: PP0FVIRIlrUAwzUTseie1iAo0MgN9z08WTVHn0lwSjw=
+
+Name: assets/myapp/node_modules/blob/component.json
+SHA-256-Digest: SjI7OX/wKMid5nryMn32kRn7gu+2jHETQ4teTo264II=
+
+Name: assets/myapp/node_modules/component-inherit/index.js
+SHA-256-Digest: T0Fqch4d4akvlr8bh7lcJvvz89Is63cnvQX3APLz3Uo=
+
+Name: assets/myapp/node_modules/xmlhttprequest-ssl/tests/test-events.j
+ s
+SHA-256-Digest: A2kTNILwgmTJR7rvFcUdr7Vl/vNN9Fmf7pZDSPW7u9k=
+
+Name: assets/myapp/node_modules/socket.io/lib/socket.js
+SHA-256-Digest: qU7McNAk1/LTsldR88SEvVjJrs215Sxf1ilFnUPr3K8=
+
+Name: assets/myapp/node_modules/backo2/Readme.md
+SHA-256-Digest: ykyNw/Iee42XUpysq4s1+NCz2wHvLje6yj9B87ASvT0=
+
+Name: assets/myapp/node_modules/engine.io-client/node_modules/debug/CH
+ ANGELOG.md
+SHA-256-Digest: ekh50rN8UO0V0YpRwHkF+ZNYiHPXcwsVhNs4b4FYjTQ=
+
+Name: assets/myapp/node_modules/socket.io-adapter/Readme.md
+SHA-256-Digest: o8bm4aPAWH7pLajiM9TBAnCigPMX/bLFXyGHzW3MfME=
+
+Name: res/layout/abc_popup_menu_item_layout.xml
+SHA-256-Digest: WmhDaM2YREVUoqEZnb7bLnLlF2BZ/n1gydtt/REool8=
+
+Name: assets/myapp/node_modules/ws/LICENSE
+SHA-256-Digest: PeKEyOb6foQ37/b1NpVHHgMyEppbQqeTYeF7djfelLM=
+
+Name: assets/myapp/node_modules/engine.io-client/node_modules/debug/RE
+ ADME.md
+SHA-256-Digest: XWzLv7w7ru2AynJTrmZB6fKLR0bl7vXkCV9mNeLjr1c=
+
+Name: assets/myapp/node_modules/ws/package.json
+SHA-256-Digest: +G4DA3vINrzkzdzirqEd63UlzND7hwt+L2AT9bWK6Uc=
+
+Name: assets/myapp/node_modules/engine.io/node_modules/debug/src/brows
+ er.js
+SHA-256-Digest: /weX0n0Eun9pSFq7BDV+wnTW4OiWiW5s9kDSmp05m7A=
+
+Name: res/layout/abc_expanded_menu_layout.xml
+SHA-256-Digest: ECk4N+OyJtHTOhcbsGAr40aZqL2tJY07bMvKwERafcE=
+
+Name: assets/myapp/node_modules/engine.io-client/lib/socket.js
+SHA-256-Digest: t3RNgmz9EK0TuoO1tvmRQr31rMZN/FbLCUppD/XjPPg=
+
+Name: assets/myapp/views/index.html
+SHA-256-Digest: ejvsooarajFW4kQMPkxSZv5baev5Ha2sBZ6jY/tQXVM=
+
+Name: assets/myapp/node_modules/left-pad/perf/es6Repeat.js
+SHA-256-Digest: pDNkrB/CyCWTAk6pv64pD312yaHSUTVdqqWpwcbEWPs=
+
+Name: assets/myapp/node_modules/accepts/package.json
+SHA-256-Digest: 4iEytWfCLOyWJ/obev0xcOL6QXxvnJRRQ/18rpIsKLw=
+
+Name: res/drawable/abc_ic_clear_material.xml
+SHA-256-Digest: nNK0af3hiVEE0coE7WMX8vTxpqptiOyq+IX+wrf8MD0=
+
+Name: assets/myapp/node_modules/base64-arraybuffer/lib/base64-arraybuf
+ fer.js
+SHA-256-Digest: 8XSfHUrJJCZLdLVRE4XbkzhTmLs8lmjWuR/s4YJVj9g=
+
+Name: assets/myapp/node_modules/xmlhttprequest-ssl/lib/XMLHttpRequest.
+ js
+SHA-256-Digest: mcDpemaJqdLSutFzZUtQgza57pw41EU9NDcqyxgtaxo=
+
+Name: assets/myapp/node_modules/after/index.js
+SHA-256-Digest: NzPfXWECmM8rW/6fdkcjUCvlikhwMkFH1FKlnNgmUXA=
+
+Name: assets/myapp/node_modules/socket.io-parser/node_modules/debug/sr
+ c/browser.js
+SHA-256-Digest: /weX0n0Eun9pSFq7BDV+wnTW4OiWiW5s9kDSmp05m7A=
+
+Name: assets/myapp/node_modules/backo2/test/index.js
+SHA-256-Digest: iHZVgsopOca2lqDaKGKPphaxeoYDzyNSX5UR4QAMFqE=
+
+Name: res/layout/abc_screen_toolbar.xml
+SHA-256-Digest: X0EkEXttm1ipqbz1VlW7CKqJs0q5AABbBHwC5OJvTJM=
+
+Name: res/color-v23/abc_tint_switch_thumb.xml
+SHA-256-Digest: r9AT+7/RVXtQp4B4R2ThER4uRdk4pHQFRFCFfIDs6VE=
+
+Name: assets/myapp/node_modules/component-inherit/History.md
+SHA-256-Digest: 8Nbri6wSYDW+ZE1obszEcU9apQEqn6bqpgNHHlccYX0=
+
+Name: assets/myapp/node_modules/async-limiter/coverage/lcov-report/ind
+ ex.html
+SHA-256-Digest: DlF/RX/oiOXITtc/jFG4hGFteW1DsB+N3FivvcnETdA=
+
+Name: res/drawable/abc_btn_borderless_material.xml
+SHA-256-Digest: CCIlfNxRJNgR37E65X8kLkrlUKvORiJQIxwL76KeCCo=
+
+Name: res/layout/abc_alert_dialog_material.xml
+SHA-256-Digest: dLX1DNN495eEQVuJr+/LpYCGw/hjXkncc6r4b9LGJlM=
+
+Name: assets/myapp/node_modules/after/package.json
+SHA-256-Digest: fCj334IgkCe5ich/YXSZusohvcihtcIXvcjO7uvehjM=
+
+Name: res/color-v23/abc_color_highlight_material.xml
+SHA-256-Digest: rWkAcxJKSkukAv/ZiyqYp6aQfJRVXDQuxc+wzhSF84g=
+
+Name: res/drawable-xxhdpi-v4/abc_ab_share_pack_mtrl_alpha.9.png
+SHA-256-Digest: IxAXLPHHXKCLY7qjjSm2oUXaNem9I6wLeNJXHwDZ2Io=
+
+Name: assets/myapp/node_modules/engine.io-client/lib/transports/pollin
+ g-xhr.js
+SHA-256-Digest: Jw5kGBOLpldDS6y1tmqDz4StKtwMVB7p0OP/rBEC8SQ=
+
+Name: assets/myapp/node_modules/isarray/README.md
+SHA-256-Digest: 6LHnPM1mQiyGwkQE0JI7IWRI7X0tHZJwtpTHmXzYq2k=
+
+Name: res/mipmap-mdpi-v4/ic_launcher_round.png
+SHA-256-Digest: KgADuXyzf7/Nedd3wg/2v+IpeiOgrZIbHp+tS7HclA8=
+
+Name: assets/myapp/node_modules/socket.io/package.json
+SHA-256-Digest: vsQBO6Fs8xL/TMylvlOk9pnJ64p7qNiJai4A83+HQTg=
+
+Name: lib/x86_64/libc++_shared.so
+SHA-256-Digest: lZ8jOhhgPMhyE0HXLWLXhXjTbppmbCSP0S38pEX9fNE=
+
+Name: assets/myapp/node_modules/socket.io-parser/node_modules/ms/licen
+ se.md
+SHA-256-Digest: ZlKDDCYHxyK2bxtX3hWHerj8XcpAbMWzNa/rNl0PMsE=
+
+Name: assets/myapp/node_modules/arraybuffer.slice/README.md
+SHA-256-Digest: 8QO6zPfa6qQIy9sFlbls/TxQYGZrB5bv2l4tYfwVZfg=
+
+Name: assets/myapp/node_modules/component-bind/component.json
+SHA-256-Digest: PCF9m2v5ksvUR4N74iaCga1nHnKjJhVMyislji882nI=
+
+Name: res/drawable-xxhdpi-v4/abc_tab_indicator_mtrl_alpha.9.png
+SHA-256-Digest: dcb2UPeQSTuJxQ1qO8RrzsxncpGhrBUTsGfLTdc6r6Y=
+
+Name: assets/myapp/node_modules/has-cors/Makefile
+SHA-256-Digest: EtDVFZ+q1Xw2/8zUMDfR9r1ysHnOE0PUWMkrFSuc0rA=
+
+Name: assets/myapp/node_modules/socket.io/lib/parent-namespace.js
+SHA-256-Digest: 61xP1gQAI7aWYwfJpwW4KZaD1SUsY8ZaSMRoQ9RoGOQ=
+
+Name: res/drawable/abc_tab_indicator_material.xml
+SHA-256-Digest: YQ9eJhiImEQVaaN71ydxp7PBQNNAXColgl+VsSKmg2U=
+
+Name: res/color/abc_tint_default.xml
+SHA-256-Digest: cgpnZYF3Re6IE8q7/prUxrq0YnllXQwkptWEwRRfQ+I=
+
+Name: assets/myapp/node_modules/async-limiter/coverage/lcov-report/pre
+ ttify.css
+SHA-256-Digest: 6j/kM/lFBpjKiiMCcWiOeu7BL5nIp+9slDeauzjyeCM=
+
+Name: assets/myapp/node_modules/socket.io-parser/node_modules/debug/no
+ de.js
+SHA-256-Digest: mWs4HzU1VcsXLrsoArsqcyNEL/Z7e1MMwmg0BY1/MaI=
+
+Name: res/drawable-xxhdpi-v4/abc_list_selector_disabled_holo_light.9.p
+ ng
+SHA-256-Digest: VQ6PX0pgBMD/FMaBsgrmdcaUPl7imdo2k595D6iBj+A=
+
+Name: res/mipmap-mdpi-v4/ic_launcher.png
+SHA-256-Digest: N/dER7xL8qmP74ftPgYgyhuQ0i3Ncws0v6iPev0bb+w=
+
+Name: assets/myapp/node_modules/base64id/package.json
+SHA-256-Digest: 65MQ5k3PZruxAwaRpt06S5nkahNyhEUDbUtkDDY3bw8=
+
+Name: assets/myapp/node_modules/socket.io-client/lib/url.js
+SHA-256-Digest: n0UOO3VaMzFsfPFiJFxCtlQG07CYSlQBlTPQyeHXMxI=
+
+Name: assets/myapp/node_modules/parseqs/index.js
+SHA-256-Digest: bFhhlHvfi+om+FJQz11dYkUSOCPvSmVPgQMaHBVYMhY=
+
+Name: res/layout-v21/notification_template_icon_group.xml
+SHA-256-Digest: NP+Za6f25X9cEAOMeR7vvesf68md4c+qHeVTIh5h4Dw=
+
+Name: assets/myapp/node_modules/component-inherit/package.json
+SHA-256-Digest: 20hKeo3ghHex8oFxSmAb8TamV1DuBpDhweSQRzcTPLo=
+
+Name: assets/myapp/node_modules/engine.io-parser/package.json
+SHA-256-Digest: NHiZ1HiKXdLPxlR81x+/f/E4mJgIqnwpXRvYCavfkrI=
+
+Name: res/layout/abc_activity_chooser_view_list_item.xml
+SHA-256-Digest: 8IsckYBixaJIwF6Adpxcb/T0eWPn2Q9ottMtlpN6hgc=
+
+Name: assets/myapp/node_modules/engine.io-parser/Readme.md
+SHA-256-Digest: AnZV2SGXL0rHJ/nFrHa9KSoK7SbuWUYpuP6i1ej9JaA=
+
+Name: res/drawable/abc_vector_test.xml
+SHA-256-Digest: Cq+56jx7Y035GchkfL8mxwLvJgx7cbX4H4cDEjSDx/c=
+
+Name: assets/myapp/node_modules/backo2/package.json
+SHA-256-Digest: p/RErF0bQjGodTwulZqeOOUoiGY7C46sTM6v3DKdjrk=
+
+Name: res/color/abc_tint_edittext.xml
+SHA-256-Digest: 8c9fSoGujANhLiSnr/o9NJEfyHZ6VWIyoTcIcdE1T64=
+
+Name: assets/myapp/node_modules/parseqs/README.md
+SHA-256-Digest: uSZfXo2Fb/eekmLqgj6CUTh3W/95dGS2ZslQjAkIsis=
+
+Name: assets/myapp/node_modules/better-assert/History.md
+SHA-256-Digest: E5K799OqquSYhcA6dg5X219EbrycVqHxPwFWhwHeQEQ=
+
+Name: res/layout/abc_action_bar_title_item.xml
+SHA-256-Digest: N6vGzvyFNTCowXhDP2/uNPOxq1s6e+HibeyxcDOTRfQ=
+
+Name: assets/myapp/node_modules/ms/readme.md
+SHA-256-Digest: KCaM2YqMpB9gU+MlscRe/oJnH2JCUTMGQgYYuTXLuMM=
+
+Name: res/drawable/abc_btn_check_material.xml
+SHA-256-Digest: EunKZhFNosZ/yPjqOLTyjecxVRVMLRX558yaD7TipOY=
+
+Name: assets/myapp/node_modules/yeast/LICENSE
+SHA-256-Digest: OypqJoqoFd7BIdYUJF4DtcaNsfBE1bUl42231dx/ucM=
+
+Name: res/drawable-v21/notification_action_background.xml
+SHA-256-Digest: lBHfjcLunTviAXY7+9un5Y7uawk4Cs8XwgFdCmElSHg=
+
+Name: assets/myapp/node_modules/socket.io-client/node_modules/ms/readm
+ e.md
+SHA-256-Digest: yaxn/xA8AYcbD/CeLwlGMZkZCMH9DcCL21Moflp2CuU=
+
+Name: res/drawable-xxhdpi-v4/abc_ic_star_black_48dp.png
+SHA-256-Digest: p5sGDQ7bZjMb743ZpsdblQbRX9gjwqa4V577Ykm4Uwk=
+
+Name: assets/myapp/node_modules/mime-db/db.json
+SHA-256-Digest: 1PZawaWcvkZMA93ge2KrYZB3zT6R2pZLj6MYNsDb7fw=
+
+Name: res/anim/abc_slide_out_bottom.xml
+SHA-256-Digest: 4zyP8OA4ulYerHEBljCWCU1YtfGnSMEGe61SkDKBSN8=
+
+Name: assets/myapp/node_modules/socket.io-client/node_modules/debug/Ma
+ kefile
+SHA-256-Digest: ZxChfhVy7SNgC1dGy2uuY7sPontGxOWhYE5FlW7bzOo=
+
+Name: assets/myapp/node_modules/engine.io-client/node_modules/debug/LI
+ CENSE
+SHA-256-Digest: mMlw3kQNz8d0cWEK7CN3ydmw2ys75tGt1SSlhuHX9CI=
+
+Name: assets/myapp/node_modules/blob/Makefile
+SHA-256-Digest: LtbQyhwGxCJrHIqoMhaDDSuv6dhT4qRSTiox9ouKQZU=
+
+Name: res/drawable-xxhdpi-v4/abc_text_select_handle_middle_mtrl_light.
+ png
+SHA-256-Digest: JPXbIm8c1W5ed1+Cw39l89HuyQkbJrdIYWKcrwAZw70=
+
+Name: res/drawable/abc_btn_radio_material.xml
+SHA-256-Digest: IGxM1NOPU+6UDC7RSc2110g92h2JvNt9K2ittdY5KEY=
+
+Name: assets/myapp/node_modules/backo2/History.md
+SHA-256-Digest: 6H1vyZQVL9nPd5cLFm9wv0vaXa85yXbD8wVSkwG0znQ=
+
+Name: assets/myapp/node_modules/debug/src/common.js
+SHA-256-Digest: 7srtgs+0UG8MssFA6lANgYYDuisRb0BDcotGHeZIFgw=
+
+Name: assets/myapp/node_modules/mime-db/LICENSE
+SHA-256-Digest: ll7yhPf0wXaELsLof6E+ef7td31W16IaWjs48bttwog=
+
+Name: res/drawable-xxhdpi-v4/abc_list_longpressed_holo.9.png
+SHA-256-Digest: RMKXZrLYi3inE5Oz46dxyn7vX1UmMMYHTzPWKRJB0Lk=
+
+Name: res/color/abc_btn_colored_borderless_text_material.xml
+SHA-256-Digest: +wZHObZRQ8Z1S5QBpM52sKvkgJu9gYtIblrpuigFhEQ=
+
+Name: assets/myapp/node_modules/arraybuffer.slice/index.js
+SHA-256-Digest: RSb5Zx9CgX3adjzbvf/kb1wV8QfRY3Et+DxGND1KCaA=
+
+Name: assets/myapp/node_modules/engine.io-client/node_modules/debug/sr
+ c/browser.js
+SHA-256-Digest: /weX0n0Eun9pSFq7BDV+wnTW4OiWiW5s9kDSmp05m7A=
+
+Name: assets/myapp/node_modules/parseuri/History.md
+SHA-256-Digest: 4IY6DF1Apwwhy+CnM2w9n9ylffZhGuc2fHT2TQ3SxOg=
+
+Name: res/drawable/abc_cab_background_internal_bg.xml
+SHA-256-Digest: 7H3JP5JVnrENHZH6lE50bpXDx/A7v/q4f/IsGzsAL0k=
+
+Name: res/layout-v21/notification_action_tombstone.xml
+SHA-256-Digest: Br0xloaKI97uen7mn2yeYA6Zjlg25IzBKhzgJrZe920=
+
+Name: res/drawable/abc_item_background_holo_light.xml
+SHA-256-Digest: oHm2AJKjEg0ESA51qVvVV/mDmVorOR+ldpVxMFl06QU=
+
+Name: assets/myapp/node_modules/has-cors/History.md
+SHA-256-Digest: vXxsF/w7wIhmIIUF9uOWZd3VA+h3UVgBWxgisNjqGfM=
+
+Name: assets/myapp/node_modules/socket.io/LICENSE
+SHA-256-Digest: wQ0ZLZNRZdrDNq4kX57vTEK7N+fG9cX292Y9t3gSLfE=
+
+Name: assets/myapp/node_modules/has-cors/Readme.md
+SHA-256-Digest: a0qcaSjvkJ297RBO+aomQIeMqIAECQAWSB030UJiE7U=
+
+Name: assets/myapp/node_modules/parseuri/index.js
+SHA-256-Digest: EzACpgP8IC8rgl7aVyRsRSROPfTlTNIYnoheFIiVW/I=
+
+Name: assets/myapp/node_modules/component-emitter/Readme.md
+SHA-256-Digest: fXNQ7wOWpfixHaID6/2u2azuamknrLgS7rbZXC20CSM=
+
+Name: assets/myapp/node_modules/component-inherit/test/inherit.js
+SHA-256-Digest: Wmd83hxuaWZQL5yRBf/M42VR88LogF2+1S2bNSyLlF4=
+
+Name: assets/myapp/node_modules/indexof/component.json
+SHA-256-Digest: m3whT0sFg1EunGpIUWVsqJjX8939xrDXSxjNDLbwzGQ=
+
+Name: res/drawable/abc_seekbar_track_material.xml
+SHA-256-Digest: uDpQXN0hn9J2x3+w6gUzP1AdVQqu23sGMAZjBRgZnfE=
+
+Name: assets/myapp/node_modules/ws/lib/permessage-deflate.js
+SHA-256-Digest: 7UpMJx8mttl4/kC4CLsqBeErtc13t+c5TFJCOhxAZ3Y=
+
+Name: assets/myapp/node_modules/socket.io-client/node_modules/debug/sr
+ c/index.js
+SHA-256-Digest: J6NAuyOGWy7ucF1/3AAFOK0mZFZL/SFI8wzFkhzrci4=
+
+Name: assets/myapp/node_modules/mime-db/HISTORY.md
+SHA-256-Digest: bhcrHG+tnoH4Ybh4Afn3jG6Duh0Ju1VJ5BIL9tlPpyI=
+
+Name: assets/myapp/node_modules/ws/README.md
+SHA-256-Digest: Fdi5dT2ru4wSYL56fHqdAM7/2bTHlnxRoZZpg/tggbI=
+
+Name: assets/myapp/node_modules/engine.io-client/node_modules/debug/sr
+ c/node.js
+SHA-256-Digest: I6H5g1FVRM2zhuHBdgXsRxc5mslcG+nY8ctbLBFqFJQ=
+
+Name: assets/myapp/node_modules/left-pad/index.d.ts
+SHA-256-Digest: GkwCMjVr1v+S0jg1dCk3Q4h5TWBJQmvFuwViPnqZD/E=
+
+Name: res/layout/select_dialog_item_material.xml
+SHA-256-Digest: J4gaHOqiVy2f/psrSdvoK0Qjcg22a/u7Omo/HmwY8Ks=
+
+Name: res/drawable-xxhdpi-v4/abc_ic_menu_paste_mtrl_am_alpha.png
+SHA-256-Digest: 1En5E1XqyS3K6r3KYfmp+HTsYqaIO7B1PKvHI1Rueo8=
+
+Name: assets/myapp/node_modules/debug/src/node.js
+SHA-256-Digest: Ml74U7m3famQ7mhabPkVoDyNtlLrhj53fyc2VL1eVtU=
+
+Name: assets/myapp/node_modules/xmlhttprequest-ssl/tests/test-request-
+ methods.js
+SHA-256-Digest: kNDXU7FlzWlnJRKGfur4OmE++moSQlnoAyyM1NMcotM=
+
+Name: assets/myapp/node_modules/has-cors/index.js
+SHA-256-Digest: HwTb4UF/S089ZYA8hrRlblw9ClhWSTMppXtOawrzcfI=
+
+Name: res/drawable-xxhdpi-v4/abc_spinner_mtrl_am_alpha.9.png
+SHA-256-Digest: VLdXztEnjXiEbAcK4oAspl+IwXZXI25P1y5G4josmiI=
+
+Name: assets/myapp/node_modules/component-bind/index.js
+SHA-256-Digest: 4yIcVw+afwUsnTQyI0a3jhSmj1iji4XnsBCqUCRepfc=
+
+Name: res/drawable/abc_text_cursor_material.xml
+SHA-256-Digest: FOCYSQGfRmpngP+zi//97jbCFRnHYn8f2xciS2Dgn2s=
+
+Name: assets/myapp/node_modules/debug/dist/debug.js
+SHA-256-Digest: s0L1f5E3Op9SNzMz//fRXA4QiL5Yv+j0fx0SnNVkCm8=
+
+Name: assets/myapp/node_modules/parseuri/Makefile
+SHA-256-Digest: 6Yt8nU6wHqy+hwHpDpqvwg/YgL9zMB8Wf6Dvi9vR3eA=
+
+Name: res/drawable/notification_tile_bg.xml
+SHA-256-Digest: J1tBmGAfQ4grbzyLGOwncehRC/jecdtByKdcgPAEAA4=
+
+Name: res/layout/abc_list_menu_item_layout.xml
+SHA-256-Digest: 8lqVz5ZUFhlkwzr+xQg0wMa3ugNkw/ZiADKKO5t8/PQ=
+
+Name: res/color/abc_secondary_text_material_light.xml
+SHA-256-Digest: z09MeFo3uNx1ZZxejiAOaXgGp3nH5C0qmXoIRbL/4zQ=
+
+Name: assets/myapp/node_modules/socket.io-client/LICENSE
+SHA-256-Digest: YuIDKh4UWLHZKmL1/FG+SOCLlQYilckanzvTaGgJ034=
+
+Name: res/color/switch_thumb_material_light.xml
+SHA-256-Digest: NqH7pqjAPEanSd57TQXj2iU/z0SwbNLYzmiaFMz+gJs=
+
+Name: assets/myapp/node_modules/object-component/Makefile
+SHA-256-Digest: 6pDSxdorPcxW91yhnkbH4f3MU9rz6XZZZJRb+S2eMjI=
+
+Name: assets/myapp/main.js
+SHA-256-Digest: 6VSYRWG+FyeqKdR3hAIslzNB8m9XqXbSx2M8m2I+DbU=
+
+Name: res/drawable/abc_btn_colored_material.xml
+SHA-256-Digest: NjzxGibEyJdytzvyZ9pqezIp4IMbjv9ZmAdrEgEfVgM=
+
+Name: assets/myapp/node_modules/component-emitter/History.md
+SHA-256-Digest: CI4SuECrWk1eQZ68sfqj8XJvLiJGkhlrMCPvP/XBAaA=
+
+Name: res/anim/abc_slide_out_top.xml
+SHA-256-Digest: L1un/ORlHKj89Zjou230a00ykSYGxdIKOd6bBVSXEQU=
+
+Name: res/layout/abc_list_menu_item_radio.xml
+SHA-256-Digest: ZcmZjxbtXMZaGpiOy82E58ybOdDZ6tNelk5PgPBjOUQ=
+
+Name: res/layout/abc_screen_simple.xml
+SHA-256-Digest: Ft1Pp6YVARNtOa9H+OVsJbKgH8iOx4y+RapCCS2fF5M=
+
+Name: lib/armeabi-v7a/libnative-lib.so
+SHA-256-Digest: IXhEiKYDpoQAWATZge6VjshcSUGV25Y0Czma2CiooUY=
+
+Name: res/layout/notification_action_tombstone.xml
+SHA-256-Digest: ouzH5wuolNqRZBUdN/WsoiijmfEy6KNMfT+kzysHjF0=
+
+Name: lib/armeabi-v7a/libc++_shared.so
+SHA-256-Digest: qAmiwgHMYMpPusZAQyTEUgGpbh8E/Dt+xcBhwLA7hAU=
+
+Name: assets/myapp/node_modules/yeast/index.js
+SHA-256-Digest: ZM3+5w4l/D2f6x7svySFyaX0uM+tHkNu3Js1QyiJTv0=
+
+Name: assets/myapp/node_modules/socket.io-adapter/LICENSE
+SHA-256-Digest: VreyKP3o1jjMfxw9ACLPERdkCDrE+AO3pQqQOI3ON4g=
+
+Name: res/color-v23/abc_tint_seek_thumb.xml
+SHA-256-Digest: jpJzX47SggnaagmXw1LXQzNceLtYJPwx70jMY4+Eke8=
+
+Name: res/color/abc_hint_foreground_material_dark.xml
+SHA-256-Digest: w21H6ShbkTGONw6arf5x9oSFWW1z8kBp3+/WdP5TW4o=
+
+Name: assets/myapp/node_modules/object-component/test/object.js
+SHA-256-Digest: edtWYWEyU9XB1CvUV7tBJGVjm1u8TTABpoQyQ8P4DhE=
+
+Name: res/color-v23/abc_tint_edittext.xml
+SHA-256-Digest: NqCUE3hzIVDeiK/iPkNb0ADUuutGZX21gQN4M1P0v1A=
+
+Name: res/drawable/abc_switch_thumb_material.xml
+SHA-256-Digest: aCSUbeg8hkcbXU3OgZD2L2rrVvLs6Hlnaj3XLait2aY=
+
+Name: assets/myapp/node_modules/engine.io/node_modules/debug/node.js
+SHA-256-Digest: mWs4HzU1VcsXLrsoArsqcyNEL/Z7e1MMwmg0BY1/MaI=
+
+Name: assets/myapp/node_modules/arraybuffer.slice/Makefile
+SHA-256-Digest: GTBZG0VjuTxB/qGMM+tvs2N6V6TX7Pft8tr8WMm6Ddw=
+
+Name: res/color/abc_tint_switch_thumb.xml
+SHA-256-Digest: ZIZ77P9Nx98SFPtr094EGD/NZWWVpu5xzRWfZrubNCU=
+
+Name: assets/myapp/node_modules/better-assert/example.js
+SHA-256-Digest: 9w6UTgpbc7jSoYSloE2exgVBMRJA1Hjjn4W9o7o109g=
+
+Name: assets/myapp/node_modules/component-bind/Makefile
+SHA-256-Digest: SMov9hdsG1WSQkBicAGsH38T/K6UIxZxsSjJT4rX+L8=
+
+Name: assets/myapp/node_modules/xmlhttprequest-ssl/tests/test-redirect
+ -307.js
+SHA-256-Digest: jnc0iryS6+Bmqc9pN0cFo0hXFJKFjLHQq5kbur+KnGw=
+
+Name: res/layout/abc_action_menu_layout.xml
+SHA-256-Digest: +ws1JCDNNr9Ne6CvLaL1XPtIhymmLgZG6swIAVxUZso=
+
+Name: res/layout/abc_list_menu_item_icon.xml
+SHA-256-Digest: ct4X4P9ebEx+N53qrr3vXPDYcwRLM4GfhS+L54e1ofk=
+
+Name: res/layout/notification_action.xml
+SHA-256-Digest: 9joAhxdo21JsjoJFxiQgqLZnGfdPdGqZdub131Haza0=
+
+Name: assets/myapp/node_modules/base64id/lib/base64id.js
+SHA-256-Digest: jxI8LIrSqv12yIX3NaHH0Btjn8gynZTj+RYSFmuBafQ=
+
+Name: assets/myapp/node_modules/mime-types/package.json
+SHA-256-Digest: FxIbHaaVp9668IAhz31PdI0ZXMQorwt4/S20IGVqwEs=
+
+Name: assets/myapp/node_modules/ws/browser.js
+SHA-256-Digest: I8ORgvF4L0aMpCPVjLesAQcVbaGmQ+mpqh5iWAORYuo=
+
+Name: assets/myapp/node_modules/negotiator/README.md
+SHA-256-Digest: gLZXBxP+xmUkg5onHpQvnBUo4lUslv7R4E0RWVOVTuE=
+
+Name: assets/myapp/node_modules/xmlhttprequest-ssl/LICENSE
+SHA-256-Digest: pfNZAe6LIDmnQxFEwj3RC9R8HQe87gzTpTZCHYZBIhQ=
+
+Name: assets/myapp/node_modules/async-limiter/readme.md
+SHA-256-Digest: 0vqCrbShUUMpHRO1pFmryss9DJqn9MUXGc2incwkqlE=
+
+Name: assets/myapp/node_modules/socket.io-client/dist/socket.io.slim.j
+ s
+SHA-256-Digest: RtMTraB5gGlLER0FkKBcaXCmZCQCxkKS/dXm7MSEoEY=
+
+Name: assets/myapp/node_modules/engine.io-client/package.json
+SHA-256-Digest: W6XPQZjjQDLYAzuS3JaCuL322GQUZLlLm7BGFEz9B0A=
+
+Name: assets/myapp/node_modules/ws/lib/validation.js
+SHA-256-Digest: dhy8e568TMLFup6PTGZODEnKgTjKWs5uotQwqf5s6Os=
+
+Name: assets/myapp/node_modules/socket.io-parser/node_modules/ms/index
+ .js
+SHA-256-Digest: S9kiCcudrPPjdz5yWst6rsQ+qeeFQDJOTQ9z5c6a3vc=
+
+Name: res/drawable-ldrtl-xxhdpi-v17/abc_spinner_mtrl_am_alpha.9.png
+SHA-256-Digest: 69HhQytqVMxhYdp/aYN+j6Re2V6xlrQh1pP/+wQL574=
+
+Name: res/drawable-xxhdpi-v4/abc_list_divider_mtrl_alpha.9.png
+SHA-256-Digest: SZAwc6sjq/wRpV4TM+spBcdD4bOCAGwnwVQ0/XbgIHw=
+
+Name: assets/myapp/node_modules/yeast/package.json
+SHA-256-Digest: brrbxlVt6TaR6d9sLUNYuvs8yu7d4hKWcWo7skUG57M=
+
+Name: res/drawable-xxhdpi-v4/abc_scrubber_primary_mtrl_alpha.9.png
+SHA-256-Digest: F4xlP2/fIgGz62V1g5rzUEmfXDV6D8K3lpqZgkrfiPI=
+
+Name: assets/myapp/node_modules/component-inherit/Makefile
+SHA-256-Digest: X4qfguqkyqgpW236ze1CZtE31A4JvFYfoOdlp/Yhjbo=
+
+Name: assets/myapp/node_modules/engine.io-client/node_modules/debug/sr
+ c/debug.js
+SHA-256-Digest: wt9TGc+HaNG7ZPmfdOfcFBiKlFWyBQm5qMS9EmorXk4=
+
+Name: assets/myapp/node_modules/callsite/package.json
+SHA-256-Digest: UOd3bWI3dzXnHUpVYuR78ws8yZJbYzJ23xt82vKh3L8=
+
+Name: res/layout/abc_action_bar_view_list_nav_layout.xml
+SHA-256-Digest: g5Dvrw/QqFUzQFiHOKYLbrDo43mKCPIPivMHbdiJM8w=
+
+Name: assets/myapp/node_modules/has-binary2/History.md
+SHA-256-Digest: 00A+Qsw5HV+t1bwOsX3BvYTGpuKWZYTpxT1ansY08Xw=
+
+Name: res/drawable-ldrtl-xxhdpi-v17/abc_ic_menu_copy_mtrl_am_alpha.png
+SHA-256-Digest: Kho/hC0Fbm5+fgy54HWhPTo/D47cTEHED6C8NQYTL1U=
+
+Name: assets/myapp/node_modules/socket.io-client/node_modules/ms/packa
+ ge.json
+SHA-256-Digest: buh+G4pko7Q4iO2uhIsbyv6Az97QiAeJ/5YXuJnF8SE=
+
+Name: assets/myapp/node_modules/engine.io/node_modules/ms/index.js
+SHA-256-Digest: S9kiCcudrPPjdz5yWst6rsQ+qeeFQDJOTQ9z5c6a3vc=
+
+Name: res/anim/abc_slide_in_bottom.xml
+SHA-256-Digest: GKdS+RxjthVCvXQ/qxFlfMsOEd95VBDJy7eyO5RlEzU=
+
+Name: assets/myapp/node_modules/better-assert/Readme.md
+SHA-256-Digest: 8VD5CdOKLdliDirUApsEi/edYVq77GPbsOgQ80qn5zE=
+
+Name: res/layout/notification_template_part_chronometer.xml
+SHA-256-Digest: ftcE3o3RBtR1+4l3wMFefKtVpFBBFYkUZNRXOKwFHzA=
+
+Name: assets/myapp/node_modules/to-array/index.js
+SHA-256-Digest: 2EoggafxX+GLXkXiaGjmPpey4XgUhB3MIIlXuMXk2iU=
+
+Name: assets/myapp/node_modules/engine.io-client/lib/transports/websoc
+ ket.js
+SHA-256-Digest: HzDY66+XHCkgxz8m+odFYNKI7WgzMtOiZ9f/Ya/BZnY=
+
+Name: res/drawable-xxhdpi-v4/abc_ic_star_half_black_36dp.png
+SHA-256-Digest: tXbjLUHHcUeSXu+4ArFyyNNnIGzRpVTk4q9Fd327bMs=
+
+Name: assets/myapp/node_modules/socket.io/Readme.md
+SHA-256-Digest: K9k+u18jLfxQTGAQtQ0ggi7leDg1c4Yj0yeAOIxDxD0=
+
+Name: assets/myapp/node_modules/engine.io-client/lib/index.js
+SHA-256-Digest: G6QYuSNu0EcS+G5tR9NErLUW3fj/ipjSz6JRrOZpOD8=
+
+Name: res/layout/abc_action_menu_item_layout.xml
+SHA-256-Digest: z+/B0M9KXG94FeYHRMGrbT0FOju/1D47EZl/Y8s1rLg=
+
+Name: assets/myapp/node_modules/object-component/History.md
+SHA-256-Digest: c3jaql5WgHWcvFQTrDiPomKe/15hjwZj/qSK3ujm38g=
+
+Name: assets/myapp/node_modules/debug/src/browser.js
+SHA-256-Digest: P39SSnONGdJU+x3Sg0A4WYp1G2oG58oe2UptjZSXPSI=
+
+Name: AndroidManifest.xml
+SHA-256-Digest: DaI8Se/+cuUtnNd0B/qdeuZyy1E2roRdeH3I6tenUuo=
+
+Name: assets/myapp/node_modules/socket.io-parser/index.js
+SHA-256-Digest: +PwtEidJKbGPZuiwUQ8iRYDRAHiCStsTFMP+cV0bJGo=
+
+Name: lib/arm64-v8a/libc++_shared.so
+SHA-256-Digest: X1YifWYGzLnczrTX2qgNSYTGWNSGAavOwt/bHdvoPHk=
+
+Name: assets/myapp/node_modules/engine.io/node_modules/debug/src/node.
+ js
+SHA-256-Digest: I6H5g1FVRM2zhuHBdgXsRxc5mslcG+nY8ctbLBFqFJQ=
+
+Name: res/drawable-xxhdpi-v4/abc_ic_star_black_36dp.png
+SHA-256-Digest: ywCg6DBq94qW1rTpRJsvBi8rD2Ea3ty72+pGCP8FZfc=
+
+Name: assets/myapp/node_modules/socket.io-parser/LICENSE
+SHA-256-Digest: VreyKP3o1jjMfxw9ACLPERdkCDrE+AO3pQqQOI3ON4g=
+
+Name: assets/myapp/node_modules/negotiator/lib/charset.js
+SHA-256-Digest: bep6wvLL97x7ZNkgx5LNt//1Y9R+5Itlu0UI9p/6j1Y=
+
+Name: res/layout/abc_search_dropdown_item_icons_2line.xml
+SHA-256-Digest: HoxBIxdrXgXNBhMJ59w0pgu04s0jvFjMQ4ogTwQVjsQ=
+
+Name: assets/myapp/node_modules/callsite/Makefile
+SHA-256-Digest: +kHlT71TWGuI0kwr7SJxn3M+TYuJlc0ZXyVLIZtWwso=
+
+Name: lib/x86_64/libnative-lib.so
+SHA-256-Digest: lgnzdfwHktHcomqq2uVFVr5RlKavn31XevP0MFekRNw=
+
+Name: assets/myapp/node_modules/yeast/README.md
+SHA-256-Digest: xT3SbKUcrkqNUlFz9G4FqTceLK2Vof8iZgqjd111S38=
+
+Name: assets/myapp/node_modules/object-component/index.js
+SHA-256-Digest: zOYybxl/D7KsteH/xJyk4Wyv3y3Q0wtDzWHy5vihB4I=
+
+Name: res/color-v11/abc_background_cache_hint_selector_material_dark.x
+ ml
+SHA-256-Digest: dla3loB2Mp/XIWT98mmKS5pUf9vgmhFPT67QqPxvVgs=
+
+Name: res/layout-v22/abc_alert_dialog_button_bar_material.xml
+SHA-256-Digest: q1s4sZRYPKnHkEcHRCDHVjzmZo3Cvj6od8Nj5HTyLXw=
+
+Name: assets/myapp/node_modules/debug/package.json
+SHA-256-Digest: C+bB9L9j6467QkZDtQgDjBcgF4dvcJsUHFJLzj7eUZQ=
+
+Name: assets/myapp/node_modules/negotiator/lib/language.js
+SHA-256-Digest: 1ltShptxOJQBP1gQT2qmDS3JjLWwM20+hPo3M4HOqew=
+
+Name: assets/myapp/node_modules/engine.io-client/node_modules/debug/ka
+ rma.conf.js
+SHA-256-Digest: JDCGmtthpeJKNhIRCptJqUjm20OrfpR8ADqcGcR45gk=
+
+Name: assets/myapp/node_modules/mime-types/README.md
+SHA-256-Digest: tOmc6r0xbuFeLTrsZv7VnETGSFNymCrNUOyhzbx5nsU=
+
+Name: assets/myapp/node_modules/accepts/HISTORY.md
+SHA-256-Digest: bASDvFtH0flGcCCBsZXCG8r1g1NcRTbWqPry5na0og4=
+
+Name: assets/myapp/node_modules/socket.io-client/node_modules/debug/no
+ de.js
+SHA-256-Digest: mWs4HzU1VcsXLrsoArsqcyNEL/Z7e1MMwmg0BY1/MaI=
+
+Name: assets/myapp/node_modules/engine.io-client/node_modules/ms/licen
+ se.md
+SHA-256-Digest: ZlKDDCYHxyK2bxtX3hWHerj8XcpAbMWzNa/rNl0PMsE=
+
+Name: assets/myapp/node_modules/cookie/index.js
+SHA-256-Digest: CWAVu9/Abs537sLVgBdFZewZLfOKDMYY9HaNoqMbf+A=
+
+Name: assets/myapp/node_modules/async-limiter/coverage/lcov-report/asy
+ nc-throttle/index.html
+SHA-256-Digest: 4g3iZVssU6LJItPA5IKSD7tbY9fOCbEEqigtAQ5HWRA=
+
+Name: assets/myapp/node_modules/backo2/index.js
+SHA-256-Digest: L5ry3mfVEw1wgmx9Sa+qbB2QRd5OEbr0vdXM9/4GVpU=
+
+Name: assets/myapp/node_modules/socket.io-client/node_modules/debug/CH
+ ANGELOG.md
+SHA-256-Digest: ekh50rN8UO0V0YpRwHkF+ZNYiHPXcwsVhNs4b4FYjTQ=
+
+Name: res/drawable-xhdpi-v4/notification_bg_low_normal.9.png
+SHA-256-Digest: PgmvohxFNywDVZjAF8j7QFptZ45suE3IV1gcs7QOSC0=
+
+Name: assets/myapp/node_modules/engine.io/lib/transports/polling-xhr.j
+ s
+SHA-256-Digest: I3UaKw0IULSrHGIpTAvIRukzUJ4wgOpJX5EJZ6Pzuh0=
+
+Name: assets/myapp/node_modules/socket.io-client/node_modules/debug/RE
+ ADME.md
+SHA-256-Digest: XWzLv7w7ru2AynJTrmZB6fKLR0bl7vXkCV9mNeLjr1c=
+
+Name: assets/myapp/node_modules/socket.io-client/lib/index.js
+SHA-256-Digest: 77zpTM5ck9mQrSo8paNOP0jvVyJSupuZgGSOjVglRMY=
+
+Name: res/drawable/abc_seekbar_thumb_material.xml
+SHA-256-Digest: EAU0YFI0Vh01Scv4OEa+GbtB41b+0KRk8oRg/Xrx4U8=
+
+Name: res/anim/abc_fade_out.xml
+SHA-256-Digest: sTqCddj/gHeym4QTxoCco/8F/BZpisJWT/w7MyXPgwI=
+
+Name: assets/myapp/node_modules/cookie/README.md
+SHA-256-Digest: eF6i/QSmu6mx3Eq+OHMQ4iNK7tA0JspP6L2A61JkU78=
+
+Name: assets/myapp/node_modules/base64-arraybuffer/LICENSE-MIT
+SHA-256-Digest: 8+ym/3YlM/pad8r5VKFD5Ir6IEZoz5fc51jEWp4Aa+M=
+
+Name: assets/myapp/node_modules/socket.io-client/node_modules/debug/LI
+ CENSE
+SHA-256-Digest: mMlw3kQNz8d0cWEK7CN3ydmw2ys75tGt1SSlhuHX9CI=
+
+Name: assets/myapp/node_modules/ws/lib/event-target.js
+SHA-256-Digest: dmbS/Z6+HDC6qdfZHRe0pH4pNE+YCqDH11+LJOFq09s=
+
+Name: res/drawable-xxhdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png
+SHA-256-Digest: oeGqB3STG3MVFCP96FrV7gFeU8qd3qhmMm2hJmoSsoU=
+
+Name: res/layout/notification_template_lines_media.xml
+SHA-256-Digest: 0mywu1tNi9Ic3fbb7cMDBkVv9JqXDuz5hlFmcyShDPU=
+
+Name: assets/myapp/node_modules/xmlhttprequest-ssl/tests/test-request-
+ protocols.js
+SHA-256-Digest: sxaQPYenw1DH1WjwY4AmU8X4liqYWfodtpGMcCAsymI=
+
+Name: res/drawable-v21/abc_edit_text_material.xml
+SHA-256-Digest: EYoLNhtyickRgARso6C1u2aCONBG0RCdy1/bOn+249k=
+
+Name: assets/myapp/node_modules/blob/index.js
+SHA-256-Digest: eV8fDvd1SnVAi1uugDM/O1Sjya8jiHfczIkwv5vYZy8=
+
+Name: res/layout-v21/abc_screen_toolbar.xml
+SHA-256-Digest: as58f3lSVhy8SKaOgXRLpPV/d4yPB6mxdX458TZc2Qk=
+
+Name: res/drawable/notification_bg.xml
+SHA-256-Digest: 1DeSe1L9dQVMyNc9vx/fiu6ql/fO5AXQnY39mgnCNmo=
+
+Name: assets/myapp/node_modules/negotiator/lib/mediaType.js
+SHA-256-Digest: DasjnJJPpNX4I1SOJdyfEDFb9JC4IYJ7ZAMYt6ogBXc=
+
+Name: assets/myapp/node_modules/to-array/LICENCE
+SHA-256-Digest: GTONF6l00cdHs/bGGPCJdbiQj968y8BHwOcrCdr23dM=
+
+Name: assets/myapp/node_modules/socket.io-client/node_modules/debug/sr
+ c/node.js
+SHA-256-Digest: I6H5g1FVRM2zhuHBdgXsRxc5mslcG+nY8ctbLBFqFJQ=
+
+Name: res/drawable/abc_ic_arrow_drop_right_black_24dp.xml
+SHA-256-Digest: PILlYZ4MwawDllP22E9VR6FoOY7D2i6rKTbgs9EzKhA=
+
+Name: assets/myapp/node_modules/xmlhttprequest-ssl/tests/testdata.txt
+SHA-256-Digest: pZGm1Av0IEBKARczz7exkNYsZb8LzaMrV7J32a2fFG4=
+
+Name: res/drawable/abc_list_selector_holo_light.xml
+SHA-256-Digest: U64gbXoDRX8pPd2JtPgjYinopw0l2Yo+4oLacSXhvwQ=
+
+Name: assets/myapp/node_modules/socket.io-parser/node_modules/debug/CH
+ ANGELOG.md
+SHA-256-Digest: ekh50rN8UO0V0YpRwHkF+ZNYiHPXcwsVhNs4b4FYjTQ=
+
+Name: assets/myapp/node_modules/base64id/README.md
+SHA-256-Digest: tHyPsqi6Zcy9/VSz+tZHpSYQoDROas7ZEVDH3moF2j4=
+
+Name: assets/myapp/node_modules/blob/LICENSE
+SHA-256-Digest: 3oFB+FxHAqTgU5IKiOcLMAJWgpfIatxsfKbFgB2A518=
+
+Name: assets/myapp/node_modules/negotiator/lib/encoding.js
+SHA-256-Digest: Om3Hjl4cf9Ypwj6OAoUYBvg1umX4WXH21/E1vwY/vSM=
+
+Name: assets/myapp/node_modules/negotiator/LICENSE
+SHA-256-Digest: VT1NIAKaJOMVtCihpUqeEJ6qNA8ulYpPUKkjYsLEBws=
+
+Name: assets/myapp/node_modules/async-limiter/coverage/lcov.info
+SHA-256-Digest: NlFO8nNMdaV1udffGXPO7kxUEntVBxQynm/nUFOxFu8=
+
+Name: res/drawable-xxhdpi-v4/abc_switch_track_mtrl_alpha.9.png
+SHA-256-Digest: TNyvziWeO+sM3PzNlp9rGP2rQhhwk0cVy04CciMKNsg=
+
+Name: assets/myapp/node_modules/socket.io-parser/node_modules/debug/sr
+ c/debug.js
+SHA-256-Digest: wt9TGc+HaNG7ZPmfdOfcFBiKlFWyBQm5qMS9EmorXk4=
+
+Name: res/drawable-v21/abc_action_bar_item_background_material.xml
+SHA-256-Digest: jtusBAPRq9Uw7lI5cVc9TDBqejA/AJ8Lfzvv66tS6ds=
+
+Name: assets/myapp/node_modules/blob/README.md
+SHA-256-Digest: STqQpXBUAi0RZ+/EQXbGeiPj1s/qaCSAT/WaK9Z+qcI=
+
+Name: assets/myapp/node_modules/after/LICENCE
+SHA-256-Digest: Q0psm4lQNElsU9658lnVGZN4B5e5oSZKBIeVpZhguqw=
+
+Name: res/anim/abc_shrink_fade_out_from_bottom.xml
+SHA-256-Digest: OuW7vnn5UE0m51wk81GJV+oQRQElA7qwDuUkbv5vyfo=
+
+Name: assets/myapp/node_modules/better-assert/index.js
+SHA-256-Digest: wMNJcVpnAwXGYfZ+E949TwOe2Iesf61iZiKPd8Li6WA=
+
+Name: res/layout/select_dialog_multichoice_material.xml
+SHA-256-Digest: whKezsFe0yEy8qCGZWOE8eRBQ+VGuz2IJ0//6jWBhDo=
+
+Name: assets/myapp/node_modules/has-cors/component.json
+SHA-256-Digest: 0krkX8X+Akr5bpUvkqRp9vRNFP7DnzALCgbYD9jaUFY=
+
+Name: assets/myapp/node_modules/socket.io-client/package.json
+SHA-256-Digest: LFwahLcjGEagfeRIjrkFaCZPX4kvVqk5EyBJmVsmp44=
+
+Name: res/layout/abc_action_mode_bar.xml
+SHA-256-Digest: TbRpyYazYyvgTkVii3Bb6Y1C6gyl3R0XZAU7oxBkNOc=
+
+Name: assets/myapp/node_modules/left-pad/README.md
+SHA-256-Digest: o2VsSfXhKFWAhq8IvTDFhnLbT7hd8L+mrTyN7uTWogk=
+
+Name: assets/myapp/node_modules/engine.io-client/lib/xmlhttprequest.js
+SHA-256-Digest: cTYQRMHLATiENPcOfA4tJP+Bh+moKYpAGK4ptog8x5I=
+
+Name: res/drawable-xxhdpi-v4/abc_list_pressed_holo_light.9.png
+SHA-256-Digest: 8LxvFDBTIhkusy7dzTZJAlxxL47sPPy1spjX9HCAc/U=
+
+Name: assets/myapp/node_modules/mime-db/package.json
+SHA-256-Digest: liBc+CJSAp53ZoIJ1NXkn8YNJaZaVmzIAT0ZSXKQ0HY=
+
+Name: assets/myapp/node_modules/parseqs/Makefile
+SHA-256-Digest: 6Yt8nU6wHqy+hwHpDpqvwg/YgL9zMB8Wf6Dvi9vR3eA=
+
+Name: res/drawable/abc_item_background_holo_dark.xml
+SHA-256-Digest: SrVZsekkbVxMRWq0Gs/KQLjeakfOGb3x9zvOQwheIIM=
+
+Name: res/drawable-xxhdpi-v4/abc_textfield_search_activated_mtrl_alpha
+ .9.png
+SHA-256-Digest: 9IEsZThjAxXQLMOhgro/z7hYaKKqmDGOxd1jZ3NR+HI=
+
+Name: res/drawable-xxhdpi-v4/abc_text_select_handle_left_mtrl_light.pn
+ g
+SHA-256-Digest: r7yu3mapfdybVMTZiRwJQVy2lE15xMGuhEDNpVOWOVc=
+
+Name: assets/myapp/node_modules/socket.io-client/dist/socket.io.slim.d
+ ev.js
+SHA-256-Digest: /y7xG1RqDsWi+oiDFxZn6HviaLcrxcTPuBnko7yhD+M=
+
+Name: res/color/abc_tint_seek_thumb.xml
+SHA-256-Digest: 1F9Cbn2ew0/Ev0u5nOl1YpZ3DGh65EsXJFtJWKdRB10=
+
+Name: res/drawable-xxhdpi-v4/abc_ic_menu_selectall_mtrl_alpha.png
+SHA-256-Digest: jG4qPDOJDXK+NFMQ5uUxd4wlucmxQ3YsbCve6I9fsNA=
+
+Name: assets/myapp/node_modules/ws/lib/websocket-server.js
+SHA-256-Digest: 2d6WPmYecKHwVq9/fSOV1NPBxSmi2sGqs0wD+5OgOhQ=
+
+Name: assets/myapp/node_modules/engine.io/node_modules/ms/license.md
+SHA-256-Digest: ZlKDDCYHxyK2bxtX3hWHerj8XcpAbMWzNa/rNl0PMsE=
+
+Name: res/layout-v21/notification_template_custom_big.xml
+SHA-256-Digest: rHtC+D9H5c2jOtwm0p7lZB7l8jmIs0kaJqidDkWOwJU=
+
+Name: res/layout/abc_list_menu_item_checkbox.xml
+SHA-256-Digest: eCUZhrDdgDD1AF2rs7xGrn9HolqarS9FchygrbZ7v5o=
+
+Name: res/layout/abc_popup_menu_header_item_layout.xml
+SHA-256-Digest: DrS8zCttXe9jFTMjdRCeonPUwFPoMB+zlzMjFy6M3v8=
+
+Name: res/color/abc_secondary_text_material_dark.xml
+SHA-256-Digest: 0VBj88QJ3yJ5n8IaOXfczeoq0PzaPQYBNiJeVj5b3Lc=
+
+Name: assets/myapp/node_modules/parseuri/README.md
+SHA-256-Digest: 7iZJd4uXlDuMl9ZBIcfTkfzCKEqVifVFl6RVzpxh94Q=
+
+Name: assets/myapp/node_modules/ws/index.js
+SHA-256-Digest: ROXt5TZLlmwYdcGfCAx8+yEdWu4LwoJ0djU1VFM3gOU=
+
+Name: assets/myapp/node_modules/object-component/Readme.md
+SHA-256-Digest: 2nXJFSkm31x8OfOqwE6TARRZeVB227yE1gnkzzqUalQ=
+
+Name: res/drawable-xxhdpi-v4/abc_popup_background_mtrl_mult.9.png
+SHA-256-Digest: QmixXTfrJ+x6wbsiGlcADO3jif00vq914mivs4CQEVI=
+
+Name: res/mipmap-xxxhdpi-v4/ic_launcher.png
+SHA-256-Digest: qcolc1AOgHluvdUwHG10fmN5ltEw+mjNrvHNn+iwsXA=
+
+Name: assets/myapp/node_modules/to-array/package.json
+SHA-256-Digest: WqWE+sWA/lNLsUTYSwhsMf1X2Mcly3tcII633HQZJ6E=
+
+Name: assets/myapp/node_modules/parseuri/LICENSE
+SHA-256-Digest: riKwi1q0rFXTL+Blj58m8fh1cke04jYKJ0QBhmhllMw=
+
+Name: res/layout/notification_template_media.xml
+SHA-256-Digest: 2CHRWxxX2FUAUELwvvXBH02dr/DkrMPtbfa1Uq+y8N0=
+
+Name: res/layout/support_simple_spinner_dropdown_item.xml
+SHA-256-Digest: W+KLSSudejaVJEBlYnKXRkE9zeQEsWks0gYLaaZ2qM0=
+
+Name: assets/myapp/node_modules/parseqs/LICENSE
+SHA-256-Digest: UazsjHU5SmnluaJLlCsL5IydBqzr1FP9BDIbrqYIey4=
+
+Name: res/layout-v11/notification_template_big_media_custom.xml
+SHA-256-Digest: QO74W+OCUivPdrxvD+DR6HvHH6jMG2Vsc/4ney0ZUEA=
+
+Name: res/drawable-xxhdpi-v4/abc_ic_menu_cut_mtrl_alpha.png
+SHA-256-Digest: 1oy9V5n6PhQw/MYSvRsDbhyMcYsci9DWtamfJZq9aeg=
+
+Name: res/drawable-xxhdpi-v4/abc_list_selector_disabled_holo_dark.9.pn
+ g
+SHA-256-Digest: Du3FHe6gwPP2daQA1mfrR2VTuSy9Emg7YVTjYwYDHBk=
+
+Name: res/layout/notification_template_icon_group.xml
+SHA-256-Digest: 1qV5thCRtadPYtB2B8M/54W+n9tiUQ8lwg49mFgPRjA=
+
+Name: res/layout/abc_select_dialog_material.xml
+SHA-256-Digest: lTYjGovBN1YONy7kiX3PNu2SV38nBTXClEkYv+LYSAc=
+
+Name: res/anim/abc_slide_in_top.xml
+SHA-256-Digest: BcwUADknfgoimeTRZQ7jn30S/14Jzs+EBnyfLzQOzQY=
+
+Name: assets/myapp/node_modules/ms/index.js
+SHA-256-Digest: fJCDIHtkjmSMTQdue9fYWvc9quWHOBmeuMIKRl39zRk=
+
+Name: assets/myapp/node_modules/socket.io-client/lib/socket.js
+SHA-256-Digest: rdFfPxx+D30PPULBB/zcW1epimWpsYu+JiE60fKbRKc=
+
+Name: res/color/abc_tint_btn_checkable.xml
+SHA-256-Digest: NSd7qM0WYQ0r5iRV7iH9Bbyrg7sG5UfkPKJUevI/Xrw=
+
+Name: assets/myapp/node_modules/negotiator/package.json
+SHA-256-Digest: zgamGlddfjX9SeRuN5gXe5TnhnXTrzaExy/T0xH5xB8=
+
+Name: assets/myapp/node_modules/engine.io-client/node_modules/debug/sr
+ c/index.js
+SHA-256-Digest: J6NAuyOGWy7ucF1/3AAFOK0mZFZL/SFI8wzFkhzrci4=
+
+Name: assets/myapp/node_modules/has-cors/test.js
+SHA-256-Digest: 0JRPKiMa+Ke3BZtxYiwnYKwL5sd0LUsS5UW+eh7ONTM=
+
+Name: res/layout-v11/notification_media_cancel_action.xml
+SHA-256-Digest: fivoYYNVXzG74vXpjrNFW1txmhZ3DntdWJh2i2ti65I=
+
+Name: res/color/abc_btn_colored_text_material.xml
+SHA-256-Digest: ZvZrBOhyHAFIQ7zM8q8ZHm8ASq19hhy3bF/TkbY3uNM=
+
+Name: res/color/abc_primary_text_material_dark.xml
+SHA-256-Digest: h/ml2G4E1qWFIuC6HvZ02Sedup1obBJfszkLQNSpkNo=
+
+Name: assets/myapp/node_modules/base64-arraybuffer/package.json
+SHA-256-Digest: 2iHqIrU/WWxszeFGx+3dJ6/FpuWAeV85Whsq8aSWXHI=
+
+Name: assets/myapp/node_modules/negotiator/index.js
+SHA-256-Digest: YBnglvx7wS5IEfDzY+V7fNYPCLjqmV4VqjNhTZkzI3c=
+
+Name: assets/myapp/node_modules/better-assert/package.json
+SHA-256-Digest: VFKr3XEpSFgXpUYzK/8Xzv9gLcUpQj0DvCJWdlGHqJo=
+
+Name: assets/myapp/node_modules/isarray/index.js
+SHA-256-Digest: m4xpE3KALaeIycX04covHtC4irhyIXbCrqFeOOyG0kk=
+
+Name: assets/myapp/node_modules/xmlhttprequest-ssl/tests/test-redirect
+ -302.js
+SHA-256-Digest: WAdb3YB7z0+Q4jHazmfniBkQaT5J9UYFYEudC4EGyy8=
+
+Name: res/drawable-ldrtl-xxhdpi-v17/abc_ic_menu_cut_mtrl_alpha.png
+SHA-256-Digest: O7fnnzwSUeISRjO5KvPGVC+/4zTIO43XauQUbai1r8A=
+
+Name: assets/myapp/node_modules/engine.io-client/node_modules/debug/Ma
+ kefile
+SHA-256-Digest: ZxChfhVy7SNgC1dGy2uuY7sPontGxOWhYE5FlW7bzOo=
+
+Name: assets/myapp/node_modules/xmlhttprequest-ssl/README.md
+SHA-256-Digest: visfiwXqJlaQ9eoxfCCY+DpO0lkFL6xxrczozdGL+qE=
+
+Name: assets/myapp/node_modules/engine.io/package.json
+SHA-256-Digest: 2oARe+B9fG+I6NcriAozSGIAAFBAjPBFpItl8eg/zHM=
+
+Name: assets/myapp/node_modules/async-limiter/package.json
+SHA-256-Digest: vGpdHE4Iik6P62RxOc5FHkb38KDQzKy1sM6JamtVHkA=
+
+Name: assets/myapp/node_modules/object-component/component.json
+SHA-256-Digest: lFIyKnXKpqCis9/kXVcZ27caUKni6hXleMDAxev4ZSc=
+
+Name: res/color-v11/abc_background_cache_hint_selector_material_light.
+ xml
+SHA-256-Digest: aX+wFOAjN6YSpFHSoRSGswjFvZg5CtIERdXrf9fUavE=
+
+Name: res/drawable-xxhdpi-v4/abc_text_select_handle_right_mtrl_dark.pn
+ g
+SHA-256-Digest: yBqgf/xs/JjR10bLY+UkFhFMLGzYOzgVEE34TBzkrc0=
+
+Name: res/layout-v16/notification_template_custom_big.xml
+SHA-256-Digest: XXIZeTApkuhgJnk8WbDmXYaPTtcXLm+dd6TcqZfvu2M=
+
+Name: res/drawable-xxhdpi-v4/abc_btn_radio_to_on_mtrl_015.png
+SHA-256-Digest: XgeZoNC11D7Vrjo3iqoIR6gQzu/1jbmg94Nuv07xcUY=
+
+Name: assets/myapp/node_modules/ws/lib/constants.js
+SHA-256-Digest: LC6Paru3wjFNVzbvCo0R8E3cPPT68ccQ3111xBcOk34=
+
+Name: res/drawable-v21/abc_ratingbar_indicator_material.xml
+SHA-256-Digest: tvcA0jfdifNkcirKhTW15QjnRJ/BmRHqRM1QiBZfcmU=
+
+Name: assets/myapp/node_modules/backo2/Makefile
+SHA-256-Digest: LgNis4pPJSGk0s6fKOsHcfgdnizPTm8TURwfIVOcB1w=
+
+Name: res/drawable/abc_ratingbar_indicator_material.xml
+SHA-256-Digest: ix4VyF5iaeU4czboxs43vvbu3F9X8ois6Tw11KfuMPg=
+
+Name: res/drawable/abc_textfield_search_material.xml
+SHA-256-Digest: vN/xQthFDT4MZ6pxSkbhMGMuQ2xi97v7BW9JyujUS8U=
+
+Name: assets/myapp/node_modules/socket.io-client/node_modules/debug/pa
+ ckage.json
+SHA-256-Digest: Icl9tzOhoe2wivc01sg4d4oDtEU7VMX78shGKyi83Ys=
+
+Name: res/drawable-xxhdpi-v4/abc_ic_menu_share_mtrl_alpha.png
+SHA-256-Digest: npoZM6+MK0Hj5z7Cc/27ZeWVQsOXF08qYUhpAwcr7Dg=
+
+Name: assets/myapp/node_modules/debug/CHANGELOG.md
+SHA-256-Digest: ekh50rN8UO0V0YpRwHkF+ZNYiHPXcwsVhNs4b4FYjTQ=
+
+Name: assets/myapp/node_modules/after/test/after-test.js
+SHA-256-Digest: EXNuaDb5l3FkgnarK/Toj8VJhWv21GzMsq9pbBHujuI=
+
+Name: res/drawable-v23/abc_control_background_material.xml
+SHA-256-Digest: ek+TJeoauRorfKN6V8iZyrqgK2ALVChoYbE7FOeaZd0=
+
+Name: res/drawable-xxhdpi-v4/abc_scrubber_control_to_pressed_mtrl_000.
+ png
+SHA-256-Digest: Y/rQoZy55BZYYEnUC2IWGwzEwlE9g5MdOFLi9acubRM=
+
+Name: res/drawable-v21/abc_btn_colored_material.xml
+SHA-256-Digest: x3De40XdTETQN2xf8G/EjZ0Bfne7HjpGFHw3umksn4w=
+
+Name: assets/myapp/node_modules/engine.io/lib/transports/websocket.js
+SHA-256-Digest: DMSjrBVj3RTchPh1R5BY/mVIqYR5HxQGKcezYYm19W8=
+
+Name: assets/myapp/node_modules/component-emitter/index.js
+SHA-256-Digest: oN00wp8CctwYNQv6ryzFNO6NbPNqqxzxeiWPHUOuYRI=
+
+Name: assets/myapp/node_modules/mime-types/HISTORY.md
+SHA-256-Digest: p7n9j0iv1CBxTHqPJOiIcNTYLjnWy4qX+aElVnIg/Ro=
+
+Name: res/drawable-xxhdpi-v4/abc_menu_hardkey_panel_mtrl_mult.9.png
+SHA-256-Digest: qCUvUmOMgN8RnbAxYmGYpKjUsy7mGOlsOja5uUbiaJQ=
+
+Name: res/drawable/abc_list_selector_holo_dark.xml
+SHA-256-Digest: XEIQS+ok0Z6In+XU7a3xoVmnB6yrV+KBZI3OFXCTrFw=
+
+Name: assets/myapp/node_modules/object-component/package.json
+SHA-256-Digest: Q4xS2GePMEqZa5xFgYINUUTZOHr+bCoexTB5EtHTkaQ=
+
+Name: assets/myapp/node_modules/negotiator/HISTORY.md
+SHA-256-Digest: xxemNDGKAewmCf3Qqe5TrysXu1qdINP+DXWXI/zuZ3o=
+
+Name: assets/myapp/node_modules/accepts/index.js
+SHA-256-Digest: vi3svVBhDo+ZXB4xLuTdbXwSRM/fA+5MSj2mjlctraE=
+
+Name: res/drawable-xxhdpi-v4/abc_btn_radio_to_on_mtrl_000.png
+SHA-256-Digest: Du2Z0KXjakaLVXYF5szqSVwCnzVphEpF9LXY2t131Kc=
+
+Name: assets/myapp/node_modules/engine.io/lib/engine.io.js
+SHA-256-Digest: kOn5FqZToYimYk7cbpCN5wxS2Eh4OZo+hKrcH7uP08o=
+
+Name: assets/myapp/node_modules/socket.io-parser/node_modules/debug/Ma
+ kefile
+SHA-256-Digest: ZxChfhVy7SNgC1dGy2uuY7sPontGxOWhYE5FlW7bzOo=
+
+Name: assets/myapp/node_modules/after/README.md
+SHA-256-Digest: 7W6tGPUn1v8r1BwqfFaljasa/pM/nOMCLv64zVoI+7Y=
+
+Name: res/color-v23/abc_tint_default.xml
+SHA-256-Digest: dl/Qm1jkio+TLDwiG+AvrG0JdNslkvc8Jo6mGfNYiGU=
+
+Name: assets/myapp/node_modules/socket.io/lib/namespace.js
+SHA-256-Digest: Khjj9sGkWnLY+N+ctONfemlJL/hqIconNtahqQ0CGE8=
+
+Name: assets/myapp/node_modules/socket.io-client/lib/on.js
+SHA-256-Digest: tjRZyGGz5Q0MA2qS81HNnQ+k/xUKxnmYmu/VPVz3r/s=
+
+Name: res/drawable/abc_ratingbar_small_material.xml
+SHA-256-Digest: d6IHsdIRbU3yTL7cqrMU+T9IrSO1z8RTV0Ydo6A3n9Q=
+
+Name: res/layout-v11/notification_template_big_media_narrow.xml
+SHA-256-Digest: c/x7GgdWlmdaYO/vFV/6MU7xUPhfZzP5IawtY8BtQ0Q=
+
+Name: assets/myapp/node_modules/socket.io-client/lib/manager.js
+SHA-256-Digest: fuESgYCj6MeJBthiS/c9nQ2w7mJzv5tuNscvWIXMv3U=
+
+Name: assets/myapp/node_modules/socket.io-client/dist/socket.io.dev.js
+SHA-256-Digest: i2Orhi397HWPn93rsCUTW8HBoso65vY/VNTllm9Kuqo=
+
+Name: res/layout/abc_action_bar_up_container.xml
+SHA-256-Digest: XGNG1Kq6FJNXTuE0WVCrJduC57kHiS8nQPSH0YAtmgY=
+
+Name: res/drawable/abc_spinner_textfield_background_material.xml
+SHA-256-Digest: v5zjSjxQs1CjxH/rAaM1zSmXabVWtTCWCC00yDvfZPY=
+
+Name: assets/myapp/node_modules/socket.io-parser/node_modules/debug/ka
+ rma.conf.js
+SHA-256-Digest: JDCGmtthpeJKNhIRCptJqUjm20OrfpR8ADqcGcR45gk=
+
+Name: assets/myapp/node_modules/debug/src/index.js
+SHA-256-Digest: qhJ/8XUrfZx0FcXHu2mU2apyK4G8vKtL1IMWsBPSO/M=
+
+Name: assets/myapp/node_modules/xmlhttprequest-ssl/tests/test-constant
+ s.js
+SHA-256-Digest: 6Yb1/621frVaOcmPRlqagmC2f4RE6WYf4iVKopzBRtU=
+
+Name: res/drawable/abc_dialog_material_background.xml
+SHA-256-Digest: i1Pnw+6BnHYJ5ReFQhKWsJkeJtfsjfVWVGU+8G1NW0s=
+
+Name: assets/myapp/node_modules/engine.io-client/lib/transport.js
+SHA-256-Digest: pgM3XG6DP5flYqGQVYOOaUpH9lWJyzlVyfFaSLW4B6o=
+
+Name: assets/myapp/node_modules/indexof/index.js
+SHA-256-Digest: 8zMGV0j0ID5bUIeT7r+MYLl5+yL8YL4u69uOLDWc1Bg=
+
+Name: assets/myapp/node_modules/better-assert/Makefile
+SHA-256-Digest: I911nfH05JA9djn0f4z9GYEsqvOQIx8Vlxk0vN5WBGQ=
+
+Name: assets/myapp/node_modules/socket.io-client/dist/socket.io.slim.d
+ ev.js.map
+SHA-256-Digest: tzShcLUNzaB0ozOhh8TnfYffPvv1bq5JNpilJSXNzYU=
+
+Name: assets/myapp/node_modules/component-bind/package.json
+SHA-256-Digest: R/tHVrdh/C8YE3Ya23Q2i0hbT0e4b65mOcyTSHjNj9Q=
+
+Name: res/drawable/abc_ic_search_api_material.xml
+SHA-256-Digest: WSU3E4s2dW6E/M4KI3L8TDsa6z1G39lrUQeeR1DFdl0=
+
+Name: res/drawable/abc_ic_menu_overflow_material.xml
+SHA-256-Digest: deuJSIONiZhuRziTpZKk501DzZKbKEmWCtrK+KaRfmQ=
+
+Name: assets/myapp/node_modules/parseqs/test.js
+SHA-256-Digest: NGmTUr8N160v7YUOHsXYG8cITKR0fp4GPQuNJASlEEg=
+
+Name: assets/myapp/node_modules/component-inherit/component.json
+SHA-256-Digest: dM2oZqMnoFwt+4M950ny7aW5lHaVearnqAr1/5URc2k=
+
+Name: res/mipmap-xxhdpi-v4/ic_launcher.png
+SHA-256-Digest: 066Qkoe9BdpXZpT99qIIGymPCbqsULWw1ZEIMkSpzrw=
+
+Name: assets/myapp/node_modules/xmlhttprequest-ssl/tests/test-redirect
+ -303.js
+SHA-256-Digest: oI6MtrjTUUV1pz054kuXvM8K105bTunMfmVHr0O5q/A=
+
+Name: assets/myapp/node_modules/engine.io/node_modules/debug/CHANGELOG
+ .md
+SHA-256-Digest: ekh50rN8UO0V0YpRwHkF+ZNYiHPXcwsVhNs4b4FYjTQ=
+
+Name: assets/myapp/node_modules/engine.io/lib/transport.js
+SHA-256-Digest: w6RNB0Brnl+mSlG3MTzla9xUI8vH2OqftZcenMIx0SA=
+
+Name: assets/myapp/node_modules/accepts/LICENSE
+SHA-256-Digest: cfg8TAYhECpW2YU4End7hXUbzn6XJvaG9bBWwfiksOY=
+
+Name: assets/myapp/node_modules/engine.io/node_modules/debug/package.j
+ son
+SHA-256-Digest: WD169F7ARG8tF0EesJkqVrAlLcR9rFFQU3qUeXk5yK4=
+
+Name: res/mipmap-xhdpi-v4/ic_launcher_round.png
+SHA-256-Digest: fLzJrZnlwezh7uIdxQJk2Udc9vtLRQviNZpPXJrdF/s=
+
+Name: assets/myapp/node_modules/socket.io-parser/node_modules/debug/sr
+ c/index.js
+SHA-256-Digest: J6NAuyOGWy7ucF1/3AAFOK0mZFZL/SFI8wzFkhzrci4=
+
+Name: res/drawable-xxhdpi-v4/abc_scrubber_track_mtrl_alpha.9.png
+SHA-256-Digest: Bbdvv0ZZMSJZe4tOL9I1j6BzSp+8LST1GY7ipy53qek=
+
+Name: assets/myapp/node_modules/base64id/LICENSE
+SHA-256-Digest: 3mBZ6t0MEyfzCiJmM5LlfTa5ewrJu0j0h1yACLqCPDA=
+
+Name: res/drawable-xxhdpi-v4/abc_textfield_default_mtrl_alpha.9.png
+SHA-256-Digest: Al2KEVXSzkdp4weon/fsbBdSgN+Q7FGoxhzqRVGZLO8=
+
+Name: lib/x86_64/libnode.so
+SHA-256-Digest: 1bSnvx8hmu9X70vs+BJup+jLL01CzwAhh/dON17FI68=
+
+Name: assets/myapp/node_modules/async-limiter/coverage/lcov-report/sor
+ t-arrow-sprite.png
+SHA-256-Digest: zAUJu2eTzmTzWxmdOf6nutoT7MLTlaQ5V9DYquTwWGQ=
+
+Name: res/drawable-xxhdpi-v4/abc_text_select_handle_left_mtrl_dark.png
+SHA-256-Digest: wbI/G58W/MGpHZKeBtlUrjIs01JrkMVnGVlqKWN7v5g=
+
+Name: assets/myapp/node_modules/has-cors/package.json
+SHA-256-Digest: FJ2XMDpTETXqGkpAl949gh0ycmrw9J4hrH8Vgvav3fw=
+
+Name: res/drawable/abc_edit_text_material.xml
+SHA-256-Digest: 4vd9Y/0ntQxguRqk4iV5PuRTlpMSnJJIAE3cpERJiF4=
+
+Name: assets/myapp/node_modules/socket.io-parser/node_modules/debug/sr
+ c/node.js
+SHA-256-Digest: I6H5g1FVRM2zhuHBdgXsRxc5mslcG+nY8ctbLBFqFJQ=
+
+Name: assets/myapp/node_modules/backo2/component.json
+SHA-256-Digest: WYX1/konBH97QLZc0sNOmRpppG/lHHF4w2GLnxlziYI=
+
+Name: assets/myapp/node_modules/mime-types/index.js
+SHA-256-Digest: jPzKrDBr62UNYMfwaa4PSznWSPHjkUaWsYwTOrM+ZBk=
+
+Name: assets/myapp/node_modules/engine.io-client/node_modules/ms/readm
+ e.md
+SHA-256-Digest: yaxn/xA8AYcbD/CeLwlGMZkZCMH9DcCL21Moflp2CuU=
+
+Name: assets/myapp/node_modules/debug/LICENSE
+SHA-256-Digest: mMlw3kQNz8d0cWEK7CN3ydmw2ys75tGt1SSlhuHX9CI=
+
+Name: assets/myapp/node_modules/arraybuffer.slice/package.json
+SHA-256-Digest: a85IU/R3oBtKpfjX4lBJ3c7F93dhku8cyqSOywTS3UA=
+
+Name: res/drawable-xxhdpi-v4/abc_textfield_activated_mtrl_alpha.9.png
+SHA-256-Digest: v6OEujej4QJLc44KgqeJDwEvGjKRMHE198gZ0MnD1CU=
+
+Name: assets/myapp/node_modules/engine.io/LICENSE
+SHA-256-Digest: jgNJBwYSy1n8YEWIl04ZPYNj8KCHUsrzHT8nCmCdNGo=
+
+Name: res/drawable-v21/abc_ratingbar_material.xml
+SHA-256-Digest: O5TQ70a8wzP8qhJoTm0q1ZlBpn2NMgo7zTMzEmdGqQ4=
+
+Name: assets/myapp/node_modules/async-limiter/LICENSE
+SHA-256-Digest: 5aV83XLieZEBg3mRUxNNDnSaVmT8RZyOrL7PclMrfbM=
+
+Name: assets/myapp/node_modules/left-pad/perf/O(n).js
+SHA-256-Digest: /j7xI51Tv1sj/xzfxbg8l2KbNS5d4LmEUOT168D2fI0=
+
+Name: res/anim/abc_grow_fade_in_from_bottom.xml
+SHA-256-Digest: e2WxhG8wrdopCuqe/Lf0RmXCjvQwatCPiv2mEO1PhVU=
+
+Name: assets/myapp/node_modules/engine.io/node_modules/ms/package.json
+SHA-256-Digest: KylAmba0/pNfByGJ8Fhcr0h/g/RDsR4l9KO7IgsDL7E=
+
+Name: assets/myapp/node_modules/async-limiter/coverage/lcov-report/asy
+ nc-throttle/index.js.html
+SHA-256-Digest: a8f/6ca5dgxroadCNgstgC2wPMRaIkUuognP01yNzEM=
+
+Name: assets/myapp/node_modules/ws/lib/extension.js
+SHA-256-Digest: qHGWxuOwd9C7AdTA46xGIYw53fyUvcpwbjWkqBKBXPg=
+
+Name: assets/myapp/node_modules/debug/README.md
+SHA-256-Digest: tZL6Xg3lWNz+OVejHcrTrJFAY+jbujec4VxF5Z/oJAM=
+
+Name: assets/myapp/node_modules/ws/lib/websocket.js
+SHA-256-Digest: uMjmchVfVFPOLl1SD3SXANpxqNLt+AiwCI6x2knHZ3M=
+
+Name: res/color/switch_thumb_material_dark.xml
+SHA-256-Digest: Uq+XDiu5K1bLC38xGqDAAfe4mVgILUS7DFq8V3TWRhQ=
+
+Name: assets/myapp/node_modules/async-limiter/coverage/lcov-report/bas
+ e.css
+SHA-256-Digest: qNAEbRY+i6Yg3pXD89MIRNcrMDfW4oIT409OcR/acQ4=
+
+Name: res/layout/abc_screen_content_include.xml
+SHA-256-Digest: bxIvPNkmhWbhC4ygcNvUZ+SS0XIDMP+DXn+K4l9djnY=
+
+Name: res/layout-v21/notification_action.xml
+SHA-256-Digest: ZE57BZ2t6XiSmDir032cx99VT/mbrIw+6ezwraocH4I=
+
+Name: assets/myapp/node_modules/xmlhttprequest-ssl/autotest.watchr
+SHA-256-Digest: jYKqWoVqiRsRL5k/ZP2fF8DbcqFSSUx5if1vSpBPmCM=
+
+Name: res/layout/abc_alert_dialog_title_material.xml
+SHA-256-Digest: 7c0teeUNpYaa2tBCMz+3KG1odv7MpH4cy1ZTcGrGSl8=
+
+Name: res/mipmap-hdpi-v4/ic_launcher_round.png
+SHA-256-Digest: QSA2Ehw64TpzY8i8kOzVCO4GCgZtS6VC7bz6Fzt1z1w=
+
+Name: res/drawable-xxhdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png
+SHA-256-Digest: QK5FnbNUisQvuUnWns1dPEUoZtsPz00bEIHdZ2qUMew=
+
+Name: assets/myapp/node_modules/engine.io-client/lib/transports/pollin
+ g-jsonp.js
+SHA-256-Digest: 1dRCPWX3bOpimJrcm1L0Ffi3E7RpV7HqnG1VNN2TE8w=
+
+Name: res/layout/notification_template_media_custom.xml
+SHA-256-Digest: AwGWypLS4dgffVeXFIqrewGBjLclWe12to0/DKXNbvA=
+
+Name: res/color-v23/abc_tint_switch_track.xml
+SHA-256-Digest: g8wSY4e9BxQvTn6UIt51o2RhoMaybvH+WX4is/iWVEs=
+
+Name: assets/myapp/node_modules/indexof/Makefile
+SHA-256-Digest: BR68oAK9MI95HwzKVlsLbrJvHSs1Ygu/zwUcNt6ifwQ=
+
+Name: res/layout/select_dialog_singlechoice_material.xml
+SHA-256-Digest: vxX1ox/G7LZUCjyEoTiSIx5hmGo3fD99RjYxx1ZIAHY=
+
+Name: assets/myapp/node_modules/socket.io-parser/node_modules/debug/LI
+ CENSE
+SHA-256-Digest: mMlw3kQNz8d0cWEK7CN3ydmw2ys75tGt1SSlhuHX9CI=
+
+Name: assets/myapp/node_modules/socket.io-parser/binary.js
+SHA-256-Digest: IRwIakVon3VSPoCR1XtcJAfJVf14ieZ3yXvqE+u7SDw=
+
+Name: assets/myapp/node_modules/has-binary2/LICENSE
+SHA-256-Digest: 3B/MQfeDRj7Scq2odafT0br2xieeXvraLE7yynLbOeE=
+
+Name: assets/myapp/node_modules/engine.io-parser/lib/index.js
+SHA-256-Digest: hJ8OaFzWwfejnKdfZ136S+YEaCikthcX01tPiwbijBY=
+
+Name: res/layout/abc_action_mode_close_item_material.xml
+SHA-256-Digest: 53QWyY4WPxebae78HGZzjfnM5MIGuzdbJJZaQ2K7Er0=
+
+Name: assets/myapp/node_modules/engine.io-client/engine.io.js
+SHA-256-Digest: trLfUsg/m8/6FGHfTQdaiLgbCoS4TynLYplnwtOEQNs=
+
+Name: assets/myapp/node_modules/left-pad/index.js
+SHA-256-Digest: MmQbazwr2AC8yCgyBe4nQmrtJVnx6Ot9k3dTD2IpJoY=
+
+Name: assets/myapp/node_modules/indexof/Readme.md
+SHA-256-Digest: 2tHbIJa9Mwi6CaMR2KYmwfObkrZJp7ATuXlqVpoHiRM=
+
+Name: assets/myapp/node_modules/socket.io-client/dist/socket.io.js.map
+SHA-256-Digest: o+sO2gLyqObNI1nUTAde+5AmjkZkUvFwu+qFxVz8Kts=
+
+Name: assets/myapp/node_modules/left-pad/perf/perf.js
+SHA-256-Digest: F+yqfietZ8aOizIqDdX3b8xIsK3yYdYy88rFrsWu2jI=
+
+Name: res/drawable-xhdpi-v4/notification_bg_normal_pressed.9.png
+SHA-256-Digest: 0nr0NRAcpMvsDIQL0waHkYzTnrg6qxSHQghVYjpFmYs=
+
+Name: assets/myapp/node_modules/engine.io-client/lib/transports/pollin
+ g.js
+SHA-256-Digest: iR9NdLeAEs8vSYk/mMqTj+4ej4j73l2G/UmFwYDPmn4=
+
+Name: res/layout-v11/notification_template_big_media_narrow_custom.xml
+SHA-256-Digest: pg9o0HGgoU67bMGDdqAqvACLe9GuRO4BO+75HEOkauI=
+
+Name: assets/myapp/node_modules/async-limiter/index.js
+SHA-256-Digest: 0dLDmxAguWSs3HiWORKl3dlYM7Q//05QpdeSN4GvKUE=
+
+Name: assets/myapp/node_modules/callsite/Readme.md
+SHA-256-Digest: IorTVw/hfhcmEVHLY56v1N+k24KR/aEpbei3vtrvUEA=
+
+Name: assets/myapp/node_modules/async-limiter/coverage/lcov-report/pre
+ ttify.js
+SHA-256-Digest: ZxJrbNTRsjBfjI+ll0lx6+kKsrD24gm6LxxuSvBfAgc=
+
+Name: assets/myapp/node_modules/mime-types/LICENSE
+SHA-256-Digest: cfg8TAYhECpW2YU4End7hXUbzn6XJvaG9bBWwfiksOY=
+
+Name: assets/myapp/node_modules/engine.io/node_modules/debug/README.md
+SHA-256-Digest: XWzLv7w7ru2AynJTrmZB6fKLR0bl7vXkCV9mNeLjr1c=
+
+Name: assets/myapp/node_modules/cookie/HISTORY.md
+SHA-256-Digest: C9smv3t+SW/CgEirzjjAUx0isPfW+hJHA16U/kA0Jn8=
+
+Name: res/layout/abc_activity_chooser_view.xml
+SHA-256-Digest: O4CiQnEBQ5d0ak7Iv2EjzIFeo+MU9EIivB3qWq+gbdw=
+
+Name: assets/myapp/node_modules/engine.io-client/README.md
+SHA-256-Digest: 7b0aGeYa/5DzDNG14ymrUtnmisvo19SFX6mqlqDUujw=
+
+Name: assets/myapp/node_modules/engine.io/node_modules/debug/LICENSE
+SHA-256-Digest: mMlw3kQNz8d0cWEK7CN3ydmw2ys75tGt1SSlhuHX9CI=
+
+Name: assets/myapp/node_modules/xmlhttprequest-ssl/tests/test-exceptio
+ ns.js
+SHA-256-Digest: lc+6p+4K/aTUek0YAOEKvla19kTaE9FFXdjj8dCfZAA=
+
+Name: assets/myapp/node_modules/left-pad/package.json
+SHA-256-Digest: OajwTbt3FA2lonlcoCBsiqoEQzM/ww1QE4IjPAaYP9w=
+
+Name: res/drawable/abc_btn_default_mtrl_shape.xml
+SHA-256-Digest: ImrPedyhu3iuLz6wtudRGSFi38DpIbLSPDFKymv1PbM=
+
+Name: assets/myapp/node_modules/socket.io-parser/node_modules/ms/readm
+ e.md
+SHA-256-Digest: yaxn/xA8AYcbD/CeLwlGMZkZCMH9DcCL21Moflp2CuU=
+
+Name: assets/myapp/node_modules/xmlhttprequest-ssl/example/demo.js
+SHA-256-Digest: vqTYPO5LT23uCKEls5nDQYDu7UImQJlyZ9vf4XtR2gM=
+
+Name: res/color-v23/abc_tint_btn_checkable.xml
+SHA-256-Digest: JAqUdxuP9l0qoZpqeDLuEe9+oKm/z+W05Z1gdmItwU0=
+
+Name: assets/myapp/node_modules/parseqs/package.json
+SHA-256-Digest: RpHQ9jsnHG1nXlHUKRIHJzc2v4uHhr5qvVgjqojfle4=
+
+Name: assets/myapp/node_modules/ms/package.json
+SHA-256-Digest: IAvK6f7I7xOnC2Bl0mOd0UJAxACe3NSCgRqAvCAXnpQ=
+
+Name: lib/armeabi-v7a/libnode.so
+SHA-256-Digest: IxoU0G37kjlm7Hsrz2KrSYdSV+IdS4/R2QMu1aGqHA4=
+
+Name: assets/myapp/node_modules/cookie/LICENSE
+SHA-256-Digest: wCEQ7twWxxFPGpvcAmxlYmzh2cfif9Uajg/u6KSKaFg=
+
+Name: assets/myapp/node_modules/engine.io/node_modules/debug/src/debug
+ .js
+SHA-256-Digest: wt9TGc+HaNG7ZPmfdOfcFBiKlFWyBQm5qMS9EmorXk4=
+
+Name: res/drawable/abc_seekbar_tick_mark_material.xml
+SHA-256-Digest: NyVRsBAyjj0T8aG+h7uXbRwXH9mB3JVlaRIw485410g=
+
+Name: classes.dex
+SHA-256-Digest: u/96KeeBkATUQ3aABRvDMQzNIZa2t+Zu1at4cwWDs7s=
+
