@@ -1,5 +1,5 @@
 // var back = require('androidjs').back;
-const {back, io} = require('./assets/ipc/back');
+const {back, io} = require('androidjs');
 // var app = require('./index.js').app;
 // console.log(back);
 
