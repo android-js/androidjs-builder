@@ -2,14 +2,14 @@
 ### Platform to build fully featured android app in node js.
 
 - Quick start
-    - install android js from 'npm' ``$ sudo npm i -g androidjs``
+    - install android js from 'npm' ``$ sudo npm i -g androidjs-builder ``
     - create new folder/dir & cd into it ``$ mkdir myapp && cd myapp``
     - generate project structure ``$ androidjs g``
     - build apk ``$ androidjs b``
 
 ## install from npm
 ```bash
-$ sudo npm install -g androidjs 
+$ sudo npm install -g androidjs-builder 
 ```
 
 ## Generate new project
