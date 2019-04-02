@@ -1,7 +1,7 @@
 {
-  "name": "androidjs",
+  "name": "androidjs-builder",
   "version": "1.0.0",
-  "description": "",
+  "description": "['androidjs'](https://www.npmjs.com/package/androidjs) application builder.",
   "main": "./lib/index.js",
   "scripts": {
     "test": "node ./lib/index.js"
@@ -10,7 +10,7 @@
     "androidjs": "./bin/run.js"
   },
   "preferGlobal": true,
-  "author": "",
+  "author": "Pankaj Devesh <pankajdevesh3@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "copy-dir": "^0.4.0",
