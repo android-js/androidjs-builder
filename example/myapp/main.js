@@ -3,6 +3,8 @@ const {back, io} = require('androidjs');
 // var app = require('./index.js').app;
 // console.log(back);
 
+console.log('app is running...');
+console.log('open index.html in browser');
 
 
 back.on('hello', function(event){
