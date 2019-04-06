@@ -7,22 +7,26 @@
 .field public static _startedNodeAlready:Z
 
 
+# instance fields
+.field public myWebView:Landroid/webkit/WebView;
+
+
 # direct methods
 .method static constructor <clinit>()V
     .locals 1
 
     .prologue
-    .line 23
+    .line 26
     const-string v0, "native-lib"
 
     invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
 
-    .line 24
+    .line 27
     const-string v0, "node"
 
     invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
 
-    .line 28
+    .line 45
     const/4 v0, 0x0
 
     sput-boolean v0, Lcom/yourorg/sample/MainActivity;->_startedNodeAlready:Z
@@ -34,7 +38,7 @@
     .locals 0
 
     .prologue
-    .line 19
+    .line 22
     invoke-direct {p0}, Landroid/support/v7/app/AppCompatActivity;-><init>()V
 
     return-void
@@ -42,54 +46,59 @@
 
 
 # virtual methods
+.method public onBackPressed()V
+    .locals 1
+
+    .prologue
+    .line 36
+    iget-object v0, p0, Lcom/yourorg/sample/MainActivity;->myWebView:Landroid/webkit/WebView;
+
+    invoke-virtual {v0}, Landroid/webkit/WebView;->canGoBack()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 37
+    iget-object v0, p0, Lcom/yourorg/sample/MainActivity;->myWebView:Landroid/webkit/WebView;
+
+    invoke-virtual {v0}, Landroid/webkit/WebView;->goBack()V
+
+    .line 41
+    :goto_0
+    return-void
+
+    .line 39
+    :cond_0
+    invoke-super {p0}, Landroid/support/v7/app/AppCompatActivity;->onBackPressed()V
+
+    goto :goto_0
+.end method
+
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 7
+    .locals 6
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
-    .line 32
+    .line 49
     invoke-super {p0, p1}, Landroid/support/v7/app/AppCompatActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 33
+    .line 50
     const v3, 0x7f04001b
 
     invoke-virtual {p0, v3}, Lcom/yourorg/sample/MainActivity;->setContentView(I)V
 
-    .line 34
-    const v3, 0x7f0b005e
-
-    invoke-virtual {p0, v3}, Lcom/yourorg/sample/MainActivity;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/webkit/WebView;
-
-    .line 35
-    .local v1, "myWebView":Landroid/webkit/WebView;
-    new-instance v3, Landroid/webkit/WebViewClient;
-
-    invoke-direct {v3}, Landroid/webkit/WebViewClient;-><init>()V
-
-    invoke-virtual {v1, v3}, Landroid/webkit/WebView;->setWebViewClient(Landroid/webkit/WebViewClient;)V
-
-    .line 36
-    invoke-virtual {v1}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v4}, Landroid/webkit/WebSettings;->setJavaScriptEnabled(Z)V
-
-    .line 38
+    .line 52
     sget-boolean v3, Lcom/yourorg/sample/MainActivity;->_startedNodeAlready:Z
 
     if-nez v3, :cond_0
 
-    .line 39
-    sput-boolean v4, Lcom/yourorg/sample/MainActivity;->_startedNodeAlready:Z
+    .line 53
+    sput-boolean v5, Lcom/yourorg/sample/MainActivity;->_startedNodeAlready:Z
 
-    .line 40
+    .line 54
     new-instance v3, Ljava/lang/Thread;
 
     new-instance v4, Lcom/yourorg/sample/MainActivity$1;
@@ -98,113 +107,117 @@
 
     invoke-direct {v3, v4}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
 
-    .line 60
+    .line 74
     invoke-virtual {v3}, Ljava/lang/Thread;->start()V
 
-    .line 62
+    .line 79
     :cond_0
-    const-string v3, "file:///android_asset/myapp/views/index.html"
+    const v3, 0x7f0b005e
 
-    invoke-virtual {v1, v3}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
-
-    .line 65
-    :try_start_0
-    const-string v3, "http://localhost:3000"
-
-    invoke-static {v3}, Lio/socket/client/IO;->socket(Ljava/lang/String;)Lio/socket/client/Socket;
-
-    move-result-object v2
-
-    .line 66
-    .local v2, "socket":Lio/socket/client/Socket;
-    const-string v3, "connect"
-
-    new-instance v4, Lcom/yourorg/sample/MainActivity$4;
-
-    invoke-direct {v4, p0, v2}, Lcom/yourorg/sample/MainActivity$4;-><init>(Lcom/yourorg/sample/MainActivity;Lio/socket/client/Socket;)V
-
-    invoke-virtual {v2, v3, v4}, Lio/socket/client/Socket;->on(Ljava/lang/String;Lio/socket/emitter/Emitter$Listener;)Lio/socket/emitter/Emitter;
+    invoke-virtual {p0, v3}, Lcom/yourorg/sample/MainActivity;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
 
-    const-string v4, "helloFromNode"
+    check-cast v3, Landroid/webkit/WebView;
 
-    new-instance v5, Lcom/yourorg/sample/MainActivity$3;
+    iput-object v3, p0, Lcom/yourorg/sample/MainActivity;->myWebView:Landroid/webkit/WebView;
 
-    invoke-direct {v5, p0}, Lcom/yourorg/sample/MainActivity$3;-><init>(Lcom/yourorg/sample/MainActivity;)V
+    .line 80
+    iget-object v3, p0, Lcom/yourorg/sample/MainActivity;->myWebView:Landroid/webkit/WebView;
 
-    .line 73
-    invoke-virtual {v3, v4, v5}, Lio/socket/emitter/Emitter;->on(Ljava/lang/String;Lio/socket/emitter/Emitter$Listener;)Lio/socket/emitter/Emitter;
+    new-instance v4, Landroid/webkit/WebViewClient;
 
-    move-result-object v3
+    invoke-direct {v4}, Landroid/webkit/WebViewClient;-><init>()V
 
-    const-string v4, "disconnect"
-
-    new-instance v5, Lcom/yourorg/sample/MainActivity$2;
-
-    invoke-direct {v5, p0}, Lcom/yourorg/sample/MainActivity$2;-><init>(Lcom/yourorg/sample/MainActivity;)V
+    invoke-virtual {v3, v4}, Landroid/webkit/WebView;->setWebViewClient(Landroid/webkit/WebViewClient;)V
 
     .line 81
-    invoke-virtual {v3, v4, v5}, Lio/socket/emitter/Emitter;->on(Ljava/lang/String;Lio/socket/emitter/Emitter$Listener;)Lio/socket/emitter/Emitter;
+    iget-object v3, p0, Lcom/yourorg/sample/MainActivity;->myWebView:Landroid/webkit/WebView;
 
-    .line 87
-    invoke-virtual {v2}, Lio/socket/client/Socket;->connect()Lio/socket/client/Socket;
+    invoke-virtual {v3}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
 
-    .line 88
-    const-string v3, "helloFromJava"
+    move-result-object v3
 
-    const/4 v4, 0x1
+    invoke-virtual {v3, v5}, Landroid/webkit/WebSettings;->setJavaScriptEnabled(Z)V
 
-    new-array v4, v4, [Ljava/lang/Object;
+    .line 82
+    iget-object v3, p0, Lcom/yourorg/sample/MainActivity;->myWebView:Landroid/webkit/WebView;
 
-    const/4 v5, 0x0
+    invoke-virtual {v3}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
 
-    const-string v6, "Hello Node this is java"
+    move-result-object v3
 
-    aput-object v6, v4, v5
+    invoke-virtual {v3, v5}, Landroid/webkit/WebSettings;->setAllowFileAccessFromFileURLs(Z)V
 
-    invoke-virtual {v2, v3, v4}, Lio/socket/client/Socket;->emit(Ljava/lang/String;[Ljava/lang/Object;)Lio/socket/emitter/Emitter;
+    .line 83
+    iget-object v3, p0, Lcom/yourorg/sample/MainActivity;->myWebView:Landroid/webkit/WebView;
 
-    .line 89
-    const-string v3, "helloFromNode"
+    invoke-virtual {v3}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
 
-    new-instance v4, Lcom/yourorg/sample/MainActivity$5;
+    move-result-object v3
 
-    invoke-direct {v4, p0}, Lcom/yourorg/sample/MainActivity$5;-><init>(Lcom/yourorg/sample/MainActivity;)V
+    invoke-virtual {v3, v5}, Landroid/webkit/WebSettings;->setAllowUniversalAccessFromFileURLs(Z)V
 
-    invoke-virtual {v2, v3, v4}, Lio/socket/client/Socket;->on(Ljava/lang/String;Lio/socket/emitter/Emitter$Listener;)Lio/socket/emitter/Emitter;
+    .line 84
+    iget-object v3, p0, Lcom/yourorg/sample/MainActivity;->myWebView:Landroid/webkit/WebView;
 
-    .line 95
-    const-string v3, "getClientPath"
+    const-string v4, "file:///android_asset/myapp/views/index.html"
 
-    new-instance v4, Lcom/yourorg/sample/MainActivity$6;
+    invoke-virtual {v3, v4}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
 
-    invoke-direct {v4, p0, v2}, Lcom/yourorg/sample/MainActivity$6;-><init>(Lcom/yourorg/sample/MainActivity;Lio/socket/client/Socket;)V
+    .line 102
+    const/4 v0, 0x0
 
-    invoke-virtual {v2, v3, v4}, Lio/socket/client/Socket;->on(Ljava/lang/String;Lio/socket/emitter/Emitter$Listener;)Lio/socket/emitter/Emitter;
+    .line 104
+    .local v0, "Socket":Lcom/yourorg/sample/JavaIPC;
+    :try_start_0
+    new-instance v1, Lcom/yourorg/sample/JavaIPC;
+
+    const/16 v3, 0xbb9
+
+    invoke-direct {v1, v3}, Lcom/yourorg/sample/JavaIPC;-><init>(I)V
     :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 109
-    .end local v2    # "socket":Lio/socket/client/Socket;
+    .line 105
+    .end local v0    # "Socket":Lcom/yourorg/sample/JavaIPC;
+    .local v1, "Socket":Lcom/yourorg/sample/JavaIPC;
+    :try_start_1
+    invoke-virtual {v1}, Lcom/yourorg/sample/JavaIPC;->start()V
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
+
+    move-object v0, v1
+
+    .line 160
+    .end local v1    # "Socket":Lcom/yourorg/sample/JavaIPC;
+    .restart local v0    # "Socket":Lcom/yourorg/sample/JavaIPC;
     :goto_0
     return-void
 
-    .line 104
+    .line 106
     :catch_0
-    move-exception v0
+    move-exception v2
 
-    .line 105
-    .local v0, "e":Ljava/lang/Exception;
-    sget-object v3, Ljava/lang/System;->out:Ljava/io/PrintStream;
-
-    invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    .line 107
+    .local v2, "e":Ljava/io/IOException;
+    :goto_1
+    invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_0
+
+    .line 106
+    .end local v0    # "Socket":Lcom/yourorg/sample/JavaIPC;
+    .end local v2    # "e":Ljava/io/IOException;
+    .restart local v1    # "Socket":Lcom/yourorg/sample/JavaIPC;
+    :catch_1
+    move-exception v2
+
+    move-object v0, v1
+
+    .end local v1    # "Socket":Lcom/yourorg/sample/JavaIPC;
+    .restart local v0    # "Socket":Lcom/yourorg/sample/JavaIPC;
+    goto :goto_1
 .end method
 
 .method public native startNodeWithArguments([Ljava/lang/String;)Ljava/lang/Integer;
