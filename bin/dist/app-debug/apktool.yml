@@ -1,15 +1,18 @@
 !!brut.androlib.meta.MetaInfo
-apkFileName: app-debug.apk
+apkFileName: app-debug (2).apk
 compressionType: false
 doNotCompress:
 - arsc
 - png
+- js
 - assets/myapp/node_modules/better-assert/Makefile
 - assets/myapp/node_modules/callsite/Makefile
 - assets/myapp/node_modules/engine.io-client/node_modules/debug/node.js
 - assets/myapp/node_modules/engine.io/node_modules/debug/node.js
 - assets/myapp/node_modules/parseqs/Makefile
 - assets/myapp/node_modules/parseuri/Makefile
+- coffee
+- json
 - assets/myapp/node_modules/socket.io-client/node_modules/debug/node.js
 - assets/myapp/node_modules/socket.io-parser/node_modules/debug/node.js
 - txt
