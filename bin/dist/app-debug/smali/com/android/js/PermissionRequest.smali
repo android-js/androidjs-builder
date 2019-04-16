@@ -25,11 +25,19 @@
 
     move-result-object v0
 
+    .line 16
+    .local v0, "permissions":[Ljava/lang/String;
+    array-length v1, v0
+
+    if-lez v1, :cond_0
+
+    .line 17
     const/4 v1, 0x1
 
     invoke-static {p0, v0, v1}, Landroid/support/v4/app/ActivityCompat;->requestPermissions(Landroid/app/Activity;[Ljava/lang/String;I)V
 
-    .line 16
+    .line 18
+    :cond_0
     return-void
 .end method
 
@@ -41,18 +49,18 @@
     .prologue
     const/4 v6, 0x0
 
-    .line 20
+    .line 22
     invoke-static {p0}, Lcom/android/js/PermissionRequest;->retrievePermissions(Landroid/content/Context;)[Ljava/lang/String;
 
     move-result-object v4
 
-    .line 22
+    .line 24
     .local v4, "totalPermissions":[Ljava/lang/String;
     new-instance v3, Ljava/util/ArrayList;
 
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
-    .line 23
+    .line 25
     .local v3, "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     array-length v8, v4
 
@@ -63,7 +71,7 @@
 
     aget-object v1, v4, v7
 
-    .line 25
+    .line 27
     .local v1, "permission":Ljava/lang/String;
     const/4 v5, -0x1
 
@@ -77,7 +85,7 @@
     :goto_1
     packed-switch v5, :pswitch_data_0
 
-    .line 23
+    .line 25
     :cond_1
     :goto_2
     add-int/lit8 v5, v7, 0x1
@@ -86,7 +94,7 @@
 
     goto :goto_0
 
-    .line 25
+    .line 27
     :sswitch_0
     const-string v9, "android.permission.CAMERA"
 
@@ -191,7 +199,7 @@
 
     goto :goto_1
 
-    .line 27
+    .line 29
     :pswitch_0
     const-string v5, "Manigest"
 
@@ -201,14 +209,14 @@
 
     if-eqz v5, :cond_1
 
-    .line 28
+    .line 30
     const-string v5, "android.permission.CAMERA"
 
     invoke-virtual {v3, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_2
 
-    .line 33
+    .line 35
     :pswitch_1
     const-string v5, "android.permission.ACCESS_NETWORK_STATE"
 
@@ -218,14 +226,14 @@
 
     if-eqz v5, :cond_1
 
-    .line 34
+    .line 36
     const-string v5, "android.permission.ACCESS_NETWORK_STATE"
 
     invoke-virtual {v3, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_2
 
-    .line 38
+    .line 40
     :pswitch_2
     const-string v5, "android.permission.ACCESS_COARSE_LOCATION"
 
@@ -235,14 +243,14 @@
 
     if-eqz v5, :cond_1
 
-    .line 39
+    .line 41
     const-string v5, "android.permission.ACCESS_COARSE_LOCATION"
 
     invoke-virtual {v3, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_2
 
-    .line 43
+    .line 45
     :pswitch_3
     const-string v5, "android.permission.ACCESS_FINE_LOCATION"
 
@@ -252,14 +260,14 @@
 
     if-eqz v5, :cond_1
 
-    .line 44
+    .line 46
     const-string v5, "android.permission.ACCESS_FINE_LOCATION"
 
     invoke-virtual {v3, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto/16 :goto_2
 
-    .line 48
+    .line 50
     :pswitch_4
     const-string v5, "android.permission.WRITE_EXTERNAL_STORAGE"
 
@@ -269,14 +277,14 @@
 
     if-eqz v5, :cond_1
 
-    .line 49
+    .line 51
     const-string v5, "android.permission.WRITE_EXTERNAL_STORAGE"
 
     invoke-virtual {v3, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto/16 :goto_2
 
-    .line 53
+    .line 55
     :pswitch_5
     const-string v5, "android.permission.READ_EXTERNAL_STORAGE"
 
@@ -286,14 +294,14 @@
 
     if-eqz v5, :cond_1
 
-    .line 54
+    .line 56
     const-string v5, "android.permission.READ_EXTERNAL_STORAGE"
 
     invoke-virtual {v3, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto/16 :goto_2
 
-    .line 58
+    .line 60
     :pswitch_6
     const-string v5, "android.permission.RECORD_AUDIO"
 
@@ -303,14 +311,14 @@
 
     if-eqz v5, :cond_1
 
-    .line 59
+    .line 61
     const-string v5, "android.permission.RECORD_AUDIO"
 
     invoke-virtual {v3, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto/16 :goto_2
 
-    .line 63
+    .line 65
     :pswitch_7
     const-string v5, "android.permission.MODIFY_AUDIO_SETTINGS"
 
@@ -320,14 +328,14 @@
 
     if-eqz v5, :cond_1
 
-    .line 64
+    .line 66
     const-string v5, "android.permission.MODIFY_AUDIO_SETTINGS"
 
     invoke-virtual {v3, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto/16 :goto_2
 
-    .line 69
+    .line 71
     .end local v1    # "permission":Ljava/lang/String;
     :cond_2
     invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
@@ -336,7 +344,7 @@
 
     new-array v2, v5, [Ljava/lang/String;
 
-    .line 70
+    .line 72
     .local v2, "permissions":[Ljava/lang/String;
     const/4 v0, 0x0
 
@@ -348,7 +356,7 @@
 
     if-ge v0, v5, :cond_3
 
-    .line 71
+    .line 73
     invoke-virtual {v3, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v5
@@ -357,23 +365,23 @@
 
     aput-object v5, v2, v0
 
-    .line 72
+    .line 74
     sget-object v5, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     aget-object v6, v2, v0
 
     invoke-virtual {v5, v6}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 70
+    .line 72
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_3
 
-    .line 75
+    .line 77
     :cond_3
     return-object v2
 
-    .line 25
+    .line 27
     :sswitch_data_0
     .sparse-switch
         -0x70918bc1 -> :sswitch_3
@@ -404,14 +412,14 @@
     .param p0, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 80
-    .line 81
+    .line 82
+    .line 83
     :try_start_0
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v1
 
-    .line 82
+    .line 84
     invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
     move-result-object v2
@@ -426,14 +434,14 @@
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 80
+    .line 82
     return-object v1
 
-    .line 84
+    .line 86
     :catch_0
     move-exception v0
 
-    .line 85
+    .line 87
     .local v0, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     new-instance v1, Ljava/lang/RuntimeException;
 

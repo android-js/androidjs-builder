@@ -40,3 +40,5 @@ $ androidjs build
 $ androidjs b --src=/path/to/the/project
 ```
 it will create apk inside ``./myapp/dist/``
+
+

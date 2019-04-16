@@ -33,7 +33,8 @@
   "bundleDependencies": false,
   "dependencies": {
     "copy-dir": "^0.4.0",
-    "recursive-copy": "^2.0.10"
+    "recursive-copy": "^2.0.10",
+    "xml2js": "^0.4.19"
   },
   "deprecated": false,
   "description": "['androidjs'](https://www.npmjs.com/package/androidjs) application builder.",
