@@ -53,6 +53,7 @@ if (Object.keys(args).length === 0 && process.argv.length === 2) {
 
     // ********************** GENERATOR *************************
     else if (args.g) {
+        console.log('args', args);
         if (args.dir) {
             generate(args.dir);
         } else {
@@ -73,6 +74,7 @@ if (Object.keys(args).length === 0 && process.argv.length === 2) {
 // GENERATOR
 function generate(__dir) {
     let __generate_dir = __dir;
+     
 
     // check if given path is relative path
     if (__generate_dir[0] === '.') {
@@ -97,8 +99,20 @@ function generate(__dir) {
 
 function _generate(__dir) {
     const __example_dir = __dirname;
-    const __example_name = 'myapp';
+
+    // check if example name is passed
+    let __example_name = 'myapp';
+   
+    if(args.example){
+        __example_name = args.example;
+    }
+    
     const __example = path.join(__example_dir, '..', 'example', __example_name);
+
+
+    if(!fs.existsSync(__example)){
+        throw `'${args.example}' example  dose not exist!`;
+    }
 
 
     console.log('generating project at', __dir);
@@ -175,8 +189,7 @@ function __build(__src, __dest) {
 
             compile_tools.build(path.join(__src, 'dist', 'app-debug'), path.join(__src, 'dist', 'app')).then(()=>{
                 console.log('Build finished');
-            }).then(()=>{
-
+                console.log('sign ......')
                 compile_tools.sign(__src);
             });
         });
