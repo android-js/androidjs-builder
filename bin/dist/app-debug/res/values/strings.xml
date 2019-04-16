@@ -33,5 +33,5 @@
     <string name="abc_font_family_menu_material">sans-serif</string>
     <string name="abc_font_family_subhead_material">sans-serif</string>
     <string name="abc_font_family_title_material">sans-serif-medium</string>
-    <string name="app_name">Native Gradle Sample</string>
+    <string name="app_name">Sample Android js</string>
 </resources>

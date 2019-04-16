@@ -1,19 +1,48 @@
 {
-  "name": "androidjs-builder",
-  "version": "1.0.1",
-  "description": "['androidjs'](https://www.npmjs.com/package/androidjs) application builder.",
-  "main": "./lib/index.js",
-  "scripts": {
-    "test": "node ./lib/index.js"
+  "_from": "androidjs-builder",
+  "_id": "androidjs-builder@1.0.1",
+  "_inBundle": false,
+  "_integrity": "sha512-IJva+507FMKDVlGHxYjaj+a0+AdGxxZfMi3KdbUb46ZMa7l6ZNufbgRyObcLyxWequ+iqXn5652vz4mMMWNS/w==",
+  "_location": "/androidjs-builder",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "androidjs-builder",
+    "name": "androidjs-builder",
+    "escapedName": "androidjs-builder",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/androidjs-builder/-/androidjs-builder-1.0.1.tgz",
+  "_shasum": "bc658403fe33639f58dd81a00c395992315c2262",
+  "_spec": "androidjs-builder",
+  "_where": "/home/devesh/Desktop/androidjs-builder",
+  "author": {
+    "name": "Pankaj Devesh",
+    "email": "pankajdevesh3@gmail.com"
   },
   "bin": {
     "androidjs": "./bin/run.js"
   },
-  "preferGlobal": true,
-  "author": "Pankaj Devesh <pankajdevesh3@gmail.com>",
-  "license": "ISC",
+  "bundleDependencies": false,
   "dependencies": {
     "copy-dir": "^0.4.0",
     "recursive-copy": "^2.0.10"
-  }
+  },
+  "deprecated": false,
+  "description": "['androidjs'](https://www.npmjs.com/package/androidjs) application builder.",
+  "license": "ISC",
+  "main": "./lib/index.js",
+  "name": "androidjs-builder",
+  "preferGlobal": true,
+  "scripts": {
+    "test": "node ./lib/index.js"
+  },
+  "version": "1.0.2"
 }
