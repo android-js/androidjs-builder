@@ -1,197 +1,109 @@
 #!/usr/bin/env node
 
-const {getArgs} = require('../lib/getArgs');
-const fs = require('fs');
-const path = require('path');
-const myglobalmodule = 'androidjs';
-var copydir = require('copy-dir');
 
 const os = require('os');
-// const platform = os.platform();
+const program = require('commander');
+const path = require('path');
+const pkg = require('../package.json');
 
-const args = getArgs();
+const {copyExample} = require('../lib/copyExample');
+const {buildApk} = require('../lib/buildApk');
 
-let pwd = (process.env.PWD === undefined) ? process.cwd() : process.env.PWD;
 
-// if no argument is passed !
-if (Object.keys(args).length === 0 && process.argv.length === 2) {
-    console.log('try \'--help=generate\'');
-    console.log('try \'--help=build\'');
-} else {
+const DEBUG = false;
 
-    // ***************** HELP ***************************
-    if (args.help) {
-        switch (args.help) {
-            case 'build':
-                console.log('Build Help .');
-                console.log(`$ ${myglobalmodule} -bf\n  or`);
-                console.log(`$ ${myglobalmodule} build`);
-                console.log(`   To build apk .`);
-                console.log(`   -b: build`);
-                console.log(`   -f: force build by replacing the existing apk`);
-                break;
 
-            case 'generate':
-                console.log('Generate Help .');
-                console.log(`$ ${myglobalmodule} g`);
-                console.log(`$ ${myglobalmodule} g i`);
-                console.log(`$ ${myglobalmodule} g --dir=/home`);
-                console.log(`$ ${myglobalmodule} g i --dir=/home`);
-                break;
+const version = pkg.version;
+const module_name = "androidjs";
 
-            default:
-                if (args.help === true) {
-                    console.log('try \'--help=generate\'');
-                    console.log('try \'--help=build\'');
-                } else {
-                    console.log(`No help found for '${args.help}'`);
-                }
+const BUILDER__cwd = path.join(__dirname, '..');
+const PROJECT__cwd = process.cwd();
+let PROJECT__dist = pkg["dist-path"] || path.join(PROJECT__cwd, 'dist');
 
-        }
-    }
-    // ********************** end HELP **************************
-
-    // ********************** GENERATOR *************************
-    else if (args.g) {
-        console.log('args', args);
-        if (args.dir) {
-            generate(args.dir);
-        } else {
-            generate(pwd);
-        }
-
-    }
-
-    // ********************end Generator ************************
-
-    else if (args.b || args.build) {
-        build();
-    }
-
+if (PROJECT__dist[0] === '.') {
+    PROJECT__dist = path.join(PROJECT__cwd, PROJECT__dist);
 }
 
 
-// GENERATOR
-function generate(__dir) {
-    let __generate_dir = __dir;
-     
+let config = {
+    DEBUG,
+    BUILDER__cwd,
+    PROJECT__cwd,
+    PROJECT__dist,
+    platform: os.platform()
+};
 
-    // check if given path is relative path
-    if (__generate_dir[0] === '.') {
-        __generate_dir = path.join(pwd, __generate_dir);
-        if (fs.existsSync(__generate_dir)) {
-            _generate(__generate_dir);
-        } else {
-            console.log(`Path not found '${__generate_dir}' at --dir=${__dir}`);
-        }
-    }
 
-    // for absolute path
-    else {
-        if (fs.existsSync(__generate_dir)) {
-            _generate(__generate_dir);
-        } else {
-            console.log(`Path not found '${__generate_dir} at --dir=${__dir}'`);
-        }
-    }
+if(process.argv.length < 3) {
+    console.log(`androidjs-builder version: ${version}`);
+    console.log(`Use: ${module_name} --help`);
 }
 
 
-function _generate(__dir) {
-    const __example_dir = __dirname;
+// function checkUpdate() {
+// }
 
-    // check if example name is passed
-    let __example_name = 'myapp';
-   
-    if(args.example){
-        __example_name = args.example;
-    }
-    
-    const __example = path.join(__example_dir, '..', 'example', __example_name);
+function generateApp(args = {}) {
+    copyExample(args);
+}
 
-
-    if(!fs.existsSync(__example)){
-        throw `'${args.example}' example  dose not exist!`;
-    }
+function buildApp(args = {}) {
+    buildApk(args)
+}
 
 
-    console.log('generating project at', __dir);
-    console.log('coping from ', __example);
+program
+    .version(version)
+    .description('androidjs requires JRE version  > 1.8.0 \nwhich can be found here https://filehippo.com/download_jre_64/')
+// .option('-u, --update ', `update ${module_name}`)
 
-    copydir(__example, __dir, (stat, filepath, filename) => {
-        // if (stat === 'file' && path.extname(filepath) === '.html') {
-        //     return false;
-        // }
-        // if (stat === 'directory' && filename === '.svn') {
-        //     return false;
-        // }
+program
+    .command('generate [args]')
+    .alias('g')
+    .description('Generate new project')
+    .option("-e, --example [example]", "Example name")
+    .action(function (env, options) {
 
-        console.log(`Generating: ${filename}`);
+        let app_name = options.example || 'myapp';
 
-        return true;
-    }, (err) => {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log('copying done!');
-            if (args.i) {
-                console.log('installing ...');
-            }
-        }
+        config.app_name = app_name;
+
+        generateApp(config);
+
+    }).on('--help', function () {
+    console.log('');
+    console.log('Examples:');
+    console.log('');
+    console.log(`  $ ${module_name} -e myapp`);
+    console.log(`  $ ${module_name} --example myapp`);
+});
+
+program
+    .command('build')
+    .alias('b')
+    .description('Build the .akp')
+    .option("-f, --force_replace [mode]", "Force to replace the current dist folder")
+    .action(function (cmd, options) {
+
+        config.force_replace = cmd.force_replace === true;
+
+        buildApp(config);
+
+
+    }).on('--help', function () {
+    console.log('');
+    console.log('Examples:');
+    console.log('');
+    console.log(`  $ ${module_name} b`);
+    console.log(`  $ ${module_name} b -f`);
+    console.log(`  $ ${module_name} build`);
+});
+
+program
+    .command('about')
+    .action(function (env) {
+        console.log(`${module_name} provides easy android application development environment`);
+        console.log(`for more information go to https://android-js.github.io/`);
     });
-}
 
-
-// Builder
-function build() {
-    let src = args.src;
-    let dist = args.dist;
-
-    if (src) {
-        if (src[0] === '.') {
-            src = path.join(pwd, src);
-            if (!fs.existsSync(src)) {
-                console.error(`Path not found '${src}' at --src=${args.src}`);
-            }
-        }
-    } else {
-        src = pwd;
-    }
-
-    if (dist) {
-        if (dist[0] === '.') {
-            dist = path.join(pwd, dist);
-            if (!fs.existsSync(dist)) {
-                console.error(`Path not found '${dist}' at --src=${args.dist}`);
-            }
-        }
-    } else {
-        const pkg = require(path.join(src, 'package.json'));
-        dist = path.join(pwd, pkg['dist-path']);
-    }
-
-    __build(src, dist);
-}
-
-function __build(__src, __dest) {
-    console.log(__src, __dest);
-
-    const compile_tools = require(path.join(path.join(__dirname, '..', 'lib') , 'index'));
-
-    // copy the pre-decompiled source to the user side
-    // copy only if require
-    compile_tools.decompile(__dest).then(()=>{
-        console.log('Copied the pre-decompiled source to the user side');
-
-        // copy the user's data to the assets folder
-        compile_tools.copy(__src, path.join(__dest, 'app-debug', 'assets', 'myapp'), 'copying user files').then(()=>{
-            console.log('Copied the user data to the assets folder');
-
-            compile_tools.build(path.join(__src, 'dist', 'app-debug'), path.join(__src, 'dist', 'app')).then(()=>{
-                console.log('Build finished');
-                console.log('sign ......')
-                compile_tools.sign(__src);
-            });
-        });
-    });
-}
+program.parse(process.argv);

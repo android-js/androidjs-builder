@@ -11,14 +11,17 @@
 ```bash
 $ sudo npm install -g androidjs-builder 
 ```
+Since we have installed 'androidjs-builder' globally , it will provide all necessary commands build our app
 
 ## Generate new project
 ```bash
+$ mkdir myapp
+$ cd myapp
 $ androidjs g
-    or
-$ androidjs g --dir=/path/to/the/project
+$ androidjs generate
 ```
-this command will generate a basic structure for quick start
+This command will generate a basic structure for quick start
+
 ```text
  myapp
     |__ assets
@@ -32,13 +35,25 @@ this command will generate a basic structure for quick start
 
 ```
 
+- main.js is the main file or we can say it is back process of your app which execute all the code written in node, so you can write your node js code inside main.js
+- index.html is the first view which is render by app initially
+- package.json to keep track of all your node packages
+- assets to store all assets of your app
+
+
 
 ## Build project
 ```bash
+$ cd myfirstapp
 $ androidjs build
-    or
-$ androidjs b --src=/path/to/the/project
 ```
 it will create apk inside ``./myapp/dist/``
 
 
+## Other examples
+```commandline
+$ androidjs g --example helloworld
+$ androidjs g --example myapp
+$ androidjs g --example camera
+$ androidjs g --example story
+```
