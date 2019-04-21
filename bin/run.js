@@ -18,6 +18,7 @@ const module_name = "androidjs";
 
 const BUILDER__cwd = path.join(__dirname, '..');
 const PROJECT__cwd = process.cwd();
+const PROJECT__DIST__name = pkg["dist-path"] || 'dist';
 let PROJECT__dist = pkg["dist-path"] || path.join(PROJECT__cwd, 'dist');
 
 if (PROJECT__dist[0] === '.') {
@@ -30,6 +31,7 @@ let config = {
     BUILDER__cwd,
     PROJECT__cwd,
     PROJECT__dist,
+    PROJECT__DIST__name,
     platform: os.platform()
 };
 
