@@ -9,7 +9,7 @@
                 <ViewStub android:layout_gravity="end|center|top" android:id="@id/time" android:visibility="gone" android:layout="@layout/notification_template_part_time" android:layout_width="wrap_content" android:layout_height="wrap_content" />
                 <ViewStub android:layout_gravity="end|center|top" android:id="@id/chronometer" android:visibility="gone" android:layout="@layout/notification_template_part_chronometer" android:layout_width="wrap_content" android:layout_height="wrap_content" />
                 <LinearLayout android:layout_gravity="end|bottom|center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dip">
-                    <TextView android:textAppearance="@style/TextAppearance.AppCompat.Notification.Info" android:id="@id/info" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+                    <TextView android:textAppearance="@style/TextAppearance.Compat.Notification.Info" android:id="@id/info" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
                     <ImageView android:layout_gravity="center" android:id="@id/right_icon" android:visibility="gone" android:layout_width="16.0dip" android:layout_height="16.0dip" android:layout_marginLeft="8.0dip" android:scaleType="centerInside" android:alpha="0.6" android:layout_marginStart="8.0dip" />
                 </LinearLayout>
             </FrameLayout>
