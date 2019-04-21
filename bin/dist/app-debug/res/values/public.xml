@@ -315,11 +315,6 @@
     <public type="drawable" name="abc_action_bar_item_background_material" id="0x7f020001" />
     <public type="drawable" name="notification_action_background" id="0x7f020053" />
     <public type="drawable" name="abc_control_background_material" id="0x7f020010" />
-    <public type="drawable" name="notification_bg_low_normal" id="0x7f020056" />
-    <public type="drawable" name="notification_bg_low_pressed" id="0x7f020057" />
-    <public type="drawable" name="notification_bg_normal" id="0x7f020058" />
-    <public type="drawable" name="notification_bg_normal_pressed" id="0x7f020059" />
-    <public type="drawable" name="notify_panel_notification_icon_bg" id="0x7f02005c" />
     <public type="drawable" name="abc_ab_share_pack_mtrl_alpha" id="0x7f020000" />
     <public type="drawable" name="abc_btn_check_to_on_mtrl_000" id="0x7f020004" />
     <public type="drawable" name="abc_btn_check_to_on_mtrl_015" id="0x7f020005" />
@@ -367,6 +362,11 @@
     <public type="drawable" name="abc_textfield_default_mtrl_alpha" id="0x7f02004e" />
     <public type="drawable" name="abc_textfield_search_activated_mtrl_alpha" id="0x7f02004f" />
     <public type="drawable" name="abc_textfield_search_default_mtrl_alpha" id="0x7f020050" />
+    <public type="drawable" name="notification_bg_low_normal" id="0x7f020056" />
+    <public type="drawable" name="notification_bg_low_pressed" id="0x7f020057" />
+    <public type="drawable" name="notification_bg_normal" id="0x7f020058" />
+    <public type="drawable" name="notification_bg_normal_pressed" id="0x7f020059" />
+    <public type="drawable" name="notify_panel_notification_icon_bg" id="0x7f02005c" />
     <public type="mipmap" name="ic_launcher" id="0x7f030000" />
     <public type="mipmap" name="ic_launcher_round" id="0x7f030001" />
     <public type="layout" name="abc_action_bar_title_item" id="0x7f040000" />

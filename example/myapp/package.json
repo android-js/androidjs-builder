@@ -1,8 +1,12 @@
 {
   "name": "myapp",
+  "package-name": "mypkg",
+  "app-name": "myapp",
+  "icon": "./assets/icon/icon.png",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
+  "permission": ["android.permission.INTERNET"],
   "scripts": {
     "test": "node main.js",
     "build": "androidjs build"
