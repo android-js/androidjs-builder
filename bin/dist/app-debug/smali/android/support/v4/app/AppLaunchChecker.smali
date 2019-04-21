@@ -12,17 +12,23 @@
 # direct methods
 .method public constructor <init>()V
     .locals 0
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     .prologue
-    .line 36
+    .line 87
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 88
     return-void
 .end method
 
 .method public static hasStartedFromLauncher(Landroid/content/Context;)Z
     .locals 3
     .param p0, "context"    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .prologue
     const/4 v2, 0x0
@@ -45,8 +51,11 @@
 .end method
 
 .method public static onActivityCreate(Landroid/app/Activity;)V
-    .locals 6
+    .locals 5
     .param p0, "activity"    # Landroid/app/Activity;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .prologue
     const/4 v3, 0x0
@@ -68,7 +77,7 @@
 
     if-eqz v2, :cond_1
 
-    .line 83
+    .line 82
     :cond_0
     :goto_0
     return-void
@@ -116,25 +125,19 @@
 
     .line 80
     :cond_2
-    invoke-static {}, Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat;->getInstance()Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat;
+    invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v2
 
-    .line 81
-    invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+    const-string v3, "startedFromLauncher"
 
-    move-result-object v3
+    const/4 v4, 0x1
 
-    const-string v4, "startedFromLauncher"
+    invoke-interface {v2, v3, v4}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    const/4 v5, 0x1
+    move-result-object v2
 
-    invoke-interface {v3, v4, v5}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
-
-    move-result-object v3
-
-    .line 80
-    invoke-virtual {v2, v3}, Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat;->apply(Landroid/content/SharedPreferences$Editor;)V
+    invoke-interface {v2}, Landroid/content/SharedPreferences$Editor;->apply()V
 
     goto :goto_0
 .end method

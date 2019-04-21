@@ -15,11 +15,11 @@
 
 
 # instance fields
-.field mBigLargeIcon:Landroid/graphics/Bitmap;
+.field private mBigLargeIcon:Landroid/graphics/Bitmap;
 
-.field mBigLargeIconSet:Z
+.field private mBigLargeIconSet:Z
 
-.field mPicture:Landroid/graphics/Bitmap;
+.field private mPicture:Landroid/graphics/Bitmap;
 
 
 # direct methods
@@ -27,10 +27,10 @@
     .locals 0
 
     .prologue
-    .line 1919
+    .line 1989
     invoke-direct {p0}, Landroid/support/v4/app/NotificationCompat$Style;-><init>()V
 
-    .line 1920
+    .line 1990
     return-void
 .end method
 
@@ -39,32 +39,101 @@
     .param p1, "builder"    # Landroid/support/v4/app/NotificationCompat$Builder;
 
     .prologue
-    .line 1922
+    .line 1992
     invoke-direct {p0}, Landroid/support/v4/app/NotificationCompat$Style;-><init>()V
 
-    .line 1923
+    .line 1993
     invoke-virtual {p0, p1}, Landroid/support/v4/app/NotificationCompat$BigPictureStyle;->setBuilder(Landroid/support/v4/app/NotificationCompat$Builder;)V
 
-    .line 1924
+    .line 1994
     return-void
 .end method
 
 
 # virtual methods
+.method public apply(Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;)V
+    .locals 3
+    .param p1, "builder"    # Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
+
+    .prologue
+    .line 2037
+    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v2, 0x10
+
+    if-lt v1, v2, :cond_1
+
+    .line 2038
+    new-instance v1, Landroid/app/Notification$BigPictureStyle;
+
+    .line 2039
+    invoke-interface {p1}, Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;->getBuilder()Landroid/app/Notification$Builder;
+
+    move-result-object v2
+
+    invoke-direct {v1, v2}, Landroid/app/Notification$BigPictureStyle;-><init>(Landroid/app/Notification$Builder;)V
+
+    iget-object v2, p0, Landroid/support/v4/app/NotificationCompat$BigPictureStyle;->mBigContentTitle:Ljava/lang/CharSequence;
+
+    .line 2040
+    invoke-virtual {v1, v2}, Landroid/app/Notification$BigPictureStyle;->setBigContentTitle(Ljava/lang/CharSequence;)Landroid/app/Notification$BigPictureStyle;
+
+    move-result-object v1
+
+    iget-object v2, p0, Landroid/support/v4/app/NotificationCompat$BigPictureStyle;->mPicture:Landroid/graphics/Bitmap;
+
+    .line 2041
+    invoke-virtual {v1, v2}, Landroid/app/Notification$BigPictureStyle;->bigPicture(Landroid/graphics/Bitmap;)Landroid/app/Notification$BigPictureStyle;
+
+    move-result-object v0
+
+    .line 2042
+    .local v0, "style":Landroid/app/Notification$BigPictureStyle;
+    iget-boolean v1, p0, Landroid/support/v4/app/NotificationCompat$BigPictureStyle;->mBigLargeIconSet:Z
+
+    if-eqz v1, :cond_0
+
+    .line 2043
+    iget-object v1, p0, Landroid/support/v4/app/NotificationCompat$BigPictureStyle;->mBigLargeIcon:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v0, v1}, Landroid/app/Notification$BigPictureStyle;->bigLargeIcon(Landroid/graphics/Bitmap;)Landroid/app/Notification$BigPictureStyle;
+
+    .line 2045
+    :cond_0
+    iget-boolean v1, p0, Landroid/support/v4/app/NotificationCompat$BigPictureStyle;->mSummaryTextSet:Z
+
+    if-eqz v1, :cond_1
+
+    .line 2046
+    iget-object v1, p0, Landroid/support/v4/app/NotificationCompat$BigPictureStyle;->mSummaryText:Ljava/lang/CharSequence;
+
+    invoke-virtual {v0, v1}, Landroid/app/Notification$BigPictureStyle;->setSummaryText(Ljava/lang/CharSequence;)Landroid/app/Notification$BigPictureStyle;
+
+    .line 2049
+    .end local v0    # "style":Landroid/app/Notification$BigPictureStyle;
+    :cond_1
+    return-void
+.end method
+
 .method public bigLargeIcon(Landroid/graphics/Bitmap;)Landroid/support/v4/app/NotificationCompat$BigPictureStyle;
     .locals 1
     .param p1, "b"    # Landroid/graphics/Bitmap;
 
     .prologue
-    .line 1956
+    .line 2026
     iput-object p1, p0, Landroid/support/v4/app/NotificationCompat$BigPictureStyle;->mBigLargeIcon:Landroid/graphics/Bitmap;
 
-    .line 1957
+    .line 2027
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/support/v4/app/NotificationCompat$BigPictureStyle;->mBigLargeIconSet:Z
 
-    .line 1958
+    .line 2028
     return-object p0
 .end method
 
@@ -73,10 +142,10 @@
     .param p1, "b"    # Landroid/graphics/Bitmap;
 
     .prologue
-    .line 1948
+    .line 2018
     iput-object p1, p0, Landroid/support/v4/app/NotificationCompat$BigPictureStyle;->mPicture:Landroid/graphics/Bitmap;
 
-    .line 1949
+    .line 2019
     return-object p0
 .end method
 
@@ -85,14 +154,14 @@
     .param p1, "title"    # Ljava/lang/CharSequence;
 
     .prologue
-    .line 1931
+    .line 2001
     invoke-static {p1}, Landroid/support/v4/app/NotificationCompat$Builder;->limitCharSequenceLength(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/support/v4/app/NotificationCompat$BigPictureStyle;->mBigContentTitle:Ljava/lang/CharSequence;
 
-    .line 1932
+    .line 2002
     return-object p0
 .end method
 
@@ -101,18 +170,18 @@
     .param p1, "cs"    # Ljava/lang/CharSequence;
 
     .prologue
-    .line 1939
+    .line 2009
     invoke-static {p1}, Landroid/support/v4/app/NotificationCompat$Builder;->limitCharSequenceLength(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/support/v4/app/NotificationCompat$BigPictureStyle;->mSummaryText:Ljava/lang/CharSequence;
 
-    .line 1940
+    .line 2010
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/support/v4/app/NotificationCompat$BigPictureStyle;->mSummaryTextSet:Z
 
-    .line 1941
+    .line 2011
     return-object p0
 .end method

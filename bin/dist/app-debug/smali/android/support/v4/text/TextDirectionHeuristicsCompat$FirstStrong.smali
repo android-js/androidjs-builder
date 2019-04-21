@@ -18,7 +18,7 @@
 
 
 # static fields
-.field public static final INSTANCE:Landroid/support/v4/text/TextDirectionHeuristicsCompat$FirstStrong;
+.field static final INSTANCE:Landroid/support/v4/text/TextDirectionHeuristicsCompat$FirstStrong;
 
 
 # direct methods

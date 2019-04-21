@@ -39,15 +39,15 @@
     .param p2, "height"    # I
 
     .prologue
-    .line 2238
+    .line 2327
     invoke-direct {p0, p1, p2}, Landroid/view/ViewGroup$MarginLayoutParams;-><init>(II)V
 
-    .line 2224
+    .line 2313
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->gravity:I
 
-    .line 2239
+    .line 2328
     return-void
 .end method
 
@@ -58,38 +58,44 @@
     .param p3, "gravity"    # I
 
     .prologue
-    .line 2242
+    .line 2331
     invoke-direct {p0, p1, p2}, Landroid/support/v4/widget/DrawerLayout$LayoutParams;-><init>(II)V
 
-    .line 2243
+    .line 2332
     iput p3, p0, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->gravity:I
 
-    .line 2244
+    .line 2333
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 3
     .param p1, "c"    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .param p2, "attrs"    # Landroid/util/AttributeSet;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .prologue
     const/4 v2, 0x0
 
-    .line 2230
+    .line 2319
     invoke-direct {p0, p1, p2}, Landroid/view/ViewGroup$MarginLayoutParams;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 2224
+    .line 2313
     iput v2, p0, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->gravity:I
 
-    .line 2232
+    .line 2321
     sget-object v1, Landroid/support/v4/widget/DrawerLayout;->LAYOUT_ATTRS:[I
 
     invoke-virtual {p1, p2, v1}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    .line 2233
+    .line 2322
     .local v0, "a":Landroid/content/res/TypedArray;
     invoke-virtual {v0, v2, v2}, Landroid/content/res/TypedArray;->getInt(II)I
 
@@ -97,65 +103,74 @@
 
     iput v1, p0, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->gravity:I
 
-    .line 2234
+    .line 2323
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 2235
+    .line 2324
     return-void
 .end method
 
 .method public constructor <init>(Landroid/support/v4/widget/DrawerLayout$LayoutParams;)V
     .locals 1
     .param p1, "source"    # Landroid/support/v4/widget/DrawerLayout$LayoutParams;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .prologue
-    .line 2247
+    .line 2336
     invoke-direct {p0, p1}, Landroid/view/ViewGroup$MarginLayoutParams;-><init>(Landroid/view/ViewGroup$MarginLayoutParams;)V
 
-    .line 2224
+    .line 2313
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->gravity:I
 
-    .line 2248
+    .line 2337
     iget v0, p1, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->gravity:I
 
     iput v0, p0, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->gravity:I
 
-    .line 2249
+    .line 2338
     return-void
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup$LayoutParams;)V
     .locals 1
     .param p1, "source"    # Landroid/view/ViewGroup$LayoutParams;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .prologue
-    .line 2252
+    .line 2341
     invoke-direct {p0, p1}, Landroid/view/ViewGroup$MarginLayoutParams;-><init>(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 2224
+    .line 2313
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->gravity:I
 
-    .line 2253
+    .line 2342
     return-void
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup$MarginLayoutParams;)V
     .locals 1
     .param p1, "source"    # Landroid/view/ViewGroup$MarginLayoutParams;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .prologue
-    .line 2256
+    .line 2345
     invoke-direct {p0, p1}, Landroid/view/ViewGroup$MarginLayoutParams;-><init>(Landroid/view/ViewGroup$MarginLayoutParams;)V
 
-    .line 2224
+    .line 2313
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->gravity:I
 
-    .line 2257
+    .line 2346
     return-void
 .end method

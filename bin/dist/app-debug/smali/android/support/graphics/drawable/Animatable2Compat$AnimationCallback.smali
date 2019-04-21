@@ -23,7 +23,7 @@
     .locals 0
 
     .prologue
-    .line 56
+    .line 57
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -38,19 +38,19 @@
     .end annotation
 
     .prologue
-    .line 76
+    .line 77
     iget-object v0, p0, Landroid/support/graphics/drawable/Animatable2Compat$AnimationCallback;->mPlatformCallback:Landroid/graphics/drawable/Animatable2$AnimationCallback;
 
     if-nez v0, :cond_0
 
-    .line 77
+    .line 78
     new-instance v0, Landroid/support/graphics/drawable/Animatable2Compat$AnimationCallback$1;
 
     invoke-direct {v0, p0}, Landroid/support/graphics/drawable/Animatable2Compat$AnimationCallback$1;-><init>(Landroid/support/graphics/drawable/Animatable2Compat$AnimationCallback;)V
 
     iput-object v0, p0, Landroid/support/graphics/drawable/Animatable2Compat$AnimationCallback;->mPlatformCallback:Landroid/graphics/drawable/Animatable2$AnimationCallback;
 
-    .line 89
+    .line 90
     :cond_0
     iget-object v0, p0, Landroid/support/graphics/drawable/Animatable2Compat$AnimationCallback;->mPlatformCallback:Landroid/graphics/drawable/Animatable2$AnimationCallback;
 
@@ -62,7 +62,7 @@
     .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
-    .line 68
+    .line 69
     return-void
 .end method
 
@@ -71,6 +71,6 @@
     .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
-    .line 62
+    .line 63
     return-void
 .end method

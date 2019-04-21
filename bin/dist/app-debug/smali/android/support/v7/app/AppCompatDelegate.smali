@@ -30,8 +30,6 @@
 
 .field static final TAG:Ljava/lang/String; = "AppCompatDelegate"
 
-.field private static sCompatVectorFromResourcesEnabled:Z
-
 .field private static sDefaultNightMode:I
 
 
@@ -40,15 +38,10 @@
     .locals 1
 
     .prologue
-    .line 131
+    .line 130
     const/4 v0, -0x1
 
     sput v0, Landroid/support/v7/app/AppCompatDelegate;->sDefaultNightMode:I
-
-    .line 133
-    const/4 v0, 0x0
-
-    sput-boolean v0, Landroid/support/v7/app/AppCompatDelegate;->sCompatVectorFromResourcesEnabled:Z
 
     return-void
 .end method
@@ -57,132 +50,72 @@
     .locals 0
 
     .prologue
-    .line 216
+    .line 208
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 .method public static create(Landroid/app/Activity;Landroid/support/v7/app/AppCompatCallback;)Landroid/support/v7/app/AppCompatDelegate;
-    .locals 1
+    .locals 2
     .param p0, "activity"    # Landroid/app/Activity;
     .param p1, "callback"    # Landroid/support/v7/app/AppCompatCallback;
 
     .prologue
-    .line 185
+    .line 182
+    new-instance v0, Landroid/support/v7/app/AppCompatDelegateImpl;
+
     invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-static {p0, v0, p1}, Landroid/support/v7/app/AppCompatDelegate;->create(Landroid/content/Context;Landroid/view/Window;Landroid/support/v7/app/AppCompatCallback;)Landroid/support/v7/app/AppCompatDelegate;
-
-    move-result-object v0
+    invoke-direct {v0, p0, v1, p1}, Landroid/support/v7/app/AppCompatDelegateImpl;-><init>(Landroid/content/Context;Landroid/view/Window;Landroid/support/v7/app/AppCompatCallback;)V
 
     return-object v0
 .end method
 
 .method public static create(Landroid/app/Dialog;Landroid/support/v7/app/AppCompatCallback;)Landroid/support/v7/app/AppCompatDelegate;
-    .locals 2
+    .locals 3
     .param p0, "dialog"    # Landroid/app/Dialog;
     .param p1, "callback"    # Landroid/support/v7/app/AppCompatCallback;
 
     .prologue
-    .line 194
+    .line 191
+    new-instance v0, Landroid/support/v7/app/AppCompatDelegateImpl;
+
     invoke-virtual {p0}, Landroid/app/Dialog;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    invoke-virtual {p0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
 
     move-result-object v1
 
-    invoke-static {v0, v1, p1}, Landroid/support/v7/app/AppCompatDelegate;->create(Landroid/content/Context;Landroid/view/Window;Landroid/support/v7/app/AppCompatCallback;)Landroid/support/v7/app/AppCompatDelegate;
+    invoke-virtual {p0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
 
-    move-result-object v0
+    move-result-object v2
+
+    invoke-direct {v0, v1, v2, p1}, Landroid/support/v7/app/AppCompatDelegateImpl;-><init>(Landroid/content/Context;Landroid/view/Window;Landroid/support/v7/app/AppCompatCallback;)V
 
     return-object v0
 .end method
 
-.method private static create(Landroid/content/Context;Landroid/view/Window;Landroid/support/v7/app/AppCompatCallback;)Landroid/support/v7/app/AppCompatDelegate;
-    .locals 2
+.method public static create(Landroid/content/Context;Landroid/view/Window;Landroid/support/v7/app/AppCompatCallback;)Landroid/support/v7/app/AppCompatDelegate;
+    .locals 1
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "window"    # Landroid/view/Window;
     .param p2, "callback"    # Landroid/support/v7/app/AppCompatCallback;
 
     .prologue
-    .line 199
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    .line 200
-    .local v0, "sdk":I
-    invoke-static {}, Landroid/support/v4/os/BuildCompat;->isAtLeastN()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    .line 201
-    new-instance v1, Landroid/support/v7/app/AppCompatDelegateImplN;
-
-    invoke-direct {v1, p0, p1, p2}, Landroid/support/v7/app/AppCompatDelegateImplN;-><init>(Landroid/content/Context;Landroid/view/Window;Landroid/support/v7/app/AppCompatCallback;)V
-
-    .line 209
-    :goto_0
-    return-object v1
-
     .line 202
-    :cond_0
-    const/16 v1, 0x17
+    new-instance v0, Landroid/support/v7/app/AppCompatDelegateImpl;
 
-    if-lt v0, v1, :cond_1
+    invoke-direct {v0, p0, p1, p2}, Landroid/support/v7/app/AppCompatDelegateImpl;-><init>(Landroid/content/Context;Landroid/view/Window;Landroid/support/v7/app/AppCompatCallback;)V
 
-    .line 203
-    new-instance v1, Landroid/support/v7/app/AppCompatDelegateImplV23;
-
-    invoke-direct {v1, p0, p1, p2}, Landroid/support/v7/app/AppCompatDelegateImplV23;-><init>(Landroid/content/Context;Landroid/view/Window;Landroid/support/v7/app/AppCompatCallback;)V
-
-    goto :goto_0
-
-    .line 204
-    :cond_1
-    const/16 v1, 0xe
-
-    if-lt v0, v1, :cond_2
-
-    .line 205
-    new-instance v1, Landroid/support/v7/app/AppCompatDelegateImplV14;
-
-    invoke-direct {v1, p0, p1, p2}, Landroid/support/v7/app/AppCompatDelegateImplV14;-><init>(Landroid/content/Context;Landroid/view/Window;Landroid/support/v7/app/AppCompatCallback;)V
-
-    goto :goto_0
-
-    .line 206
-    :cond_2
-    const/16 v1, 0xb
-
-    if-lt v0, v1, :cond_3
-
-    .line 207
-    new-instance v1, Landroid/support/v7/app/AppCompatDelegateImplV11;
-
-    invoke-direct {v1, p0, p1, p2}, Landroid/support/v7/app/AppCompatDelegateImplV11;-><init>(Landroid/content/Context;Landroid/view/Window;Landroid/support/v7/app/AppCompatCallback;)V
-
-    goto :goto_0
-
-    .line 209
-    :cond_3
-    new-instance v1, Landroid/support/v7/app/AppCompatDelegateImplV9;
-
-    invoke-direct {v1, p0, p1, p2}, Landroid/support/v7/app/AppCompatDelegateImplV9;-><init>(Landroid/content/Context;Landroid/view/Window;Landroid/support/v7/app/AppCompatCallback;)V
-
-    goto :goto_0
+    return-object v0
 .end method
 
 .method public static getDefaultNightMode()I
     .locals 1
 
     .prologue
-    .line 492
+    .line 486
     sget v0, Landroid/support/v7/app/AppCompatDelegate;->sDefaultNightMode:I
 
     return v0
@@ -192,8 +125,10 @@
     .locals 1
 
     .prologue
-    .line 539
-    sget-boolean v0, Landroid/support/v7/app/AppCompatDelegate;->sCompatVectorFromResourcesEnabled:Z
+    .line 533
+    invoke-static {}, Landroid/support/v7/widget/VectorEnabledTintResources;->isCompatVectorFromResourcesEnabled()Z
+
+    move-result v0
 
     return v0
 .end method
@@ -203,10 +138,10 @@
     .param p0, "enabled"    # Z
 
     .prologue
-    .line 529
-    sput-boolean p0, Landroid/support/v7/app/AppCompatDelegate;->sCompatVectorFromResourcesEnabled:Z
+    .line 523
+    invoke-static {p0}, Landroid/support/v7/widget/VectorEnabledTintResources;->setCompatVectorFromResourcesEnabled(Z)V
 
-    .line 530
+    .line 524
     return-void
 .end method
 
@@ -215,27 +150,27 @@
     .param p0, "mode"    # I
 
     .prologue
-    .line 472
+    .line 466
     packed-switch p0, :pswitch_data_0
 
-    .line 480
+    .line 474
     const-string v0, "AppCompatDelegate"
 
     const-string v1, "setDefaultNightMode() called with an unknown mode"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 483
+    .line 477
     :goto_0
     return-void
 
-    .line 477
+    .line 471
     :pswitch_0
     sput p0, Landroid/support/v7/app/AppCompatDelegate;->sDefaultNightMode:I
 
     goto :goto_0
 
-    .line 472
+    .line 466
     :pswitch_data_0
     .packed-switch -0x1
         :pswitch_0
@@ -274,6 +209,14 @@
         .end annotation
     .end param
     .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T:",
+            "Landroid/view/View;",
+            ">(I)TT;"
+        }
     .end annotation
 .end method
 

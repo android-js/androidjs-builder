@@ -115,25 +115,23 @@
 
     invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v1
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v0
 
     .line 57
-    .local v1, "res":Landroid/content/res/Resources;
-    invoke-static {v1}, Landroid/support/v4/content/res/ConfigurationHelper;->getScreenWidthDp(Landroid/content/res/Resources;)I
-
-    move-result v3
+    .local v0, "configuration":Landroid/content/res/Configuration;
+    iget v3, v0, Landroid/content/res/Configuration;->screenWidthDp:I
 
     .line 58
     .local v3, "widthDp":I
-    invoke-static {v1}, Landroid/support/v4/content/res/ConfigurationHelper;->getScreenHeightDp(Landroid/content/res/Resources;)I
-
-    move-result v0
+    iget v1, v0, Landroid/content/res/Configuration;->screenHeightDp:I
 
     .line 59
-    .local v0, "heightDp":I
-    invoke-static {v1}, Landroid/support/v4/content/res/ConfigurationHelper;->getSmallestScreenWidthDp(Landroid/content/res/Resources;)I
-
-    move-result v2
+    .local v1, "heightDp":I
+    iget v2, v0, Landroid/content/res/Configuration;->smallestScreenWidthDp:I
 
     .line 61
     .local v2, "smallest":I
@@ -143,12 +141,12 @@
 
     if-le v3, v9, :cond_0
 
-    if-gt v0, v8, :cond_1
+    if-gt v1, v8, :cond_1
 
     :cond_0
     if-le v3, v8, :cond_2
 
-    if-le v0, v9, :cond_2
+    if-le v1, v9, :cond_2
 
     .line 64
     :cond_1
@@ -166,12 +164,12 @@
 
     if-le v3, v7, :cond_3
 
-    if-gt v0, v5, :cond_4
+    if-gt v1, v5, :cond_4
 
     :cond_3
     if-le v3, v5, :cond_5
 
-    if-le v0, v7, :cond_5
+    if-le v1, v7, :cond_5
 
     .line 68
     :cond_4
@@ -326,7 +324,7 @@
 
     move-result-object v1
 
-    invoke-static {v1}, Landroid/support/v4/view/ViewConfigurationCompat;->hasPermanentMenuKey(Landroid/view/ViewConfiguration;)Z
+    invoke-virtual {v1}, Landroid/view/ViewConfiguration;->hasPermanentMenuKey()Z
 
     move-result v1
 

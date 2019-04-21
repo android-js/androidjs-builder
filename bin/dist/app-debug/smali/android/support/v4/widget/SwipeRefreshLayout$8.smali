@@ -24,7 +24,7 @@
     .param p1, "this$0"    # Landroid/support/v4/widget/SwipeRefreshLayout;
 
     .prologue
-    .line 1175
+    .line 1152
     iput-object p1, p0, Landroid/support/v4/widget/SwipeRefreshLayout$8;->this$0:Landroid/support/v4/widget/SwipeRefreshLayout;
 
     invoke-direct {p0}, Landroid/view/animation/Animation;-><init>()V
@@ -40,7 +40,7 @@
     .param p2, "t"    # Landroid/view/animation/Transformation;
 
     .prologue
-    .line 1178
+    .line 1155
     iget-object v1, p0, Landroid/support/v4/widget/SwipeRefreshLayout$8;->this$0:Landroid/support/v4/widget/SwipeRefreshLayout;
 
     iget v1, v1, Landroid/support/v4/widget/SwipeRefreshLayout;->mStartingScale:F
@@ -55,17 +55,17 @@
 
     add-float v0, v1, v2
 
-    .line 1179
+    .line 1156
     .local v0, "targetScale":F
     iget-object v1, p0, Landroid/support/v4/widget/SwipeRefreshLayout$8;->this$0:Landroid/support/v4/widget/SwipeRefreshLayout;
 
     invoke-virtual {v1, v0}, Landroid/support/v4/widget/SwipeRefreshLayout;->setAnimationProgress(F)V
 
-    .line 1180
+    .line 1157
     iget-object v1, p0, Landroid/support/v4/widget/SwipeRefreshLayout$8;->this$0:Landroid/support/v4/widget/SwipeRefreshLayout;
 
     invoke-virtual {v1, p1}, Landroid/support/v4/widget/SwipeRefreshLayout;->moveToStart(F)V
 
-    .line 1181
+    .line 1158
     return-void
 .end method

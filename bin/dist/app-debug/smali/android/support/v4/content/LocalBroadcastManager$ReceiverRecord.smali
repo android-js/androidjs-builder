@@ -1,4 +1,4 @@
-.class Landroid/support/v4/content/LocalBroadcastManager$ReceiverRecord;
+.class final Landroid/support/v4/content/LocalBroadcastManager$ReceiverRecord;
 .super Ljava/lang/Object;
 .source "LocalBroadcastManager.java"
 
@@ -9,13 +9,15 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x1a
     name = "ReceiverRecord"
 .end annotation
 
 
 # instance fields
 .field broadcasting:Z
+
+.field dead:Z
 
 .field final filter:Landroid/content/IntentFilter;
 
@@ -29,16 +31,16 @@
     .param p2, "_receiver"    # Landroid/content/BroadcastReceiver;
 
     .prologue
-    .line 52
+    .line 55
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 53
+    .line 56
     iput-object p1, p0, Landroid/support/v4/content/LocalBroadcastManager$ReceiverRecord;->filter:Landroid/content/IntentFilter;
 
-    .line 54
+    .line 57
     iput-object p2, p0, Landroid/support/v4/content/LocalBroadcastManager$ReceiverRecord;->receiver:Landroid/content/BroadcastReceiver;
 
-    .line 55
+    .line 58
     return-void
 .end method
 
@@ -48,40 +50,51 @@
     .locals 2
 
     .prologue
-    .line 59
+    .line 62
     new-instance v0, Ljava/lang/StringBuilder;
 
     const/16 v1, 0x80
 
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
-    .line 60
+    .line 63
     .local v0, "builder":Ljava/lang/StringBuilder;
     const-string v1, "Receiver{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 61
+    .line 64
     iget-object v1, p0, Landroid/support/v4/content/LocalBroadcastManager$ReceiverRecord;->receiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    .line 62
+    .line 65
     const-string v1, " filter="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 63
+    .line 66
     iget-object v1, p0, Landroid/support/v4/content/LocalBroadcastManager$ReceiverRecord;->filter:Landroid/content/IntentFilter;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    .line 64
+    .line 67
+    iget-boolean v1, p0, Landroid/support/v4/content/LocalBroadcastManager$ReceiverRecord;->dead:Z
+
+    if-eqz v1, :cond_0
+
+    .line 68
+    const-string v1, " DEAD"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 70
+    :cond_0
     const-string v1, "}"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 65
+    .line 71
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1

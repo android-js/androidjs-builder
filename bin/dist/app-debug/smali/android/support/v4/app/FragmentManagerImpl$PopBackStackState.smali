@@ -35,28 +35,28 @@
     .param p4, "flags"    # I
 
     .prologue
-    .line 3524
+    .line 3839
     iput-object p1, p0, Landroid/support/v4/app/FragmentManagerImpl$PopBackStackState;->this$0:Landroid/support/v4/app/FragmentManagerImpl;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 3525
+    .line 3840
     iput-object p2, p0, Landroid/support/v4/app/FragmentManagerImpl$PopBackStackState;->mName:Ljava/lang/String;
 
-    .line 3526
+    .line 3841
     iput p3, p0, Landroid/support/v4/app/FragmentManagerImpl$PopBackStackState;->mId:I
 
-    .line 3527
+    .line 3842
     iput p4, p0, Landroid/support/v4/app/FragmentManagerImpl$PopBackStackState;->mFlags:I
 
-    .line 3528
+    .line 3843
     return-void
 .end method
 
 
 # virtual methods
 .method public generateOps(Ljava/util/ArrayList;Ljava/util/ArrayList;)Z
-    .locals 6
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -72,9 +72,51 @@
     .end annotation
 
     .prologue
-    .line 3533
+    .line 3848
     .local p1, "records":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/support/v4/app/BackStackRecord;>;"
     .local p2, "isRecordPop":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Boolean;>;"
+    iget-object v0, p0, Landroid/support/v4/app/FragmentManagerImpl$PopBackStackState;->this$0:Landroid/support/v4/app/FragmentManagerImpl;
+
+    iget-object v0, v0, Landroid/support/v4/app/FragmentManagerImpl;->mPrimaryNav:Landroid/support/v4/app/Fragment;
+
+    if-eqz v0, :cond_0
+
+    iget v0, p0, Landroid/support/v4/app/FragmentManagerImpl$PopBackStackState;->mId:I
+
+    if-gez v0, :cond_0
+
+    iget-object v0, p0, Landroid/support/v4/app/FragmentManagerImpl$PopBackStackState;->mName:Ljava/lang/String;
+
+    if-nez v0, :cond_0
+
+    .line 3851
+    iget-object v0, p0, Landroid/support/v4/app/FragmentManagerImpl$PopBackStackState;->this$0:Landroid/support/v4/app/FragmentManagerImpl;
+
+    iget-object v0, v0, Landroid/support/v4/app/FragmentManagerImpl;->mPrimaryNav:Landroid/support/v4/app/Fragment;
+
+    invoke-virtual {v0}, Landroid/support/v4/app/Fragment;->peekChildFragmentManager()Landroid/support/v4/app/FragmentManager;
+
+    move-result-object v6
+
+    .line 3852
+    .local v6, "childManager":Landroid/support/v4/app/FragmentManager;
+    if-eqz v6, :cond_0
+
+    invoke-virtual {v6}, Landroid/support/v4/app/FragmentManager;->popBackStackImmediate()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 3855
+    const/4 v0, 0x0
+
+    .line 3858
+    .end local v6    # "childManager":Landroid/support/v4/app/FragmentManager;
+    :goto_0
+    return v0
+
+    :cond_0
     iget-object v0, p0, Landroid/support/v4/app/FragmentManagerImpl$PopBackStackState;->this$0:Landroid/support/v4/app/FragmentManagerImpl;
 
     iget-object v3, p0, Landroid/support/v4/app/FragmentManagerImpl$PopBackStackState;->mName:Ljava/lang/String;
@@ -91,5 +133,5 @@
 
     move-result v0
 
-    return v0
+    goto :goto_0
 .end method

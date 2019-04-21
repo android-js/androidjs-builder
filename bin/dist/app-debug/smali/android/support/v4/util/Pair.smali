@@ -18,6 +18,9 @@
 
 # instance fields
 .field public final first:Ljava/lang/Object;
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "TF;"
@@ -26,6 +29,9 @@
 .end field
 
 .field public final second:Ljava/lang/Object;
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "TS;"
@@ -37,6 +43,14 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 0
+    .param p1    # Ljava/lang/Object;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p2    # Ljava/lang/Object;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TF;TS;)V"
@@ -44,24 +58,35 @@
     .end annotation
 
     .prologue
-    .line 34
+    .line 37
     .local p0, "this":Landroid/support/v4/util/Pair;, "Landroid/support/v4/util/Pair<TF;TS;>;"
     .local p1, "first":Ljava/lang/Object;, "TF;"
     .local p2, "second":Ljava/lang/Object;, "TS;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 35
+    .line 38
     iput-object p1, p0, Landroid/support/v4/util/Pair;->first:Ljava/lang/Object;
 
-    .line 36
+    .line 39
     iput-object p2, p0, Landroid/support/v4/util/Pair;->second:Ljava/lang/Object;
 
-    .line 37
+    .line 40
     return-void
 .end method
 
 .method public static create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/support/v4/util/Pair;
     .locals 1
+    .param p0    # Ljava/lang/Object;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p1    # Ljava/lang/Object;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<A:",
@@ -85,35 +110,6 @@
     return-object v0
 .end method
 
-.method private static objectsEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
-    .param p0, "a"    # Ljava/lang/Object;
-    .param p1, "b"    # Ljava/lang/Object;
-
-    .prologue
-    .line 57
-    if-eq p0, p1, :cond_0
-
-    if-eqz p0, :cond_1
-
-    invoke-virtual {p0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    :cond_0
-    const/4 v0, 0x1
-
-    :goto_0
-    return v0
-
-    :cond_1
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
@@ -124,12 +120,12 @@
     .local p0, "this":Landroid/support/v4/util/Pair;, "Landroid/support/v4/util/Pair<TF;TS;>;"
     const/4 v1, 0x0
 
-    .line 49
+    .line 52
     instance-of v2, p1, Landroid/support/v4/util/Pair;
 
     if-nez v2, :cond_1
 
-    .line 53
+    .line 56
     :cond_0
     :goto_0
     return v1
@@ -137,16 +133,16 @@
     :cond_1
     move-object v0, p1
 
-    .line 52
+    .line 55
     check-cast v0, Landroid/support/v4/util/Pair;
 
-    .line 53
+    .line 56
     .local v0, "p":Landroid/support/v4/util/Pair;, "Landroid/support/v4/util/Pair<**>;"
     iget-object v2, v0, Landroid/support/v4/util/Pair;->first:Ljava/lang/Object;
 
     iget-object v3, p0, Landroid/support/v4/util/Pair;->first:Ljava/lang/Object;
 
-    invoke-static {v2, v3}, Landroid/support/v4/util/Pair;->objectsEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v2, v3}, Landroid/support/v4/util/ObjectsCompat;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v2
 
@@ -156,7 +152,7 @@
 
     iget-object v3, p0, Landroid/support/v4/util/Pair;->second:Ljava/lang/Object;
 
-    invoke-static {v2, v3}, Landroid/support/v4/util/Pair;->objectsEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v2, v3}, Landroid/support/v4/util/ObjectsCompat;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v2
 
@@ -174,7 +170,7 @@
     .local p0, "this":Landroid/support/v4/util/Pair;, "Landroid/support/v4/util/Pair<TF;TS;>;"
     const/4 v1, 0x0
 
-    .line 67
+    .line 66
     iget-object v0, p0, Landroid/support/v4/util/Pair;->first:Ljava/lang/Object;
 
     if-nez v0, :cond_0
@@ -214,7 +210,7 @@
     .locals 2
 
     .prologue
-    .line 72
+    .line 71
     .local p0, "this":Landroid/support/v4/util/Pair;, "Landroid/support/v4/util/Pair<TF;TS;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 

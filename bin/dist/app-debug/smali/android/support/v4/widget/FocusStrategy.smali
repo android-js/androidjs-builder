@@ -14,14 +14,14 @@
 
 
 # direct methods
-.method constructor <init>()V
+.method private constructor <init>()V
     .locals 0
 
     .prologue
-    .line 35
+    .line 454
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 450
+    .line 455
     return-void
 .end method
 
@@ -1257,7 +1257,7 @@
     .line 423
     sparse-switch p0, :sswitch_data_0
 
-    .line 436
+    .line 435
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "direction must be one of {FOCUS_UP, FOCUS_DOWN, FOCUS_LEFT, FOCUS_RIGHT}."
@@ -1314,7 +1314,6 @@
 
     iget v1, p2, Landroid/graphics/Rect;->left:I
 
-    .line 434
     invoke-virtual {p2}, Landroid/graphics/Rect;->width()I
 
     move-result v2

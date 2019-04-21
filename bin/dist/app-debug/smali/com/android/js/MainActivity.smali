@@ -16,17 +16,17 @@
     .locals 1
 
     .prologue
-    .line 22
+    .line 29
     const-string v0, "native-lib"
 
     invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
 
-    .line 23
+    .line 30
     const-string v0, "node"
 
     invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
 
-    .line 41
+    .line 48
     const/4 v0, 0x0
 
     sput-boolean v0, Lcom/android/js/MainActivity;->_startedNodeAlready:Z
@@ -38,7 +38,7 @@
     .locals 0
 
     .prologue
-    .line 18
+    .line 25
     invoke-direct {p0}, Landroid/support/v7/app/AppCompatActivity;-><init>()V
 
     return-void
@@ -50,7 +50,7 @@
     .locals 1
 
     .prologue
-    .line 32
+    .line 39
     iget-object v0, p0, Lcom/android/js/MainActivity;->myWebView:Landroid/webkit/WebView;
 
     invoke-virtual {v0}, Landroid/webkit/WebView;->canGoBack()Z
@@ -59,16 +59,16 @@
 
     if-eqz v0, :cond_0
 
-    .line 33
+    .line 40
     iget-object v0, p0, Lcom/android/js/MainActivity;->myWebView:Landroid/webkit/WebView;
 
     invoke-virtual {v0}, Landroid/webkit/WebView;->goBack()V
 
-    .line 37
+    .line 44
     :goto_0
     return-void
 
-    .line 35
+    .line 42
     :cond_0
     invoke-super {p0}, Landroid/support/v7/app/AppCompatActivity;->onBackPressed()V
 
@@ -82,15 +82,15 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 45
+    .line 52
     invoke-super {p0, p1}, Landroid/support/v7/app/AppCompatActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 46
-    const v0, 0x7f04001b
+    .line 53
+    const v0, 0x7f04001c
 
     invoke-virtual {p0, v0}, Lcom/android/js/MainActivity;->setContentView(I)V
 
-    .line 49
+    .line 56
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     invoke-static {}, Landroid/os/Environment;->getRootDirectory()Ljava/io/File;
@@ -99,18 +99,18 @@
 
     invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/Object;)V
 
-    .line 50
+    .line 57
     invoke-static {p0, p0}, Lcom/android/js/PermissionRequest;->checkAndAskForPermissions(Landroid/app/Activity;Landroid/content/Context;)V
 
-    .line 52
+    .line 59
     sget-boolean v0, Lcom/android/js/MainActivity;->_startedNodeAlready:Z
 
     if-nez v0, :cond_0
 
-    .line 53
+    .line 60
     sput-boolean v3, Lcom/android/js/MainActivity;->_startedNodeAlready:Z
 
-    .line 54
+    .line 61
     new-instance v0, Ljava/lang/Thread;
 
     new-instance v1, Lcom/android/js/MainActivity$1;
@@ -119,12 +119,12 @@
 
     invoke-direct {v0, v1}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
 
-    .line 74
+    .line 81
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
-    .line 83
+    .line 88
     :cond_0
-    const v0, 0x7f0b005e
+    const v0, 0x7f0b0085
 
     invoke-virtual {p0, v0}, Lcom/android/js/MainActivity;->findViewById(I)Landroid/view/View;
 
@@ -134,7 +134,7 @@
 
     iput-object v0, p0, Lcom/android/js/MainActivity;->myWebView:Landroid/webkit/WebView;
 
-    .line 87
+    .line 92
     iget-object v0, p0, Lcom/android/js/MainActivity;->myWebView:Landroid/webkit/WebView;
 
     new-instance v1, Lcom/android/js/JavaIPC;
@@ -147,7 +147,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/webkit/WebView;->addJavascriptInterface(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 90
+    .line 95
     iget-object v0, p0, Lcom/android/js/MainActivity;->myWebView:Landroid/webkit/WebView;
 
     invoke-virtual {v0}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
@@ -156,7 +156,7 @@
 
     invoke-virtual {v0, v3}, Landroid/webkit/WebSettings;->setJavaScriptEnabled(Z)V
 
-    .line 91
+    .line 96
     iget-object v0, p0, Lcom/android/js/MainActivity;->myWebView:Landroid/webkit/WebView;
 
     invoke-virtual {v0}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
@@ -165,7 +165,7 @@
 
     invoke-virtual {v0, v3}, Landroid/webkit/WebSettings;->setDomStorageEnabled(Z)V
 
-    .line 92
+    .line 97
     iget-object v0, p0, Lcom/android/js/MainActivity;->myWebView:Landroid/webkit/WebView;
 
     invoke-virtual {v0}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
@@ -174,12 +174,12 @@
 
     invoke-virtual {v0, v3}, Landroid/webkit/WebSettings;->setAllowFileAccess(Z)V
 
-    .line 93
+    .line 98
     iget-object v0, p0, Lcom/android/js/MainActivity;->myWebView:Landroid/webkit/WebView;
 
     invoke-static {v3}, Landroid/webkit/WebView;->setWebContentsDebuggingEnabled(Z)V
 
-    .line 94
+    .line 99
     iget-object v0, p0, Lcom/android/js/MainActivity;->myWebView:Landroid/webkit/WebView;
 
     new-instance v1, Landroid/webkit/WebViewClient;
@@ -188,7 +188,7 @@
 
     invoke-virtual {v0, v1}, Landroid/webkit/WebView;->setWebViewClient(Landroid/webkit/WebViewClient;)V
 
-    .line 95
+    .line 100
     iget-object v0, p0, Lcom/android/js/MainActivity;->myWebView:Landroid/webkit/WebView;
 
     invoke-virtual {v0}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
@@ -197,7 +197,7 @@
 
     invoke-virtual {v0, v3}, Landroid/webkit/WebSettings;->setAllowFileAccessFromFileURLs(Z)V
 
-    .line 96
+    .line 101
     iget-object v0, p0, Lcom/android/js/MainActivity;->myWebView:Landroid/webkit/WebView;
 
     invoke-virtual {v0}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
@@ -206,7 +206,7 @@
 
     invoke-virtual {v0, v3}, Landroid/webkit/WebSettings;->setAllowUniversalAccessFromFileURLs(Z)V
 
-    .line 97
+    .line 102
     iget-object v0, p0, Lcom/android/js/MainActivity;->myWebView:Landroid/webkit/WebView;
 
     invoke-virtual {v0}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
@@ -217,14 +217,14 @@
 
     invoke-virtual {v0, v1}, Landroid/webkit/WebSettings;->setPluginState(Landroid/webkit/WebSettings$PluginState;)V
 
-    .line 99
+    .line 104
     iget-object v0, p0, Lcom/android/js/MainActivity;->myWebView:Landroid/webkit/WebView;
 
     const-string v1, "file:///android_asset/myapp/views/index.html"
 
     invoke-virtual {v0, v1}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
 
-    .line 105
+    .line 110
     iget-object v0, p0, Lcom/android/js/MainActivity;->myWebView:Landroid/webkit/WebView;
 
     new-instance v1, Lcom/android/js/MainActivity$2;
@@ -233,7 +233,7 @@
 
     invoke-virtual {v0, v1}, Landroid/webkit/WebView;->setWebChromeClient(Landroid/webkit/WebChromeClient;)V
 
-    .line 127
+    .line 132
     return-void
 .end method
 

@@ -19,10 +19,10 @@
     .locals 0
 
     .prologue
-    .line 29
+    .line 40
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 30
+    .line 41
     return-void
 .end method
 
@@ -36,21 +36,21 @@
     .end param
 
     .prologue
-    .line 34
+    .line 45
     :try_start_0
     invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->apply()V
     :try_end_0
     .catch Ljava/lang/AbstractMethodError; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 41
+    .line 52
     :goto_0
     return-void
 
-    .line 35
+    .line 46
     :catch_0
     move-exception v0
 
-    .line 39
+    .line 50
     .local v0, "unused":Ljava/lang/AbstractMethodError;
     invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->commit()Z
 

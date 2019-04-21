@@ -24,10 +24,10 @@
     .param p1, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 36
+    .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 37
+    .line 38
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -40,7 +40,7 @@
 
     iput-object v0, p0, Landroid/support/v7/text/AllCapsTransformationMethod;->mLocale:Ljava/util/Locale;
 
-    .line 38
+    .line 39
     return-void
 .end method
 
@@ -52,7 +52,7 @@
     .param p2, "view"    # Landroid/view/View;
 
     .prologue
-    .line 42
+    .line 43
     if-eqz p1, :cond_0
 
     invoke-interface {p1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
@@ -83,6 +83,6 @@
     .param p5, "previouslyFocusedRect"    # Landroid/graphics/Rect;
 
     .prologue
-    .line 48
+    .line 49
     return-void
 .end method

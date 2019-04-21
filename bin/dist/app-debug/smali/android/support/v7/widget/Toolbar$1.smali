@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Landroid/support/v7/widget/Toolbar;
 
     .prologue
-    .line 202
+    .line 200
     iput-object p1, p0, Landroid/support/v7/widget/Toolbar$1;->this$0:Landroid/support/v7/widget/Toolbar;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,14 +42,14 @@
     .param p1, "item"    # Landroid/view/MenuItem;
 
     .prologue
-    .line 205
+    .line 203
     iget-object v0, p0, Landroid/support/v7/widget/Toolbar$1;->this$0:Landroid/support/v7/widget/Toolbar;
 
     iget-object v0, v0, Landroid/support/v7/widget/Toolbar;->mOnMenuItemClickListener:Landroid/support/v7/widget/Toolbar$OnMenuItemClickListener;
 
     if-eqz v0, :cond_0
 
-    .line 206
+    .line 204
     iget-object v0, p0, Landroid/support/v7/widget/Toolbar$1;->this$0:Landroid/support/v7/widget/Toolbar;
 
     iget-object v0, v0, Landroid/support/v7/widget/Toolbar;->mOnMenuItemClickListener:Landroid/support/v7/widget/Toolbar$OnMenuItemClickListener;
@@ -58,7 +58,7 @@
 
     move-result v0
 
-    .line 208
+    .line 206
     :goto_0
     return v0
 

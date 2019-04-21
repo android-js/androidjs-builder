@@ -1,49 +1,58 @@
-.class final Landroid/support/v4/app/FragmentTransitionCompat21$3;
+.class Landroid/support/v4/app/FragmentTransitionCompat21$3;
 .super Ljava/lang/Object;
 .source "FragmentTransitionCompat21.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/transition/Transition$TransitionListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/support/v4/app/FragmentTransitionCompat21;->setNameOverridesOptimized(Landroid/view/View;Ljava/util/ArrayList;Ljava/util/ArrayList;Ljava/util/ArrayList;Ljava/util/Map;)V
+    value = Landroid/support/v4/app/FragmentTransitionCompat21;->scheduleRemoveTargets(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/ArrayList;Ljava/lang/Object;Ljava/util/ArrayList;Ljava/lang/Object;Ljava/util/ArrayList;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x0
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic val$inNames:Ljava/util/ArrayList;
+.field final synthetic this$0:Landroid/support/v4/app/FragmentTransitionCompat21;
 
-.field final synthetic val$numSharedElements:I
+.field final synthetic val$enterTransition:Ljava/lang/Object;
 
-.field final synthetic val$outNames:Ljava/util/ArrayList;
+.field final synthetic val$enteringViews:Ljava/util/ArrayList;
+
+.field final synthetic val$exitTransition:Ljava/lang/Object;
+
+.field final synthetic val$exitingViews:Ljava/util/ArrayList;
+
+.field final synthetic val$sharedElementTransition:Ljava/lang/Object;
 
 .field final synthetic val$sharedElementsIn:Ljava/util/ArrayList;
 
-.field final synthetic val$sharedElementsOut:Ljava/util/ArrayList;
-
 
 # direct methods
-.method constructor <init>(ILjava/util/ArrayList;Ljava/util/ArrayList;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
+.method constructor <init>(Landroid/support/v4/app/FragmentTransitionCompat21;Ljava/lang/Object;Ljava/util/ArrayList;Ljava/lang/Object;Ljava/util/ArrayList;Ljava/lang/Object;Ljava/util/ArrayList;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v4/app/FragmentTransitionCompat21;
 
     .prologue
-    .line 345
-    iput p1, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->val$numSharedElements:I
+    .line 215
+    iput-object p1, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->this$0:Landroid/support/v4/app/FragmentTransitionCompat21;
 
-    iput-object p2, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->val$sharedElementsIn:Ljava/util/ArrayList;
+    iput-object p2, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->val$enterTransition:Ljava/lang/Object;
 
-    iput-object p3, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->val$inNames:Ljava/util/ArrayList;
+    iput-object p3, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->val$enteringViews:Ljava/util/ArrayList;
 
-    iput-object p4, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->val$sharedElementsOut:Ljava/util/ArrayList;
+    iput-object p4, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->val$exitTransition:Ljava/lang/Object;
 
-    iput-object p5, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->val$outNames:Ljava/util/ArrayList;
+    iput-object p5, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->val$exitingViews:Ljava/util/ArrayList;
+
+    iput-object p6, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->val$sharedElementTransition:Ljava/lang/Object;
+
+    iput-object p7, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->val$sharedElementsIn:Ljava/util/ArrayList;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -52,63 +61,94 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 3
+.method public onTransitionCancel(Landroid/transition/Transition;)V
+    .locals 0
+    .param p1, "transition"    # Landroid/transition/Transition;
 
     .prologue
-    .line 348
-    const/4 v0, 0x0
+    .line 235
+    return-void
+.end method
 
-    .local v0, "i":I
-    :goto_0
-    iget v1, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->val$numSharedElements:I
+.method public onTransitionEnd(Landroid/transition/Transition;)V
+    .locals 0
+    .param p1, "transition"    # Landroid/transition/Transition;
 
-    if-ge v0, v1, :cond_0
+    .prologue
+    .line 231
+    return-void
+.end method
 
-    .line 349
-    iget-object v1, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->val$sharedElementsIn:Ljava/util/ArrayList;
+.method public onTransitionPause(Landroid/transition/Transition;)V
+    .locals 0
+    .param p1, "transition"    # Landroid/transition/Transition;
 
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    .prologue
+    .line 239
+    return-void
+.end method
 
-    move-result-object v1
+.method public onTransitionResume(Landroid/transition/Transition;)V
+    .locals 0
+    .param p1, "transition"    # Landroid/transition/Transition;
 
-    check-cast v1, Landroid/view/View;
+    .prologue
+    .line 243
+    return-void
+.end method
 
-    iget-object v2, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->val$inNames:Ljava/util/ArrayList;
+.method public onTransitionStart(Landroid/transition/Transition;)V
+    .locals 4
+    .param p1, "transition"    # Landroid/transition/Transition;
 
-    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    .prologue
+    const/4 v3, 0x0
 
-    move-result-object v2
+    .line 218
+    iget-object v0, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->val$enterTransition:Ljava/lang/Object;
 
-    check-cast v2, Ljava/lang/String;
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v1, v2}, Landroid/view/View;->setTransitionName(Ljava/lang/String;)V
+    .line 219
+    iget-object v0, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->this$0:Landroid/support/v4/app/FragmentTransitionCompat21;
 
-    .line 350
-    iget-object v1, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->val$sharedElementsOut:Ljava/util/ArrayList;
+    iget-object v1, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->val$enterTransition:Ljava/lang/Object;
 
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    iget-object v2, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->val$enteringViews:Ljava/util/ArrayList;
 
-    move-result-object v1
+    invoke-virtual {v0, v1, v2, v3}, Landroid/support/v4/app/FragmentTransitionCompat21;->replaceTargets(Ljava/lang/Object;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
 
-    check-cast v1, Landroid/view/View;
-
-    iget-object v2, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->val$outNames:Ljava/util/ArrayList;
-
-    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Landroid/view/View;->setTransitionName(Ljava/lang/String;)V
-
-    .line 348
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    .line 352
+    .line 221
     :cond_0
+    iget-object v0, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->val$exitTransition:Ljava/lang/Object;
+
+    if-eqz v0, :cond_1
+
+    .line 222
+    iget-object v0, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->this$0:Landroid/support/v4/app/FragmentTransitionCompat21;
+
+    iget-object v1, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->val$exitTransition:Ljava/lang/Object;
+
+    iget-object v2, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->val$exitingViews:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/support/v4/app/FragmentTransitionCompat21;->replaceTargets(Ljava/lang/Object;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
+
+    .line 224
+    :cond_1
+    iget-object v0, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->val$sharedElementTransition:Ljava/lang/Object;
+
+    if-eqz v0, :cond_2
+
+    .line 225
+    iget-object v0, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->this$0:Landroid/support/v4/app/FragmentTransitionCompat21;
+
+    iget-object v1, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->val$sharedElementTransition:Ljava/lang/Object;
+
+    iget-object v2, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->val$sharedElementsIn:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/support/v4/app/FragmentTransitionCompat21;->replaceTargets(Ljava/lang/Object;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
+
+    .line 227
+    :cond_2
     return-void
 .end method

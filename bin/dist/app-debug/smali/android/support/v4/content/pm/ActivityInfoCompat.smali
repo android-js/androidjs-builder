@@ -3,8 +3,16 @@
 .source "ActivityInfoCompat.java"
 
 
+# annotations
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
+
 # static fields
 .field public static final CONFIG_UI_MODE:I = 0x200
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 
 # direct methods
@@ -12,9 +20,9 @@
     .locals 0
 
     .prologue
-    .line 25
+    .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 27
+    .line 29
     return-void
 .end method

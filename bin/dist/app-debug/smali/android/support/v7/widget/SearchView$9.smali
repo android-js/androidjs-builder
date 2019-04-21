@@ -3,7 +3,7 @@
 .source "SearchView.java"
 
 # interfaces
-.implements Landroid/widget/TextView$OnEditorActionListener;
+.implements Landroid/widget/AdapterView$OnItemSelectedListener;
 
 
 # annotations
@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Landroid/support/v7/widget/SearchView;
 
     .prologue
-    .line 1212
+    .line 1418
     iput-object p1, p0, Landroid/support/v7/widget/SearchView$9;->this$0:Landroid/support/v7/widget/SearchView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,20 +37,44 @@
 
 
 # virtual methods
-.method public onEditorAction(Landroid/widget/TextView;ILandroid/view/KeyEvent;)Z
+.method public onItemSelected(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
     .locals 1
-    .param p1, "v"    # Landroid/widget/TextView;
-    .param p2, "actionId"    # I
-    .param p3, "event"    # Landroid/view/KeyEvent;
+    .param p2, "view"    # Landroid/view/View;
+    .param p3, "position"    # I
+    .param p4, "id"    # J
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/widget/AdapterView",
+            "<*>;",
+            "Landroid/view/View;",
+            "IJ)V"
+        }
+    .end annotation
 
     .prologue
-    .line 1219
+    .line 1426
+    .local p1, "parent":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
     iget-object v0, p0, Landroid/support/v7/widget/SearchView$9;->this$0:Landroid/support/v7/widget/SearchView;
 
-    invoke-virtual {v0}, Landroid/support/v7/widget/SearchView;->onSubmitQuery()V
+    invoke-virtual {v0, p3}, Landroid/support/v7/widget/SearchView;->onItemSelected(I)Z
 
-    .line 1220
-    const/4 v0, 0x1
+    .line 1427
+    return-void
+.end method
 
-    return v0
+.method public onNothingSelected(Landroid/widget/AdapterView;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/widget/AdapterView",
+            "<*>;)V"
+        }
+    .end annotation
+
+    .prologue
+    .line 1436
+    .local p1, "parent":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
+    return-void
 .end method

@@ -33,15 +33,15 @@
     .end param
 
     .prologue
-    .line 182
+    .line 184
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 183
+    .line 185
     iput-object p1, p0, Landroid/support/v7/content/res/AppCompatResources$ColorStateListCacheEntry;->value:Landroid/content/res/ColorStateList;
 
-    .line 184
+    .line 186
     iput-object p2, p0, Landroid/support/v7/content/res/AppCompatResources$ColorStateListCacheEntry;->configuration:Landroid/content/res/Configuration;
 
-    .line 185
+    .line 187
     return-void
 .end method

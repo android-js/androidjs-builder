@@ -27,20 +27,20 @@
     .param p2, "height"    # I
 
     .prologue
-    .line 1805
+    .line 1803
     invoke-direct {p0, p1, p2}, Landroid/view/ViewGroup$MarginLayoutParams;-><init>(II)V
 
-    .line 1785
+    .line 1783
     const/4 v0, -0x1
 
     iput v0, p0, Landroid/support/v7/widget/LinearLayoutCompat$LayoutParams;->gravity:I
 
-    .line 1806
+    .line 1804
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/support/v7/widget/LinearLayoutCompat$LayoutParams;->weight:F
 
-    .line 1807
+    .line 1805
     return-void
 .end method
 
@@ -51,18 +51,18 @@
     .param p3, "weight"    # F
 
     .prologue
-    .line 1820
+    .line 1818
     invoke-direct {p0, p1, p2}, Landroid/view/ViewGroup$MarginLayoutParams;-><init>(II)V
 
-    .line 1785
+    .line 1783
     const/4 v0, -0x1
 
     iput v0, p0, Landroid/support/v7/widget/LinearLayoutCompat$LayoutParams;->gravity:I
 
-    .line 1821
+    .line 1819
     iput p3, p0, Landroid/support/v7/widget/LinearLayoutCompat$LayoutParams;->weight:F
 
-    .line 1822
+    .line 1820
     return-void
 .end method
 
@@ -74,21 +74,21 @@
     .prologue
     const/4 v3, -0x1
 
-    .line 1791
+    .line 1789
     invoke-direct {p0, p1, p2}, Landroid/view/ViewGroup$MarginLayoutParams;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 1785
+    .line 1783
     iput v3, p0, Landroid/support/v7/widget/LinearLayoutCompat$LayoutParams;->gravity:I
 
-    .line 1792
+    .line 1790
     sget-object v1, Landroid/support/v7/appcompat/R$styleable;->LinearLayoutCompat_Layout:[I
 
-    .line 1793
+    .line 1791
     invoke-virtual {p1, p2, v1}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    .line 1795
+    .line 1793
     .local v0, "a":Landroid/content/res/TypedArray;
     sget v1, Landroid/support/v7/appcompat/R$styleable;->LinearLayoutCompat_Layout_android_layout_weight:I
 
@@ -100,7 +100,7 @@
 
     iput v1, p0, Landroid/support/v7/widget/LinearLayoutCompat$LayoutParams;->weight:F
 
-    .line 1796
+    .line 1794
     sget v1, Landroid/support/v7/appcompat/R$styleable;->LinearLayoutCompat_Layout_android_layout_gravity:I
 
     invoke-virtual {v0, v1, v3}, Landroid/content/res/TypedArray;->getInt(II)I
@@ -109,10 +109,10 @@
 
     iput v1, p0, Landroid/support/v7/widget/LinearLayoutCompat$LayoutParams;->gravity:I
 
-    .line 1798
+    .line 1796
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 1799
+    .line 1797
     return-void
 .end method
 
@@ -121,25 +121,25 @@
     .param p1, "source"    # Landroid/support/v7/widget/LinearLayoutCompat$LayoutParams;
 
     .prologue
-    .line 1845
+    .line 1843
     invoke-direct {p0, p1}, Landroid/view/ViewGroup$MarginLayoutParams;-><init>(Landroid/view/ViewGroup$MarginLayoutParams;)V
 
-    .line 1785
+    .line 1783
     const/4 v0, -0x1
 
     iput v0, p0, Landroid/support/v7/widget/LinearLayoutCompat$LayoutParams;->gravity:I
 
-    .line 1847
+    .line 1845
     iget v0, p1, Landroid/support/v7/widget/LinearLayoutCompat$LayoutParams;->weight:F
 
     iput v0, p0, Landroid/support/v7/widget/LinearLayoutCompat$LayoutParams;->weight:F
 
-    .line 1848
+    .line 1846
     iget v0, p1, Landroid/support/v7/widget/LinearLayoutCompat$LayoutParams;->gravity:I
 
     iput v0, p0, Landroid/support/v7/widget/LinearLayoutCompat$LayoutParams;->gravity:I
 
-    .line 1849
+    .line 1847
     return-void
 .end method
 
@@ -148,15 +148,15 @@
     .param p1, "p"    # Landroid/view/ViewGroup$LayoutParams;
 
     .prologue
-    .line 1828
+    .line 1826
     invoke-direct {p0, p1}, Landroid/view/ViewGroup$MarginLayoutParams;-><init>(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 1785
+    .line 1783
     const/4 v0, -0x1
 
     iput v0, p0, Landroid/support/v7/widget/LinearLayoutCompat$LayoutParams;->gravity:I
 
-    .line 1829
+    .line 1827
     return-void
 .end method
 
@@ -165,14 +165,14 @@
     .param p1, "source"    # Landroid/view/ViewGroup$MarginLayoutParams;
 
     .prologue
-    .line 1835
+    .line 1833
     invoke-direct {p0, p1}, Landroid/view/ViewGroup$MarginLayoutParams;-><init>(Landroid/view/ViewGroup$MarginLayoutParams;)V
 
-    .line 1785
+    .line 1783
     const/4 v0, -0x1
 
     iput v0, p0, Landroid/support/v7/widget/LinearLayoutCompat$LayoutParams;->gravity:I
 
-    .line 1836
+    .line 1834
     return-void
 .end method

@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x11
+    accessFlags = 0x19
     name = "ActivityResolveInfo"
 .end annotation
 
@@ -30,27 +30,22 @@
 # instance fields
 .field public final resolveInfo:Landroid/content/pm/ResolveInfo;
 
-.field final synthetic this$0:Landroid/support/v7/widget/ActivityChooserModel;
-
 .field public weight:F
 
 
 # direct methods
-.method public constructor <init>(Landroid/support/v7/widget/ActivityChooserModel;Landroid/content/pm/ResolveInfo;)V
+.method public constructor <init>(Landroid/content/pm/ResolveInfo;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/support/v7/widget/ActivityChooserModel;
-    .param p2, "resolveInfo"    # Landroid/content/pm/ResolveInfo;
+    .param p1, "resolveInfo"    # Landroid/content/pm/ResolveInfo;
 
     .prologue
-    .line 870
-    iput-object p1, p0, Landroid/support/v7/widget/ActivityChooserModel$ActivityResolveInfo;->this$0:Landroid/support/v7/widget/ActivityChooserModel;
-
+    .line 869
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 871
-    iput-object p2, p0, Landroid/support/v7/widget/ActivityChooserModel$ActivityResolveInfo;->resolveInfo:Landroid/content/pm/ResolveInfo;
+    .line 870
+    iput-object p1, p0, Landroid/support/v7/widget/ActivityChooserModel$ActivityResolveInfo;->resolveInfo:Landroid/content/pm/ResolveInfo;
 
-    .line 872
+    .line 871
     return-void
 .end method
 
@@ -83,7 +78,7 @@
     .locals 1
 
     .prologue
-    .line 853
+    .line 852
     check-cast p1, Landroid/support/v7/widget/ActivityChooserModel$ActivityResolveInfo;
 
     invoke-virtual {p0, p1}, Landroid/support/v7/widget/ActivityChooserModel$ActivityResolveInfo;->compareTo(Landroid/support/v7/widget/ActivityChooserModel$ActivityResolveInfo;)I
@@ -102,24 +97,24 @@
 
     const/4 v2, 0x0
 
-    .line 881
+    .line 880
     if-ne p0, p1, :cond_1
 
-    .line 894
+    .line 893
     :cond_0
     :goto_0
     return v1
 
-    .line 884
+    .line 883
     :cond_1
     if-nez p1, :cond_2
 
     move v1, v2
 
-    .line 885
+    .line 884
     goto :goto_0
 
-    .line 887
+    .line 886
     :cond_2
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -133,16 +128,16 @@
 
     move v1, v2
 
-    .line 888
+    .line 887
     goto :goto_0
 
     :cond_3
     move-object v0, p1
 
-    .line 890
+    .line 889
     check-cast v0, Landroid/support/v7/widget/ActivityChooserModel$ActivityResolveInfo;
 
-    .line 891
+    .line 890
     .local v0, "other":Landroid/support/v7/widget/ActivityChooserModel$ActivityResolveInfo;
     iget v3, p0, Landroid/support/v7/widget/ActivityChooserModel$ActivityResolveInfo;->weight:F
 
@@ -160,7 +155,7 @@
 
     move v1, v2
 
-    .line 892
+    .line 891
     goto :goto_0
 .end method
 
@@ -168,7 +163,7 @@
     .locals 1
 
     .prologue
-    .line 876
+    .line 875
     iget v0, p0, Landroid/support/v7/widget/ActivityChooserModel$ActivityResolveInfo;->weight:F
 
     invoke-static {v0}, Ljava/lang/Float;->floatToIntBits(F)I

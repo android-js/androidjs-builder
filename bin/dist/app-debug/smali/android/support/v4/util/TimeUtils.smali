@@ -13,6 +13,12 @@
 
 # static fields
 .field public static final HUNDRED_DAY_FIELD_LEN:I = 0x13
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
+.end field
 
 .field private static final SECONDS_PER_DAY:I = 0x15180
 
@@ -51,7 +57,7 @@
     .locals 0
 
     .prologue
-    .line 181
+    .line 185
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -126,25 +132,30 @@
     .param p0, "time"    # J
     .param p2, "now"    # J
     .param p4, "pw"    # Ljava/io/PrintWriter;
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .prologue
-    .line 174
+    .line 178
     const-wide/16 v0, 0x0
 
     cmp-long v0, p0, v0
 
     if-nez v0, :cond_0
 
-    .line 175
+    .line 179
     const-string v0, "--"
 
     invoke-virtual {p4, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 179
+    .line 183
     :goto_0
     return-void
 
-    .line 178
+    .line 182
     :cond_0
     sub-long v0, p0, p2
 
@@ -159,14 +170,19 @@
     .locals 2
     .param p0, "duration"    # J
     .param p2, "pw"    # Ljava/io/PrintWriter;
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .prologue
-    .line 169
+    .line 172
     const/4 v0, 0x0
 
     invoke-static {p0, p1, p2, v0}, Landroid/support/v4/util/TimeUtils;->formatDuration(JLjava/io/PrintWriter;I)V
 
-    .line 170
+    .line 173
     return-void
 .end method
 
@@ -175,20 +191,25 @@
     .param p0, "duration"    # J
     .param p2, "pw"    # Ljava/io/PrintWriter;
     .param p3, "fieldLen"    # I
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .prologue
-    .line 161
+    .line 163
     sget-object v2, Landroid/support/v4/util/TimeUtils;->sFormatSync:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 162
+    .line 164
     :try_start_0
     invoke-static {p0, p1, p3}, Landroid/support/v4/util/TimeUtils;->formatDurationLocked(JI)I
 
     move-result v0
 
-    .line 163
+    .line 165
     .local v0, "len":I
     new-instance v1, Ljava/lang/String;
 
@@ -200,13 +221,13 @@
 
     invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 164
+    .line 166
     monitor-exit v2
 
-    .line 165
+    .line 167
     return-void
 
-    .line 164
+    .line 166
     .end local v0    # "len":I
     :catchall_0
     move-exception v1
@@ -222,14 +243,19 @@
     .locals 4
     .param p0, "duration"    # J
     .param p2, "builder"    # Ljava/lang/StringBuilder;
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .prologue
-    .line 153
+    .line 154
     sget-object v2, Landroid/support/v4/util/TimeUtils;->sFormatSync:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 154
+    .line 155
     const/4 v1, 0x0
 
     :try_start_0
@@ -237,7 +263,7 @@
 
     move-result v0
 
-    .line 155
+    .line 156
     .local v0, "len":I
     sget-object v1, Landroid/support/v4/util/TimeUtils;->sFormatStr:[C
 
@@ -245,13 +271,13 @@
 
     invoke-virtual {p2, v1, v3, v0}, Ljava/lang/StringBuilder;->append([CII)Ljava/lang/StringBuilder;
 
-    .line 156
+    .line 157
     monitor-exit v2
 
-    .line 157
+    .line 158
     return-void
 
-    .line 156
+    .line 157
     .end local v0    # "len":I
     :catchall_0
     move-exception v1

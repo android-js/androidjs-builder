@@ -35,6 +35,10 @@
 
 .field public static final abc_slide_out_top:I = 0x7f050009
 
+.field public static final abc_tooltip_enter:I = 0x7f05000a
+
+.field public static final abc_tooltip_exit:I = 0x7f05000b
+
 
 # direct methods
 .method public constructor <init>()V

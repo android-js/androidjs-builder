@@ -23,12 +23,12 @@
     .locals 0
 
     .prologue
-    .line 491
+    .line 492
     iput-object p1, p0, Landroid/support/v4/widget/CursorAdapter$MyDataSetObserver;->this$0:Landroid/support/v4/widget/CursorAdapter;
 
     invoke-direct {p0}, Landroid/database/DataSetObserver;-><init>()V
 
-    .line 492
+    .line 493
     return-void
 .end method
 
@@ -38,19 +38,19 @@
     .locals 2
 
     .prologue
-    .line 496
+    .line 497
     iget-object v0, p0, Landroid/support/v4/widget/CursorAdapter$MyDataSetObserver;->this$0:Landroid/support/v4/widget/CursorAdapter;
 
     const/4 v1, 0x1
 
     iput-boolean v1, v0, Landroid/support/v4/widget/CursorAdapter;->mDataValid:Z
 
-    .line 497
+    .line 498
     iget-object v0, p0, Landroid/support/v4/widget/CursorAdapter$MyDataSetObserver;->this$0:Landroid/support/v4/widget/CursorAdapter;
 
     invoke-virtual {v0}, Landroid/support/v4/widget/CursorAdapter;->notifyDataSetChanged()V
 
-    .line 498
+    .line 499
     return-void
 .end method
 
@@ -58,18 +58,18 @@
     .locals 2
 
     .prologue
-    .line 502
+    .line 503
     iget-object v0, p0, Landroid/support/v4/widget/CursorAdapter$MyDataSetObserver;->this$0:Landroid/support/v4/widget/CursorAdapter;
 
     const/4 v1, 0x0
 
     iput-boolean v1, v0, Landroid/support/v4/widget/CursorAdapter;->mDataValid:Z
 
-    .line 503
+    .line 504
     iget-object v0, p0, Landroid/support/v4/widget/CursorAdapter$MyDataSetObserver;->this$0:Landroid/support/v4/widget/CursorAdapter;
 
     invoke-virtual {v0}, Landroid/support/v4/widget/CursorAdapter;->notifyDataSetInvalidated()V
 
-    .line 504
+    .line 505
     return-void
 .end method

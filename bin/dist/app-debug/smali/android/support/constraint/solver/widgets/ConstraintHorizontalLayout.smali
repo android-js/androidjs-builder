@@ -72,12 +72,13 @@
 
 
 # virtual methods
-.method public addToSolver(Landroid/support/constraint/solver/LinearSystem;I)V
+.method public addToSolver(Landroid/support/constraint/solver/LinearSystem;)V
     .locals 14
     .param p1, "system"    # Landroid/support/constraint/solver/LinearSystem;
-    .param p2, "group"    # I
 
     .prologue
+    const/4 v4, 0x0
+
     .line 63
     iget-object v1, p0, Landroid/support/constraint/solver/widgets/ConstraintHorizontalLayout;->mChildren:Ljava/util/ArrayList;
 
@@ -176,8 +177,6 @@
 
     sget-object v3, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->LEFT:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
 
-    const/4 v4, 0x0
-
     invoke-virtual/range {v0 .. v5}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->connect(Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;Landroid/support/constraint/solver/widgets/ConstraintWidget;Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;ILandroid/support/constraint/solver/widgets/ConstraintAnchor$Strength;)V
 
     goto :goto_1
@@ -208,11 +207,11 @@
 
     sget-object v9, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->RIGHT:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
 
-    const/4 v10, 0x0
-
     move-object v6, v2
 
     move-object v8, p0
+
+    move v10, v4
 
     move-object v11, v5
 
@@ -224,7 +223,7 @@
     .end local v12    # "i":I
     .end local v13    # "mChildrenSize":I
     :cond_4
-    invoke-super/range {p0 .. p2}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->addToSolver(Landroid/support/constraint/solver/LinearSystem;I)V
+    invoke-super {p0, p1}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->addToSolver(Landroid/support/constraint/solver/LinearSystem;)V
 
     .line 92
     return-void

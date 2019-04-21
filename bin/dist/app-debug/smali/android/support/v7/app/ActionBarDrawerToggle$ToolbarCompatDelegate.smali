@@ -31,27 +31,27 @@
     .param p1, "toolbar"    # Landroid/support/v7/widget/Toolbar;
 
     .prologue
-    .line 663
+    .line 591
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 664
+    .line 592
     iput-object p1, p0, Landroid/support/v7/app/ActionBarDrawerToggle$ToolbarCompatDelegate;->mToolbar:Landroid/support/v7/widget/Toolbar;
 
-    .line 665
+    .line 593
     invoke-virtual {p1}, Landroid/support/v7/widget/Toolbar;->getNavigationIcon()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/support/v7/app/ActionBarDrawerToggle$ToolbarCompatDelegate;->mDefaultUpIndicator:Landroid/graphics/drawable/Drawable;
 
-    .line 666
+    .line 594
     invoke-virtual {p1}, Landroid/support/v7/widget/Toolbar;->getNavigationContentDescription()Ljava/lang/CharSequence;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/support/v7/app/ActionBarDrawerToggle$ToolbarCompatDelegate;->mDefaultContentDescription:Ljava/lang/CharSequence;
 
-    .line 667
+    .line 595
     return-void
 .end method
 
@@ -61,7 +61,7 @@
     .locals 1
 
     .prologue
-    .line 691
+    .line 619
     iget-object v0, p0, Landroid/support/v7/app/ActionBarDrawerToggle$ToolbarCompatDelegate;->mToolbar:Landroid/support/v7/widget/Toolbar;
 
     invoke-virtual {v0}, Landroid/support/v7/widget/Toolbar;->getContext()Landroid/content/Context;
@@ -75,7 +75,7 @@
     .locals 1
 
     .prologue
-    .line 686
+    .line 614
     iget-object v0, p0, Landroid/support/v7/app/ActionBarDrawerToggle$ToolbarCompatDelegate;->mDefaultUpIndicator:Landroid/graphics/drawable/Drawable;
 
     return-object v0
@@ -85,7 +85,7 @@
     .locals 1
 
     .prologue
-    .line 696
+    .line 624
     const/4 v0, 0x1
 
     return v0
@@ -99,21 +99,21 @@
     .end param
 
     .prologue
-    .line 677
+    .line 605
     if-nez p1, :cond_0
 
-    .line 678
+    .line 606
     iget-object v0, p0, Landroid/support/v7/app/ActionBarDrawerToggle$ToolbarCompatDelegate;->mToolbar:Landroid/support/v7/widget/Toolbar;
 
     iget-object v1, p0, Landroid/support/v7/app/ActionBarDrawerToggle$ToolbarCompatDelegate;->mDefaultContentDescription:Ljava/lang/CharSequence;
 
     invoke-virtual {v0, v1}, Landroid/support/v7/widget/Toolbar;->setNavigationContentDescription(Ljava/lang/CharSequence;)V
 
-    .line 682
+    .line 610
     :goto_0
     return-void
 
-    .line 680
+    .line 608
     :cond_0
     iget-object v0, p0, Landroid/support/v7/app/ActionBarDrawerToggle$ToolbarCompatDelegate;->mToolbar:Landroid/support/v7/widget/Toolbar;
 
@@ -131,14 +131,14 @@
     .end param
 
     .prologue
-    .line 671
+    .line 599
     iget-object v0, p0, Landroid/support/v7/app/ActionBarDrawerToggle$ToolbarCompatDelegate;->mToolbar:Landroid/support/v7/widget/Toolbar;
 
     invoke-virtual {v0, p1}, Landroid/support/v7/widget/Toolbar;->setNavigationIcon(Landroid/graphics/drawable/Drawable;)V
 
-    .line 672
+    .line 600
     invoke-virtual {p0, p2}, Landroid/support/v7/app/ActionBarDrawerToggle$ToolbarCompatDelegate;->setActionBarDescription(I)V
 
-    .line 673
+    .line 601
     return-void
 .end method

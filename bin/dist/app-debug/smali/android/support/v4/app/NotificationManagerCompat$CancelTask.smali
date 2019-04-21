@@ -28,61 +28,61 @@
 
 
 # direct methods
-.method public constructor <init>(Ljava/lang/String;)V
+.method constructor <init>(Ljava/lang/String;)V
     .locals 1
     .param p1, "packageName"    # Ljava/lang/String;
 
     .prologue
-    .line 676
+    .line 625
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 677
+    .line 626
     iput-object p1, p0, Landroid/support/v4/app/NotificationManagerCompat$CancelTask;->packageName:Ljava/lang/String;
 
-    .line 678
+    .line 627
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/support/v4/app/NotificationManagerCompat$CancelTask;->id:I
 
-    .line 679
+    .line 628
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/support/v4/app/NotificationManagerCompat$CancelTask;->tag:Ljava/lang/String;
 
-    .line 680
+    .line 629
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/support/v4/app/NotificationManagerCompat$CancelTask;->all:Z
 
-    .line 681
+    .line 630
     return-void
 .end method
 
-.method public constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
+.method constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
     .locals 1
     .param p1, "packageName"    # Ljava/lang/String;
     .param p2, "id"    # I
     .param p3, "tag"    # Ljava/lang/String;
 
     .prologue
-    .line 683
+    .line 632
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 684
+    .line 633
     iput-object p1, p0, Landroid/support/v4/app/NotificationManagerCompat$CancelTask;->packageName:Ljava/lang/String;
 
-    .line 685
+    .line 634
     iput p2, p0, Landroid/support/v4/app/NotificationManagerCompat$CancelTask;->id:I
 
-    .line 686
+    .line 635
     iput-object p3, p0, Landroid/support/v4/app/NotificationManagerCompat$CancelTask;->tag:Ljava/lang/String;
 
-    .line 687
+    .line 636
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/support/v4/app/NotificationManagerCompat$CancelTask;->all:Z
 
-    .line 688
+    .line 637
     return-void
 .end method
 
@@ -98,21 +98,21 @@
     .end annotation
 
     .prologue
-    .line 692
+    .line 641
     iget-boolean v0, p0, Landroid/support/v4/app/NotificationManagerCompat$CancelTask;->all:Z
 
     if-eqz v0, :cond_0
 
-    .line 693
+    .line 642
     iget-object v0, p0, Landroid/support/v4/app/NotificationManagerCompat$CancelTask;->packageName:Ljava/lang/String;
 
     invoke-interface {p1, v0}, Landroid/support/v4/app/INotificationSideChannel;->cancelAll(Ljava/lang/String;)V
 
-    .line 697
+    .line 646
     :goto_0
     return-void
 
-    .line 695
+    .line 644
     :cond_0
     iget-object v0, p0, Landroid/support/v4/app/NotificationManagerCompat$CancelTask;->packageName:Ljava/lang/String;
 
@@ -129,14 +129,14 @@
     .locals 3
 
     .prologue
-    .line 700
+    .line 650
     new-instance v0, Ljava/lang/StringBuilder;
 
     const-string v1, "CancelTask["
 
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    .line 701
+    .line 651
     .local v0, "sb":Ljava/lang/StringBuilder;
     const-string v1, "packageName:"
 
@@ -148,7 +148,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 702
+    .line 652
     const-string v1, ", id:"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -159,7 +159,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 703
+    .line 653
     const-string v1, ", tag:"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -170,7 +170,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 704
+    .line 654
     const-string v1, ", all:"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -181,12 +181,12 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    .line 705
+    .line 655
     const-string v1, "]"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 706
+    .line 656
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1

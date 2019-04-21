@@ -9,6 +9,8 @@
 # instance fields
 .field private mDelegate:Landroid/support/v7/app/AppCompatDelegate;
 
+.field private final mKeyDispatcher:Landroid/support/v4/view/KeyEventDispatcher$Component;
+
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
@@ -16,12 +18,12 @@
     .param p1, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 42
+    .line 53
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Landroid/support/v7/app/AppCompatDialog;-><init>(Landroid/content/Context;I)V
 
-    .line 43
+    .line 54
     return-void
 .end method
 
@@ -31,14 +33,21 @@
     .param p2, "theme"    # I
 
     .prologue
-    .line 46
+    .line 57
     invoke-static {p1, p2}, Landroid/support/v7/app/AppCompatDialog;->getThemeResId(Landroid/content/Context;I)I
 
     move-result v0
 
     invoke-direct {p0, p1, v0}, Landroid/app/Dialog;-><init>(Landroid/content/Context;I)V
 
-    .line 52
+    .line 45
+    new-instance v0, Landroid/support/v7/app/AppCompatDialog$1;
+
+    invoke-direct {v0, p0}, Landroid/support/v7/app/AppCompatDialog$1;-><init>(Landroid/support/v7/app/AppCompatDialog;)V
+
+    iput-object v0, p0, Landroid/support/v7/app/AppCompatDialog;->mKeyDispatcher:Landroid/support/v4/view/KeyEventDispatcher$Component;
+
+    .line 63
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatDialog;->getDelegate()Landroid/support/v7/app/AppCompatDelegate;
 
     move-result-object v0
@@ -47,28 +56,35 @@
 
     invoke-virtual {v0, v1}, Landroid/support/v7/app/AppCompatDelegate;->onCreate(Landroid/os/Bundle;)V
 
-    .line 55
+    .line 66
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatDialog;->getDelegate()Landroid/support/v7/app/AppCompatDelegate;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/support/v7/app/AppCompatDelegate;->applyDayNight()Z
 
-    .line 56
+    .line 67
     return-void
 .end method
 
 .method protected constructor <init>(Landroid/content/Context;ZLandroid/content/DialogInterface$OnCancelListener;)V
-    .locals 0
+    .locals 1
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "cancelable"    # Z
     .param p3, "cancelListener"    # Landroid/content/DialogInterface$OnCancelListener;
 
     .prologue
-    .line 60
+    .line 71
     invoke-direct {p0, p1, p2, p3}, Landroid/app/Dialog;-><init>(Landroid/content/Context;ZLandroid/content/DialogInterface$OnCancelListener;)V
 
-    .line 61
+    .line 45
+    new-instance v0, Landroid/support/v7/app/AppCompatDialog$1;
+
+    invoke-direct {v0, p0}, Landroid/support/v7/app/AppCompatDialog$1;-><init>(Landroid/support/v7/app/AppCompatDialog;)V
+
+    iput-object v0, p0, Landroid/support/v7/app/AppCompatDialog;->mKeyDispatcher:Landroid/support/v4/view/KeyEventDispatcher$Component;
+
+    .line 72
     return-void
 .end method
 
@@ -78,15 +94,15 @@
     .param p1, "themeId"    # I
 
     .prologue
-    .line 162
+    .line 175
     if-nez p1, :cond_0
 
-    .line 164
+    .line 177
     new-instance v0, Landroid/util/TypedValue;
 
     invoke-direct {v0}, Landroid/util/TypedValue;-><init>()V
 
-    .line 165
+    .line 178
     .local v0, "outValue":Landroid/util/TypedValue;
     invoke-virtual {p0}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
@@ -98,10 +114,10 @@
 
     invoke-virtual {v1, v2, v0, v3}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
 
-    .line 166
+    .line 179
     iget p1, v0, Landroid/util/TypedValue;->resourceId:I
 
-    .line 168
+    .line 181
     .end local v0    # "outValue":Landroid/util/TypedValue;
     :cond_0
     return p1
@@ -115,15 +131,40 @@
     .param p2, "params"    # Landroid/view/ViewGroup$LayoutParams;
 
     .prologue
-    .line 116
+    .line 128
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatDialog;->getDelegate()Landroid/support/v7/app/AppCompatDelegate;
 
     move-result-object v0
 
     invoke-virtual {v0, p1, p2}, Landroid/support/v7/app/AppCompatDelegate;->addContentView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 117
+    .line 129
     return-void
+.end method
+
+.method public dispatchKeyEvent(Landroid/view/KeyEvent;)Z
+    .locals 2
+    .param p1, "event"    # Landroid/view/KeyEvent;
+
+    .prologue
+    .line 205
+    invoke-virtual {p0}, Landroid/support/v7/app/AppCompatDialog;->getWindow()Landroid/view/Window;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/view/Window;->getDecorView()Landroid/view/View;
+
+    move-result-object v0
+
+    .line 206
+    .local v0, "decor":Landroid/view/View;
+    iget-object v1, p0, Landroid/support/v7/app/AppCompatDialog;->mKeyDispatcher:Landroid/support/v4/view/KeyEventDispatcher$Component;
+
+    invoke-static {v1, v0, p0, p1}, Landroid/support/v4/view/KeyEventDispatcher;->dispatchKeyEvent(Landroid/support/v4/view/KeyEventDispatcher$Component;Landroid/view/View;Landroid/view/Window$Callback;Landroid/view/KeyEvent;)Z
+
+    move-result v1
+
+    return v1
 .end method
 
 .method public findViewById(I)Landroid/view/View;
@@ -135,8 +176,16 @@
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T:",
+            "Landroid/view/View;",
+            ">(I)TT;"
+        }
+    .end annotation
+
     .prologue
-    .line 99
+    .line 111
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatDialog;->getDelegate()Landroid/support/v7/app/AppCompatDelegate;
 
     move-result-object v0
@@ -152,19 +201,19 @@
     .locals 1
 
     .prologue
-    .line 155
+    .line 168
     iget-object v0, p0, Landroid/support/v7/app/AppCompatDialog;->mDelegate:Landroid/support/v7/app/AppCompatDelegate;
 
     if-nez v0, :cond_0
 
-    .line 156
+    .line 169
     invoke-static {p0, p0}, Landroid/support/v7/app/AppCompatDelegate;->create(Landroid/app/Dialog;Landroid/support/v7/app/AppCompatCallback;)Landroid/support/v7/app/AppCompatDelegate;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/support/v7/app/AppCompatDialog;->mDelegate:Landroid/support/v7/app/AppCompatDelegate;
 
-    .line 158
+    .line 171
     :cond_0
     iget-object v0, p0, Landroid/support/v7/app/AppCompatDialog;->mDelegate:Landroid/support/v7/app/AppCompatDelegate;
 
@@ -175,7 +224,7 @@
     .locals 1
 
     .prologue
-    .line 78
+    .line 89
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatDialog;->getDelegate()Landroid/support/v7/app/AppCompatDelegate;
 
     move-result-object v0
@@ -196,14 +245,14 @@
     .end annotation
 
     .prologue
-    .line 148
+    .line 161
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatDialog;->getDelegate()Landroid/support/v7/app/AppCompatDelegate;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/support/v7/app/AppCompatDelegate;->invalidateOptionsMenu()V
 
-    .line 149
+    .line 162
     return-void
 .end method
 
@@ -212,24 +261,24 @@
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
-    .line 65
+    .line 76
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatDialog;->getDelegate()Landroid/support/v7/app/AppCompatDelegate;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/support/v7/app/AppCompatDelegate;->installViewFactory()V
 
-    .line 66
+    .line 77
     invoke-super {p0, p1}, Landroid/app/Dialog;->onCreate(Landroid/os/Bundle;)V
 
-    .line 67
+    .line 78
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatDialog;->getDelegate()Landroid/support/v7/app/AppCompatDelegate;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Landroid/support/v7/app/AppCompatDelegate;->onCreate(Landroid/os/Bundle;)V
 
-    .line 68
+    .line 79
     return-void
 .end method
 
@@ -237,17 +286,17 @@
     .locals 1
 
     .prologue
-    .line 121
+    .line 133
     invoke-super {p0}, Landroid/app/Dialog;->onStop()V
 
-    .line 122
+    .line 134
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatDialog;->getDelegate()Landroid/support/v7/app/AppCompatDelegate;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/support/v7/app/AppCompatDelegate;->onStop()V
 
-    .line 123
+    .line 135
     return-void
 .end method
 
@@ -256,7 +305,7 @@
     .param p1, "mode"    # Landroid/support/v7/view/ActionMode;
 
     .prologue
-    .line 177
+    .line 190
     return-void
 .end method
 
@@ -265,7 +314,7 @@
     .param p1, "mode"    # Landroid/support/v7/view/ActionMode;
 
     .prologue
-    .line 173
+    .line 186
     return-void
 .end method
 
@@ -276,7 +325,7 @@
     .end annotation
 
     .prologue
-    .line 182
+    .line 195
     const/4 v0, 0x0
 
     return-object v0
@@ -290,14 +339,14 @@
     .end param
 
     .prologue
-    .line 83
+    .line 94
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatDialog;->getDelegate()Landroid/support/v7/app/AppCompatDelegate;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Landroid/support/v7/app/AppCompatDelegate;->setContentView(I)V
 
-    .line 84
+    .line 95
     return-void
 .end method
 
@@ -306,14 +355,14 @@
     .param p1, "view"    # Landroid/view/View;
 
     .prologue
-    .line 88
+    .line 99
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatDialog;->getDelegate()Landroid/support/v7/app/AppCompatDelegate;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Landroid/support/v7/app/AppCompatDelegate;->setContentView(Landroid/view/View;)V
 
-    .line 89
+    .line 100
     return-void
 .end method
 
@@ -323,14 +372,14 @@
     .param p2, "params"    # Landroid/view/ViewGroup$LayoutParams;
 
     .prologue
-    .line 93
+    .line 104
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatDialog;->getDelegate()Landroid/support/v7/app/AppCompatDelegate;
 
     move-result-object v0
 
     invoke-virtual {v0, p1, p2}, Landroid/support/v7/app/AppCompatDelegate;->setContentView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 94
+    .line 105
     return-void
 .end method
 
@@ -339,10 +388,10 @@
     .param p1, "titleId"    # I
 
     .prologue
-    .line 110
+    .line 122
     invoke-super {p0, p1}, Landroid/app/Dialog;->setTitle(I)V
 
-    .line 111
+    .line 123
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatDialog;->getDelegate()Landroid/support/v7/app/AppCompatDelegate;
 
     move-result-object v0
@@ -357,7 +406,7 @@
 
     invoke-virtual {v0, v1}, Landroid/support/v7/app/AppCompatDelegate;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 112
+    .line 124
     return-void
 .end method
 
@@ -366,18 +415,31 @@
     .param p1, "title"    # Ljava/lang/CharSequence;
 
     .prologue
-    .line 104
+    .line 116
     invoke-super {p0, p1}, Landroid/app/Dialog;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 105
+    .line 117
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatDialog;->getDelegate()Landroid/support/v7/app/AppCompatDelegate;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Landroid/support/v7/app/AppCompatDelegate;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 106
+    .line 118
     return-void
+.end method
+
+.method superDispatchKeyEvent(Landroid/view/KeyEvent;)Z
+    .locals 1
+    .param p1, "event"    # Landroid/view/KeyEvent;
+
+    .prologue
+    .line 200
+    invoke-super {p0, p1}, Landroid/app/Dialog;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public supportRequestWindowFeature(I)Z
@@ -385,7 +447,7 @@
     .param p1, "featureId"    # I
 
     .prologue
-    .line 140
+    .line 152
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatDialog;->getDelegate()Landroid/support/v7/app/AppCompatDelegate;
 
     move-result-object v0

@@ -26,6 +26,8 @@
     <color name="dim_foreground_disabled_material_light">#80323232</color>
     <color name="dim_foreground_material_dark">#ffbebebe</color>
     <color name="dim_foreground_material_light">#ff323232</color>
+    <color name="error_color_material_dark">#ffff7043</color>
+    <color name="error_color_material_light">#ffff5722</color>
     <color name="foreground_material_dark">@android:color/white</color>
     <color name="foreground_material_light">@android:color/black</color>
     <color name="highlighted_text_material_dark">#6680cbc4</color>
@@ -43,7 +45,6 @@
     <color name="material_grey_850">#ff303030</color>
     <color name="material_grey_900">#ff212121</color>
     <color name="notification_icon_bg_color">#ff9e9e9e</color>
-    <color name="notification_material_background_media_default_color">#ff424242</color>
     <color name="primary_dark_material_dark">@android:color/black</color>
     <color name="primary_dark_material_light">@color/material_grey_600</color>
     <color name="primary_material_dark">@color/material_grey_900</color>
@@ -62,4 +63,6 @@
     <color name="switch_thumb_disabled_material_light">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
+    <color name="tooltip_background_dark">#e6616161</color>
+    <color name="tooltip_background_light">#e6ffffff</color>
 </resources>

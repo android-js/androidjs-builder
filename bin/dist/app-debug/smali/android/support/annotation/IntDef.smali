@@ -29,5 +29,5 @@
 .method public abstract flag()Z
 .end method
 
-.method public abstract value()[J
+.method public abstract value()[I
 .end method

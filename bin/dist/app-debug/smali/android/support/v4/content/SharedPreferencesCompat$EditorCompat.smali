@@ -19,6 +19,9 @@
     }
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # static fields
 .field private static sInstance:Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat;
@@ -33,37 +36,39 @@
     .locals 1
 
     .prologue
-    .line 46
+    .line 57
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 47
+    .line 58
     new-instance v0, Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat$Helper;
 
     invoke-direct {v0}, Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat$Helper;-><init>()V
 
     iput-object v0, p0, Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat;->mHelper:Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat$Helper;
 
-    .line 48
+    .line 59
     return-void
 .end method
 
 .method public static getInstance()Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat;
     .locals 1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     .prologue
-    .line 51
+    .line 66
     sget-object v0, Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat;->sInstance:Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat;
 
     if-nez v0, :cond_0
 
-    .line 52
+    .line 67
     new-instance v0, Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat;
 
     invoke-direct {v0}, Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat;-><init>()V
 
     sput-object v0, Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat;->sInstance:Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat;
 
-    .line 54
+    .line 69
     :cond_0
     sget-object v0, Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat;->sInstance:Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat;
 
@@ -78,13 +83,15 @@
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     .prologue
-    .line 61
+    .line 80
     iget-object v0, p0, Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat;->mHelper:Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat$Helper;
 
     invoke-virtual {v0, p1}, Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat$Helper;->apply(Landroid/content/SharedPreferences$Editor;)V
 
-    .line 62
+    .line 81
     return-void
 .end method

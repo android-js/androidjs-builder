@@ -28,16 +28,16 @@
     .param p3, "inner"    # Landroid/view/ActionProvider;
 
     .prologue
-    .line 351
+    .line 422
     iput-object p1, p0, Landroid/support/v7/view/menu/MenuItemWrapperICS$ActionProviderWrapper;->this$0:Landroid/support/v7/view/menu/MenuItemWrapperICS;
 
-    .line 352
+    .line 423
     invoke-direct {p0, p2}, Landroid/support/v4/view/ActionProvider;-><init>(Landroid/content/Context;)V
 
-    .line 353
+    .line 424
     iput-object p3, p0, Landroid/support/v7/view/menu/MenuItemWrapperICS$ActionProviderWrapper;->mInner:Landroid/view/ActionProvider;
 
-    .line 354
+    .line 425
     return-void
 .end method
 
@@ -47,7 +47,7 @@
     .locals 1
 
     .prologue
-    .line 368
+    .line 439
     iget-object v0, p0, Landroid/support/v7/view/menu/MenuItemWrapperICS$ActionProviderWrapper;->mInner:Landroid/view/ActionProvider;
 
     invoke-virtual {v0}, Landroid/view/ActionProvider;->hasSubMenu()Z
@@ -61,7 +61,7 @@
     .locals 1
 
     .prologue
-    .line 358
+    .line 429
     iget-object v0, p0, Landroid/support/v7/view/menu/MenuItemWrapperICS$ActionProviderWrapper;->mInner:Landroid/view/ActionProvider;
 
     invoke-virtual {v0}, Landroid/view/ActionProvider;->onCreateActionView()Landroid/view/View;
@@ -75,7 +75,7 @@
     .locals 1
 
     .prologue
-    .line 363
+    .line 434
     iget-object v0, p0, Landroid/support/v7/view/menu/MenuItemWrapperICS$ActionProviderWrapper;->mInner:Landroid/view/ActionProvider;
 
     invoke-virtual {v0}, Landroid/view/ActionProvider;->onPerformDefaultAction()Z
@@ -90,7 +90,7 @@
     .param p1, "subMenu"    # Landroid/view/SubMenu;
 
     .prologue
-    .line 373
+    .line 444
     iget-object v0, p0, Landroid/support/v7/view/menu/MenuItemWrapperICS$ActionProviderWrapper;->mInner:Landroid/view/ActionProvider;
 
     iget-object v1, p0, Landroid/support/v7/view/menu/MenuItemWrapperICS$ActionProviderWrapper;->this$0:Landroid/support/v7/view/menu/MenuItemWrapperICS;
@@ -101,6 +101,6 @@
 
     invoke-virtual {v0, v1}, Landroid/view/ActionProvider;->onPrepareSubMenu(Landroid/view/SubMenu;)V
 
-    .line 374
+    .line 445
     return-void
 .end method

@@ -4,10 +4,6 @@
 
 
 # annotations
-.annotation build Landroid/annotation/TargetApi;
-    value = 0x15
-.end annotation
-
 .annotation build Landroid/support/annotation/RequiresApi;
     value = 0x15
 .end annotation
@@ -20,10 +16,10 @@
     .param p2, "bitmap"    # Landroid/graphics/Bitmap;
 
     .prologue
-    .line 32
+    .line 31
     invoke-direct {p0, p1, p2}, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
 
-    .line 33
+    .line 32
     return-void
 .end method
 
@@ -34,10 +30,10 @@
     .param p1, "outline"    # Landroid/graphics/Outline;
 
     .prologue
-    .line 37
+    .line 36
     invoke-virtual {p0}, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable21;->updateDstRect()V
 
-    .line 38
+    .line 37
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable21;->mDstRect:Landroid/graphics/Rect;
 
     invoke-virtual {p0}, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable21;->getCornerRadius()F
@@ -46,7 +42,7 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/graphics/Outline;->setRoundRect(Landroid/graphics/Rect;F)V
 
-    .line 39
+    .line 38
     return-void
 .end method
 
@@ -59,7 +55,7 @@
     .param p5, "outRect"    # Landroid/graphics/Rect;
 
     .prologue
-    .line 57
+    .line 56
     const/4 v5, 0x0
 
     move v0, p1
@@ -74,7 +70,7 @@
 
     invoke-static/range {v0 .. v5}, Landroid/view/Gravity;->apply(IIILandroid/graphics/Rect;Landroid/graphics/Rect;I)V
 
-    .line 59
+    .line 58
     return-void
 .end method
 
@@ -82,7 +78,7 @@
     .locals 1
 
     .prologue
-    .line 51
+    .line 50
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable21;->mBitmap:Landroid/graphics/Bitmap;
 
     if-eqz v0, :cond_0
@@ -111,20 +107,20 @@
     .param p1, "mipMap"    # Z
 
     .prologue
-    .line 43
+    .line 42
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable21;->mBitmap:Landroid/graphics/Bitmap;
 
     if-eqz v0, :cond_0
 
-    .line 44
+    .line 43
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable21;->mBitmap:Landroid/graphics/Bitmap;
 
     invoke-virtual {v0, p1}, Landroid/graphics/Bitmap;->setHasMipMap(Z)V
 
-    .line 45
+    .line 44
     invoke-virtual {p0}, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable21;->invalidateSelf()V
 
-    .line 47
+    .line 46
     :cond_0
     return-void
 .end method

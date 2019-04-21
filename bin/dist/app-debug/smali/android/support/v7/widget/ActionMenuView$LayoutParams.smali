@@ -50,15 +50,15 @@
     .param p2, "height"    # I
 
     .prologue
-    .line 841
+    .line 846
     invoke-direct {p0, p1, p2}, Landroid/support/v7/widget/LinearLayoutCompat$LayoutParams;-><init>(II)V
 
-    .line 842
+    .line 847
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/support/v7/widget/ActionMenuView$LayoutParams;->isOverflowButton:Z
 
-    .line 843
+    .line 848
     return-void
 .end method
 
@@ -69,13 +69,13 @@
     .param p3, "isOverflowButton"    # Z
 
     .prologue
-    .line 846
+    .line 851
     invoke-direct {p0, p1, p2}, Landroid/support/v7/widget/LinearLayoutCompat$LayoutParams;-><init>(II)V
 
-    .line 847
+    .line 852
     iput-boolean p3, p0, Landroid/support/v7/widget/ActionMenuView$LayoutParams;->isOverflowButton:Z
 
-    .line 848
+    .line 853
     return-void
 .end method
 
@@ -85,10 +85,10 @@
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
-    .line 828
+    .line 833
     invoke-direct {p0, p1, p2}, Landroid/support/v7/widget/LinearLayoutCompat$LayoutParams;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 829
+    .line 834
     return-void
 .end method
 
@@ -97,15 +97,15 @@
     .param p1, "other"    # Landroid/support/v7/widget/ActionMenuView$LayoutParams;
 
     .prologue
-    .line 836
+    .line 841
     invoke-direct {p0, p1}, Landroid/support/v7/widget/LinearLayoutCompat$LayoutParams;-><init>(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 837
+    .line 842
     iget-boolean v0, p1, Landroid/support/v7/widget/ActionMenuView$LayoutParams;->isOverflowButton:Z
 
     iput-boolean v0, p0, Landroid/support/v7/widget/ActionMenuView$LayoutParams;->isOverflowButton:Z
 
-    .line 838
+    .line 843
     return-void
 .end method
 
@@ -114,9 +114,9 @@
     .param p1, "other"    # Landroid/view/ViewGroup$LayoutParams;
 
     .prologue
-    .line 832
+    .line 837
     invoke-direct {p0, p1}, Landroid/support/v7/widget/LinearLayoutCompat$LayoutParams;-><init>(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 833
+    .line 838
     return-void
 .end method

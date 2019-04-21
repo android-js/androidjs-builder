@@ -24,10 +24,10 @@
     .param p1, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 36
+    .line 37
     invoke-direct {p0, p1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
-    .line 37
+    .line 38
     return-void
 .end method
 
@@ -37,10 +37,10 @@
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
-    .line 40
+    .line 41
     invoke-direct {p0, p1, p2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 41
+    .line 42
     return-void
 .end method
 
@@ -51,17 +51,17 @@
     .param p1, "insets"    # Landroid/graphics/Rect;
 
     .prologue
-    .line 50
+    .line 51
     iget-object v0, p0, Landroid/support/v7/widget/FitWindowsLinearLayout;->mListener:Landroid/support/v7/widget/FitWindowsViewGroup$OnFitSystemWindowsListener;
 
     if-eqz v0, :cond_0
 
-    .line 51
+    .line 52
     iget-object v0, p0, Landroid/support/v7/widget/FitWindowsLinearLayout;->mListener:Landroid/support/v7/widget/FitWindowsViewGroup$OnFitSystemWindowsListener;
 
     invoke-interface {v0, p1}, Landroid/support/v7/widget/FitWindowsViewGroup$OnFitSystemWindowsListener;->onFitSystemWindows(Landroid/graphics/Rect;)V
 
-    .line 53
+    .line 54
     :cond_0
     invoke-super {p0, p1}, Landroid/widget/LinearLayout;->fitSystemWindows(Landroid/graphics/Rect;)Z
 
@@ -75,9 +75,9 @@
     .param p1, "listener"    # Landroid/support/v7/widget/FitWindowsViewGroup$OnFitSystemWindowsListener;
 
     .prologue
-    .line 45
+    .line 46
     iput-object p1, p0, Landroid/support/v7/widget/FitWindowsLinearLayout;->mListener:Landroid/support/v7/widget/FitWindowsViewGroup$OnFitSystemWindowsListener;
 
-    .line 46
+    .line 47
     return-void
 .end method

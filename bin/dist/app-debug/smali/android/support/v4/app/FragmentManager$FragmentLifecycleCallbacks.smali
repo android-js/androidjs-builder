@@ -19,7 +19,7 @@
     .locals 0
 
     .prologue
-    .line 411
+    .line 466
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,136 +30,255 @@
 .method public onFragmentActivityCreated(Landroid/support/v4/app/FragmentManager;Landroid/support/v4/app/Fragment;Landroid/os/Bundle;)V
     .locals 0
     .param p1, "fm"    # Landroid/support/v4/app/FragmentManager;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .param p2, "f"    # Landroid/support/v4/app/Fragment;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .param p3, "savedInstanceState"    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .prologue
-    .line 454
+    .line 524
     return-void
 .end method
 
 .method public onFragmentAttached(Landroid/support/v4/app/FragmentManager;Landroid/support/v4/app/Fragment;Landroid/content/Context;)V
     .locals 0
     .param p1, "fm"    # Landroid/support/v4/app/FragmentManager;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .param p2, "f"    # Landroid/support/v4/app/Fragment;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .param p3, "context"    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .prologue
-    .line 431
+    .line 488
     return-void
 .end method
 
 .method public onFragmentCreated(Landroid/support/v4/app/FragmentManager;Landroid/support/v4/app/Fragment;Landroid/os/Bundle;)V
     .locals 0
     .param p1, "fm"    # Landroid/support/v4/app/FragmentManager;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .param p2, "f"    # Landroid/support/v4/app/Fragment;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .param p3, "savedInstanceState"    # Landroid/os/Bundle;
-
-    .prologue
-    .line 442
-    return-void
-.end method
-
-.method public onFragmentDestroyed(Landroid/support/v4/app/FragmentManager;Landroid/support/v4/app/Fragment;)V
-    .locals 0
-    .param p1, "fm"    # Landroid/support/v4/app/FragmentManager;
-    .param p2, "f"    # Landroid/support/v4/app/Fragment;
-
-    .prologue
-    .line 530
-    return-void
-.end method
-
-.method public onFragmentDetached(Landroid/support/v4/app/FragmentManager;Landroid/support/v4/app/Fragment;)V
-    .locals 0
-    .param p1, "fm"    # Landroid/support/v4/app/FragmentManager;
-    .param p2, "f"    # Landroid/support/v4/app/Fragment;
-
-    .prologue
-    .line 539
-    return-void
-.end method
-
-.method public onFragmentPaused(Landroid/support/v4/app/FragmentManager;Landroid/support/v4/app/Fragment;)V
-    .locals 0
-    .param p1, "fm"    # Landroid/support/v4/app/FragmentManager;
-    .param p2, "f"    # Landroid/support/v4/app/Fragment;
-
-    .prologue
-    .line 493
-    return-void
-.end method
-
-.method public onFragmentPreAttached(Landroid/support/v4/app/FragmentManager;Landroid/support/v4/app/Fragment;Landroid/content/Context;)V
-    .locals 0
-    .param p1, "fm"    # Landroid/support/v4/app/FragmentManager;
-    .param p2, "f"    # Landroid/support/v4/app/Fragment;
-    .param p3, "context"    # Landroid/content/Context;
-
-    .prologue
-    .line 421
-    return-void
-.end method
-
-.method public onFragmentResumed(Landroid/support/v4/app/FragmentManager;Landroid/support/v4/app/Fragment;)V
-    .locals 0
-    .param p1, "fm"    # Landroid/support/v4/app/FragmentManager;
-    .param p2, "f"    # Landroid/support/v4/app/Fragment;
-
-    .prologue
-    .line 484
-    return-void
-.end method
-
-.method public onFragmentSaveInstanceState(Landroid/support/v4/app/FragmentManager;Landroid/support/v4/app/Fragment;Landroid/os/Bundle;)V
-    .locals 0
-    .param p1, "fm"    # Landroid/support/v4/app/FragmentManager;
-    .param p2, "f"    # Landroid/support/v4/app/Fragment;
-    .param p3, "outState"    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .prologue
     .line 512
     return-void
 .end method
 
+.method public onFragmentDestroyed(Landroid/support/v4/app/FragmentManager;Landroid/support/v4/app/Fragment;)V
+    .locals 0
+    .param p1, "fm"    # Landroid/support/v4/app/FragmentManager;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2, "f"    # Landroid/support/v4/app/Fragment;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    .prologue
+    .line 601
+    return-void
+.end method
+
+.method public onFragmentDetached(Landroid/support/v4/app/FragmentManager;Landroid/support/v4/app/Fragment;)V
+    .locals 0
+    .param p1, "fm"    # Landroid/support/v4/app/FragmentManager;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2, "f"    # Landroid/support/v4/app/Fragment;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    .prologue
+    .line 610
+    return-void
+.end method
+
+.method public onFragmentPaused(Landroid/support/v4/app/FragmentManager;Landroid/support/v4/app/Fragment;)V
+    .locals 0
+    .param p1, "fm"    # Landroid/support/v4/app/FragmentManager;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2, "f"    # Landroid/support/v4/app/Fragment;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    .prologue
+    .line 563
+    return-void
+.end method
+
+.method public onFragmentPreAttached(Landroid/support/v4/app/FragmentManager;Landroid/support/v4/app/Fragment;Landroid/content/Context;)V
+    .locals 0
+    .param p1, "fm"    # Landroid/support/v4/app/FragmentManager;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2, "f"    # Landroid/support/v4/app/Fragment;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p3, "context"    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    .prologue
+    .line 477
+    return-void
+.end method
+
+.method public onFragmentPreCreated(Landroid/support/v4/app/FragmentManager;Landroid/support/v4/app/Fragment;Landroid/os/Bundle;)V
+    .locals 0
+    .param p1, "fm"    # Landroid/support/v4/app/FragmentManager;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2, "f"    # Landroid/support/v4/app/Fragment;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p3, "savedInstanceState"    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+
+    .prologue
+    .line 500
+    return-void
+.end method
+
+.method public onFragmentResumed(Landroid/support/v4/app/FragmentManager;Landroid/support/v4/app/Fragment;)V
+    .locals 0
+    .param p1, "fm"    # Landroid/support/v4/app/FragmentManager;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2, "f"    # Landroid/support/v4/app/Fragment;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    .prologue
+    .line 554
+    return-void
+.end method
+
+.method public onFragmentSaveInstanceState(Landroid/support/v4/app/FragmentManager;Landroid/support/v4/app/Fragment;Landroid/os/Bundle;)V
+    .locals 0
+    .param p1, "fm"    # Landroid/support/v4/app/FragmentManager;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2, "f"    # Landroid/support/v4/app/Fragment;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p3, "outState"    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    .prologue
+    .line 583
+    return-void
+.end method
+
 .method public onFragmentStarted(Landroid/support/v4/app/FragmentManager;Landroid/support/v4/app/Fragment;)V
     .locals 0
     .param p1, "fm"    # Landroid/support/v4/app/FragmentManager;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .param p2, "f"    # Landroid/support/v4/app/Fragment;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .prologue
-    .line 475
+    .line 545
     return-void
 .end method
 
 .method public onFragmentStopped(Landroid/support/v4/app/FragmentManager;Landroid/support/v4/app/Fragment;)V
     .locals 0
     .param p1, "fm"    # Landroid/support/v4/app/FragmentManager;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .param p2, "f"    # Landroid/support/v4/app/Fragment;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .prologue
-    .line 502
+    .line 572
     return-void
 .end method
 
 .method public onFragmentViewCreated(Landroid/support/v4/app/FragmentManager;Landroid/support/v4/app/Fragment;Landroid/view/View;Landroid/os/Bundle;)V
     .locals 0
     .param p1, "fm"    # Landroid/support/v4/app/FragmentManager;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .param p2, "f"    # Landroid/support/v4/app/Fragment;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .param p3, "v"    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .param p4, "savedInstanceState"    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .prologue
-    .line 466
+    .line 536
     return-void
 .end method
 
 .method public onFragmentViewDestroyed(Landroid/support/v4/app/FragmentManager;Landroid/support/v4/app/Fragment;)V
     .locals 0
     .param p1, "fm"    # Landroid/support/v4/app/FragmentManager;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .param p2, "f"    # Landroid/support/v4/app/Fragment;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .prologue
-    .line 521
+    .line 592
     return-void
 .end method

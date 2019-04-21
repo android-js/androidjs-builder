@@ -21,17 +21,13 @@
 
 .field public static final abc_config_actionMenuItemAllCaps:I = 0x7f090002
 
-.field public static final abc_config_closeDialogWhenTouchOutside:I = 0x7f090003
-
-.field public static final abc_config_showMenuShortcutsWhenKeyboardPresent:I = 0x7f090004
-
 
 # direct methods
 .method public constructor <init>()V
     .locals 0
 
     .prologue
-    .line 1995
+    .line 2553
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

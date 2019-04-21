@@ -24,7 +24,7 @@
     .param p1, "this$0"    # Landroid/support/v4/widget/SwipeRefreshLayout;
 
     .prologue
-    .line 1159
+    .line 1141
     iput-object p1, p0, Landroid/support/v4/widget/SwipeRefreshLayout$7;->this$0:Landroid/support/v4/widget/SwipeRefreshLayout;
 
     invoke-direct {p0}, Landroid/view/animation/Animation;-><init>()V
@@ -40,11 +40,11 @@
     .param p2, "t"    # Landroid/view/animation/Transformation;
 
     .prologue
-    .line 1162
+    .line 1144
     iget-object v0, p0, Landroid/support/v4/widget/SwipeRefreshLayout$7;->this$0:Landroid/support/v4/widget/SwipeRefreshLayout;
 
     invoke-virtual {v0, p1}, Landroid/support/v4/widget/SwipeRefreshLayout;->moveToStart(F)V
 
-    .line 1163
+    .line 1145
     return-void
 .end method

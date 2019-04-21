@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Landroid/support/v4/app/Fragment;
 
     .prologue
-    .line 2026
+    .line 2255
     iput-object p1, p0, Landroid/support/v4/app/Fragment$1;->this$0:Landroid/support/v4/app/Fragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,11 +41,11 @@
     .locals 1
 
     .prologue
-    .line 2029
+    .line 2258
     iget-object v0, p0, Landroid/support/v4/app/Fragment$1;->this$0:Landroid/support/v4/app/Fragment;
 
-    invoke-static {v0}, Landroid/support/v4/app/Fragment;->access$800(Landroid/support/v4/app/Fragment;)V
+    invoke-virtual {v0}, Landroid/support/v4/app/Fragment;->callStartTransitionListener()V
 
-    .line 2030
+    .line 2259
     return-void
 .end method

@@ -23,12 +23,12 @@
     .locals 0
 
     .prologue
-    .line 550
+    .line 522
     iput-object p1, p0, Landroid/support/v7/widget/ScrollingTabContainerView$TabAdapter;->this$0:Landroid/support/v7/widget/ScrollingTabContainerView;
 
     invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
 
-    .line 551
+    .line 523
     return-void
 .end method
 
@@ -38,7 +38,7 @@
     .locals 1
 
     .prologue
-    .line 555
+    .line 527
     iget-object v0, p0, Landroid/support/v7/widget/ScrollingTabContainerView$TabAdapter;->this$0:Landroid/support/v7/widget/ScrollingTabContainerView;
 
     iget-object v0, v0, Landroid/support/v7/widget/ScrollingTabContainerView;->mTabLayout:Landroid/support/v7/widget/LinearLayoutCompat;
@@ -55,7 +55,7 @@
     .param p1, "position"    # I
 
     .prologue
-    .line 560
+    .line 532
     iget-object v0, p0, Landroid/support/v7/widget/ScrollingTabContainerView$TabAdapter;->this$0:Landroid/support/v7/widget/ScrollingTabContainerView;
 
     iget-object v0, v0, Landroid/support/v7/widget/ScrollingTabContainerView;->mTabLayout:Landroid/support/v7/widget/LinearLayoutCompat;
@@ -78,7 +78,7 @@
     .param p1, "position"    # I
 
     .prologue
-    .line 565
+    .line 537
     int-to-long v0, p1
 
     return-wide v0
@@ -91,10 +91,10 @@
     .param p3, "parent"    # Landroid/view/ViewGroup;
 
     .prologue
-    .line 570
+    .line 542
     if-nez p2, :cond_0
 
-    .line 571
+    .line 543
     iget-object v1, p0, Landroid/support/v7/widget/ScrollingTabContainerView$TabAdapter;->this$0:Landroid/support/v7/widget/ScrollingTabContainerView;
 
     invoke-virtual {p0, p1}, Landroid/support/v7/widget/ScrollingTabContainerView$TabAdapter;->getItem(I)Ljava/lang/Object;
@@ -109,14 +109,14 @@
 
     move-result-object p2
 
-    .line 575
+    .line 547
     :goto_0
     return-object p2
 
     :cond_0
     move-object v0, p2
 
-    .line 573
+    .line 545
     check-cast v0, Landroid/support/v7/widget/ScrollingTabContainerView$TabView;
 
     invoke-virtual {p0, p1}, Landroid/support/v7/widget/ScrollingTabContainerView$TabAdapter;->getItem(I)Ljava/lang/Object;

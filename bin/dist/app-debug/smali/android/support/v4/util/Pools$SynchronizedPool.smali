@@ -34,18 +34,18 @@
     .param p1, "maxPoolSize"    # I
 
     .prologue
-    .line 149
+    .line 153
     .local p0, "this":Landroid/support/v4/util/Pools$SynchronizedPool;, "Landroid/support/v4/util/Pools$SynchronizedPool<TT;>;"
     invoke-direct {p0, p1}, Landroid/support/v4/util/Pools$SimplePool;-><init>(I)V
 
-    .line 139
+    .line 143
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Landroid/support/v4/util/Pools$SynchronizedPool;->mLock:Ljava/lang/Object;
 
-    .line 150
+    .line 154
     return-void
 .end method
 
@@ -60,13 +60,13 @@
     .end annotation
 
     .prologue
-    .line 154
+    .line 158
     .local p0, "this":Landroid/support/v4/util/Pools$SynchronizedPool;, "Landroid/support/v4/util/Pools$SynchronizedPool<TT;>;"
     iget-object v1, p0, Landroid/support/v4/util/Pools$SynchronizedPool;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 155
+    .line 159
     :try_start_0
     invoke-super {p0}, Landroid/support/v4/util/Pools$SimplePool;->acquire()Ljava/lang/Object;
 
@@ -76,7 +76,7 @@
 
     return-object v0
 
-    .line 156
+    .line 160
     :catchall_0
     move-exception v0
 
@@ -89,6 +89,10 @@
 
 .method public release(Ljava/lang/Object;)Z
     .locals 2
+    .param p1    # Ljava/lang/Object;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)Z"
@@ -96,14 +100,14 @@
     .end annotation
 
     .prologue
-    .line 161
+    .line 165
     .local p0, "this":Landroid/support/v4/util/Pools$SynchronizedPool;, "Landroid/support/v4/util/Pools$SynchronizedPool<TT;>;"
     .local p1, "element":Ljava/lang/Object;, "TT;"
     iget-object v1, p0, Landroid/support/v4/util/Pools$SynchronizedPool;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 162
+    .line 166
     :try_start_0
     invoke-super {p0, p1}, Landroid/support/v4/util/Pools$SimplePool;->release(Ljava/lang/Object;)Z
 
@@ -113,7 +117,7 @@
 
     return v0
 
-    .line 163
+    .line 167
     :catchall_0
     move-exception v0
 

@@ -61,7 +61,7 @@
 
 
 # instance fields
-.field private final mCancelled:Ljava/util/concurrent/atomic/AtomicBoolean;
+.field final mCancelled:Ljava/util/concurrent/atomic/AtomicBoolean;
 
 .field private final mFuture:Ljava/util/concurrent/FutureTask;
     .annotation system Ldalvik/annotation/Signature;
@@ -74,7 +74,7 @@
 
 .field private volatile mStatus:Landroid/support/v4/content/ModernAsyncTask$Status;
 
-.field private final mTaskInvoked:Ljava/util/concurrent/atomic/AtomicBoolean;
+.field final mTaskInvoked:Ljava/util/concurrent/atomic/AtomicBoolean;
 
 .field private final mWorker:Landroid/support/v4/content/ModernAsyncTask$WorkerRunnable;
     .annotation system Ldalvik/annotation/Signature;
@@ -91,14 +91,14 @@
     .locals 9
 
     .prologue
-    .line 59
+    .line 60
     new-instance v0, Landroid/support/v4/content/ModernAsyncTask$1;
 
     invoke-direct {v0}, Landroid/support/v4/content/ModernAsyncTask$1;-><init>()V
 
     sput-object v0, Landroid/support/v4/content/ModernAsyncTask;->sThreadFactory:Ljava/util/concurrent/ThreadFactory;
 
-    .line 68
+    .line 69
     new-instance v0, Ljava/util/concurrent/LinkedBlockingQueue;
 
     const/16 v1, 0xa
@@ -107,7 +107,7 @@
 
     sput-object v0, Landroid/support/v4/content/ModernAsyncTask;->sPoolWorkQueue:Ljava/util/concurrent/BlockingQueue;
 
-    .line 74
+    .line 75
     new-instance v1, Ljava/util/concurrent/ThreadPoolExecutor;
 
     const/4 v2, 0x5
@@ -126,7 +126,7 @@
 
     sput-object v1, Landroid/support/v4/content/ModernAsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
 
-    .line 83
+    .line 84
     sget-object v0, Landroid/support/v4/content/ModernAsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
 
     sput-object v0, Landroid/support/v4/content/ModernAsyncTask;->sDefaultExecutor:Ljava/util/concurrent/Executor;
@@ -134,41 +134,41 @@
     return-void
 .end method
 
-.method public constructor <init>()V
+.method constructor <init>()V
     .locals 2
 
     .prologue
-    .line 129
+    .line 132
     .local p0, "this":Landroid/support/v4/content/ModernAsyncTask;, "Landroid/support/v4/content/ModernAsyncTask<TParams;TProgress;TResult;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 87
+    .line 88
     sget-object v0, Landroid/support/v4/content/ModernAsyncTask$Status;->PENDING:Landroid/support/v4/content/ModernAsyncTask$Status;
 
     iput-object v0, p0, Landroid/support/v4/content/ModernAsyncTask;->mStatus:Landroid/support/v4/content/ModernAsyncTask$Status;
-
-    .line 89
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicBoolean;
-
-    invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>()V
-
-    iput-object v0, p0, Landroid/support/v4/content/ModernAsyncTask;->mCancelled:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     .line 90
     new-instance v0, Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>()V
 
+    iput-object v0, p0, Landroid/support/v4/content/ModernAsyncTask;->mCancelled:Ljava/util/concurrent/atomic/AtomicBoolean;
+
+    .line 92
+    new-instance v0, Ljava/util/concurrent/atomic/AtomicBoolean;
+
+    invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>()V
+
     iput-object v0, p0, Landroid/support/v4/content/ModernAsyncTask;->mTaskInvoked:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    .line 130
+    .line 133
     new-instance v0, Landroid/support/v4/content/ModernAsyncTask$2;
 
     invoke-direct {v0, p0}, Landroid/support/v4/content/ModernAsyncTask$2;-><init>(Landroid/support/v4/content/ModernAsyncTask;)V
 
     iput-object v0, p0, Landroid/support/v4/content/ModernAsyncTask;->mWorker:Landroid/support/v4/content/ModernAsyncTask$WorkerRunnable;
 
-    .line 150
+    .line 153
     new-instance v0, Landroid/support/v4/content/ModernAsyncTask$3;
 
     iget-object v1, p0, Landroid/support/v4/content/ModernAsyncTask;->mWorker:Landroid/support/v4/content/ModernAsyncTask$WorkerRunnable;
@@ -177,30 +177,8 @@
 
     iput-object v0, p0, Landroid/support/v4/content/ModernAsyncTask;->mFuture:Ljava/util/concurrent/FutureTask;
 
-    .line 170
+    .line 173
     return-void
-.end method
-
-.method static synthetic access$000(Landroid/support/v4/content/ModernAsyncTask;)Ljava/util/concurrent/atomic/AtomicBoolean;
-    .locals 1
-    .param p0, "x0"    # Landroid/support/v4/content/ModernAsyncTask;
-
-    .prologue
-    .line 52
-    iget-object v0, p0, Landroid/support/v4/content/ModernAsyncTask;->mTaskInvoked:Ljava/util/concurrent/atomic/AtomicBoolean;
-
-    return-object v0
-.end method
-
-.method static synthetic access$100(Landroid/support/v4/content/ModernAsyncTask;)Ljava/util/concurrent/atomic/AtomicBoolean;
-    .locals 1
-    .param p0, "x0"    # Landroid/support/v4/content/ModernAsyncTask;
-
-    .prologue
-    .line 52
-    iget-object v0, p0, Landroid/support/v4/content/ModernAsyncTask;->mCancelled:Ljava/util/concurrent/atomic/AtomicBoolean;
-
-    return-object v0
 .end method
 
 .method public static execute(Ljava/lang/Runnable;)V
@@ -208,12 +186,12 @@
     .param p0, "runnable"    # Ljava/lang/Runnable;
 
     .prologue
-    .line 457
+    .line 462
     sget-object v0, Landroid/support/v4/content/ModernAsyncTask;->sDefaultExecutor:Ljava/util/concurrent/Executor;
 
     invoke-interface {v0, p0}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
-    .line 458
+    .line 463
     return-void
 .end method
 
@@ -221,25 +199,25 @@
     .locals 2
 
     .prologue
-    .line 112
+    .line 115
     const-class v1, Landroid/support/v4/content/ModernAsyncTask;
 
     monitor-enter v1
 
-    .line 113
+    .line 116
     :try_start_0
     sget-object v0, Landroid/support/v4/content/ModernAsyncTask;->sHandler:Landroid/support/v4/content/ModernAsyncTask$InternalHandler;
 
     if-nez v0, :cond_0
 
-    .line 114
+    .line 117
     new-instance v0, Landroid/support/v4/content/ModernAsyncTask$InternalHandler;
 
     invoke-direct {v0}, Landroid/support/v4/content/ModernAsyncTask$InternalHandler;-><init>()V
 
     sput-object v0, Landroid/support/v4/content/ModernAsyncTask;->sHandler:Landroid/support/v4/content/ModernAsyncTask$InternalHandler;
 
-    .line 116
+    .line 119
     :cond_0
     sget-object v0, Landroid/support/v4/content/ModernAsyncTask;->sHandler:Landroid/support/v4/content/ModernAsyncTask$InternalHandler;
 
@@ -247,7 +225,7 @@
 
     return-object v0
 
-    .line 117
+    .line 120
     :catchall_0
     move-exception v0
 
@@ -268,10 +246,10 @@
     .end annotation
 
     .prologue
-    .line 123
+    .line 126
     sput-object p0, Landroid/support/v4/content/ModernAsyncTask;->sDefaultExecutor:Ljava/util/concurrent/Executor;
 
-    .line 124
+    .line 127
     return-void
 .end method
 
@@ -282,7 +260,7 @@
     .param p1, "mayInterruptIfRunning"    # Z
 
     .prologue
-    .line 329
+    .line 332
     .local p0, "this":Landroid/support/v4/content/ModernAsyncTask;, "Landroid/support/v4/content/ModernAsyncTask<TParams;TProgress;TResult;>;"
     iget-object v0, p0, Landroid/support/v4/content/ModernAsyncTask;->mCancelled:Ljava/util/concurrent/atomic/AtomicBoolean;
 
@@ -290,7 +268,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    .line 330
+    .line 333
     iget-object v0, p0, Landroid/support/v4/content/ModernAsyncTask;->mFuture:Ljava/util/concurrent/FutureTask;
 
     invoke-virtual {v0, p1}, Ljava/util/concurrent/FutureTask;->cancel(Z)Z
@@ -319,7 +297,7 @@
     .end annotation
 
     .prologue
-    .line 395
+    .line 398
     .local p0, "this":Landroid/support/v4/content/ModernAsyncTask;, "Landroid/support/v4/content/ModernAsyncTask<TParams;TProgress;TResult;>;"
     .local p1, "params":[Ljava/lang/Object;, "[TParams;"
     sget-object v0, Landroid/support/v4/content/ModernAsyncTask;->sDefaultExecutor:Ljava/util/concurrent/Executor;
@@ -345,7 +323,7 @@
     .end annotation
 
     .prologue
-    .line 430
+    .line 433
     .local p0, "this":Landroid/support/v4/content/ModernAsyncTask;, "Landroid/support/v4/content/ModernAsyncTask<TParams;TProgress;TResult;>;"
     .local p2, "params":[Ljava/lang/Object;, "[TParams;"
     iget-object v0, p0, Landroid/support/v4/content/ModernAsyncTask;->mStatus:Landroid/support/v4/content/ModernAsyncTask$Status;
@@ -354,8 +332,8 @@
 
     if-eq v0, v1, :cond_0
 
-    .line 431
-    sget-object v0, Landroid/support/v4/content/ModernAsyncTask$4;->$SwitchMap$android$support$v4$content$ModernAsyncTask$Status:[I
+    .line 434
+    sget-object v0, Landroid/support/v4/content/ModernAsyncTask$4;->$SwitchMap$androidx$loader$content$ModernAsyncTask$Status:[I
 
     iget-object v1, p0, Landroid/support/v4/content/ModernAsyncTask;->mStatus:Landroid/support/v4/content/ModernAsyncTask$Status;
 
@@ -367,29 +345,16 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 442
-    :cond_0
-    sget-object v0, Landroid/support/v4/content/ModernAsyncTask$Status;->RUNNING:Landroid/support/v4/content/ModernAsyncTask$Status;
+    .line 443
+    new-instance v0, Ljava/lang/IllegalStateException;
 
-    iput-object v0, p0, Landroid/support/v4/content/ModernAsyncTask;->mStatus:Landroid/support/v4/content/ModernAsyncTask$Status;
+    const-string v1, "We should never reach this state"
 
-    .line 444
-    invoke-virtual {p0}, Landroid/support/v4/content/ModernAsyncTask;->onPreExecute()V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    .line 446
-    iget-object v0, p0, Landroid/support/v4/content/ModernAsyncTask;->mWorker:Landroid/support/v4/content/ModernAsyncTask$WorkerRunnable;
+    throw v0
 
-    iput-object p2, v0, Landroid/support/v4/content/ModernAsyncTask$WorkerRunnable;->mParams:[Ljava/lang/Object;
-
-    .line 447
-    iget-object v0, p0, Landroid/support/v4/content/ModernAsyncTask;->mFuture:Ljava/util/concurrent/FutureTask;
-
-    invoke-interface {p1, v0}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-
-    .line 449
-    return-object p0
-
-    .line 433
+    .line 436
     :pswitch_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
@@ -399,7 +364,7 @@
 
     throw v0
 
-    .line 436
+    .line 439
     :pswitch_1
     new-instance v0, Ljava/lang/IllegalStateException;
 
@@ -409,7 +374,29 @@
 
     throw v0
 
-    .line 431
+    .line 447
+    :cond_0
+    sget-object v0, Landroid/support/v4/content/ModernAsyncTask$Status;->RUNNING:Landroid/support/v4/content/ModernAsyncTask$Status;
+
+    iput-object v0, p0, Landroid/support/v4/content/ModernAsyncTask;->mStatus:Landroid/support/v4/content/ModernAsyncTask$Status;
+
+    .line 449
+    invoke-virtual {p0}, Landroid/support/v4/content/ModernAsyncTask;->onPreExecute()V
+
+    .line 451
+    iget-object v0, p0, Landroid/support/v4/content/ModernAsyncTask;->mWorker:Landroid/support/v4/content/ModernAsyncTask$WorkerRunnable;
+
+    iput-object p2, v0, Landroid/support/v4/content/ModernAsyncTask$WorkerRunnable;->mParams:[Ljava/lang/Object;
+
+    .line 452
+    iget-object v0, p0, Landroid/support/v4/content/ModernAsyncTask;->mFuture:Ljava/util/concurrent/FutureTask;
+
+    invoke-interface {p1, v0}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
+
+    .line 454
+    return-object p0
+
+    .line 434
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -426,7 +413,7 @@
     .end annotation
 
     .prologue
-    .line 482
+    .line 487
     .local p0, "this":Landroid/support/v4/content/ModernAsyncTask;, "Landroid/support/v4/content/ModernAsyncTask<TParams;TProgress;TResult;>;"
     .local p1, "result":Ljava/lang/Object;, "TResult;"
     invoke-virtual {p0}, Landroid/support/v4/content/ModernAsyncTask;->isCancelled()Z
@@ -435,19 +422,19 @@
 
     if-eqz v0, :cond_0
 
-    .line 483
+    .line 488
     invoke-virtual {p0, p1}, Landroid/support/v4/content/ModernAsyncTask;->onCancelled(Ljava/lang/Object;)V
 
-    .line 487
+    .line 492
     :goto_0
     sget-object v0, Landroid/support/v4/content/ModernAsyncTask$Status;->FINISHED:Landroid/support/v4/content/ModernAsyncTask$Status;
 
     iput-object v0, p0, Landroid/support/v4/content/ModernAsyncTask;->mStatus:Landroid/support/v4/content/ModernAsyncTask$Status;
 
-    .line 488
+    .line 493
     return-void
 
-    .line 485
+    .line 490
     :cond_0
     invoke-virtual {p0, p1}, Landroid/support/v4/content/ModernAsyncTask;->onPostExecute(Ljava/lang/Object;)V
 
@@ -470,7 +457,7 @@
     .end annotation
 
     .prologue
-    .line 345
+    .line 348
     .local p0, "this":Landroid/support/v4/content/ModernAsyncTask;, "Landroid/support/v4/content/ModernAsyncTask<TParams;TProgress;TResult;>;"
     iget-object v0, p0, Landroid/support/v4/content/ModernAsyncTask;->mFuture:Ljava/util/concurrent/FutureTask;
 
@@ -502,7 +489,7 @@
     .end annotation
 
     .prologue
-    .line 365
+    .line 368
     .local p0, "this":Landroid/support/v4/content/ModernAsyncTask;, "Landroid/support/v4/content/ModernAsyncTask<TParams;TProgress;TResult;>;"
     iget-object v0, p0, Landroid/support/v4/content/ModernAsyncTask;->mFuture:Ljava/util/concurrent/FutureTask;
 
@@ -517,7 +504,7 @@
     .locals 1
 
     .prologue
-    .line 192
+    .line 195
     .local p0, "this":Landroid/support/v4/content/ModernAsyncTask;, "Landroid/support/v4/content/ModernAsyncTask<TParams;TProgress;TResult;>;"
     iget-object v0, p0, Landroid/support/v4/content/ModernAsyncTask;->mStatus:Landroid/support/v4/content/ModernAsyncTask$Status;
 
@@ -528,7 +515,7 @@
     .locals 1
 
     .prologue
-    .line 296
+    .line 299
     .local p0, "this":Landroid/support/v4/content/ModernAsyncTask;, "Landroid/support/v4/content/ModernAsyncTask<TParams;TProgress;TResult;>;"
     iget-object v0, p0, Landroid/support/v4/content/ModernAsyncTask;->mCancelled:Ljava/util/concurrent/atomic/AtomicBoolean;
 
@@ -543,7 +530,7 @@
     .locals 0
 
     .prologue
-    .line 283
+    .line 286
     .local p0, "this":Landroid/support/v4/content/ModernAsyncTask;, "Landroid/support/v4/content/ModernAsyncTask<TParams;TProgress;TResult;>;"
     return-void
 .end method
@@ -557,12 +544,12 @@
     .end annotation
 
     .prologue
-    .line 267
+    .line 270
     .local p0, "this":Landroid/support/v4/content/ModernAsyncTask;, "Landroid/support/v4/content/ModernAsyncTask<TParams;TProgress;TResult;>;"
     .local p1, "result":Ljava/lang/Object;, "TResult;"
     invoke-virtual {p0}, Landroid/support/v4/content/ModernAsyncTask;->onCancelled()V
 
-    .line 268
+    .line 271
     return-void
 .end method
 
@@ -575,7 +562,7 @@
     .end annotation
 
     .prologue
-    .line 236
+    .line 239
     .local p0, "this":Landroid/support/v4/content/ModernAsyncTask;, "Landroid/support/v4/content/ModernAsyncTask<TParams;TProgress;TResult;>;"
     .local p1, "result":Ljava/lang/Object;, "TResult;"
     return-void
@@ -585,7 +572,7 @@
     .locals 0
 
     .prologue
-    .line 220
+    .line 223
     .local p0, "this":Landroid/support/v4/content/ModernAsyncTask;, "Landroid/support/v4/content/ModernAsyncTask<TParams;TProgress;TResult;>;"
     return-void
 .end method
@@ -599,7 +586,7 @@
     .end annotation
 
     .prologue
-    .line 249
+    .line 252
     .local p0, "this":Landroid/support/v4/content/ModernAsyncTask;, "Landroid/support/v4/content/ModernAsyncTask<TParams;TProgress;TResult;>;"
     .local p1, "values":[Ljava/lang/Object;, "[TProgress;"
     return-void
@@ -618,7 +605,7 @@
     .local p1, "result":Ljava/lang/Object;, "TResult;"
     const/4 v5, 0x1
 
-    .line 180
+    .line 183
     invoke-static {}, Landroid/support/v4/content/ModernAsyncTask;->getHandler()Landroid/os/Handler;
 
     move-result-object v1
@@ -637,11 +624,11 @@
 
     move-result-object v0
 
-    .line 182
+    .line 185
     .local v0, "message":Landroid/os/Message;
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 183
+    .line 186
     return-object p1
 .end method
 
@@ -654,7 +641,7 @@
     .end annotation
 
     .prologue
-    .line 173
+    .line 176
     .local p0, "this":Landroid/support/v4/content/ModernAsyncTask;, "Landroid/support/v4/content/ModernAsyncTask<TParams;TProgress;TResult;>;"
     .local p1, "result":Ljava/lang/Object;, "TResult;"
     iget-object v1, p0, Landroid/support/v4/content/ModernAsyncTask;->mTaskInvoked:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -663,14 +650,14 @@
 
     move-result v0
 
-    .line 174
+    .line 177
     .local v0, "wasTaskInvoked":Z
     if-nez v0, :cond_0
 
-    .line 175
+    .line 178
     invoke-virtual {p0, p1}, Landroid/support/v4/content/ModernAsyncTask;->postResult(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 177
+    .line 180
     :cond_0
     return-void
 .end method
@@ -684,7 +671,7 @@
     .end annotation
 
     .prologue
-    .line 475
+    .line 480
     .local p0, "this":Landroid/support/v4/content/ModernAsyncTask;, "Landroid/support/v4/content/ModernAsyncTask<TParams;TProgress;TResult;>;"
     .local p1, "values":[Ljava/lang/Object;, "[TProgress;"
     invoke-virtual {p0}, Landroid/support/v4/content/ModernAsyncTask;->isCancelled()Z
@@ -693,7 +680,7 @@
 
     if-nez v0, :cond_0
 
-    .line 476
+    .line 481
     invoke-static {}, Landroid/support/v4/content/ModernAsyncTask;->getHandler()Landroid/os/Handler;
 
     move-result-object v0
@@ -708,10 +695,10 @@
 
     move-result-object v0
 
-    .line 477
+    .line 482
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 479
+    .line 484
     :cond_0
     return-void
 .end method

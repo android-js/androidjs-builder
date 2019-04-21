@@ -4,6 +4,10 @@
 
 
 # annotations
+.annotation build Landroid/support/annotation/RequiresApi;
+    value = 0x18
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Landroid/support/graphics/drawable/AnimatedVectorDrawableCompat;
 .end annotation
@@ -24,13 +28,13 @@
     .param p1, "state"    # Landroid/graphics/drawable/Drawable$ConstantState;
 
     .prologue
-    .line 458
+    .line 538
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable$ConstantState;-><init>()V
 
-    .line 459
+    .line 539
     iput-object p1, p0, Landroid/support/graphics/drawable/AnimatedVectorDrawableCompat$AnimatedVectorDrawableDelegateState;->mDelegateState:Landroid/graphics/drawable/Drawable$ConstantState;
 
-    .line 460
+    .line 540
     return-void
 .end method
 
@@ -40,7 +44,7 @@
     .locals 1
 
     .prologue
-    .line 491
+    .line 571
     iget-object v0, p0, Landroid/support/graphics/drawable/AnimatedVectorDrawableCompat$AnimatedVectorDrawableDelegateState;->mDelegateState:Landroid/graphics/drawable/Drawable$ConstantState;
 
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable$ConstantState;->canApplyTheme()Z
@@ -54,7 +58,7 @@
     .locals 1
 
     .prologue
-    .line 496
+    .line 576
     iget-object v0, p0, Landroid/support/graphics/drawable/AnimatedVectorDrawableCompat$AnimatedVectorDrawableDelegateState;->mDelegateState:Landroid/graphics/drawable/Drawable$ConstantState;
 
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable$ConstantState;->getChangingConfigurations()I
@@ -68,12 +72,12 @@
     .locals 3
 
     .prologue
-    .line 464
+    .line 544
     new-instance v0, Landroid/support/graphics/drawable/AnimatedVectorDrawableCompat;
 
     invoke-direct {v0}, Landroid/support/graphics/drawable/AnimatedVectorDrawableCompat;-><init>()V
 
-    .line 466
+    .line 546
     .local v0, "drawableCompat":Landroid/support/graphics/drawable/AnimatedVectorDrawableCompat;
     iget-object v1, p0, Landroid/support/graphics/drawable/AnimatedVectorDrawableCompat$AnimatedVectorDrawableDelegateState;->mDelegateState:Landroid/graphics/drawable/Drawable$ConstantState;
 
@@ -83,14 +87,14 @@
 
     iput-object v1, v0, Landroid/support/graphics/drawable/AnimatedVectorDrawableCompat;->mDelegateDrawable:Landroid/graphics/drawable/Drawable;
 
-    .line 467
+    .line 547
     iget-object v1, v0, Landroid/support/graphics/drawable/AnimatedVectorDrawableCompat;->mDelegateDrawable:Landroid/graphics/drawable/Drawable;
 
     iget-object v2, v0, Landroid/support/graphics/drawable/AnimatedVectorDrawableCompat;->mCallback:Landroid/graphics/drawable/Drawable$Callback;
 
     invoke-virtual {v1, v2}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
 
-    .line 468
+    .line 548
     return-object v0
 .end method
 
@@ -99,12 +103,12 @@
     .param p1, "res"    # Landroid/content/res/Resources;
 
     .prologue
-    .line 473
+    .line 553
     new-instance v0, Landroid/support/graphics/drawable/AnimatedVectorDrawableCompat;
 
     invoke-direct {v0}, Landroid/support/graphics/drawable/AnimatedVectorDrawableCompat;-><init>()V
 
-    .line 475
+    .line 555
     .local v0, "drawableCompat":Landroid/support/graphics/drawable/AnimatedVectorDrawableCompat;
     iget-object v1, p0, Landroid/support/graphics/drawable/AnimatedVectorDrawableCompat$AnimatedVectorDrawableDelegateState;->mDelegateState:Landroid/graphics/drawable/Drawable$ConstantState;
 
@@ -114,14 +118,14 @@
 
     iput-object v1, v0, Landroid/support/graphics/drawable/AnimatedVectorDrawableCompat;->mDelegateDrawable:Landroid/graphics/drawable/Drawable;
 
-    .line 476
+    .line 556
     iget-object v1, v0, Landroid/support/graphics/drawable/AnimatedVectorDrawableCompat;->mDelegateDrawable:Landroid/graphics/drawable/Drawable;
 
     iget-object v2, v0, Landroid/support/graphics/drawable/AnimatedVectorDrawableCompat;->mCallback:Landroid/graphics/drawable/Drawable$Callback;
 
     invoke-virtual {v1, v2}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
 
-    .line 477
+    .line 557
     return-object v0
 .end method
 
@@ -131,12 +135,12 @@
     .param p2, "theme"    # Landroid/content/res/Resources$Theme;
 
     .prologue
-    .line 482
+    .line 562
     new-instance v0, Landroid/support/graphics/drawable/AnimatedVectorDrawableCompat;
 
     invoke-direct {v0}, Landroid/support/graphics/drawable/AnimatedVectorDrawableCompat;-><init>()V
 
-    .line 484
+    .line 564
     .local v0, "drawableCompat":Landroid/support/graphics/drawable/AnimatedVectorDrawableCompat;
     iget-object v1, p0, Landroid/support/graphics/drawable/AnimatedVectorDrawableCompat$AnimatedVectorDrawableDelegateState;->mDelegateState:Landroid/graphics/drawable/Drawable$ConstantState;
 
@@ -146,13 +150,13 @@
 
     iput-object v1, v0, Landroid/support/graphics/drawable/AnimatedVectorDrawableCompat;->mDelegateDrawable:Landroid/graphics/drawable/Drawable;
 
-    .line 485
+    .line 565
     iget-object v1, v0, Landroid/support/graphics/drawable/AnimatedVectorDrawableCompat;->mDelegateDrawable:Landroid/graphics/drawable/Drawable;
 
     iget-object v2, v0, Landroid/support/graphics/drawable/AnimatedVectorDrawableCompat;->mCallback:Landroid/graphics/drawable/Drawable$Callback;
 
     invoke-virtual {v1, v2}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
 
-    .line 486
+    .line 566
     return-object v0
 .end method

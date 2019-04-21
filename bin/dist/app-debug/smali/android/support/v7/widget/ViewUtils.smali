@@ -22,14 +22,14 @@
     .locals 6
 
     .prologue
-    .line 41
+    .line 42
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x12
 
     if-lt v1, v2, :cond_0
 
-    .line 43
+    .line 44
     :try_start_0
     const-class v1, Landroid/view/View;
 
@@ -57,7 +57,7 @@
 
     sput-object v1, Landroid/support/v7/widget/ViewUtils;->sComputeFitSystemWindowsMethod:Ljava/lang/reflect/Method;
 
-    .line 45
+    .line 46
     sget-object v1, Landroid/support/v7/widget/ViewUtils;->sComputeFitSystemWindowsMethod:Ljava/lang/reflect/Method;
 
     invoke-virtual {v1}, Ljava/lang/reflect/Method;->isAccessible()Z
@@ -66,7 +66,7 @@
 
     if-nez v1, :cond_0
 
-    .line 46
+    .line 47
     sget-object v1, Landroid/support/v7/widget/ViewUtils;->sComputeFitSystemWindowsMethod:Ljava/lang/reflect/Method;
 
     const/4 v2, 0x1
@@ -75,18 +75,18 @@
     :try_end_0
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 52
+    .line 53
     .local v0, "e":Ljava/lang/NoSuchMethodException;
     :cond_0
     :goto_0
     return-void
 
-    .line 48
+    .line 49
     .end local v0    # "e":Ljava/lang/NoSuchMethodException;
     :catch_0
     move-exception v0
 
-    .line 49
+    .line 50
     .restart local v0    # "e":Ljava/lang/NoSuchMethodException;
     const-string v1, "ViewUtils"
 
@@ -101,22 +101,10 @@
     .locals 0
 
     .prologue
-    .line 54
+    .line 55
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
-.end method
-
-.method public static combineMeasuredStates(II)I
-    .locals 1
-    .param p0, "curState"    # I
-    .param p1, "newState"    # I
-
-    .prologue
-    .line 69
-    or-int v0, p0, p1
-
-    return v0
 .end method
 
 .method public static computeFitSystemWindows(Landroid/view/View;Landroid/graphics/Rect;Landroid/graphics/Rect;)V
@@ -126,12 +114,12 @@
     .param p2, "outLocalInsets"    # Landroid/graphics/Rect;
 
     .prologue
-    .line 77
+    .line 66
     sget-object v1, Landroid/support/v7/widget/ViewUtils;->sComputeFitSystemWindowsMethod:Ljava/lang/reflect/Method;
 
     if-eqz v1, :cond_0
 
-    .line 79
+    .line 68
     :try_start_0
     sget-object v1, Landroid/support/v7/widget/ViewUtils;->sComputeFitSystemWindowsMethod:Ljava/lang/reflect/Method;
 
@@ -151,16 +139,16 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 84
+    .line 73
     :cond_0
     :goto_0
     return-void
 
-    .line 80
+    .line 69
     :catch_0
     move-exception v0
 
-    .line 81
+    .line 70
     .local v0, "e":Ljava/lang/Exception;
     const-string v1, "ViewUtils"
 
@@ -178,7 +166,7 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 57
+    .line 58
     invoke-static {p0}, Landroid/support/v4/view/ViewCompat;->getLayoutDirection(Landroid/view/View;)I
 
     move-result v1
@@ -199,14 +187,14 @@
     .param p0, "view"    # Landroid/view/View;
 
     .prologue
-    .line 91
+    .line 80
     sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v3, 0x10
 
     if-lt v2, v3, :cond_1
 
-    .line 95
+    .line 84
     :try_start_0
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -222,7 +210,7 @@
 
     move-result-object v1
 
-    .line 96
+    .line 85
     .local v1, "method":Ljava/lang/reflect/Method;
     invoke-virtual {v1}, Ljava/lang/reflect/Method;->isAccessible()Z
 
@@ -230,12 +218,12 @@
 
     if-nez v2, :cond_0
 
-    .line 97
+    .line 86
     const/4 v2, 0x1
 
     invoke-virtual {v1, v2}, Ljava/lang/reflect/Method;->setAccessible(Z)V
 
-    .line 99
+    .line 88
     :cond_0
     const/4 v2, 0x0
 
@@ -247,17 +235,17 @@
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_2
 
-    .line 108
+    .line 97
     .end local v1    # "method":Ljava/lang/reflect/Method;
     :cond_1
     :goto_0
     return-void
 
-    .line 100
+    .line 89
     :catch_0
     move-exception v0
 
-    .line 101
+    .line 90
     .local v0, "e":Ljava/lang/NoSuchMethodException;
     const-string v2, "ViewUtils"
 
@@ -267,12 +255,12 @@
 
     goto :goto_0
 
-    .line 102
+    .line 91
     .end local v0    # "e":Ljava/lang/NoSuchMethodException;
     :catch_1
     move-exception v0
 
-    .line 103
+    .line 92
     .local v0, "e":Ljava/lang/reflect/InvocationTargetException;
     const-string v2, "ViewUtils"
 
@@ -282,12 +270,12 @@
 
     goto :goto_0
 
-    .line 104
+    .line 93
     .end local v0    # "e":Ljava/lang/reflect/InvocationTargetException;
     :catch_2
     move-exception v0
 
-    .line 105
+    .line 94
     .local v0, "e":Ljava/lang/IllegalAccessException;
     const-string v2, "ViewUtils"
 

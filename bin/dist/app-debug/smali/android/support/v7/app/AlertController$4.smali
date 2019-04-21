@@ -31,7 +31,7 @@
     .param p1, "this$0"    # Landroid/support/v7/app/AlertController;
 
     .prologue
-    .line 598
+    .line 608
     iput-object p1, p0, Landroid/support/v7/app/AlertController$4;->this$0:Landroid/support/v7/app/AlertController;
 
     iput-object p2, p0, Landroid/support/v7/app/AlertController$4;->val$top:Landroid/view/View;
@@ -53,14 +53,14 @@
     .param p4, "totalItemCount"    # I
 
     .prologue
-    .line 605
+    .line 615
     iget-object v0, p0, Landroid/support/v7/app/AlertController$4;->val$top:Landroid/view/View;
 
     iget-object v1, p0, Landroid/support/v7/app/AlertController$4;->val$bottom:Landroid/view/View;
 
     invoke-static {p1, v0, v1}, Landroid/support/v7/app/AlertController;->manageScrollIndicators(Landroid/view/View;Landroid/view/View;Landroid/view/View;)V
 
-    .line 606
+    .line 616
     return-void
 .end method
 
@@ -70,6 +70,6 @@
     .param p2, "scrollState"    # I
 
     .prologue
-    .line 600
+    .line 610
     return-void
 .end method

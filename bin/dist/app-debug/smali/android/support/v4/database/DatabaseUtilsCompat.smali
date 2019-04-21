@@ -3,15 +3,20 @@
 .source "DatabaseUtilsCompat.java"
 
 
+# annotations
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
+
 # direct methods
 .method private constructor <init>()V
     .locals 0
 
     .prologue
-    .line 27
+    .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 29
+    .line 31
     return-void
 .end method
 
@@ -19,11 +24,13 @@
     .locals 4
     .param p0, "originalValues"    # [Ljava/lang/String;
     .param p1, "newValues"    # [Ljava/lang/String;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     .prologue
     const/4 v3, 0x0
 
-    .line 50
+    .line 60
     if-eqz p0, :cond_0
 
     array-length v1, p0
@@ -33,11 +40,11 @@
     :cond_0
     move-object v0, p1
 
-    .line 56
+    .line 66
     :goto_0
     return-object v0
 
-    .line 53
+    .line 63
     :cond_1
     array-length v1, p0
 
@@ -47,13 +54,13 @@
 
     new-array v0, v1, [Ljava/lang/String;
 
-    .line 54
+    .line 64
     .local v0, "result":[Ljava/lang/String;
     array-length v1, p0
 
     invoke-static {p0, v3, v0, v3, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 55
+    .line 65
     array-length v1, p0
 
     array-length v2, p1
@@ -67,21 +74,23 @@
     .locals 2
     .param p0, "a"    # Ljava/lang/String;
     .param p1, "b"    # Ljava/lang/String;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     .prologue
-    .line 35
+    .line 41
     invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 42
+    .line 48
     .end local p1    # "b":Ljava/lang/String;
     :goto_0
     return-object p1
 
-    .line 38
+    .line 44
     .restart local p1    # "b":Ljava/lang/String;
     :cond_0
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -92,10 +101,10 @@
 
     move-object p1, p0
 
-    .line 39
+    .line 45
     goto :goto_0
 
-    .line 42
+    .line 48
     :cond_1
     new-instance v0, Ljava/lang/StringBuilder;
 

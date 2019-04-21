@@ -13,6 +13,9 @@
     name = "Delegate"
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # virtual methods
 .method public abstract getThemeUpIndicator()Landroid/graphics/drawable/Drawable;

@@ -7,14 +7,6 @@
 
 
 # annotations
-.annotation build Landroid/annotation/TargetApi;
-    value = 0xb
-.end annotation
-
-.annotation build Landroid/support/annotation/RequiresApi;
-    value = 0xb
-.end annotation
-
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Landroid/support/v7/widget/AppCompatDrawableManager;
 .end annotation
@@ -30,10 +22,10 @@
     .locals 0
 
     .prologue
-    .line 745
+    .line 784
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 746
+    .line 785
     return-void
 .end method
 
@@ -57,15 +49,10 @@
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
-    .annotation build Landroid/annotation/SuppressLint;
-        value = {
-            "NewApi"
-        }
-    .end annotation
 
     .prologue
-    .line 753
-    .line 754
+    .line 791
+    .line 792
     :try_start_0
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -77,15 +64,15 @@
 
     move-result-object v1
 
-    .line 757
+    .line 795
     :goto_0
     return-object v1
 
-    .line 755
+    .line 793
     :catch_0
     move-exception v0
 
-    .line 756
+    .line 794
     .local v0, "e":Ljava/lang/Exception;
     const-string v1, "AvdcInflateDelegate"
 
@@ -93,7 +80,7 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 757
+    .line 795
     const/4 v1, 0x0
 
     goto :goto_0

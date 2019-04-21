@@ -23,7 +23,7 @@
     .locals 3
 
     .prologue
-    .line 125
+    .line 127
     const/4 v0, 0x3
 
     new-array v0, v0, [Ljava/lang/String;
@@ -56,10 +56,10 @@
     .param p1, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 132
+    .line 134
     invoke-direct {p0, p1}, Landroid/view/LayoutInflater;-><init>(Landroid/content/Context;)V
 
-    .line 133
+    .line 135
     return-void
 .end method
 
@@ -70,7 +70,7 @@
     .param p1, "newContext"    # Landroid/content/Context;
 
     .prologue
-    .line 137
+    .line 139
     new-instance v0, Landroid/support/v4/view/AsyncLayoutInflater$BasicInflater;
 
     invoke-direct {v0, p1}, Landroid/support/v4/view/AsyncLayoutInflater$BasicInflater;-><init>(Landroid/content/Context;)V
@@ -89,7 +89,7 @@
     .end annotation
 
     .prologue
-    .line 142
+    .line 144
     sget-object v3, Landroid/support/v4/view/AsyncLayoutInflater$BasicInflater;->sClassPrefixList:[Ljava/lang/String;
 
     array-length v4, v3
@@ -101,7 +101,7 @@
 
     aget-object v0, v3, v2
 
-    .line 144
+    .line 146
     .local v0, "prefix":Ljava/lang/String;
     :try_start_0
     invoke-virtual {p0, p1, v0, p2}, Landroid/support/v4/view/AsyncLayoutInflater$BasicInflater;->createView(Ljava/lang/String;Ljava/lang/String;Landroid/util/AttributeSet;)Landroid/view/View;
@@ -110,28 +110,28 @@
 
     move-result-object v1
 
-    .line 145
+    .line 147
     .local v1, "view":Landroid/view/View;
     if-eqz v1, :cond_0
 
-    .line 154
+    .line 156
     .end local v0    # "prefix":Ljava/lang/String;
     .end local v1    # "view":Landroid/view/View;
     :goto_1
     return-object v1
 
-    .line 148
+    .line 150
     .restart local v0    # "prefix":Ljava/lang/String;
     :catch_0
     move-exception v5
 
-    .line 142
+    .line 144
     :cond_0
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 154
+    .line 156
     .end local v0    # "prefix":Ljava/lang/String;
     :cond_1
     invoke-super {p0, p1, p2}, Landroid/view/LayoutInflater;->onCreateView(Ljava/lang/String;Landroid/util/AttributeSet;)Landroid/view/View;

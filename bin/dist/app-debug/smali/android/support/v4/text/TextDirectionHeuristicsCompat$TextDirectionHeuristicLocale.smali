@@ -15,7 +15,7 @@
 
 
 # static fields
-.field public static final INSTANCE:Landroid/support/v4/text/TextDirectionHeuristicsCompat$TextDirectionHeuristicLocale;
+.field static final INSTANCE:Landroid/support/v4/text/TextDirectionHeuristicsCompat$TextDirectionHeuristicLocale;
 
 
 # direct methods
@@ -33,7 +33,7 @@
     return-void
 .end method
 
-.method public constructor <init>()V
+.method constructor <init>()V
     .locals 1
 
     .prologue

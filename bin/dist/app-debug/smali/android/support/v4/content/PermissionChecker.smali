@@ -24,10 +24,10 @@
     .locals 0
 
     .prologue
-    .line 70
+    .line 77
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 72
+    .line 79
     return-void
 .end method
 
@@ -43,7 +43,7 @@
     .end param
 
     .prologue
-    .line 160
+    .line 171
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
     move-result v1
@@ -54,31 +54,31 @@
 
     if-ne v1, v2, :cond_0
 
-    .line 161
+    .line 172
     invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 162
+    .line 173
     .local v0, "packageName":Ljava/lang/String;
     :goto_0
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
     move-result v1
 
-    .line 163
+    .line 174
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v2
 
-    .line 162
+    .line 173
     invoke-static {p0, p1, v1, v2, v0}, Landroid/support/v4/content/PermissionChecker;->checkPermission(Landroid/content/Context;Ljava/lang/String;IILjava/lang/String;)I
 
     move-result v1
 
     return v1
 
-    .line 161
+    .line 172
     .end local v0    # "packageName":Ljava/lang/String;
     :cond_0
     const/4 v0, 0x0
@@ -97,9 +97,12 @@
         .end annotation
     .end param
     .param p2, "packageName"    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .prologue
-    .line 142
+    .line 152
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
     move-result v0
@@ -110,10 +113,10 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 143
+    .line 153
     const/4 v0, -0x1
 
-    .line 145
+    .line 155
     :goto_0
     return v0
 
@@ -122,12 +125,12 @@
 
     move-result v0
 
-    .line 146
+    .line 156
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v1
 
-    .line 145
+    .line 155
     invoke-static {p0, p1, v0, v1, p2}, Landroid/support/v4/content/PermissionChecker;->checkPermission(Landroid/content/Context;Ljava/lang/String;IILjava/lang/String;)I
 
     move-result v0
@@ -148,44 +151,47 @@
     .param p2, "pid"    # I
     .param p3, "uid"    # I
     .param p4, "packageName"    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .prologue
     const/4 v3, 0x0
 
     const/4 v2, -0x1
 
-    .line 89
+    .line 97
     invoke-virtual {p0, p1, p2, p3}, Landroid/content/Context;->checkPermission(Ljava/lang/String;II)I
 
     move-result v4
 
     if-ne v4, v2, :cond_1
 
-    .line 111
+    .line 119
     :cond_0
     :goto_0
     return v2
 
-    .line 93
+    .line 101
     :cond_1
     invoke-static {p1}, Landroid/support/v4/app/AppOpsManagerCompat;->permissionToOp(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 94
+    .line 102
     .local v0, "op":Ljava/lang/String;
     if-nez v0, :cond_2
 
     move v2, v3
 
-    .line 95
+    .line 103
     goto :goto_0
 
-    .line 98
+    .line 106
     :cond_2
     if-nez p4, :cond_3
 
-    .line 99
+    .line 107
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v4
@@ -194,7 +200,7 @@
 
     move-result-object v1
 
-    .line 100
+    .line 108
     .local v1, "packageNames":[Ljava/lang/String;
     if-eqz v1, :cond_0
 
@@ -202,19 +208,19 @@
 
     if-lez v4, :cond_0
 
-    .line 103
+    .line 111
     aget-object p4, v1, v3
 
-    .line 106
+    .line 114
     .end local v1    # "packageNames":[Ljava/lang/String;
     :cond_3
-    invoke-static {p0, v0, p4}, Landroid/support/v4/app/AppOpsManagerCompat;->noteProxyOp(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, v0, p4}, Landroid/support/v4/app/AppOpsManagerCompat;->noteProxyOpNoThrow(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v2
 
     if-eqz v2, :cond_4
 
-    .line 108
+    .line 116
     const/4 v2, -0x2
 
     goto :goto_0
@@ -222,7 +228,7 @@
     :cond_4
     move v2, v3
 
-    .line 111
+    .line 119
     goto :goto_0
 .end method
 
@@ -238,12 +244,12 @@
     .end param
 
     .prologue
-    .line 125
+    .line 134
     invoke-static {}, Landroid/os/Process;->myPid()I
 
     move-result v0
 
-    .line 126
+    .line 135
     invoke-static {}, Landroid/os/Process;->myUid()I
 
     move-result v1
@@ -252,7 +258,7 @@
 
     move-result-object v2
 
-    .line 125
+    .line 134
     invoke-static {p0, p1, v0, v1, v2}, Landroid/support/v4/content/PermissionChecker;->checkPermission(Landroid/content/Context;Ljava/lang/String;IILjava/lang/String;)I
 
     move-result v0

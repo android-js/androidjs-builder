@@ -38,14 +38,10 @@
     .locals 1
 
     .prologue
-    .line 2279
+    .line 2287
     new-instance v0, Landroid/support/v7/widget/Toolbar$SavedState$1;
 
     invoke-direct {v0}, Landroid/support/v7/widget/Toolbar$SavedState$1;-><init>()V
-
-    invoke-static {v0}, Landroid/support/v4/os/ParcelableCompat;->newCreator(Landroid/support/v4/os/ParcelableCompatCreatorCallbacks;)Landroid/os/Parcelable$Creator;
-
-    move-result-object v0
 
     sput-object v0, Landroid/support/v7/widget/Toolbar$SavedState;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -57,12 +53,12 @@
     .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
-    .line 2259
+    .line 2267
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Landroid/support/v7/widget/Toolbar$SavedState;-><init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
 
-    .line 2260
+    .line 2268
     return-void
 .end method
 
@@ -72,17 +68,17 @@
     .param p2, "loader"    # Ljava/lang/ClassLoader;
 
     .prologue
-    .line 2263
+    .line 2271
     invoke-direct {p0, p1, p2}, Landroid/support/v4/view/AbsSavedState;-><init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
 
-    .line 2264
+    .line 2272
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/support/v7/widget/Toolbar$SavedState;->expandedMenuItemId:I
 
-    .line 2265
+    .line 2273
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -94,10 +90,10 @@
     :goto_0
     iput-boolean v0, p0, Landroid/support/v7/widget/Toolbar$SavedState;->isOverflowOpen:Z
 
-    .line 2266
+    .line 2274
     return-void
 
-    .line 2265
+    .line 2273
     :cond_0
     const/4 v0, 0x0
 
@@ -109,10 +105,10 @@
     .param p1, "superState"    # Landroid/os/Parcelable;
 
     .prologue
-    .line 2269
+    .line 2277
     invoke-direct {p0, p1}, Landroid/support/v4/view/AbsSavedState;-><init>(Landroid/os/Parcelable;)V
 
-    .line 2270
+    .line 2278
     return-void
 .end method
 
@@ -124,15 +120,15 @@
     .param p2, "flags"    # I
 
     .prologue
-    .line 2274
+    .line 2282
     invoke-super {p0, p1, p2}, Landroid/support/v4/view/AbsSavedState;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 2275
+    .line 2283
     iget v0, p0, Landroid/support/v7/widget/Toolbar$SavedState;->expandedMenuItemId:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 2276
+    .line 2284
     iget-boolean v0, p0, Landroid/support/v7/widget/Toolbar$SavedState;->isOverflowOpen:Z
 
     if-eqz v0, :cond_0
@@ -142,10 +138,10 @@
     :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 2277
+    .line 2285
     return-void
 
-    .line 2276
+    .line 2284
     :cond_0
     const/4 v0, 0x0
 

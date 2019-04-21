@@ -29,17 +29,17 @@
     .end param
 
     .prologue
-    .line 34
+    .line 35
     invoke-direct {p0, p2}, Landroid/support/v7/widget/ResourcesWrapper;-><init>(Landroid/content/res/Resources;)V
 
-    .line 35
+    .line 36
     new-instance v0, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
     iput-object v0, p0, Landroid/support/v7/widget/TintResources;->mContextRef:Ljava/lang/ref/WeakReference;
 
-    .line 36
+    .line 37
     return-void
 .end method
 
@@ -55,12 +55,12 @@
     .end annotation
 
     .prologue
-    .line 45
+    .line 46
     invoke-super {p0, p1}, Landroid/support/v7/widget/ResourcesWrapper;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
-    .line 46
+    .line 47
     .local v1, "d":Landroid/graphics/drawable/Drawable;
     iget-object v2, p0, Landroid/support/v7/widget/TintResources;->mContextRef:Ljava/lang/ref/WeakReference;
 
@@ -70,18 +70,18 @@
 
     check-cast v0, Landroid/content/Context;
 
-    .line 47
+    .line 48
     .local v0, "context":Landroid/content/Context;
     if-eqz v1, :cond_0
 
     if-eqz v0, :cond_0
 
-    .line 48
+    .line 49
     invoke-static {}, Landroid/support/v7/widget/AppCompatDrawableManager;->get()Landroid/support/v7/widget/AppCompatDrawableManager;
 
     invoke-static {v0, p1, v1}, Landroid/support/v7/widget/AppCompatDrawableManager;->tintDrawableUsingColorFilter(Landroid/content/Context;ILandroid/graphics/drawable/Drawable;)Z
 
-    .line 50
+    .line 51
     :cond_0
     return-object v1
 .end method

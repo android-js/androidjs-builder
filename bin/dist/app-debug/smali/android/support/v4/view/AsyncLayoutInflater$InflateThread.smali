@@ -47,19 +47,19 @@
     .locals 1
 
     .prologue
-    .line 161
+    .line 163
     new-instance v0, Landroid/support/v4/view/AsyncLayoutInflater$InflateThread;
 
     invoke-direct {v0}, Landroid/support/v4/view/AsyncLayoutInflater$InflateThread;-><init>()V
 
     sput-object v0, Landroid/support/v4/view/AsyncLayoutInflater$InflateThread;->sInstance:Landroid/support/v4/view/AsyncLayoutInflater$InflateThread;
 
-    .line 162
+    .line 164
     sget-object v0, Landroid/support/v4/view/AsyncLayoutInflater$InflateThread;->sInstance:Landroid/support/v4/view/AsyncLayoutInflater$InflateThread;
 
     invoke-virtual {v0}, Landroid/support/v4/view/AsyncLayoutInflater$InflateThread;->start()V
 
-    .line 163
+    .line 165
     return-void
 .end method
 
@@ -69,17 +69,17 @@
     .prologue
     const/16 v1, 0xa
 
-    .line 158
+    .line 160
     invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
 
-    .line 169
+    .line 171
     new-instance v0, Ljava/util/concurrent/ArrayBlockingQueue;
 
     invoke-direct {v0, v1}, Ljava/util/concurrent/ArrayBlockingQueue;-><init>(I)V
 
     iput-object v0, p0, Landroid/support/v4/view/AsyncLayoutInflater$InflateThread;->mQueue:Ljava/util/concurrent/ArrayBlockingQueue;
 
-    .line 170
+    .line 172
     new-instance v0, Landroid/support/v4/util/Pools$SynchronizedPool;
 
     invoke-direct {v0, v1}, Landroid/support/v4/util/Pools$SynchronizedPool;-><init>(I)V
@@ -93,7 +93,7 @@
     .locals 1
 
     .prologue
-    .line 166
+    .line 168
     sget-object v0, Landroid/support/v4/view/AsyncLayoutInflater$InflateThread;->sInstance:Landroid/support/v4/view/AsyncLayoutInflater$InflateThread;
 
     return-object v0
@@ -106,7 +106,7 @@
     .param p1, "request"    # Landroid/support/v4/view/AsyncLayoutInflater$InflateRequest;
 
     .prologue
-    .line 216
+    .line 225
     :try_start_0
     iget-object v1, p0, Landroid/support/v4/view/AsyncLayoutInflater$InflateThread;->mQueue:Ljava/util/concurrent/ArrayBlockingQueue;
 
@@ -114,14 +114,14 @@
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 221
+    .line 230
     return-void
 
-    .line 217
+    .line 226
     :catch_0
     move-exception v0
 
-    .line 218
+    .line 227
     .local v0, "e":Ljava/lang/InterruptedException;
     new-instance v1, Ljava/lang/RuntimeException;
 
@@ -136,7 +136,7 @@
     .locals 2
 
     .prologue
-    .line 198
+    .line 207
     iget-object v1, p0, Landroid/support/v4/view/AsyncLayoutInflater$InflateThread;->mRequestPool:Landroid/support/v4/util/Pools$SynchronizedPool;
 
     invoke-virtual {v1}, Landroid/support/v4/util/Pools$SynchronizedPool;->acquire()Ljava/lang/Object;
@@ -145,17 +145,17 @@
 
     check-cast v0, Landroid/support/v4/view/AsyncLayoutInflater$InflateRequest;
 
-    .line 199
+    .line 208
     .local v0, "obj":Landroid/support/v4/view/AsyncLayoutInflater$InflateRequest;
     if-nez v0, :cond_0
 
-    .line 200
+    .line 209
     new-instance v0, Landroid/support/v4/view/AsyncLayoutInflater$InflateRequest;
 
     .end local v0    # "obj":Landroid/support/v4/view/AsyncLayoutInflater$InflateRequest;
     invoke-direct {v0}, Landroid/support/v4/view/AsyncLayoutInflater$InflateRequest;-><init>()V
 
-    .line 202
+    .line 211
     .restart local v0    # "obj":Landroid/support/v4/view/AsyncLayoutInflater$InflateRequest;
     :cond_0
     return-object v0
@@ -168,40 +168,50 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 206
+    .line 215
     iput-object v1, p1, Landroid/support/v4/view/AsyncLayoutInflater$InflateRequest;->callback:Landroid/support/v4/view/AsyncLayoutInflater$OnInflateFinishedListener;
 
-    .line 207
+    .line 216
     iput-object v1, p1, Landroid/support/v4/view/AsyncLayoutInflater$InflateRequest;->inflater:Landroid/support/v4/view/AsyncLayoutInflater;
 
-    .line 208
+    .line 217
     iput-object v1, p1, Landroid/support/v4/view/AsyncLayoutInflater$InflateRequest;->parent:Landroid/view/ViewGroup;
 
-    .line 209
+    .line 218
     const/4 v0, 0x0
 
     iput v0, p1, Landroid/support/v4/view/AsyncLayoutInflater$InflateRequest;->resid:I
 
-    .line 210
+    .line 219
     iput-object v1, p1, Landroid/support/v4/view/AsyncLayoutInflater$InflateRequest;->view:Landroid/view/View;
 
-    .line 211
+    .line 220
     iget-object v0, p0, Landroid/support/v4/view/AsyncLayoutInflater$InflateThread;->mRequestPool:Landroid/support/v4/util/Pools$SynchronizedPool;
 
     invoke-virtual {v0, p1}, Landroid/support/v4/util/Pools$SynchronizedPool;->release(Ljava/lang/Object;)Z
 
-    .line 212
+    .line 221
     return-void
 .end method
 
 .method public run()V
+    .locals 0
+
+    .prologue
+    .line 202
+    :goto_0
+    invoke-virtual {p0}, Landroid/support/v4/view/AsyncLayoutInflater$InflateThread;->runInner()V
+
+    goto :goto_0
+.end method
+
+.method public runInner()V
     .locals 7
 
     .prologue
     const/4 v6, 0x0
 
-    .line 177
-    :goto_0
+    .line 180
     :try_start_0
     iget-object v2, p0, Landroid/support/v4/view/AsyncLayoutInflater$InflateThread;->mQueue:Ljava/util/concurrent/ArrayBlockingQueue;
 
@@ -213,7 +223,7 @@
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 185
+    .line 188
     .local v1, "request":Landroid/support/v4/view/AsyncLayoutInflater$InflateRequest;
     :try_start_1
     iget-object v2, v1, Landroid/support/v4/view/AsyncLayoutInflater$InflateRequest;->inflater:Landroid/support/v4/view/AsyncLayoutInflater;
@@ -234,8 +244,8 @@
     :try_end_1
     .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 192
-    :goto_1
+    .line 195
+    :goto_0
     iget-object v2, v1, Landroid/support/v4/view/AsyncLayoutInflater$InflateRequest;->inflater:Landroid/support/v4/view/AsyncLayoutInflater;
 
     iget-object v2, v2, Landroid/support/v4/view/AsyncLayoutInflater;->mHandler:Landroid/os/Handler;
@@ -244,31 +254,33 @@
 
     move-result-object v2
 
-    .line 193
+    .line 196
     invoke-virtual {v2}, Landroid/os/Message;->sendToTarget()V
 
-    goto :goto_0
-
-    .line 178
+    .line 197
     .end local v1    # "request":Landroid/support/v4/view/AsyncLayoutInflater$InflateRequest;
+    :goto_1
+    return-void
+
+    .line 181
     :catch_0
     move-exception v0
 
-    .line 180
+    .line 183
     .local v0, "ex":Ljava/lang/InterruptedException;
     const-string v2, "AsyncLayoutInflater"
 
     invoke-static {v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_0
+    goto :goto_1
 
-    .line 187
+    .line 190
     .end local v0    # "ex":Ljava/lang/InterruptedException;
     .restart local v1    # "request":Landroid/support/v4/view/AsyncLayoutInflater$InflateRequest;
     :catch_1
     move-exception v0
 
-    .line 189
+    .line 192
     .local v0, "ex":Ljava/lang/RuntimeException;
     const-string v2, "AsyncLayoutInflater"
 
@@ -276,5 +288,5 @@
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_1
+    goto :goto_0
 .end method

@@ -25,7 +25,7 @@
     .param p2, "src"    # Landroid/view/View;
 
     .prologue
-    .line 170
+    .line 175
     iput-object p1, p0, Landroid/support/v7/widget/PopupMenu$3;->this$0:Landroid/support/v7/widget/PopupMenu;
 
     invoke-direct {p0, p2}, Landroid/support/v7/widget/ForwardingListener;-><init>(Landroid/view/View;)V
@@ -39,7 +39,7 @@
     .locals 1
 
     .prologue
-    .line 186
+    .line 191
     iget-object v0, p0, Landroid/support/v7/widget/PopupMenu$3;->this$0:Landroid/support/v7/widget/PopupMenu;
 
     iget-object v0, v0, Landroid/support/v7/widget/PopupMenu;->mPopup:Landroid/support/v7/view/menu/MenuPopupHelper;
@@ -55,12 +55,12 @@
     .locals 1
 
     .prologue
-    .line 173
+    .line 178
     iget-object v0, p0, Landroid/support/v7/widget/PopupMenu$3;->this$0:Landroid/support/v7/widget/PopupMenu;
 
     invoke-virtual {v0}, Landroid/support/v7/widget/PopupMenu;->show()V
 
-    .line 174
+    .line 179
     const/4 v0, 0x1
 
     return v0
@@ -70,12 +70,12 @@
     .locals 1
 
     .prologue
-    .line 179
+    .line 184
     iget-object v0, p0, Landroid/support/v7/widget/PopupMenu$3;->this$0:Landroid/support/v7/widget/PopupMenu;
 
     invoke-virtual {v0}, Landroid/support/v7/widget/PopupMenu;->dismiss()V
 
-    .line 180
+    .line 185
     const/4 v0, 0x1
 
     return v0

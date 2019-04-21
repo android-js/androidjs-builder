@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Landroid/support/v7/widget/SearchView;
 
     .prologue
-    .line 187
+    .line 177
     iput-object p1, p0, Landroid/support/v7/widget/SearchView$1;->this$0:Landroid/support/v7/widget/SearchView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,39 +38,14 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 1
 
     .prologue
-    .line 190
-    iget-object v1, p0, Landroid/support/v7/widget/SearchView$1;->this$0:Landroid/support/v7/widget/SearchView;
+    .line 180
+    iget-object v0, p0, Landroid/support/v7/widget/SearchView$1;->this$0:Landroid/support/v7/widget/SearchView;
 
-    .line 191
-    invoke-virtual {v1}, Landroid/support/v7/widget/SearchView;->getContext()Landroid/content/Context;
+    invoke-virtual {v0}, Landroid/support/v7/widget/SearchView;->updateFocusedState()V
 
-    move-result-object v1
-
-    const-string v2, "input_method"
-
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/view/inputmethod/InputMethodManager;
-
-    .line 193
-    .local v0, "imm":Landroid/view/inputmethod/InputMethodManager;
-    if-eqz v0, :cond_0
-
-    .line 194
-    sget-object v1, Landroid/support/v7/widget/SearchView;->HIDDEN_METHOD_INVOKER:Landroid/support/v7/widget/SearchView$AutoCompleteTextViewReflector;
-
-    iget-object v2, p0, Landroid/support/v7/widget/SearchView$1;->this$0:Landroid/support/v7/widget/SearchView;
-
-    const/4 v3, 0x0
-
-    invoke-virtual {v1, v0, v2, v3}, Landroid/support/v7/widget/SearchView$AutoCompleteTextViewReflector;->showSoftInputUnchecked(Landroid/view/inputmethod/InputMethodManager;Landroid/view/View;I)V
-
-    .line 196
-    :cond_0
+    .line 181
     return-void
 .end method

@@ -7,11 +7,7 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/support/v4/app/ShareCompat$IntentReader;,
-        Landroid/support/v4/app/ShareCompat$IntentBuilder;,
-        Landroid/support/v4/app/ShareCompat$ShareCompatImplJB;,
-        Landroid/support/v4/app/ShareCompat$ShareCompatImplICS;,
-        Landroid/support/v4/app/ShareCompat$ShareCompatImplBase;,
-        Landroid/support/v4/app/ShareCompat$ShareCompatImpl;
+        Landroid/support/v4/app/ShareCompat$IntentBuilder;
     }
 .end annotation
 
@@ -21,65 +17,15 @@
 
 .field public static final EXTRA_CALLING_PACKAGE:Ljava/lang/String; = "android.support.v4.app.EXTRA_CALLING_PACKAGE"
 
-.field static IMPL:Landroid/support/v4/app/ShareCompat$ShareCompatImpl;
+.field private static final HISTORY_FILENAME_PREFIX:Ljava/lang/String; = ".sharecompat_"
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 2
-
-    .prologue
-    .line 156
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x10
-
-    if-lt v0, v1, :cond_0
-
-    .line 157
-    new-instance v0, Landroid/support/v4/app/ShareCompat$ShareCompatImplJB;
-
-    invoke-direct {v0}, Landroid/support/v4/app/ShareCompat$ShareCompatImplJB;-><init>()V
-
-    sput-object v0, Landroid/support/v4/app/ShareCompat;->IMPL:Landroid/support/v4/app/ShareCompat$ShareCompatImpl;
-
-    .line 163
-    :goto_0
-    return-void
-
-    .line 158
-    :cond_0
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0xe
-
-    if-lt v0, v1, :cond_1
-
-    .line 159
-    new-instance v0, Landroid/support/v4/app/ShareCompat$ShareCompatImplICS;
-
-    invoke-direct {v0}, Landroid/support/v4/app/ShareCompat$ShareCompatImplICS;-><init>()V
-
-    sput-object v0, Landroid/support/v4/app/ShareCompat;->IMPL:Landroid/support/v4/app/ShareCompat$ShareCompatImpl;
-
-    goto :goto_0
-
-    .line 161
-    :cond_1
-    new-instance v0, Landroid/support/v4/app/ShareCompat$ShareCompatImplBase;
-
-    invoke-direct {v0}, Landroid/support/v4/app/ShareCompat$ShareCompatImplBase;-><init>()V
-
-    sput-object v0, Landroid/support/v4/app/ShareCompat;->IMPL:Landroid/support/v4/app/ShareCompat$ShareCompatImpl;
-
-    goto :goto_0
-.end method
-
 .method private constructor <init>()V
     .locals 0
 
     .prologue
-    .line 165
+    .line 83
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -92,16 +38,16 @@
     .param p2, "shareIntent"    # Landroid/support/v4/app/ShareCompat$IntentBuilder;
 
     .prologue
-    .line 251
+    .line 180
     invoke-interface {p0, p1}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    .line 252
+    .line 181
     .local v0, "item":Landroid/view/MenuItem;
     if-nez v0, :cond_0
 
-    .line 253
+    .line 182
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -132,27 +78,121 @@
 
     throw v1
 
-    .line 256
+    .line 185
     :cond_0
     invoke-static {v0, p2}, Landroid/support/v4/app/ShareCompat;->configureMenuItem(Landroid/view/MenuItem;Landroid/support/v4/app/ShareCompat$IntentBuilder;)V
 
-    .line 257
+    .line 186
     return-void
 .end method
 
 .method public static configureMenuItem(Landroid/view/MenuItem;Landroid/support/v4/app/ShareCompat$IntentBuilder;)V
-    .locals 1
+    .locals 4
     .param p0, "item"    # Landroid/view/MenuItem;
     .param p1, "shareIntent"    # Landroid/support/v4/app/ShareCompat$IntentBuilder;
 
     .prologue
-    .line 239
-    sget-object v0, Landroid/support/v4/app/ShareCompat;->IMPL:Landroid/support/v4/app/ShareCompat$ShareCompatImpl;
+    .line 152
+    invoke-interface {p0}, Landroid/view/MenuItem;->getActionProvider()Landroid/view/ActionProvider;
 
-    invoke-interface {v0, p0, p1}, Landroid/support/v4/app/ShareCompat$ShareCompatImpl;->configureMenuItem(Landroid/view/MenuItem;Landroid/support/v4/app/ShareCompat$IntentBuilder;)V
+    move-result-object v0
 
-    .line 240
+    .line 154
+    .local v0, "itemProvider":Landroid/view/ActionProvider;
+    instance-of v2, v0, Landroid/widget/ShareActionProvider;
+
+    if-nez v2, :cond_1
+
+    .line 155
+    new-instance v1, Landroid/widget/ShareActionProvider;
+
+    invoke-virtual {p1}, Landroid/support/v4/app/ShareCompat$IntentBuilder;->getActivity()Landroid/app/Activity;
+
+    move-result-object v2
+
+    invoke-direct {v1, v2}, Landroid/widget/ShareActionProvider;-><init>(Landroid/content/Context;)V
+
+    .line 159
+    .local v1, "provider":Landroid/widget/ShareActionProvider;
+    :goto_0
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, ".sharecompat_"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    .line 160
+    invoke-virtual {p1}, Landroid/support/v4/app/ShareCompat$IntentBuilder;->getActivity()Landroid/app/Activity;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 159
+    invoke-virtual {v1, v2}, Landroid/widget/ShareActionProvider;->setShareHistoryFileName(Ljava/lang/String;)V
+
+    .line 161
+    invoke-virtual {p1}, Landroid/support/v4/app/ShareCompat$IntentBuilder;->getIntent()Landroid/content/Intent;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/widget/ShareActionProvider;->setShareIntent(Landroid/content/Intent;)V
+
+    .line 162
+    invoke-interface {p0, v1}, Landroid/view/MenuItem;->setActionProvider(Landroid/view/ActionProvider;)Landroid/view/MenuItem;
+
+    .line 164
+    sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v3, 0x10
+
+    if-ge v2, v3, :cond_0
+
+    .line 165
+    invoke-interface {p0}, Landroid/view/MenuItem;->hasSubMenu()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    .line 166
+    invoke-virtual {p1}, Landroid/support/v4/app/ShareCompat$IntentBuilder;->createChooserIntent()Landroid/content/Intent;
+
+    move-result-object v2
+
+    invoke-interface {p0, v2}, Landroid/view/MenuItem;->setIntent(Landroid/content/Intent;)Landroid/view/MenuItem;
+
+    .line 169
+    :cond_0
     return-void
+
+    .end local v1    # "provider":Landroid/widget/ShareActionProvider;
+    :cond_1
+    move-object v1, v0
+
+    .line 157
+    check-cast v1, Landroid/widget/ShareActionProvider;
+
+    .restart local v1    # "provider":Landroid/widget/ShareActionProvider;
+    goto :goto_0
 .end method
 
 .method public static getCallingActivity(Landroid/app/Activity;)Landroid/content/ComponentName;
@@ -160,16 +200,16 @@
     .param p0, "calledActivity"    # Landroid/app/Activity;
 
     .prologue
-    .line 200
+    .line 118
     invoke-virtual {p0}, Landroid/app/Activity;->getCallingActivity()Landroid/content/ComponentName;
 
     move-result-object v0
 
-    .line 201
+    .line 119
     .local v0, "result":Landroid/content/ComponentName;
     if-nez v0, :cond_0
 
-    .line 202
+    .line 120
     invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v1
@@ -183,7 +223,7 @@
     .end local v0    # "result":Landroid/content/ComponentName;
     check-cast v0, Landroid/content/ComponentName;
 
-    .line 204
+    .line 122
     .restart local v0    # "result":Landroid/content/ComponentName;
     :cond_0
     return-object v0
@@ -194,16 +234,16 @@
     .param p0, "calledActivity"    # Landroid/app/Activity;
 
     .prologue
-    .line 180
+    .line 98
     invoke-virtual {p0}, Landroid/app/Activity;->getCallingPackage()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 181
+    .line 99
     .local v0, "result":Ljava/lang/String;
     if-nez v0, :cond_0
 
-    .line 182
+    .line 100
     invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v1
@@ -214,7 +254,7 @@
 
     move-result-object v0
 
-    .line 184
+    .line 102
     :cond_0
     return-object v0
 .end method

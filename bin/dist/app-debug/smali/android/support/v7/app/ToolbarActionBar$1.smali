@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Landroid/support/v7/app/ToolbarActionBar;
 
     .prologue
-    .line 58
+    .line 53
     iput-object p1, p0, Landroid/support/v7/app/ToolbarActionBar$1;->this$0:Landroid/support/v7/app/ToolbarActionBar;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,11 +41,11 @@
     .locals 1
 
     .prologue
-    .line 61
+    .line 56
     iget-object v0, p0, Landroid/support/v7/app/ToolbarActionBar$1;->this$0:Landroid/support/v7/app/ToolbarActionBar;
 
     invoke-virtual {v0}, Landroid/support/v7/app/ToolbarActionBar;->populateOptionsMenu()V
 
-    .line 62
+    .line 57
     return-void
 .end method

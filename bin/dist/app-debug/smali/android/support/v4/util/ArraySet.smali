@@ -35,19 +35,25 @@
 
 .field private static final TAG:Ljava/lang/String; = "ArraySet"
 
-.field static sBaseCache:[Ljava/lang/Object;
+.field private static sBaseCache:[Ljava/lang/Object;
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+.end field
 
-.field static sBaseCacheSize:I
+.field private static sBaseCacheSize:I
 
-.field static sTwiceBaseCache:[Ljava/lang/Object;
+.field private static sTwiceBaseCache:[Ljava/lang/Object;
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+.end field
 
-.field static sTwiceBaseCacheSize:I
+.field private static sTwiceBaseCacheSize:I
 
 
 # instance fields
 .field mArray:[Ljava/lang/Object;
 
-.field mCollections:Landroid/support/v4/util/MapCollections;
+.field private mCollections:Landroid/support/v4/util/MapCollections;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/support/v4/util/MapCollections",
@@ -56,9 +62,7 @@
     .end annotation
 .end field
 
-.field mHashes:[I
-
-.field final mIdentityHashCode:Z
+.field private mHashes:[I
 
 .field mSize:I
 
@@ -70,12 +74,12 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 49
+    .line 53
     new-array v0, v1, [I
 
     sput-object v0, Landroid/support/v4/util/ArraySet;->INT:[I
 
-    .line 50
+    .line 54
     new-array v0, v1, [Ljava/lang/Object;
 
     sput-object v0, Landroid/support/v4/util/ArraySet;->OBJECT:[Ljava/lang/Object;
@@ -87,13 +91,13 @@
     .locals 1
 
     .prologue
+    .line 243
     .local p0, "this":Landroid/support/v4/util/ArraySet;, "Landroid/support/v4/util/ArraySet<TE;>;"
     const/4 v0, 0x0
 
-    .line 236
-    invoke-direct {p0, v0, v0}, Landroid/support/v4/util/ArraySet;-><init>(IZ)V
+    invoke-direct {p0, v0}, Landroid/support/v4/util/ArraySet;-><init>(I)V
 
-    .line 237
+    .line 244
     return-void
 .end method
 
@@ -102,52 +106,33 @@
     .param p1, "capacity"    # I
 
     .prologue
-    .line 243
-    .local p0, "this":Landroid/support/v4/util/ArraySet;, "Landroid/support/v4/util/ArraySet<TE;>;"
-    const/4 v0, 0x0
-
-    invoke-direct {p0, p1, v0}, Landroid/support/v4/util/ArraySet;-><init>(IZ)V
-
-    .line 244
-    return-void
-.end method
-
-.method public constructor <init>(IZ)V
-    .locals 1
-    .param p1, "capacity"    # I
-    .param p2, "identityHashCode"    # Z
-
-    .prologue
-    .line 247
+    .line 250
     .local p0, "this":Landroid/support/v4/util/ArraySet;, "Landroid/support/v4/util/ArraySet<TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 248
-    iput-boolean p2, p0, Landroid/support/v4/util/ArraySet;->mIdentityHashCode:Z
-
-    .line 249
+    .line 251
     if-nez p1, :cond_0
 
-    .line 250
+    .line 252
     sget-object v0, Landroid/support/v4/util/ArraySet;->INT:[I
 
     iput-object v0, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
 
-    .line 251
+    .line 253
     sget-object v0, Landroid/support/v4/util/ArraySet;->OBJECT:[Ljava/lang/Object;
 
     iput-object v0, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
 
-    .line 255
+    .line 257
     :goto_0
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
-    .line 256
+    .line 258
     return-void
 
-    .line 253
+    .line 255
     :cond_0
     invoke-direct {p0, p1}, Landroid/support/v4/util/ArraySet;->allocArrays(I)V
 
@@ -156,6 +141,10 @@
 
 .method public constructor <init>(Landroid/support/v4/util/ArraySet;)V
     .locals 0
+    .param p1    # Landroid/support/v4/util/ArraySet;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -165,24 +154,28 @@
     .end annotation
 
     .prologue
-    .line 262
+    .line 264
     .local p0, "this":Landroid/support/v4/util/ArraySet;, "Landroid/support/v4/util/ArraySet<TE;>;"
     .local p1, "set":Landroid/support/v4/util/ArraySet;, "Landroid/support/v4/util/ArraySet<TE;>;"
     invoke-direct {p0}, Landroid/support/v4/util/ArraySet;-><init>()V
 
-    .line 263
+    .line 265
     if-eqz p1, :cond_0
 
-    .line 264
+    .line 266
     invoke-virtual {p0, p1}, Landroid/support/v4/util/ArraySet;->addAll(Landroid/support/v4/util/ArraySet;)V
 
-    .line 266
+    .line 268
     :cond_0
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/Collection;)V
     .locals 0
+    .param p1    # Ljava/util/Collection;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -192,18 +185,18 @@
     .end annotation
 
     .prologue
-    .line 270
+    .line 274
     .local p0, "this":Landroid/support/v4/util/ArraySet;, "Landroid/support/v4/util/ArraySet<TE;>;"
     .local p1, "set":Ljava/util/Collection;, "Ljava/util/Collection<TE;>;"
     invoke-direct {p0}, Landroid/support/v4/util/ArraySet;-><init>()V
 
-    .line 271
+    .line 275
     if-eqz p1, :cond_0
 
-    .line 272
+    .line 276
     invoke-virtual {p0, p1}, Landroid/support/v4/util/ArraySet;->addAll(Ljava/util/Collection;)Z
 
-    .line 274
+    .line 278
     :cond_0
     return-void
 .end method
@@ -213,31 +206,31 @@
     .param p1, "size"    # I
 
     .prologue
-    .line 157
+    .line 163
     .local p0, "this":Landroid/support/v4/util/ArraySet;, "Landroid/support/v4/util/ArraySet<TE;>;"
     const/16 v1, 0x8
 
     if-ne p1, v1, :cond_2
 
-    .line 158
+    .line 164
     const-class v2, Landroid/support/v4/util/ArraySet;
 
     monitor-enter v2
 
-    .line 159
+    .line 165
     :try_start_0
     sget-object v1, Landroid/support/v4/util/ArraySet;->sTwiceBaseCache:[Ljava/lang/Object;
 
     if-eqz v1, :cond_0
 
-    .line 160
+    .line 166
     sget-object v0, Landroid/support/v4/util/ArraySet;->sTwiceBaseCache:[Ljava/lang/Object;
 
-    .line 161
+    .line 167
     .local v0, "array":[Ljava/lang/Object;
     iput-object v0, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
 
-    .line 162
+    .line 168
     const/4 v1, 0x0
 
     aget-object v1, v0, v1
@@ -248,7 +241,7 @@
 
     sput-object v1, Landroid/support/v4/util/ArraySet;->sTwiceBaseCache:[Ljava/lang/Object;
 
-    .line 163
+    .line 169
     const/4 v1, 0x1
 
     aget-object v1, v0, v1
@@ -259,7 +252,7 @@
 
     iput-object v1, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
 
-    .line 164
+    .line 170
     const/4 v1, 0x0
 
     const/4 v3, 0x1
@@ -270,42 +263,42 @@
 
     aput-object v4, v0, v1
 
-    .line 165
+    .line 171
     sget v1, Landroid/support/v4/util/ArraySet;->sTwiceBaseCacheSize:I
 
     add-int/lit8 v1, v1, -0x1
 
     sput v1, Landroid/support/v4/util/ArraySet;->sTwiceBaseCacheSize:I
 
-    .line 170
+    .line 176
     monitor-exit v2
 
-    .line 193
+    .line 199
     .end local v0    # "array":[Ljava/lang/Object;
     :goto_0
     return-void
 
-    .line 172
+    .line 178
     :cond_0
     monitor-exit v2
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 191
+    .line 197
     :cond_1
     :goto_1
     new-array v1, p1, [I
 
     iput-object v1, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
 
-    .line 192
+    .line 198
     new-array v1, p1, [Ljava/lang/Object;
 
     iput-object v1, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
 
     goto :goto_0
 
-    .line 172
+    .line 178
     :catchall_0
     move-exception v1
 
@@ -316,31 +309,31 @@
 
     throw v1
 
-    .line 173
+    .line 179
     :cond_2
     const/4 v1, 0x4
 
     if-ne p1, v1, :cond_1
 
-    .line 174
+    .line 180
     const-class v2, Landroid/support/v4/util/ArraySet;
 
     monitor-enter v2
 
-    .line 175
+    .line 181
     :try_start_2
     sget-object v1, Landroid/support/v4/util/ArraySet;->sBaseCache:[Ljava/lang/Object;
 
     if-eqz v1, :cond_3
 
-    .line 176
+    .line 182
     sget-object v0, Landroid/support/v4/util/ArraySet;->sBaseCache:[Ljava/lang/Object;
 
-    .line 177
+    .line 183
     .restart local v0    # "array":[Ljava/lang/Object;
     iput-object v0, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
 
-    .line 178
+    .line 184
     const/4 v1, 0x0
 
     aget-object v1, v0, v1
@@ -351,7 +344,7 @@
 
     sput-object v1, Landroid/support/v4/util/ArraySet;->sBaseCache:[Ljava/lang/Object;
 
-    .line 179
+    .line 185
     const/4 v1, 0x1
 
     aget-object v1, v0, v1
@@ -362,7 +355,7 @@
 
     iput-object v1, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
 
-    .line 180
+    .line 186
     const/4 v1, 0x0
 
     const/4 v3, 0x1
@@ -373,19 +366,19 @@
 
     aput-object v4, v0, v1
 
-    .line 181
+    .line 187
     sget v1, Landroid/support/v4/util/ArraySet;->sBaseCacheSize:I
 
     add-int/lit8 v1, v1, -0x1
 
     sput v1, Landroid/support/v4/util/ArraySet;->sBaseCacheSize:I
 
-    .line 186
+    .line 192
     monitor-exit v2
 
     goto :goto_0
 
-    .line 188
+    .line 194
     .end local v0    # "array":[Ljava/lang/Object;
     :catchall_1
     move-exception v1
@@ -416,75 +409,75 @@
 
     const/4 v4, 0x2
 
-    .line 196
+    .line 203
     array-length v1, p0
 
     const/16 v2, 0x8
 
     if-ne v1, v2, :cond_3
 
-    .line 197
+    .line 204
     const-class v2, Landroid/support/v4/util/ArraySet;
 
     monitor-enter v2
 
-    .line 198
+    .line 205
     :try_start_0
     sget v1, Landroid/support/v4/util/ArraySet;->sTwiceBaseCacheSize:I
 
     if-ge v1, v3, :cond_1
 
-    .line 199
+    .line 206
     const/4 v1, 0x0
 
     sget-object v3, Landroid/support/v4/util/ArraySet;->sTwiceBaseCache:[Ljava/lang/Object;
 
     aput-object v3, p1, v1
 
-    .line 200
+    .line 207
     const/4 v1, 0x1
 
     aput-object p0, p1, v1
 
-    .line 201
+    .line 208
     add-int/lit8 v0, p2, -0x1
 
     .local v0, "i":I
     :goto_0
     if-lt v0, v4, :cond_0
 
-    .line 202
+    .line 209
     const/4 v1, 0x0
 
     aput-object v1, p1, v0
 
-    .line 201
+    .line 208
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
-    .line 204
+    .line 211
     :cond_0
     sput-object p1, Landroid/support/v4/util/ArraySet;->sTwiceBaseCache:[Ljava/lang/Object;
 
-    .line 205
+    .line 212
     sget v1, Landroid/support/v4/util/ArraySet;->sTwiceBaseCacheSize:I
 
     add-int/lit8 v1, v1, 0x1
 
     sput v1, Landroid/support/v4/util/ArraySet;->sTwiceBaseCacheSize:I
 
-    .line 211
+    .line 218
     .end local v0    # "i":I
     :cond_1
     monitor-exit v2
 
-    .line 229
+    .line 236
     :cond_2
     :goto_1
     return-void
 
-    .line 211
+    .line 218
     :catchall_0
     move-exception v1
 
@@ -494,7 +487,7 @@
 
     throw v1
 
-    .line 212
+    .line 219
     :cond_3
     array-length v1, p0
 
@@ -502,58 +495,58 @@
 
     if-ne v1, v2, :cond_2
 
-    .line 213
+    .line 220
     const-class v2, Landroid/support/v4/util/ArraySet;
 
     monitor-enter v2
 
-    .line 214
+    .line 221
     :try_start_1
     sget v1, Landroid/support/v4/util/ArraySet;->sBaseCacheSize:I
 
     if-ge v1, v3, :cond_5
 
-    .line 215
+    .line 222
     const/4 v1, 0x0
 
     sget-object v3, Landroid/support/v4/util/ArraySet;->sBaseCache:[Ljava/lang/Object;
 
     aput-object v3, p1, v1
 
-    .line 216
+    .line 223
     const/4 v1, 0x1
 
     aput-object p0, p1, v1
 
-    .line 217
+    .line 224
     add-int/lit8 v0, p2, -0x1
 
     .restart local v0    # "i":I
     :goto_2
     if-lt v0, v4, :cond_4
 
-    .line 218
+    .line 225
     const/4 v1, 0x0
 
     aput-object v1, p1, v0
 
-    .line 217
+    .line 224
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_2
 
-    .line 220
+    .line 227
     :cond_4
     sput-object p1, Landroid/support/v4/util/ArraySet;->sBaseCache:[Ljava/lang/Object;
 
-    .line 221
+    .line 228
     sget v1, Landroid/support/v4/util/ArraySet;->sBaseCacheSize:I
 
     add-int/lit8 v1, v1, 0x1
 
     sput v1, Landroid/support/v4/util/ArraySet;->sBaseCacheSize:I
 
-    .line 227
+    .line 234
     .end local v0    # "i":I
     :cond_5
     monitor-exit v2
@@ -581,20 +574,20 @@
     .end annotation
 
     .prologue
-    .line 659
+    .line 666
     .local p0, "this":Landroid/support/v4/util/ArraySet;, "Landroid/support/v4/util/ArraySet<TE;>;"
     iget-object v0, p0, Landroid/support/v4/util/ArraySet;->mCollections:Landroid/support/v4/util/MapCollections;
 
     if-nez v0, :cond_0
 
-    .line 660
+    .line 667
     new-instance v0, Landroid/support/v4/util/ArraySet$1;
 
     invoke-direct {v0, p0}, Landroid/support/v4/util/ArraySet$1;-><init>(Landroid/support/v4/util/ArraySet;)V
 
     iput-object v0, p0, Landroid/support/v4/util/ArraySet;->mCollections:Landroid/support/v4/util/MapCollections;
 
-    .line 707
+    .line 714
     :cond_0
     iget-object v0, p0, Landroid/support/v4/util/ArraySet;->mCollections:Landroid/support/v4/util/MapCollections;
 
@@ -607,23 +600,23 @@
     .param p2, "hash"    # I
 
     .prologue
-    .line 81
+    .line 86
     .local p0, "this":Landroid/support/v4/util/ArraySet;, "Landroid/support/v4/util/ArraySet<TE;>;"
     iget v0, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
-    .line 84
+    .line 89
     .local v0, "N":I
     if-nez v0, :cond_1
 
-    .line 85
+    .line 90
     const/4 v3, -0x1
 
-    .line 115
+    .line 120
     :cond_0
     :goto_0
     return v3
 
-    .line 88
+    .line 93
     :cond_1
     iget-object v4, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
 
@@ -631,11 +624,11 @@
 
     move-result v3
 
-    .line 91
+    .line 96
     .local v3, "index":I
     if-ltz v3, :cond_0
 
-    .line 96
+    .line 101
     iget-object v4, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
 
     aget-object v4, v4, v3
@@ -646,7 +639,7 @@
 
     if-nez v4, :cond_0
 
-    .line 102
+    .line 107
     add-int/lit8 v1, v3, 0x1
 
     .local v1, "end":I
@@ -659,7 +652,7 @@
 
     if-ne v4, p2, :cond_3
 
-    .line 103
+    .line 108
     iget-object v4, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
 
     aget-object v4, v4, v1
@@ -674,13 +667,13 @@
 
     goto :goto_0
 
-    .line 102
+    .line 107
     :cond_2
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
-    .line 107
+    .line 112
     :cond_3
     add-int/lit8 v2, v3, -0x1
 
@@ -694,7 +687,7 @@
 
     if-ne v4, p2, :cond_5
 
-    .line 108
+    .line 113
     iget-object v4, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
 
     aget-object v4, v4, v2
@@ -709,13 +702,13 @@
 
     goto :goto_0
 
-    .line 107
+    .line 112
     :cond_4
     add-int/lit8 v2, v2, -0x1
 
     goto :goto_2
 
-    .line 115
+    .line 120
     :cond_5
     xor-int/lit8 v3, v1, -0x1
 
@@ -726,23 +719,23 @@
     .locals 6
 
     .prologue
-    .line 119
+    .line 124
     .local p0, "this":Landroid/support/v4/util/ArraySet;, "Landroid/support/v4/util/ArraySet<TE;>;"
     iget v0, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
-    .line 122
+    .line 127
     .local v0, "N":I
     if-nez v0, :cond_1
 
-    .line 123
+    .line 128
     const/4 v3, -0x1
 
-    .line 153
+    .line 158
     :cond_0
     :goto_0
     return v3
 
-    .line 126
+    .line 131
     :cond_1
     iget-object v4, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
 
@@ -752,18 +745,18 @@
 
     move-result v3
 
-    .line 129
+    .line 134
     .local v3, "index":I
     if-ltz v3, :cond_0
 
-    .line 134
+    .line 139
     iget-object v4, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
 
     aget-object v4, v4, v3
 
     if-eqz v4, :cond_0
 
-    .line 140
+    .line 145
     add-int/lit8 v1, v3, 0x1
 
     .local v1, "end":I
@@ -776,7 +769,7 @@
 
     if-nez v4, :cond_3
 
-    .line 141
+    .line 146
     iget-object v4, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
 
     aget-object v4, v4, v1
@@ -787,13 +780,13 @@
 
     goto :goto_0
 
-    .line 140
+    .line 145
     :cond_2
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
-    .line 145
+    .line 150
     :cond_3
     add-int/lit8 v2, v3, -0x1
 
@@ -807,7 +800,7 @@
 
     if-nez v4, :cond_5
 
-    .line 146
+    .line 151
     iget-object v4, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
 
     aget-object v4, v4, v2
@@ -818,13 +811,13 @@
 
     goto :goto_0
 
-    .line 145
+    .line 150
     :cond_4
     add-int/lit8 v2, v2, -0x1
 
     goto :goto_2
 
-    .line 153
+    .line 158
     :cond_5
     xor-int/lit8 v3, v1, -0x1
 
@@ -835,6 +828,10 @@
 # virtual methods
 .method public add(Ljava/lang/Object;)Z
     .locals 9
+    .param p1    # Ljava/lang/Object;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)Z"
@@ -850,44 +847,39 @@
 
     const/4 v6, 0x0
 
-    .line 358
+    .line 362
     if-nez p1, :cond_0
 
-    .line 359
+    .line 363
     const/4 v0, 0x0
 
-    .line 360
+    .line 364
     .local v0, "hash":I
     invoke-direct {p0}, Landroid/support/v4/util/ArraySet;->indexOfNull()I
 
     move-result v1
 
-    .line 365
+    .line 369
     .local v1, "index":I
     :goto_0
-    if-ltz v1, :cond_2
+    if-ltz v1, :cond_1
 
     move v5, v6
 
-    .line 400
+    .line 405
     :goto_1
     return v5
 
-    .line 362
+    .line 366
     .end local v0    # "hash":I
     .end local v1    # "index":I
     :cond_0
-    iget-boolean v7, p0, Landroid/support/v4/util/ArraySet;->mIdentityHashCode:Z
-
-    if-eqz v7, :cond_1
-
-    invoke-static {p1}, Ljava/lang/System;->identityHashCode(Ljava/lang/Object;)I
+    invoke-virtual {p1}, Ljava/lang/Object;->hashCode()I
 
     move-result v0
 
-    .line 363
+    .line 367
     .restart local v0    # "hash":I
-    :goto_2
     invoke-direct {p0, p1, v0}, Landroid/support/v4/util/ArraySet;->indexOf(Ljava/lang/Object;I)I
 
     move-result v1
@@ -895,35 +887,23 @@
     .restart local v1    # "index":I
     goto :goto_0
 
-    .line 362
-    .end local v0    # "hash":I
-    .end local v1    # "index":I
+    .line 373
     :cond_1
-    invoke-virtual {p1}, Ljava/lang/Object;->hashCode()I
-
-    move-result v0
-
-    goto :goto_2
-
-    .line 369
-    .restart local v0    # "hash":I
-    .restart local v1    # "index":I
-    :cond_2
     xor-int/lit8 v1, v1, -0x1
 
-    .line 370
+    .line 374
     iget v7, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
     iget-object v8, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
 
     array-length v8, v8
 
-    if-lt v7, v8, :cond_5
+    if-lt v7, v8, :cond_4
 
-    .line 371
+    .line 375
     iget v7, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
-    if-lt v7, v2, :cond_7
+    if-lt v7, v2, :cond_6
 
     iget v5, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
@@ -933,57 +913,57 @@
 
     add-int v2, v5, v7
 
-    .line 376
+    .line 380
     .local v2, "n":I
-    :cond_3
-    :goto_3
+    :cond_2
+    :goto_2
     iget-object v4, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
 
-    .line 377
+    .line 381
     .local v4, "ohashes":[I
     iget-object v3, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
 
-    .line 378
+    .line 382
     .local v3, "oarray":[Ljava/lang/Object;
     invoke-direct {p0, v2}, Landroid/support/v4/util/ArraySet;->allocArrays(I)V
 
-    .line 380
+    .line 384
     iget-object v5, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
 
     array-length v5, v5
 
-    if-lez v5, :cond_4
+    if-lez v5, :cond_3
 
-    .line 382
+    .line 386
     iget-object v5, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
 
     array-length v7, v4
 
     invoke-static {v4, v6, v5, v6, v7}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 383
+    .line 387
     iget-object v5, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
 
     array-length v7, v3
 
     invoke-static {v3, v6, v5, v6, v7}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 386
-    :cond_4
+    .line 390
+    :cond_3
     iget v5, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
     invoke-static {v4, v3, v5}, Landroid/support/v4/util/ArraySet;->freeArrays([I[Ljava/lang/Object;I)V
 
-    .line 389
+    .line 393
     .end local v2    # "n":I
     .end local v3    # "oarray":[Ljava/lang/Object;
     .end local v4    # "ohashes":[I
-    :cond_5
+    :cond_4
     iget v5, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
-    if-ge v1, v5, :cond_6
+    if-ge v1, v5, :cond_5
 
-    .line 393
+    .line 398
     iget-object v5, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
 
     iget-object v6, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
@@ -996,7 +976,7 @@
 
     invoke-static {v5, v1, v6, v7, v8}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 394
+    .line 399
     iget-object v5, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
 
     iget-object v6, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
@@ -1009,42 +989,46 @@
 
     invoke-static {v5, v1, v6, v7, v8}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 397
-    :cond_6
+    .line 402
+    :cond_5
     iget-object v5, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
 
     aput v0, v5, v1
 
-    .line 398
+    .line 403
     iget-object v5, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
 
     aput-object p1, v5, v1
 
-    .line 399
+    .line 404
     iget v5, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
     add-int/lit8 v5, v5, 0x1
 
     iput v5, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
-    .line 400
+    .line 405
     const/4 v5, 0x1
 
     goto :goto_1
 
-    .line 371
-    :cond_7
+    .line 375
+    :cond_6
     iget v7, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
-    if-ge v7, v5, :cond_3
+    if-ge v7, v5, :cond_2
 
     move v2, v5
 
-    goto :goto_3
+    goto :goto_2
 .end method
 
 .method public addAll(Landroid/support/v4/util/ArraySet;)V
     .locals 5
+    .param p1    # Landroid/support/v4/util/ArraySet;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1058,10 +1042,10 @@
     .local p1, "array":Landroid/support/v4/util/ArraySet;, "Landroid/support/v4/util/ArraySet<+TE;>;"
     const/4 v4, 0x0
 
-    .line 437
+    .line 442
     iget v0, p1, Landroid/support/v4/util/ArraySet;->mSize:I
 
-    .line 438
+    .line 443
     .local v0, "N":I
     iget v2, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
@@ -1069,36 +1053,36 @@
 
     invoke-virtual {p0, v2}, Landroid/support/v4/util/ArraySet;->ensureCapacity(I)V
 
-    .line 439
+    .line 444
     iget v2, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
     if-nez v2, :cond_1
 
-    .line 440
+    .line 445
     if-lez v0, :cond_0
 
-    .line 441
+    .line 446
     iget-object v2, p1, Landroid/support/v4/util/ArraySet;->mHashes:[I
 
     iget-object v3, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
 
     invoke-static {v2, v4, v3, v4, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 442
+    .line 447
     iget-object v2, p1, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
 
     iget-object v3, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
 
     invoke-static {v2, v4, v3, v4, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 443
+    .line 448
     iput v0, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
-    .line 450
+    .line 455
     :cond_0
     return-void
 
-    .line 446
+    .line 451
     :cond_1
     const/4 v1, 0x0
 
@@ -1106,14 +1090,14 @@
     :goto_0
     if-ge v1, v0, :cond_0
 
-    .line 447
+    .line 452
     invoke-virtual {p1, v1}, Landroid/support/v4/util/ArraySet;->valueAt(I)Ljava/lang/Object;
 
     move-result-object v2
 
     invoke-virtual {p0, v2}, Landroid/support/v4/util/ArraySet;->add(Ljava/lang/Object;)Z
 
-    .line 446
+    .line 451
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
@@ -1121,6 +1105,10 @@
 
 .method public addAll(Ljava/util/Collection;)Z
     .locals 4
+    .param p1    # Ljava/util/Collection;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1130,7 +1118,7 @@
     .end annotation
 
     .prologue
-    .line 745
+    .line 752
     .local p0, "this":Landroid/support/v4/util/ArraySet;, "Landroid/support/v4/util/ArraySet<TE;>;"
     .local p1, "collection":Ljava/util/Collection;, "Ljava/util/Collection<+TE;>;"
     iget v2, p0, Landroid/support/v4/util/ArraySet;->mSize:I
@@ -1143,10 +1131,10 @@
 
     invoke-virtual {p0, v2}, Landroid/support/v4/util/ArraySet;->ensureCapacity(I)V
 
-    .line 746
+    .line 753
     const/4 v0, 0x0
 
-    .line 747
+    .line 754
     .local v0, "added":Z
     invoke-interface {p1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
@@ -1163,7 +1151,7 @@
 
     move-result-object v1
 
-    .line 748
+    .line 755
     .local v1, "value":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0, v1}, Landroid/support/v4/util/ArraySet;->add(Ljava/lang/Object;)Z
 
@@ -1171,10 +1159,10 @@
 
     or-int/2addr v0, v3
 
-    .line 749
+    .line 756
     goto :goto_0
 
-    .line 750
+    .line 757
     .end local v1    # "value":Ljava/lang/Object;, "TE;"
     :cond_0
     return v0
@@ -1182,6 +1170,12 @@
 
 .method public append(Ljava/lang/Object;)V
     .locals 4
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)V"
@@ -1189,27 +1183,27 @@
     .end annotation
 
     .prologue
-    .line 409
+    .line 415
     .local p0, "this":Landroid/support/v4/util/ArraySet;, "Landroid/support/v4/util/ArraySet<TE;>;"
     .local p1, "value":Ljava/lang/Object;, "TE;"
     iget v1, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
-    .line 410
+    .line 416
     .local v1, "index":I
     if-nez p1, :cond_0
 
     const/4 v0, 0x0
 
-    .line 412
+    .line 417
     .local v0, "hash":I
     :goto_0
     iget-object v2, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
 
     array-length v2, v2
 
-    if-lt v1, v2, :cond_2
+    if-lt v1, v2, :cond_1
 
-    .line 413
+    .line 418
     new-instance v2, Ljava/lang/IllegalStateException;
 
     const-string v3, "Array is full"
@@ -1218,31 +1212,19 @@
 
     throw v2
 
-    .line 410
+    .line 416
     .end local v0    # "hash":I
     :cond_0
-    iget-boolean v2, p0, Landroid/support/v4/util/ArraySet;->mIdentityHashCode:Z
-
-    if-eqz v2, :cond_1
-
-    .line 411
-    invoke-static {p1}, Ljava/lang/System;->identityHashCode(Ljava/lang/Object;)I
-
-    move-result v0
-
-    goto :goto_0
-
-    :cond_1
     invoke-virtual {p1}, Ljava/lang/Object;->hashCode()I
 
     move-result v0
 
     goto :goto_0
 
-    .line 415
+    .line 420
     .restart local v0    # "hash":I
-    :cond_2
-    if-lez v1, :cond_3
+    :cond_1
+    if-lez v1, :cond_2
 
     iget-object v2, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
 
@@ -1250,27 +1232,27 @@
 
     aget v2, v2, v3
 
-    if-le v2, v0, :cond_3
+    if-le v2, v0, :cond_2
 
-    .line 424
+    .line 429
     invoke-virtual {p0, p1}, Landroid/support/v4/util/ArraySet;->add(Ljava/lang/Object;)Z
 
-    .line 430
+    .line 435
     :goto_1
     return-void
 
-    .line 427
-    :cond_3
+    .line 432
+    :cond_2
     add-int/lit8 v2, v1, 0x1
 
     iput v2, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
-    .line 428
+    .line 433
     iget-object v2, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
 
     aput v0, v2, v1
 
-    .line 429
+    .line 434
     iget-object v2, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
 
     aput-object p1, v2, v1
@@ -1282,13 +1264,13 @@
     .locals 3
 
     .prologue
-    .line 281
+    .line 285
     .local p0, "this":Landroid/support/v4/util/ArraySet;, "Landroid/support/v4/util/ArraySet<TE;>;"
     iget v0, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
     if-eqz v0, :cond_0
 
-    .line 282
+    .line 286
     iget-object v0, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
 
     iget-object v1, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
@@ -1297,22 +1279,22 @@
 
     invoke-static {v0, v1, v2}, Landroid/support/v4/util/ArraySet;->freeArrays([I[Ljava/lang/Object;I)V
 
-    .line 283
+    .line 287
     sget-object v0, Landroid/support/v4/util/ArraySet;->INT:[I
 
     iput-object v0, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
 
-    .line 284
+    .line 288
     sget-object v0, Landroid/support/v4/util/ArraySet;->OBJECT:[Ljava/lang/Object;
 
     iput-object v0, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
 
-    .line 285
+    .line 289
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
-    .line 287
+    .line 291
     :cond_0
     return-void
 .end method
@@ -1320,9 +1302,12 @@
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
     .param p1, "key"    # Ljava/lang/Object;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .prologue
-    .line 314
+    .line 318
     .local p0, "this":Landroid/support/v4/util/ArraySet;, "Landroid/support/v4/util/ArraySet<TE;>;"
     invoke-virtual {p0, p1}, Landroid/support/v4/util/ArraySet;->indexOf(Ljava/lang/Object;)I
 
@@ -1343,6 +1328,10 @@
 
 .method public containsAll(Ljava/util/Collection;)Z
     .locals 2
+    .param p1    # Ljava/util/Collection;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1352,14 +1341,14 @@
     .end annotation
 
     .prologue
-    .line 730
+    .line 737
     .local p0, "this":Landroid/support/v4/util/ArraySet;, "Landroid/support/v4/util/ArraySet<TE;>;"
     .local p1, "collection":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     invoke-interface {p1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    .line 731
+    .line 738
     .local v0, "it":Ljava/util/Iterator;, "Ljava/util/Iterator<*>;"
     :cond_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -1368,7 +1357,7 @@
 
     if-eqz v1, :cond_1
 
-    .line 732
+    .line 739
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
@@ -1379,10 +1368,10 @@
 
     if-nez v1, :cond_0
 
-    .line 733
+    .line 740
     const/4 v1, 0x0
 
-    .line 736
+    .line 743
     :goto_0
     return v1
 
@@ -1400,50 +1389,50 @@
     .local p0, "this":Landroid/support/v4/util/ArraySet;, "Landroid/support/v4/util/ArraySet<TE;>;"
     const/4 v4, 0x0
 
-    .line 294
+    .line 298
     iget-object v2, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
 
     array-length v2, v2
 
     if-ge v2, p1, :cond_1
 
-    .line 295
+    .line 299
     iget-object v1, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
 
-    .line 296
+    .line 300
     .local v1, "ohashes":[I
     iget-object v0, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
 
-    .line 297
+    .line 301
     .local v0, "oarray":[Ljava/lang/Object;
     invoke-direct {p0, p1}, Landroid/support/v4/util/ArraySet;->allocArrays(I)V
 
-    .line 298
+    .line 302
     iget v2, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
     if-lez v2, :cond_0
 
-    .line 299
+    .line 303
     iget-object v2, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
 
     iget v3, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
     invoke-static {v1, v4, v2, v4, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 300
+    .line 304
     iget-object v2, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
 
     iget v3, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
     invoke-static {v0, v4, v2, v4, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 302
+    .line 306
     :cond_0
     iget v2, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
     invoke-static {v1, v0, v2}, Landroid/support/v4/util/ArraySet;->freeArrays([I[Ljava/lang/Object;I)V
 
-    .line 304
+    .line 308
     .end local v0    # "oarray":[Ljava/lang/Object;
     .end local v1    # "ohashes":[I
     :cond_1
@@ -1460,15 +1449,15 @@
 
     const/4 v5, 0x0
 
-    .line 584
+    .line 591
     if-ne p0, p1, :cond_1
 
-    .line 607
+    .line 614
     :cond_0
     :goto_0
     return v4
 
-    .line 587
+    .line 594
     :cond_1
     instance-of v6, p1, Ljava/util/Set;
 
@@ -1476,10 +1465,10 @@
 
     move-object v3, p1
 
-    .line 588
+    .line 595
     check-cast v3, Ljava/util/Set;
 
-    .line 589
+    .line 596
     .local v3, "set":Ljava/util/Set;, "Ljava/util/Set<*>;"
     invoke-virtual {p0}, Landroid/support/v4/util/ArraySet;->size()I
 
@@ -1493,10 +1482,10 @@
 
     move v4, v5
 
-    .line 590
+    .line 597
     goto :goto_0
 
-    .line 594
+    .line 601
     :cond_2
     const/4 v0, 0x0
 
@@ -1507,12 +1496,12 @@
 
     if-ge v0, v6, :cond_0
 
-    .line 595
+    .line 602
     invoke-virtual {p0, v0}, Landroid/support/v4/util/ArraySet;->valueAt(I)Ljava/lang/Object;
 
     move-result-object v2
 
-    .line 596
+    .line 603
     .local v2, "mine":Ljava/lang/Object;, "TE;"
     invoke-interface {v3, v2}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
     :try_end_0
@@ -1525,16 +1514,16 @@
 
     move v4, v5
 
-    .line 597
+    .line 604
     goto :goto_0
 
-    .line 594
+    .line 601
     :cond_3
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 600
+    .line 607
     .end local v2    # "mine":Ljava/lang/Object;, "TE;"
     :catch_0
     move-exception v1
@@ -1542,10 +1531,10 @@
     .local v1, "ignored":Ljava/lang/NullPointerException;
     move v4, v5
 
-    .line 601
+    .line 608
     goto :goto_0
 
-    .line 602
+    .line 609
     .end local v1    # "ignored":Ljava/lang/NullPointerException;
     :catch_1
     move-exception v1
@@ -1553,7 +1542,7 @@
     .local v1, "ignored":Ljava/lang/ClassCastException;
     move v4, v5
 
-    .line 603
+    .line 610
     goto :goto_0
 
     .end local v0    # "i":I
@@ -1562,7 +1551,7 @@
     :cond_4
     move v4, v5
 
-    .line 607
+    .line 614
     goto :goto_0
 .end method
 
@@ -1570,15 +1559,15 @@
     .locals 5
 
     .prologue
-    .line 615
+    .line 622
     .local p0, "this":Landroid/support/v4/util/ArraySet;, "Landroid/support/v4/util/ArraySet<TE;>;"
     iget-object v0, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
 
-    .line 616
+    .line 623
     .local v0, "hashes":[I
     const/4 v2, 0x0
 
-    .line 617
+    .line 624
     .local v2, "result":I
     const/4 v1, 0x0
 
@@ -1589,17 +1578,17 @@
     :goto_0
     if-ge v1, v3, :cond_0
 
-    .line 618
+    .line 625
     aget v4, v0, v1
 
     add-int/2addr v2, v4
 
-    .line 617
+    .line 624
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 620
+    .line 627
     :cond_0
     return v2
 .end method
@@ -1607,9 +1596,12 @@
 .method public indexOf(Ljava/lang/Object;)I
     .locals 1
     .param p1, "key"    # Ljava/lang/Object;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .prologue
-    .line 324
+    .line 328
     .local p0, "this":Landroid/support/v4/util/ArraySet;, "Landroid/support/v4/util/ArraySet<TE;>;"
     if-nez p1, :cond_0
 
@@ -1617,41 +1609,26 @@
 
     move-result v0
 
-    .line 325
     :goto_0
     return v0
 
-    .line 324
     :cond_0
-    iget-boolean v0, p0, Landroid/support/v4/util/ArraySet;->mIdentityHashCode:Z
-
-    if-eqz v0, :cond_1
-
-    .line 325
-    invoke-static {p1}, Ljava/lang/System;->identityHashCode(Ljava/lang/Object;)I
+    invoke-virtual {p1}, Ljava/lang/Object;->hashCode()I
 
     move-result v0
 
-    :goto_1
     invoke-direct {p0, p1, v0}, Landroid/support/v4/util/ArraySet;->indexOf(Ljava/lang/Object;I)I
 
     move-result v0
 
     goto :goto_0
-
-    :cond_1
-    invoke-virtual {p1}, Ljava/lang/Object;->hashCode()I
-
-    move-result v0
-
-    goto :goto_1
 .end method
 
 .method public isEmpty()Z
     .locals 1
 
     .prologue
-    .line 342
+    .line 346
     .local p0, "this":Landroid/support/v4/util/ArraySet;, "Landroid/support/v4/util/ArraySet<TE;>;"
     iget v0, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
@@ -1679,7 +1656,7 @@
     .end annotation
 
     .prologue
-    .line 719
+    .line 726
     .local p0, "this":Landroid/support/v4/util/ArraySet;, "Landroid/support/v4/util/ArraySet<TE;>;"
     invoke-direct {p0}, Landroid/support/v4/util/ArraySet;->getCollection()Landroid/support/v4/util/MapCollections;
 
@@ -1699,25 +1676,28 @@
 .method public remove(Ljava/lang/Object;)Z
     .locals 2
     .param p1, "object"    # Ljava/lang/Object;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .prologue
-    .line 460
+    .line 465
     .local p0, "this":Landroid/support/v4/util/ArraySet;, "Landroid/support/v4/util/ArraySet<TE;>;"
     invoke-virtual {p0, p1}, Landroid/support/v4/util/ArraySet;->indexOf(Ljava/lang/Object;)I
 
     move-result v0
 
-    .line 461
+    .line 466
     .local v0, "index":I
     if-ltz v0, :cond_0
 
-    .line 462
+    .line 467
     invoke-virtual {p0, v0}, Landroid/support/v4/util/ArraySet;->removeAt(I)Ljava/lang/Object;
 
-    .line 463
+    .line 468
     const/4 v1, 0x1
 
-    .line 465
+    .line 470
     :goto_0
     return v1
 
@@ -1729,6 +1709,10 @@
 
 .method public removeAll(Landroid/support/v4/util/ArraySet;)Z
     .locals 4
+    .param p1    # Landroid/support/v4/util/ArraySet;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1738,16 +1722,16 @@
     .end annotation
 
     .prologue
-    .line 533
+    .line 538
     .local p0, "this":Landroid/support/v4/util/ArraySet;, "Landroid/support/v4/util/ArraySet<TE;>;"
     .local p1, "array":Landroid/support/v4/util/ArraySet;, "Landroid/support/v4/util/ArraySet<+TE;>;"
     iget v0, p1, Landroid/support/v4/util/ArraySet;->mSize:I
 
-    .line 537
+    .line 542
     .local v0, "N":I
     iget v2, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
-    .line 538
+    .line 543
     .local v2, "originalSize":I
     const/4 v1, 0x0
 
@@ -1755,19 +1739,19 @@
     :goto_0
     if-ge v1, v0, :cond_0
 
-    .line 539
+    .line 544
     invoke-virtual {p1, v1}, Landroid/support/v4/util/ArraySet;->valueAt(I)Ljava/lang/Object;
 
     move-result-object v3
 
     invoke-virtual {p0, v3}, Landroid/support/v4/util/ArraySet;->remove(Ljava/lang/Object;)Z
 
-    .line 538
+    .line 543
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 541
+    .line 546
     :cond_0
     iget v3, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
@@ -1786,6 +1770,10 @@
 
 .method public removeAll(Ljava/util/Collection;)Z
     .locals 4
+    .param p1    # Ljava/util/Collection;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1795,12 +1783,12 @@
     .end annotation
 
     .prologue
-    .line 760
+    .line 767
     .local p0, "this":Landroid/support/v4/util/ArraySet;, "Landroid/support/v4/util/ArraySet<TE;>;"
     .local p1, "collection":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     const/4 v0, 0x0
 
-    .line 761
+    .line 768
     .local v0, "removed":Z
     invoke-interface {p1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
@@ -1817,7 +1805,7 @@
 
     move-result-object v1
 
-    .line 762
+    .line 769
     .local v1, "value":Ljava/lang/Object;
     invoke-virtual {p0, v1}, Landroid/support/v4/util/ArraySet;->remove(Ljava/lang/Object;)Z
 
@@ -1825,10 +1813,10 @@
 
     or-int/2addr v0, v3
 
-    .line 763
+    .line 770
     goto :goto_0
 
-    .line 764
+    .line 771
     .end local v1    # "value":Ljava/lang/Object;
     :cond_0
     return v0
@@ -1849,12 +1837,12 @@
 
     const/4 v7, 0x0
 
-    .line 474
+    .line 479
     iget-object v4, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
 
     aget-object v3, v4, p1
 
-    .line 475
+    .line 480
     .local v3, "old":Ljava/lang/Object;
     iget v4, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
@@ -1862,7 +1850,7 @@
 
     if-gt v4, v5, :cond_1
 
-    .line 478
+    .line 483
     iget-object v4, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
 
     iget-object v5, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
@@ -1871,25 +1859,25 @@
 
     invoke-static {v4, v5, v6}, Landroid/support/v4/util/ArraySet;->freeArrays([I[Ljava/lang/Object;I)V
 
-    .line 479
+    .line 484
     sget-object v4, Landroid/support/v4/util/ArraySet;->INT:[I
 
     iput-object v4, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
 
-    .line 480
+    .line 485
     sget-object v4, Landroid/support/v4/util/ArraySet;->OBJECT:[Ljava/lang/Object;
 
     iput-object v4, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
 
-    .line 481
+    .line 486
     iput v7, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
-    .line 521
+    .line 526
     :cond_0
     :goto_0
     return-object v3
 
-    .line 483
+    .line 488
     :cond_1
     iget-object v4, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
 
@@ -1907,7 +1895,7 @@
 
     if-ge v4, v5, :cond_4
 
-    .line 487
+    .line 492
     iget v4, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
     if-le v4, v0, :cond_2
@@ -1920,46 +1908,46 @@
 
     add-int v0, v4, v5
 
-    .line 491
+    .line 496
     .local v0, "n":I
     :cond_2
     iget-object v2, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
 
-    .line 492
+    .line 497
     .local v2, "ohashes":[I
     iget-object v1, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
 
-    .line 493
+    .line 498
     .local v1, "oarray":[Ljava/lang/Object;
     invoke-direct {p0, v0}, Landroid/support/v4/util/ArraySet;->allocArrays(I)V
 
-    .line 495
+    .line 500
     iget v4, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
     add-int/lit8 v4, v4, -0x1
 
     iput v4, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
-    .line 496
+    .line 501
     if-lez p1, :cond_3
 
-    .line 498
+    .line 503
     iget-object v4, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
 
     invoke-static {v2, v7, v4, v7, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 499
+    .line 504
     iget-object v4, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
 
     invoke-static {v1, v7, v4, v7, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 501
+    .line 506
     :cond_3
     iget v4, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
     if-ge p1, v4, :cond_0
 
-    .line 506
+    .line 511
     add-int/lit8 v4, p1, 0x1
 
     iget-object v5, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
@@ -1970,7 +1958,7 @@
 
     invoke-static {v2, v4, v5, p1, v6}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 507
+    .line 512
     add-int/lit8 v4, p1, 0x1
 
     iget-object v5, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
@@ -1983,7 +1971,7 @@
 
     goto :goto_0
 
-    .line 510
+    .line 515
     .end local v0    # "n":I
     .end local v1    # "oarray":[Ljava/lang/Object;
     .end local v2    # "ohashes":[I
@@ -1994,12 +1982,12 @@
 
     iput v4, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
-    .line 511
+    .line 516
     iget v4, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
     if-ge p1, v4, :cond_5
 
-    .line 515
+    .line 520
     iget-object v4, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
 
     add-int/lit8 v5, p1, 0x1
@@ -2012,7 +2000,7 @@
 
     invoke-static {v4, v5, v6, p1, v7}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 516
+    .line 521
     iget-object v4, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
 
     add-int/lit8 v5, p1, 0x1
@@ -2025,7 +2013,7 @@
 
     invoke-static {v4, v5, v6, p1, v7}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 518
+    .line 523
     :cond_5
     iget-object v4, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
 
@@ -2040,6 +2028,10 @@
 
 .method public retainAll(Ljava/util/Collection;)Z
     .locals 3
+    .param p1    # Ljava/util/Collection;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2049,12 +2041,12 @@
     .end annotation
 
     .prologue
-    .line 775
+    .line 782
     .local p0, "this":Landroid/support/v4/util/ArraySet;, "Landroid/support/v4/util/ArraySet<TE;>;"
     .local p1, "collection":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     const/4 v1, 0x0
 
-    .line 776
+    .line 783
     .local v1, "removed":Z
     iget v2, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
@@ -2064,7 +2056,7 @@
     :goto_0
     if-ltz v0, :cond_1
 
-    .line 777
+    .line 784
     iget-object v2, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
 
     aget-object v2, v2, v0
@@ -2075,19 +2067,19 @@
 
     if-nez v2, :cond_0
 
-    .line 778
+    .line 785
     invoke-virtual {p0, v0}, Landroid/support/v4/util/ArraySet;->removeAt(I)Ljava/lang/Object;
 
-    .line 779
+    .line 786
     const/4 v1, 0x1
 
-    .line 776
+    .line 783
     :cond_0
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
-    .line 782
+    .line 789
     :cond_1
     return v1
 .end method
@@ -2096,7 +2088,7 @@
     .locals 1
 
     .prologue
-    .line 549
+    .line 554
     .local p0, "this":Landroid/support/v4/util/ArraySet;, "Landroid/support/v4/util/ArraySet<TE;>;"
     iget v0, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
@@ -2105,17 +2097,19 @@
 
 .method public toArray()[Ljava/lang/Object;
     .locals 4
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .prologue
     .local p0, "this":Landroid/support/v4/util/ArraySet;, "Landroid/support/v4/util/ArraySet<TE;>;"
     const/4 v3, 0x0
 
-    .line 554
+    .line 560
     iget v1, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
     new-array v0, v1, [Ljava/lang/Object;
 
-    .line 555
+    .line 561
     .local v0, "result":[Ljava/lang/Object;
     iget-object v1, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
 
@@ -2123,12 +2117,19 @@
 
     invoke-static {v1, v3, v0, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 556
+    .line 562
     return-object v0
 .end method
 
 .method public toArray([Ljava/lang/Object;)[Ljava/lang/Object;
     .locals 4
+    .param p1    # [Ljava/lang/Object;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -2142,14 +2143,14 @@
     .local p1, "array":[Ljava/lang/Object;, "[TT;"
     const/4 v3, 0x0
 
-    .line 561
+    .line 568
     array-length v1, p1
 
     iget v2, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
     if-ge v1, v2, :cond_0
 
-    .line 563
+    .line 570
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v1
@@ -2170,11 +2171,11 @@
 
     check-cast v0, [Ljava/lang/Object;
 
-    .line 564
+    .line 571
     .local v0, "newArray":[Ljava/lang/Object;, "[TT;"
     move-object p1, v0
 
-    .line 566
+    .line 573
     .end local v0    # "newArray":[Ljava/lang/Object;, "[TT;"
     :cond_0
     iget-object v1, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
@@ -2183,21 +2184,21 @@
 
     invoke-static {v1, v3, p1, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 567
+    .line 574
     array-length v1, p1
 
     iget v2, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
     if-le v1, v2, :cond_1
 
-    .line 568
+    .line 575
     iget v1, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
     const/4 v2, 0x0
 
     aput-object v2, p1, v1
 
-    .line 570
+    .line 577
     :cond_1
     return-object p1
 .end method
@@ -2206,7 +2207,7 @@
     .locals 4
 
     .prologue
-    .line 632
+    .line 639
     .local p0, "this":Landroid/support/v4/util/ArraySet;, "Landroid/support/v4/util/ArraySet<TE;>;"
     invoke-virtual {p0}, Landroid/support/v4/util/ArraySet;->isEmpty()Z
 
@@ -2214,14 +2215,14 @@
 
     if-eqz v3, :cond_0
 
-    .line 633
+    .line 640
     const-string v3, "{}"
 
-    .line 650
+    .line 657
     :goto_0
     return-object v3
 
-    .line 636
+    .line 643
     :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -2231,13 +2232,13 @@
 
     invoke-direct {v0, v3}, Ljava/lang/StringBuilder;-><init>(I)V
 
-    .line 637
+    .line 644
     .local v0, "buffer":Ljava/lang/StringBuilder;
     const/16 v3, 0x7b
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 638
+    .line 645
     const/4 v1, 0x0
 
     .local v1, "i":I
@@ -2246,34 +2247,34 @@
 
     if-ge v1, v3, :cond_3
 
-    .line 639
+    .line 646
     if-lez v1, :cond_1
 
-    .line 640
+    .line 647
     const-string v3, ", "
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 642
+    .line 649
     :cond_1
     invoke-virtual {p0, v1}, Landroid/support/v4/util/ArraySet;->valueAt(I)Ljava/lang/Object;
 
     move-result-object v2
 
-    .line 643
+    .line 650
     .local v2, "value":Ljava/lang/Object;
     if-eq v2, p0, :cond_2
 
-    .line 644
+    .line 651
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    .line 638
+    .line 645
     :goto_2
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
-    .line 646
+    .line 653
     :cond_2
     const-string v3, "(this Set)"
 
@@ -2281,14 +2282,14 @@
 
     goto :goto_2
 
-    .line 649
+    .line 656
     .end local v2    # "value":Ljava/lang/Object;
     :cond_3
     const/16 v3, 0x7d
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 650
+    .line 657
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
@@ -2299,6 +2300,9 @@
 .method public valueAt(I)Ljava/lang/Object;
     .locals 1
     .param p1, "index"    # I
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TE;"
@@ -2306,7 +2310,7 @@
     .end annotation
 
     .prologue
-    .line 334
+    .line 338
     .local p0, "this":Landroid/support/v4/util/ArraySet;, "Landroid/support/v4/util/ArraySet<TE;>;"
     iget-object v0, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
 

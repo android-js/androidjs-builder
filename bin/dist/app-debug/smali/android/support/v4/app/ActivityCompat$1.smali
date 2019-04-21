@@ -30,7 +30,7 @@
     .locals 0
 
     .prologue
-    .line 375
+    .line 505
     iput-object p1, p0, Landroid/support/v4/app/ActivityCompat$1;->val$permissions:[Ljava/lang/String;
 
     iput-object p2, p0, Landroid/support/v4/app/ActivityCompat$1;->val$activity:Landroid/app/Activity;
@@ -48,14 +48,14 @@
     .locals 8
 
     .prologue
-    .line 378
+    .line 508
     iget-object v5, p0, Landroid/support/v4/app/ActivityCompat$1;->val$permissions:[Ljava/lang/String;
 
     array-length v5, v5
 
     new-array v0, v5, [I
 
-    .line 380
+    .line 510
     .local v0, "grantResults":[I
     iget-object v5, p0, Landroid/support/v4/app/ActivityCompat$1;->val$activity:Landroid/app/Activity;
 
@@ -63,7 +63,7 @@
 
     move-result-object v2
 
-    .line 381
+    .line 511
     .local v2, "packageManager":Landroid/content/pm/PackageManager;
     iget-object v5, p0, Landroid/support/v4/app/ActivityCompat$1;->val$activity:Landroid/app/Activity;
 
@@ -71,13 +71,13 @@
 
     move-result-object v3
 
-    .line 383
+    .line 513
     .local v3, "packageName":Ljava/lang/String;
     iget-object v5, p0, Landroid/support/v4/app/ActivityCompat$1;->val$permissions:[Ljava/lang/String;
 
     array-length v4, v5
 
-    .line 384
+    .line 514
     .local v4, "permissionCount":I
     const/4 v1, 0x0
 
@@ -85,7 +85,7 @@
     :goto_0
     if-ge v1, v4, :cond_0
 
-    .line 385
+    .line 515
     iget-object v5, p0, Landroid/support/v4/app/ActivityCompat$1;->val$permissions:[Ljava/lang/String;
 
     aget-object v5, v5, v1
@@ -96,12 +96,12 @@
 
     aput v5, v0, v1
 
-    .line 384
+    .line 514
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 389
+    .line 519
     :cond_0
     iget-object v5, p0, Landroid/support/v4/app/ActivityCompat$1;->val$activity:Landroid/app/Activity;
 
@@ -113,6 +113,6 @@
 
     invoke-interface {v5, v6, v7, v0}, Landroid/support/v4/app/ActivityCompat$OnRequestPermissionsResultCallback;->onRequestPermissionsResult(I[Ljava/lang/String;[I)V
 
-    .line 391
+    .line 521
     return-void
 .end method

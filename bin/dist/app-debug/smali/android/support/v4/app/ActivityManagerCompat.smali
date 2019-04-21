@@ -8,7 +8,7 @@
     .locals 0
 
     .prologue
-    .line 29
+    .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -16,25 +16,25 @@
 
 .method public static isLowRamDevice(Landroid/app/ActivityManager;)Z
     .locals 2
-    .param p0, "am"    # Landroid/app/ActivityManager;
+    .param p0, "activityManager"    # Landroid/app/ActivityManager;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
 
     .prologue
-    .line 39
+    .line 40
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x13
 
     if-lt v0, v1, :cond_0
 
-    .line 40
-    invoke-static {p0}, Landroid/support/v4/app/ActivityManagerCompatKitKat;->isLowRamDevice(Landroid/app/ActivityManager;)Z
+    .line 41
+    invoke-virtual {p0}, Landroid/app/ActivityManager;->isLowRamDevice()Z
 
     move-result v0
 
-    .line 42
+    .line 43
     :goto_0
     return v0
 

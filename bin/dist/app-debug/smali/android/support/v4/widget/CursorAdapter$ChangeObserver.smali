@@ -23,17 +23,17 @@
     .locals 1
 
     .prologue
-    .line 475
+    .line 476
     iput-object p1, p0, Landroid/support/v4/widget/CursorAdapter$ChangeObserver;->this$0:Landroid/support/v4/widget/CursorAdapter;
 
-    .line 476
+    .line 477
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
     invoke-direct {p0, v0}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    .line 477
+    .line 478
     return-void
 .end method
 
@@ -43,7 +43,7 @@
     .locals 1
 
     .prologue
-    .line 481
+    .line 482
     const/4 v0, 0x1
 
     return v0
@@ -54,11 +54,11 @@
     .param p1, "selfChange"    # Z
 
     .prologue
-    .line 486
+    .line 487
     iget-object v0, p0, Landroid/support/v4/widget/CursorAdapter$ChangeObserver;->this$0:Landroid/support/v4/widget/CursorAdapter;
 
     invoke-virtual {v0}, Landroid/support/v4/widget/CursorAdapter;->onContentChanged()V
 
-    .line 487
+    .line 488
     return-void
 .end method

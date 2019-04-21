@@ -8,7 +8,7 @@
     .locals 0
 
     .prologue
-    .line 61
+    .line 62
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -19,17 +19,17 @@
     .param p0, "sectionName"    # Ljava/lang/String;
 
     .prologue
-    .line 43
+    .line 44
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x12
 
     if-lt v0, v1, :cond_0
 
-    .line 44
-    invoke-static {p0}, Landroid/support/v4/os/TraceJellybeanMR2;->beginSection(Ljava/lang/String;)V
+    .line 45
+    invoke-static {p0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
 
-    .line 46
+    .line 47
     :cond_0
     return-void
 .end method
@@ -38,17 +38,17 @@
     .locals 2
 
     .prologue
-    .line 56
+    .line 57
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x12
 
     if-lt v0, v1, :cond_0
 
-    .line 57
-    invoke-static {}, Landroid/support/v4/os/TraceJellybeanMR2;->endSection()V
+    .line 58
+    invoke-static {}, Landroid/os/Trace;->endSection()V
 
-    .line 59
+    .line 60
     :cond_0
     return-void
 .end method

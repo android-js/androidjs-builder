@@ -20,10 +20,10 @@
     .end param
 
     .prologue
-    .line 54
+    .line 55
     invoke-direct {p0, p1}, Landroid/support/v7/widget/LinearLayoutCompat;-><init>(Landroid/content/Context;)V
 
-    .line 55
+    .line 56
     return-void
 .end method
 
@@ -39,10 +39,10 @@
     .end param
 
     .prologue
-    .line 58
+    .line 59
     invoke-direct {p0, p1, p2}, Landroid/support/v7/widget/LinearLayoutCompat;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 59
+    .line 60
     return-void
 .end method
 
@@ -54,20 +54,20 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 221
-    .line 222
+    .line 217
+    .line 218
     invoke-virtual {p0}, Landroid/support/v7/widget/AlertDialogLayout;->getMeasuredWidth()I
 
     move-result v0
 
     const/high16 v4, 0x40000000    # 2.0f
 
-    .line 221
+    .line 217
     invoke-static {v0, v4}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
     move-result v2
 
-    .line 224
+    .line 220
     .local v2, "uniformMeasureSpec":I
     const/4 v6, 0x0
 
@@ -75,12 +75,12 @@
     :goto_0
     if-ge v6, p1, :cond_1
 
-    .line 225
+    .line 221
     invoke-virtual {p0, v6}, Landroid/support/v7/widget/AlertDialogLayout;->getChildAt(I)Landroid/view/View;
 
     move-result-object v1
 
-    .line 226
+    .line 222
     .local v1, "child":Landroid/view/View;
     invoke-virtual {v1}, Landroid/view/View;->getVisibility()I
 
@@ -90,14 +90,14 @@
 
     if-eq v0, v4, :cond_0
 
-    .line 227
+    .line 223
     invoke-virtual {v1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v7
 
     check-cast v7, Landroid/support/v7/widget/LinearLayoutCompat$LayoutParams;
 
-    .line 228
+    .line 224
     .local v7, "lp":Landroid/support/v7/widget/LinearLayoutCompat$LayoutParams;
     iget v0, v7, Landroid/support/v7/widget/LinearLayoutCompat$LayoutParams;->width:I
 
@@ -105,10 +105,10 @@
 
     if-ne v0, v4, :cond_0
 
-    .line 231
+    .line 227
     iget v8, v7, Landroid/support/v7/widget/LinearLayoutCompat$LayoutParams;->height:I
 
-    .line 232
+    .line 228
     .local v8, "oldHeight":I
     invoke-virtual {v1}, Landroid/view/View;->getMeasuredHeight()I
 
@@ -122,13 +122,13 @@
 
     move v5, v3
 
-    .line 235
+    .line 231
     invoke-virtual/range {v0 .. v5}, Landroid/support/v7/widget/AlertDialogLayout;->measureChildWithMargins(Landroid/view/View;IIII)V
 
-    .line 236
+    .line 232
     iput v8, v7, Landroid/support/v7/widget/LinearLayoutCompat$LayoutParams;->height:I
 
-    .line 224
+    .line 220
     .end local v7    # "lp":Landroid/support/v7/widget/LinearLayoutCompat$LayoutParams;
     .end local v8    # "oldHeight":I
     :cond_0
@@ -136,7 +136,7 @@
 
     goto :goto_0
 
-    .line 240
+    .line 236
     .end local v1    # "child":Landroid/view/View;
     :cond_1
     return-void
@@ -149,21 +149,21 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 252
+    .line 248
     invoke-static {p0}, Landroid/support/v4/view/ViewCompat;->getMinimumHeight(Landroid/view/View;)I
 
     move-result v0
 
-    .line 253
+    .line 249
     .local v0, "minHeight":I
     if-lez v0, :cond_0
 
-    .line 264
+    .line 260
     .end local v0    # "minHeight":I
     :goto_0
     return v0
 
-    .line 257
+    .line 253
     .restart local v0    # "minHeight":I
     :cond_0
     instance-of v3, p0, Landroid/view/ViewGroup;
@@ -172,10 +172,10 @@
 
     move-object v1, p0
 
-    .line 258
+    .line 254
     check-cast v1, Landroid/view/ViewGroup;
 
-    .line 259
+    .line 255
     .local v1, "vg":Landroid/view/ViewGroup;
     invoke-virtual {v1}, Landroid/view/ViewGroup;->getChildCount()I
 
@@ -185,7 +185,7 @@
 
     if-ne v3, v4, :cond_1
 
-    .line 260
+    .line 256
     invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
     move-result-object v2
@@ -200,7 +200,7 @@
     :cond_1
     move v0, v2
 
-    .line 264
+    .line 260
     goto :goto_0
 .end method
 
@@ -213,14 +213,14 @@
     .param p5, "height"    # I
 
     .prologue
-    .line 352
+    .line 348
     add-int v0, p2, p4
 
     add-int v1, p3, p5
 
     invoke-virtual {p1, p2, p3, v0, v1}, Landroid/view/View;->layout(IIII)V
 
-    .line 353
+    .line 349
     return-void
 .end method
 
@@ -230,24 +230,24 @@
     .param p2, "heightMeasureSpec"    # I
 
     .prologue
-    .line 70
+    .line 71
     const/16 v20, 0x0
 
-    .line 71
+    .line 72
     .local v20, "topPanel":Landroid/view/View;
     const/4 v4, 0x0
 
-    .line 72
+    .line 73
     .local v4, "buttonPanel":Landroid/view/View;
     const/16 v18, 0x0
 
-    .line 74
+    .line 75
     .local v18, "middlePanel":Landroid/view/View;
     invoke-virtual/range {p0 .. p0}, Landroid/support/v7/widget/AlertDialogLayout;->getChildCount()I
 
     move-result v9
 
-    .line 75
+    .line 76
     .local v9, "count":I
     const/4 v14, 0x0
 
@@ -255,14 +255,14 @@
     :goto_0
     if-ge v14, v9, :cond_6
 
-    .line 76
+    .line 77
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v14}, Landroid/support/v7/widget/AlertDialogLayout;->getChildAt(I)Landroid/view/View;
 
     move-result-object v6
 
-    .line 77
+    .line 78
     .local v6, "child":Landroid/view/View;
     invoke-virtual {v6}, Landroid/view/View;->getVisibility()I
 
@@ -276,19 +276,19 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 75
+    .line 76
     :goto_1
     add-int/lit8 v14, v14, 0x1
 
     goto :goto_0
 
-    .line 81
+    .line 82
     :cond_0
     invoke-virtual {v6}, Landroid/view/View;->getId()I
 
     move-result v15
 
-    .line 82
+    .line 83
     .local v15, "id":I
     sget v24, Landroid/support/v7/appcompat/R$id;->topPanel:I
 
@@ -296,12 +296,12 @@
 
     if-ne v15, v0, :cond_1
 
-    .line 83
+    .line 84
     move-object/from16 v20, v6
 
     goto :goto_1
 
-    .line 84
+    .line 85
     :cond_1
     sget v24, Landroid/support/v7/appcompat/R$id;->buttonPanel:I
 
@@ -309,12 +309,12 @@
 
     if-ne v15, v0, :cond_2
 
-    .line 85
+    .line 86
     move-object v4, v6
 
     goto :goto_1
 
-    .line 86
+    .line 87
     :cond_2
     sget v24, Landroid/support/v7/appcompat/R$id;->contentPanel:I
 
@@ -328,20 +328,20 @@
 
     if-ne v15, v0, :cond_5
 
-    .line 87
+    .line 88
     :cond_3
     if-eqz v18, :cond_4
 
-    .line 89
+    .line 90
     const/16 v24, 0x0
 
-    .line 210
+    .line 206
     .end local v6    # "child":Landroid/view/View;
     .end local v15    # "id":I
     :goto_2
     return v24
 
-    .line 91
+    .line 92
     .restart local v6    # "child":Landroid/view/View;
     .restart local v15    # "id":I
     :cond_4
@@ -349,13 +349,13 @@
 
     goto :goto_1
 
-    .line 94
+    .line 95
     :cond_5
     const/16 v24, 0x0
 
     goto :goto_2
 
-    .line 98
+    .line 99
     .end local v6    # "child":Landroid/view/View;
     .end local v15    # "id":I
     :cond_6
@@ -363,23 +363,23 @@
 
     move-result v10
 
-    .line 99
+    .line 100
     .local v10, "heightMode":I
     invoke-static/range {p2 .. p2}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
     move-result v11
 
-    .line 100
+    .line 101
     .local v11, "heightSize":I
     invoke-static/range {p1 .. p1}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
     move-result v22
 
-    .line 102
+    .line 103
     .local v22, "widthMode":I
     const/4 v8, 0x0
 
-    .line 103
+    .line 104
     .local v8, "childState":I
     invoke-virtual/range {p0 .. p0}, Landroid/support/v7/widget/AlertDialogLayout;->getPaddingTop()I
 
@@ -391,11 +391,11 @@
 
     add-int v21, v24, v25
 
-    .line 105
+    .line 106
     .local v21, "usedHeight":I
     if-eqz v20, :cond_7
 
-    .line 106
+    .line 107
     const/16 v24, 0x0
 
     move-object/from16 v0, v20
@@ -406,7 +406,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/view/View;->measure(II)V
 
-    .line 108
+    .line 109
     invoke-virtual/range {v20 .. v20}, Landroid/view/View;->getMeasuredHeight()I
 
     move-result v24
@@ -414,14 +414,13 @@
     add-int v21, v21, v24
 
     .line 110
-    invoke-static/range {v20 .. v20}, Landroid/support/v4/view/ViewCompat;->getMeasuredState(Landroid/view/View;)I
+    invoke-virtual/range {v20 .. v20}, Landroid/view/View;->getMeasuredState()I
 
     move-result v24
 
-    .line 109
     move/from16 v0, v24
 
-    invoke-static {v8, v0}, Landroid/support/v4/view/ViewCompat;->combineMeasuredStates(II)I
+    invoke-static {v8, v0}, Landroid/view/View;->combineMeasuredStates(II)I
 
     move-result v8
 
@@ -461,33 +460,32 @@
     .line 120
     add-int v21, v21, v3
 
-    .line 122
-    invoke-static {v4}, Landroid/support/v4/view/ViewCompat;->getMeasuredState(Landroid/view/View;)I
+    .line 121
+    invoke-virtual {v4}, Landroid/view/View;->getMeasuredState()I
 
     move-result v24
 
-    .line 121
     move/from16 v0, v24
 
-    invoke-static {v8, v0}, Landroid/support/v4/view/ViewCompat;->combineMeasuredStates(II)I
+    invoke-static {v8, v0}, Landroid/view/View;->combineMeasuredStates(II)I
 
     move-result v8
 
-    .line 125
+    .line 124
     :cond_8
     const/16 v17, 0x0
 
-    .line 126
+    .line 125
     .local v17, "middleHeight":I
     if-eqz v18, :cond_9
 
-    .line 128
+    .line 127
     if-nez v10, :cond_e
 
-    .line 129
+    .line 128
     const/4 v7, 0x0
 
-    .line 135
+    .line 134
     .local v7, "childHeightSpec":I
     :goto_3
     move-object/from16 v0, v18
@@ -496,56 +494,55 @@
 
     invoke-virtual {v0, v1, v7}, Landroid/view/View;->measure(II)V
 
-    .line 136
+    .line 135
     invoke-virtual/range {v18 .. v18}, Landroid/view/View;->getMeasuredHeight()I
 
     move-result v17
 
-    .line 138
+    .line 137
     add-int v21, v21, v17
 
-    .line 140
-    invoke-static/range {v18 .. v18}, Landroid/support/v4/view/ViewCompat;->getMeasuredState(Landroid/view/View;)I
+    .line 138
+    invoke-virtual/range {v18 .. v18}, Landroid/view/View;->getMeasuredState()I
 
     move-result v24
 
-    .line 139
     move/from16 v0, v24
 
-    invoke-static {v8, v0}, Landroid/support/v4/view/ViewCompat;->combineMeasuredStates(II)I
+    invoke-static {v8, v0}, Landroid/view/View;->combineMeasuredStates(II)I
 
     move-result v8
 
-    .line 143
+    .line 141
     .end local v7    # "childHeightSpec":I
     :cond_9
     sub-int v19, v11, v21
 
-    .line 148
+    .line 146
     .local v19, "remainingHeight":I
     if-eqz v4, :cond_b
 
-    .line 149
+    .line 147
     sub-int v21, v21, v3
 
-    .line 151
+    .line 149
     move/from16 v0, v19
 
     invoke-static {v0, v5}, Ljava/lang/Math;->min(II)I
 
     move-result v13
 
-    .line 152
+    .line 150
     .local v13, "heightToGive":I
     if-lez v13, :cond_a
 
-    .line 153
+    .line 151
     sub-int v19, v19, v13
 
-    .line 154
+    .line 152
     add-int/2addr v3, v13
 
-    .line 157
+    .line 155
     :cond_a
     const/high16 v24, 0x40000000    # 2.0f
 
@@ -555,32 +552,31 @@
 
     move-result v7
 
-    .line 159
+    .line 157
     .restart local v7    # "childHeightSpec":I
     move/from16 v0, p1
 
     invoke-virtual {v4, v0, v7}, Landroid/view/View;->measure(II)V
 
-    .line 161
+    .line 159
     invoke-virtual {v4}, Landroid/view/View;->getMeasuredHeight()I
 
     move-result v24
 
     add-int v21, v21, v24
 
-    .line 163
-    invoke-static {v4}, Landroid/support/v4/view/ViewCompat;->getMeasuredState(Landroid/view/View;)I
+    .line 160
+    invoke-virtual {v4}, Landroid/view/View;->getMeasuredState()I
 
     move-result v24
 
-    .line 162
     move/from16 v0, v24
 
-    invoke-static {v8, v0}, Landroid/support/v4/view/ViewCompat;->combineMeasuredStates(II)I
+    invoke-static {v8, v0}, Landroid/view/View;->combineMeasuredStates(II)I
 
     move-result v8
 
-    .line 168
+    .line 165
     .end local v7    # "childHeightSpec":I
     .end local v13    # "heightToGive":I
     :cond_b
@@ -588,27 +584,27 @@
 
     if-lez v19, :cond_c
 
-    .line 169
+    .line 166
     sub-int v21, v21, v17
 
-    .line 171
+    .line 168
     move/from16 v13, v19
 
-    .line 172
+    .line 169
     .restart local v13    # "heightToGive":I
     sub-int v19, v19, v13
 
-    .line 173
+    .line 170
     add-int v17, v17, v13
 
-    .line 178
+    .line 175
     move/from16 v0, v17
 
     invoke-static {v0, v10}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
     move-result v7
 
-    .line 180
+    .line 177
     .restart local v7    # "childHeightSpec":I
     move-object/from16 v0, v18
 
@@ -616,46 +612,45 @@
 
     invoke-virtual {v0, v1, v7}, Landroid/view/View;->measure(II)V
 
-    .line 182
+    .line 179
     invoke-virtual/range {v18 .. v18}, Landroid/view/View;->getMeasuredHeight()I
 
     move-result v24
 
     add-int v21, v21, v24
 
-    .line 184
-    invoke-static/range {v18 .. v18}, Landroid/support/v4/view/ViewCompat;->getMeasuredState(Landroid/view/View;)I
+    .line 180
+    invoke-virtual/range {v18 .. v18}, Landroid/view/View;->getMeasuredState()I
 
     move-result v24
 
-    .line 183
     move/from16 v0, v24
 
-    invoke-static {v8, v0}, Landroid/support/v4/view/ViewCompat;->combineMeasuredStates(II)I
+    invoke-static {v8, v0}, Landroid/view/View;->combineMeasuredStates(II)I
 
     move-result v8
 
-    .line 188
+    .line 184
     .end local v7    # "childHeightSpec":I
     .end local v13    # "heightToGive":I
     :cond_c
     const/16 v16, 0x0
 
-    .line 189
+    .line 185
     .local v16, "maxWidth":I
     const/4 v14, 0x0
 
     :goto_4
     if-ge v14, v9, :cond_f
 
-    .line 190
+    .line 186
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v14}, Landroid/support/v7/widget/AlertDialogLayout;->getChildAt(I)Landroid/view/View;
 
     move-result-object v6
 
-    .line 191
+    .line 187
     .restart local v6    # "child":Landroid/view/View;
     invoke-virtual {v6}, Landroid/view/View;->getVisibility()I
 
@@ -669,7 +664,7 @@
 
     if-eq v0, v1, :cond_d
 
-    .line 192
+    .line 188
     invoke-virtual {v6}, Landroid/view/View;->getMeasuredWidth()I
 
     move-result v24
@@ -682,13 +677,13 @@
 
     move-result v16
 
-    .line 189
+    .line 185
     :cond_d
     add-int/lit8 v14, v14, 0x1
 
     goto :goto_4
 
-    .line 131
+    .line 130
     .end local v6    # "child":Landroid/view/View;
     .end local v16    # "maxWidth":I
     .end local v19    # "remainingHeight":I
@@ -697,12 +692,12 @@
 
     sub-int v25, v11, v21
 
-    .line 132
+    .line 131
     invoke-static/range {v24 .. v25}, Ljava/lang/Math;->max(II)I
 
     move-result v24
 
-    .line 131
+    .line 130
     move/from16 v0, v24
 
     invoke-static {v0, v10}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
@@ -712,7 +707,7 @@
     .restart local v7    # "childHeightSpec":I
     goto/16 :goto_3
 
-    .line 196
+    .line 192
     .end local v7    # "childHeightSpec":I
     .restart local v16    # "maxWidth":I
     .restart local v19    # "remainingHeight":I
@@ -729,16 +724,16 @@
 
     add-int v16, v16, v24
 
-    .line 198
+    .line 194
     move/from16 v0, v16
 
     move/from16 v1, p1
 
-    invoke-static {v0, v1, v8}, Landroid/support/v4/view/ViewCompat;->resolveSizeAndState(III)I
+    invoke-static {v0, v1, v8}, Landroid/view/View;->resolveSizeAndState(III)I
 
     move-result v23
 
-    .line 200
+    .line 196
     .local v23, "widthSizeAndState":I
     const/16 v24, 0x0
 
@@ -748,11 +743,11 @@
 
     move/from16 v2, v24
 
-    invoke-static {v0, v1, v2}, Landroid/support/v4/view/ViewCompat;->resolveSizeAndState(III)I
+    invoke-static {v0, v1, v2}, Landroid/view/View;->resolveSizeAndState(III)I
 
     move-result v12
 
-    .line 202
+    .line 198
     .local v12, "heightSizeAndState":I
     move-object/from16 v0, p0
 
@@ -760,7 +755,7 @@
 
     invoke-virtual {v0, v1, v12}, Landroid/support/v7/widget/AlertDialogLayout;->setMeasuredDimension(II)V
 
-    .line 206
+    .line 202
     const/high16 v24, 0x40000000    # 2.0f
 
     move/from16 v0, v22
@@ -769,14 +764,14 @@
 
     if-eq v0, v1, :cond_10
 
-    .line 207
+    .line 203
     move-object/from16 v0, p0
 
     move/from16 v1, p2
 
     invoke-direct {v0, v9, v1}, Landroid/support/v7/widget/AlertDialogLayout;->forceUniformWidth(II)V
 
-    .line 210
+    .line 206
     :cond_10
     const/16 v24, 0x1
 
@@ -794,16 +789,16 @@
     .param p5, "bottom"    # I
 
     .prologue
-    .line 269
+    .line 265
     invoke-virtual/range {p0 .. p0}, Landroid/support/v7/widget/AlertDialogLayout;->getPaddingLeft()I
 
     move-result v20
 
-    .line 272
+    .line 268
     .local v20, "paddingLeft":I
     sub-int v22, p4, p2
 
-    .line 273
+    .line 269
     .local v22, "width":I
     invoke-virtual/range {p0 .. p0}, Landroid/support/v7/widget/AlertDialogLayout;->getPaddingRight()I
 
@@ -811,7 +806,7 @@
 
     sub-int v8, v22, v1
 
-    .line 276
+    .line 272
     .local v8, "childRight":I
     sub-int v1, v22, v20
 
@@ -821,57 +816,57 @@
 
     sub-int v9, v1, v23
 
-    .line 278
+    .line 274
     .local v9, "childSpace":I
     invoke-virtual/range {p0 .. p0}, Landroid/support/v7/widget/AlertDialogLayout;->getMeasuredHeight()I
 
     move-result v21
 
-    .line 279
+    .line 275
     .local v21, "totalLength":I
     invoke-virtual/range {p0 .. p0}, Landroid/support/v7/widget/AlertDialogLayout;->getChildCount()I
 
     move-result v10
 
-    .line 280
+    .line 276
     .local v10, "count":I
     invoke-virtual/range {p0 .. p0}, Landroid/support/v7/widget/AlertDialogLayout;->getGravity()I
 
     move-result v13
 
-    .line 281
+    .line 277
     .local v13, "gravity":I
     and-int/lit8 v18, v13, 0x70
 
-    .line 282
+    .line 278
     .local v18, "majorGravity":I
     const v1, 0x800007
 
     and-int v19, v13, v1
 
-    .line 285
+    .line 281
     .local v19, "minorGravity":I
     sparse-switch v18, :sswitch_data_0
 
-    .line 298
+    .line 294
     invoke-virtual/range {p0 .. p0}, Landroid/support/v7/widget/AlertDialogLayout;->getPaddingTop()I
 
     move-result v4
 
-    .line 302
+    .line 298
     .local v4, "childTop":I
     :goto_0
     invoke-virtual/range {p0 .. p0}, Landroid/support/v7/widget/AlertDialogLayout;->getDividerDrawable()Landroid/graphics/drawable/Drawable;
 
     move-result-object v11
 
-    .line 303
+    .line 299
     .local v11, "dividerDrawable":Landroid/graphics/drawable/Drawable;
     if-nez v11, :cond_3
 
     const/4 v12, 0x0
 
-    .line 306
+    .line 302
     .local v12, "dividerHeight":I
     :goto_1
     const/4 v14, 0x0
@@ -880,14 +875,14 @@
     :goto_2
     if-ge v14, v10, :cond_4
 
-    .line 307
+    .line 303
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v14}, Landroid/support/v7/widget/AlertDialogLayout;->getChildAt(I)Landroid/view/View;
 
     move-result-object v2
 
-    .line 308
+    .line 304
     .local v2, "child":Landroid/view/View;
     if-eqz v2, :cond_2
 
@@ -901,18 +896,18 @@
 
     if-eq v1, v0, :cond_2
 
-    .line 309
+    .line 305
     invoke-virtual {v2}, Landroid/view/View;->getMeasuredWidth()I
 
     move-result v5
 
-    .line 310
+    .line 306
     .local v5, "childWidth":I
     invoke-virtual {v2}, Landroid/view/View;->getMeasuredHeight()I
 
     move-result v6
 
-    .line 313
+    .line 309
     .local v6, "childHeight":I
     invoke-virtual {v2}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
@@ -920,7 +915,7 @@
 
     check-cast v17, Landroid/support/v7/widget/LinearLayoutCompat$LayoutParams;
 
-    .line 315
+    .line 311
     .local v17, "lp":Landroid/support/v7/widget/LinearLayoutCompat$LayoutParams;
     move-object/from16 v0, v17
 
@@ -928,20 +923,20 @@
 
     move/from16 v16, v0
 
-    .line 316
+    .line 312
     .local v16, "layoutGravity":I
     if-gez v16, :cond_0
 
-    .line 317
+    .line 313
     move/from16 v16, v19
 
-    .line 319
+    .line 315
     :cond_0
     invoke-static/range {p0 .. p0}, Landroid/support/v4/view/ViewCompat;->getLayoutDirection(Landroid/view/View;)I
 
     move-result v15
 
-    .line 320
+    .line 316
     .local v15, "layoutDirection":I
     move/from16 v0, v16
 
@@ -949,20 +944,20 @@
 
     move-result v7
 
-    .line 324
+    .line 320
     .local v7, "absoluteGravity":I
     and-int/lit8 v1, v7, 0x7
 
     sparse-switch v1, :sswitch_data_1
 
-    .line 336
+    .line 332
     move-object/from16 v0, v17
 
     iget v1, v0, Landroid/support/v7/widget/LinearLayoutCompat$LayoutParams;->leftMargin:I
 
     add-int v3, v20, v1
 
-    .line 340
+    .line 336
     .local v3, "childLeft":I
     :goto_3
     move-object/from16 v0, p0
@@ -973,10 +968,10 @@
 
     if-eqz v1, :cond_1
 
-    .line 341
+    .line 337
     add-int/2addr v4, v12
 
-    .line 344
+    .line 340
     :cond_1
     move-object/from16 v0, v17
 
@@ -986,10 +981,10 @@
 
     move-object/from16 v1, p0
 
-    .line 345
+    .line 341
     invoke-direct/range {v1 .. v6}, Landroid/support/v7/widget/AlertDialogLayout;->setChildFrame(Landroid/view/View;IIII)V
 
-    .line 346
+    .line 342
     move-object/from16 v0, v17
 
     iget v1, v0, Landroid/support/v7/widget/LinearLayoutCompat$LayoutParams;->bottomMargin:I
@@ -998,7 +993,7 @@
 
     add-int/2addr v4, v1
 
-    .line 306
+    .line 302
     .end local v3    # "childLeft":I
     .end local v5    # "childWidth":I
     .end local v6    # "childHeight":I
@@ -1011,7 +1006,7 @@
 
     goto :goto_2
 
-    .line 288
+    .line 284
     .end local v2    # "child":Landroid/view/View;
     .end local v4    # "childTop":I
     .end local v11    # "dividerDrawable":Landroid/graphics/drawable/Drawable;
@@ -1028,11 +1023,11 @@
 
     sub-int v4, v1, v21
 
-    .line 289
+    .line 285
     .restart local v4    # "childTop":I
     goto :goto_0
 
-    .line 293
+    .line 289
     .end local v4    # "childTop":I
     :sswitch_1
     invoke-virtual/range {p0 .. p0}, Landroid/support/v7/widget/AlertDialogLayout;->getPaddingTop()I
@@ -1047,11 +1042,11 @@
 
     add-int v4, v1, v23
 
-    .line 294
+    .line 290
     .restart local v4    # "childTop":I
     goto :goto_0
 
-    .line 304
+    .line 300
     .restart local v11    # "dividerDrawable":Landroid/graphics/drawable/Drawable;
     :cond_3
     invoke-virtual {v11}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
@@ -1060,7 +1055,7 @@
 
     goto :goto_1
 
-    .line 326
+    .line 322
     .restart local v2    # "child":Landroid/view/View;
     .restart local v5    # "childWidth":I
     .restart local v6    # "childHeight":I
@@ -1093,11 +1088,11 @@
 
     sub-int v3, v1, v23
 
-    .line 328
+    .line 324
     .restart local v3    # "childLeft":I
     goto :goto_3
 
-    .line 331
+    .line 327
     .end local v3    # "childLeft":I
     :sswitch_3
     sub-int v1, v8, v5
@@ -1110,11 +1105,11 @@
 
     sub-int v3, v1, v23
 
-    .line 332
+    .line 328
     .restart local v3    # "childLeft":I
     goto :goto_3
 
-    .line 349
+    .line 345
     .end local v2    # "child":Landroid/view/View;
     .end local v3    # "childLeft":I
     .end local v5    # "childWidth":I
@@ -1126,7 +1121,7 @@
     :cond_4
     return-void
 
-    .line 285
+    .line 281
     nop
 
     :sswitch_data_0
@@ -1135,7 +1130,7 @@
         0x50 -> :sswitch_0
     .end sparse-switch
 
-    .line 324
+    .line 320
     :sswitch_data_1
     .sparse-switch
         0x1 -> :sswitch_2
@@ -1149,17 +1144,17 @@
     .param p2, "heightMeasureSpec"    # I
 
     .prologue
-    .line 63
+    .line 64
     invoke-direct {p0, p1, p2}, Landroid/support/v7/widget/AlertDialogLayout;->tryOnMeasure(II)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 65
+    .line 66
     invoke-super {p0, p1, p2}, Landroid/support/v7/widget/LinearLayoutCompat;->onMeasure(II)V
 
-    .line 67
+    .line 68
     :cond_0
     return-void
 .end method

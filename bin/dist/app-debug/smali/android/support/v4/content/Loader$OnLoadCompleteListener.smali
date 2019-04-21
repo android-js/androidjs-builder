@@ -25,6 +25,14 @@
 
 # virtual methods
 .method public abstract onLoadComplete(Landroid/support/v4/content/Loader;Ljava/lang/Object;)V
+    .param p1    # Landroid/support/v4/content/Loader;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Ljava/lang/Object;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

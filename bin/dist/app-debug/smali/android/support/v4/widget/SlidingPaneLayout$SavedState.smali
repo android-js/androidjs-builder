@@ -36,14 +36,10 @@
     .locals 1
 
     .prologue
-    .line 1484
+    .line 1495
     new-instance v0, Landroid/support/v4/widget/SlidingPaneLayout$SavedState$1;
 
     invoke-direct {v0}, Landroid/support/v4/widget/SlidingPaneLayout$SavedState$1;-><init>()V
-
-    invoke-static {v0}, Landroid/support/v4/os/ParcelableCompat;->newCreator(Landroid/support/v4/os/ParcelableCompatCreatorCallbacks;)Landroid/os/Parcelable$Creator;
-
-    move-result-object v0
 
     sput-object v0, Landroid/support/v4/widget/SlidingPaneLayout$SavedState;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -56,10 +52,10 @@
     .param p2, "loader"    # Ljava/lang/ClassLoader;
 
     .prologue
-    .line 1474
+    .line 1485
     invoke-direct {p0, p1, p2}, Landroid/support/v4/view/AbsSavedState;-><init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
 
-    .line 1475
+    .line 1486
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -71,10 +67,10 @@
     :goto_0
     iput-boolean v0, p0, Landroid/support/v4/widget/SlidingPaneLayout$SavedState;->isOpen:Z
 
-    .line 1476
+    .line 1487
     return-void
 
-    .line 1475
+    .line 1486
     :cond_0
     const/4 v0, 0x0
 
@@ -86,10 +82,10 @@
     .param p1, "superState"    # Landroid/os/Parcelable;
 
     .prologue
-    .line 1470
+    .line 1481
     invoke-direct {p0, p1}, Landroid/support/v4/view/AbsSavedState;-><init>(Landroid/os/Parcelable;)V
 
-    .line 1471
+    .line 1482
     return-void
 .end method
 
@@ -101,10 +97,10 @@
     .param p2, "flags"    # I
 
     .prologue
-    .line 1480
+    .line 1491
     invoke-super {p0, p1, p2}, Landroid/support/v4/view/AbsSavedState;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 1481
+    .line 1492
     iget-boolean v0, p0, Landroid/support/v4/widget/SlidingPaneLayout$SavedState;->isOpen:Z
 
     if-eqz v0, :cond_0
@@ -114,10 +110,10 @@
     :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1482
+    .line 1493
     return-void
 
-    .line 1481
+    .line 1492
     :cond_0
     const/4 v0, 0x0
 

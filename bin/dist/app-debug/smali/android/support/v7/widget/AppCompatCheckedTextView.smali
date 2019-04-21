@@ -8,7 +8,7 @@
 
 
 # instance fields
-.field private mTextHelper:Landroid/support/v7/widget/AppCompatTextHelper;
+.field private final mTextHelper:Landroid/support/v7/widget/AppCompatTextHelper;
 
 
 # direct methods
@@ -16,7 +16,7 @@
     .locals 3
 
     .prologue
-    .line 33
+    .line 40
     const/4 v0, 0x1
 
     new-array v0, v0, [I
@@ -37,12 +37,12 @@
     .param p1, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 40
+    .line 47
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Landroid/support/v7/widget/AppCompatCheckedTextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 41
+    .line 48
     return-void
 .end method
 
@@ -52,12 +52,12 @@
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
-    .line 44
+    .line 51
     const v0, 0x10103c8
 
     invoke-direct {p0, p1, p2, v0}, Landroid/support/v7/widget/AppCompatCheckedTextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 45
+    .line 52
     return-void
 .end method
 
@@ -70,31 +70,31 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 48
+    .line 55
     invoke-static {p1}, Landroid/support/v7/widget/TintContextWrapper;->wrap(Landroid/content/Context;)Landroid/content/Context;
 
     move-result-object v1
 
     invoke-direct {p0, v1, p2, p3}, Landroid/widget/CheckedTextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 50
-    invoke-static {p0}, Landroid/support/v7/widget/AppCompatTextHelper;->create(Landroid/widget/TextView;)Landroid/support/v7/widget/AppCompatTextHelper;
+    .line 57
+    new-instance v1, Landroid/support/v7/widget/AppCompatTextHelper;
 
-    move-result-object v1
+    invoke-direct {v1, p0}, Landroid/support/v7/widget/AppCompatTextHelper;-><init>(Landroid/widget/TextView;)V
 
     iput-object v1, p0, Landroid/support/v7/widget/AppCompatCheckedTextView;->mTextHelper:Landroid/support/v7/widget/AppCompatTextHelper;
 
-    .line 51
+    .line 58
     iget-object v1, p0, Landroid/support/v7/widget/AppCompatCheckedTextView;->mTextHelper:Landroid/support/v7/widget/AppCompatTextHelper;
 
     invoke-virtual {v1, p2, p3}, Landroid/support/v7/widget/AppCompatTextHelper;->loadFromAttributes(Landroid/util/AttributeSet;I)V
 
-    .line 52
+    .line 59
     iget-object v1, p0, Landroid/support/v7/widget/AppCompatCheckedTextView;->mTextHelper:Landroid/support/v7/widget/AppCompatTextHelper;
 
     invoke-virtual {v1}, Landroid/support/v7/widget/AppCompatTextHelper;->applyCompoundDrawablesTints()V
 
-    .line 54
+    .line 61
     invoke-virtual {p0}, Landroid/support/v7/widget/AppCompatCheckedTextView;->getContext()Landroid/content/Context;
 
     move-result-object v1
@@ -105,7 +105,7 @@
 
     move-result-object v0
 
-    .line 56
+    .line 63
     .local v0, "a":Landroid/support/v7/widget/TintTypedArray;
     invoke-virtual {v0, v3}, Landroid/support/v7/widget/TintTypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -113,10 +113,10 @@
 
     invoke-virtual {p0, v1}, Landroid/support/v7/widget/AppCompatCheckedTextView;->setCheckMarkDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 57
+    .line 64
     invoke-virtual {v0}, Landroid/support/v7/widget/TintTypedArray;->recycle()V
 
-    .line 58
+    .line 65
     return-void
 .end method
 
@@ -126,22 +126,39 @@
     .locals 1
 
     .prologue
-    .line 75
+    .line 82
     invoke-super {p0}, Landroid/widget/CheckedTextView;->drawableStateChanged()V
 
-    .line 76
+    .line 83
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatCheckedTextView;->mTextHelper:Landroid/support/v7/widget/AppCompatTextHelper;
 
     if-eqz v0, :cond_0
 
-    .line 77
+    .line 84
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatCheckedTextView;->mTextHelper:Landroid/support/v7/widget/AppCompatTextHelper;
 
     invoke-virtual {v0}, Landroid/support/v7/widget/AppCompatTextHelper;->applyCompoundDrawablesTints()V
 
-    .line 79
+    .line 86
     :cond_0
     return-void
+.end method
+
+.method public onCreateInputConnection(Landroid/view/inputmethod/EditorInfo;)Landroid/view/inputmethod/InputConnection;
+    .locals 1
+    .param p1, "outAttrs"    # Landroid/view/inputmethod/EditorInfo;
+
+    .prologue
+    .line 90
+    invoke-super {p0, p1}, Landroid/widget/CheckedTextView;->onCreateInputConnection(Landroid/view/inputmethod/EditorInfo;)Landroid/view/inputmethod/InputConnection;
+
+    move-result-object v0
+
+    invoke-static {v0, p1, p0}, Landroid/support/v7/widget/AppCompatHintHelper;->onCreateInputConnection(Landroid/view/inputmethod/InputConnection;Landroid/view/inputmethod/EditorInfo;Landroid/view/View;)Landroid/view/inputmethod/InputConnection;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public setCheckMarkDrawable(I)V
@@ -152,7 +169,7 @@
     .end param
 
     .prologue
-    .line 62
+    .line 69
     invoke-virtual {p0}, Landroid/support/v7/widget/AppCompatCheckedTextView;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -163,7 +180,25 @@
 
     invoke-virtual {p0, v0}, Landroid/support/v7/widget/AppCompatCheckedTextView;->setCheckMarkDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 63
+    .line 70
+    return-void
+.end method
+
+.method public setCustomSelectionActionModeCallback(Landroid/view/ActionMode$Callback;)V
+    .locals 1
+    .param p1, "actionModeCallback"    # Landroid/view/ActionMode$Callback;
+
+    .prologue
+    .line 100
+    .line 101
+    invoke-static {p0, p1}, Landroid/support/v4/widget/TextViewCompat;->wrapCustomSelectionActionModeCallback(Landroid/widget/TextView;Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode$Callback;
+
+    move-result-object v0
+
+    .line 100
+    invoke-super {p0, v0}, Landroid/widget/CheckedTextView;->setCustomSelectionActionModeCallback(Landroid/view/ActionMode$Callback;)V
+
+    .line 102
     return-void
 .end method
 
@@ -173,20 +208,20 @@
     .param p2, "resId"    # I
 
     .prologue
-    .line 67
+    .line 74
     invoke-super {p0, p1, p2}, Landroid/widget/CheckedTextView;->setTextAppearance(Landroid/content/Context;I)V
 
-    .line 68
+    .line 75
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatCheckedTextView;->mTextHelper:Landroid/support/v7/widget/AppCompatTextHelper;
 
     if-eqz v0, :cond_0
 
-    .line 69
+    .line 76
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatCheckedTextView;->mTextHelper:Landroid/support/v7/widget/AppCompatTextHelper;
 
     invoke-virtual {v0, p1, p2}, Landroid/support/v7/widget/AppCompatTextHelper;->onSetTextAppearance(Landroid/content/Context;I)V
 
-    .line 71
+    .line 78
     :cond_0
     return-void
 .end method

@@ -26,12 +26,12 @@
     .locals 0
 
     .prologue
-    .line 1328
+    .line 1351
     iput-object p1, p0, Landroid/support/v7/widget/ListPopupWindow$ResizePopupRunnable;->this$0:Landroid/support/v7/widget/ListPopupWindow;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1329
+    .line 1352
     return-void
 .end method
 
@@ -41,7 +41,7 @@
     .locals 2
 
     .prologue
-    .line 1333
+    .line 1356
     iget-object v0, p0, Landroid/support/v7/widget/ListPopupWindow$ResizePopupRunnable;->this$0:Landroid/support/v7/widget/ListPopupWindow;
 
     iget-object v0, v0, Landroid/support/v7/widget/ListPopupWindow;->mDropDownList:Landroid/support/v7/widget/DropDownListView;
@@ -62,7 +62,7 @@
 
     iget-object v0, v0, Landroid/support/v7/widget/ListPopupWindow;->mDropDownList:Landroid/support/v7/widget/DropDownListView;
 
-    .line 1334
+    .line 1357
     invoke-virtual {v0}, Landroid/support/v7/widget/DropDownListView;->getCount()I
 
     move-result v0
@@ -81,7 +81,7 @@
 
     iget-object v0, v0, Landroid/support/v7/widget/ListPopupWindow;->mDropDownList:Landroid/support/v7/widget/DropDownListView;
 
-    .line 1335
+    .line 1358
     invoke-virtual {v0}, Landroid/support/v7/widget/DropDownListView;->getChildCount()I
 
     move-result v0
@@ -92,7 +92,7 @@
 
     if-gt v0, v1, :cond_0
 
-    .line 1336
+    .line 1359
     iget-object v0, p0, Landroid/support/v7/widget/ListPopupWindow$ResizePopupRunnable;->this$0:Landroid/support/v7/widget/ListPopupWindow;
 
     iget-object v0, v0, Landroid/support/v7/widget/ListPopupWindow;->mPopup:Landroid/widget/PopupWindow;
@@ -101,12 +101,12 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/PopupWindow;->setInputMethodMode(I)V
 
-    .line 1337
+    .line 1360
     iget-object v0, p0, Landroid/support/v7/widget/ListPopupWindow$ResizePopupRunnable;->this$0:Landroid/support/v7/widget/ListPopupWindow;
 
     invoke-virtual {v0}, Landroid/support/v7/widget/ListPopupWindow;->show()V
 
-    .line 1339
+    .line 1362
     :cond_0
     return-void
 .end method

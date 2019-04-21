@@ -3,19 +3,32 @@ apkFileName: app-debug.apk
 compressionType: false
 doNotCompress:
 - arsc
+- META-INF/android.arch.core_runtime.version
+- META-INF/android.arch.lifecycle_livedata-core.version
+- META-INF/android.arch.lifecycle_livedata.version
+- META-INF/android.arch.lifecycle_runtime.version
+- META-INF/android.arch.lifecycle_viewmodel.version
 - png
 - js
+- assets/myapp/backup/node_modules/better-assert/Makefile
+- assets/myapp/backup/node_modules/callsite/Makefile
+- assets/myapp/backup/node_modules/engine.io-client/node_modules/debug/node.js
+- assets/myapp/backup/node_modules/engine.io/node_modules/debug/node.js
+- assets/myapp/backup/node_modules/parseqs/Makefile
+- assets/myapp/backup/node_modules/parseuri/Makefile
+- coffee
+- json
+- assets/myapp/backup/node_modules/socket.io-client/node_modules/debug/node.js
+- assets/myapp/backup/node_modules/socket.io-parser/node_modules/debug/node.js
+- txt
 - assets/myapp/node_modules/better-assert/Makefile
 - assets/myapp/node_modules/callsite/Makefile
 - assets/myapp/node_modules/engine.io-client/node_modules/debug/node.js
 - assets/myapp/node_modules/engine.io/node_modules/debug/node.js
 - assets/myapp/node_modules/parseqs/Makefile
 - assets/myapp/node_modules/parseuri/Makefile
-- coffee
-- json
 - assets/myapp/node_modules/socket.io-client/node_modules/debug/node.js
 - assets/myapp/node_modules/socket.io-parser/node_modules/debug/node.js
-- txt
 - res/drawable-hdpi-v4/abc_ab_share_pack_mtrl_alpha.9.png
 - res/drawable-hdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.png
 - res/drawable-hdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png
@@ -135,8 +148,7 @@ sdkInfo:
   targetSdkVersion: '28'
 sharedLibrary: false
 sparseResources: false
-unknownFiles:
-  publicsuffixes.gz: '8'
+unknownFiles: {}
 usesFramework:
   ids:
   - 1

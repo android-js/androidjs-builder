@@ -23,12 +23,12 @@
     .locals 0
 
     .prologue
-    .line 1237
+    .line 1238
     iput-object p1, p0, Landroid/support/v4/widget/ExploreByTouchHelper$MyNodeProvider;->this$0:Landroid/support/v4/widget/ExploreByTouchHelper;
 
     invoke-direct {p0}, Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat;-><init>()V
 
-    .line 1238
+    .line 1239
     return-void
 .end method
 
@@ -39,15 +39,15 @@
     .param p1, "virtualViewId"    # I
 
     .prologue
-    .line 1244
+    .line 1245
     iget-object v1, p0, Landroid/support/v4/widget/ExploreByTouchHelper$MyNodeProvider;->this$0:Landroid/support/v4/widget/ExploreByTouchHelper;
 
-    .line 1245
+    .line 1246
     invoke-virtual {v1, p1}, Landroid/support/v4/widget/ExploreByTouchHelper;->obtainAccessibilityNodeInfo(I)Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
 
     move-result-object v0
 
-    .line 1246
+    .line 1247
     .local v0, "node":Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
     invoke-static {v0}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->obtain(Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;)Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
 
@@ -61,29 +61,26 @@
     .param p1, "focusType"    # I
 
     .prologue
-    .line 1256
+    .line 1257
     const/4 v1, 0x2
 
     if-ne p1, v1, :cond_0
 
     iget-object v1, p0, Landroid/support/v4/widget/ExploreByTouchHelper$MyNodeProvider;->this$0:Landroid/support/v4/widget/ExploreByTouchHelper;
 
-    .line 1257
-    invoke-static {v1}, Landroid/support/v4/widget/ExploreByTouchHelper;->access$000(Landroid/support/v4/widget/ExploreByTouchHelper;)I
+    iget v0, v1, Landroid/support/v4/widget/ExploreByTouchHelper;->mAccessibilityFocusedVirtualViewId:I
 
-    move-result v0
-
-    .line 1258
+    .line 1259
     .local v0, "focusedId":I
     :goto_0
     const/high16 v1, -0x80000000
 
     if-ne v0, v1, :cond_1
 
-    .line 1259
+    .line 1260
     const/4 v1, 0x0
 
-    .line 1261
+    .line 1262
     :goto_1
     return-object v1
 
@@ -92,13 +89,11 @@
     :cond_0
     iget-object v1, p0, Landroid/support/v4/widget/ExploreByTouchHelper$MyNodeProvider;->this$0:Landroid/support/v4/widget/ExploreByTouchHelper;
 
-    invoke-static {v1}, Landroid/support/v4/widget/ExploreByTouchHelper;->access$100(Landroid/support/v4/widget/ExploreByTouchHelper;)I
-
-    move-result v0
+    iget v0, v1, Landroid/support/v4/widget/ExploreByTouchHelper;->mKeyboardFocusedVirtualViewId:I
 
     goto :goto_0
 
-    .line 1261
+    .line 1262
     .restart local v0    # "focusedId":I
     :cond_1
     invoke-virtual {p0, v0}, Landroid/support/v4/widget/ExploreByTouchHelper$MyNodeProvider;->createAccessibilityNodeInfo(I)Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
@@ -115,7 +110,7 @@
     .param p3, "arguments"    # Landroid/os/Bundle;
 
     .prologue
-    .line 1251
+    .line 1252
     iget-object v0, p0, Landroid/support/v4/widget/ExploreByTouchHelper$MyNodeProvider;->this$0:Landroid/support/v4/widget/ExploreByTouchHelper;
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/support/v4/widget/ExploreByTouchHelper;->performAction(IILandroid/os/Bundle;)Z

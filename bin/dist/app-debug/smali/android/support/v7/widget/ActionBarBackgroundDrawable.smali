@@ -3,16 +3,6 @@
 .source "ActionBarBackgroundDrawable.java"
 
 
-# annotations
-.annotation build Landroid/annotation/TargetApi;
-    value = 0x9
-.end annotation
-
-.annotation build Landroid/support/annotation/RequiresApi;
-    value = 0x9
-.end annotation
-
-
 # instance fields
 .field final mContainer:Landroid/support/v7/widget/ActionBarContainer;
 
@@ -23,13 +13,13 @@
     .param p1, "container"    # Landroid/support/v7/widget/ActionBarContainer;
 
     .prologue
-    .line 31
+    .line 32
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable;-><init>()V
 
-    .line 32
+    .line 33
     iput-object p1, p0, Landroid/support/v7/widget/ActionBarBackgroundDrawable;->mContainer:Landroid/support/v7/widget/ActionBarContainer;
 
-    .line 33
+    .line 34
     return-void
 .end method
 
@@ -40,33 +30,33 @@
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .prologue
-    .line 37
+    .line 38
     iget-object v0, p0, Landroid/support/v7/widget/ActionBarBackgroundDrawable;->mContainer:Landroid/support/v7/widget/ActionBarContainer;
 
     iget-boolean v0, v0, Landroid/support/v7/widget/ActionBarContainer;->mIsSplit:Z
 
     if-eqz v0, :cond_1
 
-    .line 38
+    .line 39
     iget-object v0, p0, Landroid/support/v7/widget/ActionBarBackgroundDrawable;->mContainer:Landroid/support/v7/widget/ActionBarContainer;
 
     iget-object v0, v0, Landroid/support/v7/widget/ActionBarContainer;->mSplitBackground:Landroid/graphics/drawable/Drawable;
 
     if-eqz v0, :cond_0
 
-    .line 39
+    .line 40
     iget-object v0, p0, Landroid/support/v7/widget/ActionBarBackgroundDrawable;->mContainer:Landroid/support/v7/widget/ActionBarContainer;
 
     iget-object v0, v0, Landroid/support/v7/widget/ActionBarContainer;->mSplitBackground:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
-    .line 49
+    .line 50
     :cond_0
     :goto_0
     return-void
 
-    .line 42
+    .line 43
     :cond_1
     iget-object v0, p0, Landroid/support/v7/widget/ActionBarBackgroundDrawable;->mContainer:Landroid/support/v7/widget/ActionBarContainer;
 
@@ -74,14 +64,14 @@
 
     if-eqz v0, :cond_2
 
-    .line 43
+    .line 44
     iget-object v0, p0, Landroid/support/v7/widget/ActionBarBackgroundDrawable;->mContainer:Landroid/support/v7/widget/ActionBarContainer;
 
     iget-object v0, v0, Landroid/support/v7/widget/ActionBarContainer;->mBackground:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
-    .line 45
+    .line 46
     :cond_2
     iget-object v0, p0, Landroid/support/v7/widget/ActionBarBackgroundDrawable;->mContainer:Landroid/support/v7/widget/ActionBarContainer;
 
@@ -95,7 +85,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 46
+    .line 47
     iget-object v0, p0, Landroid/support/v7/widget/ActionBarBackgroundDrawable;->mContainer:Landroid/support/v7/widget/ActionBarContainer;
 
     iget-object v0, v0, Landroid/support/v7/widget/ActionBarContainer;->mStackedBackground:Landroid/graphics/drawable/Drawable;
@@ -109,10 +99,65 @@
     .locals 1
 
     .prologue
-    .line 61
+    .line 62
     const/4 v0, 0x0
 
     return v0
+.end method
+
+.method public getOutline(Landroid/graphics/Outline;)V
+    .locals 1
+    .param p1, "outline"    # Landroid/graphics/Outline;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/RequiresApi;
+        value = 0x15
+    .end annotation
+
+    .prologue
+    .line 68
+    iget-object v0, p0, Landroid/support/v7/widget/ActionBarBackgroundDrawable;->mContainer:Landroid/support/v7/widget/ActionBarContainer;
+
+    iget-boolean v0, v0, Landroid/support/v7/widget/ActionBarContainer;->mIsSplit:Z
+
+    if-eqz v0, :cond_1
+
+    .line 69
+    iget-object v0, p0, Landroid/support/v7/widget/ActionBarBackgroundDrawable;->mContainer:Landroid/support/v7/widget/ActionBarContainer;
+
+    iget-object v0, v0, Landroid/support/v7/widget/ActionBarContainer;->mSplitBackground:Landroid/graphics/drawable/Drawable;
+
+    if-eqz v0, :cond_0
+
+    .line 70
+    iget-object v0, p0, Landroid/support/v7/widget/ActionBarBackgroundDrawable;->mContainer:Landroid/support/v7/widget/ActionBarContainer;
+
+    iget-object v0, v0, Landroid/support/v7/widget/ActionBarContainer;->mSplitBackground:Landroid/graphics/drawable/Drawable;
+
+    invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->getOutline(Landroid/graphics/Outline;)V
+
+    .line 78
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 74
+    :cond_1
+    iget-object v0, p0, Landroid/support/v7/widget/ActionBarBackgroundDrawable;->mContainer:Landroid/support/v7/widget/ActionBarContainer;
+
+    iget-object v0, v0, Landroid/support/v7/widget/ActionBarContainer;->mBackground:Landroid/graphics/drawable/Drawable;
+
+    if-eqz v0, :cond_0
+
+    .line 75
+    iget-object v0, p0, Landroid/support/v7/widget/ActionBarBackgroundDrawable;->mContainer:Landroid/support/v7/widget/ActionBarContainer;
+
+    iget-object v0, v0, Landroid/support/v7/widget/ActionBarContainer;->mBackground:Landroid/graphics/drawable/Drawable;
+
+    invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->getOutline(Landroid/graphics/Outline;)V
+
+    goto :goto_0
 .end method
 
 .method public setAlpha(I)V
@@ -120,7 +165,7 @@
     .param p1, "alpha"    # I
 
     .prologue
-    .line 53
+    .line 54
     return-void
 .end method
 
@@ -129,6 +174,6 @@
     .param p1, "cf"    # Landroid/graphics/ColorFilter;
 
     .prologue
-    .line 57
+    .line 58
     return-void
 .end method

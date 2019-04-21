@@ -16,6 +16,8 @@
 
 # virtual methods
 .method public abstract getBreadCrumbShortTitle()Ljava/lang/CharSequence;
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 .end method
 
 .method public abstract getBreadCrumbShortTitleRes()I
@@ -24,6 +26,8 @@
 .end method
 
 .method public abstract getBreadCrumbTitle()Ljava/lang/CharSequence;
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 .end method
 
 .method public abstract getBreadCrumbTitleRes()I
@@ -35,4 +39,6 @@
 .end method
 
 .method public abstract getName()Ljava/lang/String;
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 .end method

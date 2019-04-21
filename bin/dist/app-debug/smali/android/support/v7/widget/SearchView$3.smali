@@ -3,12 +3,12 @@
 .source "SearchView.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/view/View$OnFocusChangeListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/support/v7/widget/SearchView;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Landroid/support/v7/widget/SearchView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Landroid/support/v7/widget/SearchView;
 
     .prologue
-    .line 206
+    .line 330
     iput-object p1, p0, Landroid/support/v7/widget/SearchView$3;->this$0:Landroid/support/v7/widget/SearchView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,35 +37,29 @@
 
 
 # virtual methods
-.method public run()V
+.method public onFocusChange(Landroid/view/View;Z)V
     .locals 2
+    .param p1, "v"    # Landroid/view/View;
+    .param p2, "hasFocus"    # Z
 
     .prologue
-    .line 209
+    .line 333
     iget-object v0, p0, Landroid/support/v7/widget/SearchView$3;->this$0:Landroid/support/v7/widget/SearchView;
 
-    iget-object v0, v0, Landroid/support/v7/widget/SearchView;->mSuggestionsAdapter:Landroid/support/v4/widget/CursorAdapter;
+    iget-object v0, v0, Landroid/support/v7/widget/SearchView;->mOnQueryTextFocusChangeListener:Landroid/view/View$OnFocusChangeListener;
 
     if-eqz v0, :cond_0
 
+    .line 334
     iget-object v0, p0, Landroid/support/v7/widget/SearchView$3;->this$0:Landroid/support/v7/widget/SearchView;
 
-    iget-object v0, v0, Landroid/support/v7/widget/SearchView;->mSuggestionsAdapter:Landroid/support/v4/widget/CursorAdapter;
+    iget-object v0, v0, Landroid/support/v7/widget/SearchView;->mOnQueryTextFocusChangeListener:Landroid/view/View$OnFocusChangeListener;
 
-    instance-of v0, v0, Landroid/support/v7/widget/SuggestionsAdapter;
+    iget-object v1, p0, Landroid/support/v7/widget/SearchView$3;->this$0:Landroid/support/v7/widget/SearchView;
 
-    if-eqz v0, :cond_0
+    invoke-interface {v0, v1, p2}, Landroid/view/View$OnFocusChangeListener;->onFocusChange(Landroid/view/View;Z)V
 
-    .line 210
-    iget-object v0, p0, Landroid/support/v7/widget/SearchView$3;->this$0:Landroid/support/v7/widget/SearchView;
-
-    iget-object v0, v0, Landroid/support/v7/widget/SearchView;->mSuggestionsAdapter:Landroid/support/v4/widget/CursorAdapter;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/support/v4/widget/CursorAdapter;->changeCursor(Landroid/database/Cursor;)V
-
-    .line 212
+    .line 336
     :cond_0
     return-void
 .end method

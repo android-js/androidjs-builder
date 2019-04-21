@@ -29,7 +29,7 @@
     .locals 1
 
     .prologue
-    .line 3488
+    .line 3800
     const/4 v0, 0x3
 
     new-array v0, v0, [I
@@ -50,12 +50,13 @@
     .end array-data
 .end method
 
-.method constructor <init>()V
+.method private constructor <init>()V
     .locals 0
 
     .prologue
-    .line 3487
+    .line 3807
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 3808
     return-void
 .end method

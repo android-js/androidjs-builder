@@ -58,7 +58,7 @@
 
     const/4 v3, 0x0
 
-    .line 76
+    .line 136
     new-instance v0, Landroid/support/constraint/solver/widgets/ConstraintWidget$ContentAlignment;
 
     const-string v1, "BEGIN"
@@ -129,7 +129,7 @@
 
     sput-object v0, Landroid/support/constraint/solver/widgets/ConstraintWidget$ContentAlignment;->RIGHT:Landroid/support/constraint/solver/widgets/ConstraintWidget$ContentAlignment;
 
-    .line 75
+    .line 135
     const/16 v0, 0x8
 
     new-array v0, v0, [Landroid/support/constraint/solver/widgets/ConstraintWidget$ContentAlignment;
@@ -186,7 +186,7 @@
     .end annotation
 
     .prologue
-    .line 75
+    .line 135
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -197,7 +197,7 @@
     .param p0, "name"    # Ljava/lang/String;
 
     .prologue
-    .line 75
+    .line 135
     const-class v0, Landroid/support/constraint/solver/widgets/ConstraintWidget$ContentAlignment;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -213,7 +213,7 @@
     .locals 1
 
     .prologue
-    .line 75
+    .line 135
     sget-object v0, Landroid/support/constraint/solver/widgets/ConstraintWidget$ContentAlignment;->$VALUES:[Landroid/support/constraint/solver/widgets/ConstraintWidget$ContentAlignment;
 
     invoke-virtual {v0}, [Landroid/support/constraint/solver/widgets/ConstraintWidget$ContentAlignment;->clone()Ljava/lang/Object;

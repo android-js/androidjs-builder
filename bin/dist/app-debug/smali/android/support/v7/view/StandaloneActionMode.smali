@@ -240,7 +240,7 @@
     .locals 1
 
     .prologue
-    .line 164
+    .line 167
     iget-boolean v0, p0, Landroid/support/v7/view/StandaloneActionMode;->mFocusable:Z
 
     return v0
@@ -252,7 +252,7 @@
     .param p2, "allMenusAreClosing"    # Z
 
     .prologue
-    .line 144
+    .line 145
     return-void
 .end method
 
@@ -261,7 +261,7 @@
     .param p1, "menu"    # Landroid/support/v7/view/menu/SubMenuBuilder;
 
     .prologue
-    .line 156
+    .line 157
     return-void
 .end method
 
@@ -271,7 +271,7 @@
     .param p2, "item"    # Landroid/view/MenuItem;
 
     .prologue
-    .line 140
+    .line 141
     iget-object v0, p0, Landroid/support/v7/view/StandaloneActionMode;->mCallback:Landroid/support/v7/view/ActionMode$Callback;
 
     invoke-interface {v0, p0, p2}, Landroid/support/v7/view/ActionMode$Callback;->onActionItemClicked(Landroid/support/v7/view/ActionMode;Landroid/view/MenuItem;)Z
@@ -286,15 +286,15 @@
     .param p1, "menu"    # Landroid/support/v7/view/menu/MenuBuilder;
 
     .prologue
-    .line 159
+    .line 161
     invoke-virtual {p0}, Landroid/support/v7/view/StandaloneActionMode;->invalidate()V
 
-    .line 160
+    .line 162
     iget-object v0, p0, Landroid/support/v7/view/StandaloneActionMode;->mContextView:Landroid/support/v7/widget/ActionBarContextView;
 
     invoke-virtual {v0}, Landroid/support/v7/widget/ActionBarContextView;->showOverflowMenu()Z
 
-    .line 161
+    .line 163
     return-void
 .end method
 
@@ -305,18 +305,18 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 147
+    .line 148
     invoke-virtual {p1}, Landroid/support/v7/view/menu/SubMenuBuilder;->hasVisibleItems()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 152
+    .line 153
     :goto_0
     return v2
 
-    .line 151
+    .line 152
     :cond_0
     new-instance v0, Landroid/support/v7/view/menu/MenuPopupHelper;
 

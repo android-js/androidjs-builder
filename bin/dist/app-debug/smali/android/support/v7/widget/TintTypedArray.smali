@@ -26,16 +26,16 @@
     .param p2, "array"    # Landroid/content/res/TypedArray;
 
     .prologue
-    .line 62
+    .line 67
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 63
+    .line 68
     iput-object p1, p0, Landroid/support/v7/widget/TintTypedArray;->mContext:Landroid/content/Context;
 
-    .line 64
+    .line 69
     iput-object p2, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
 
-    .line 65
+    .line 70
     return-void
 .end method
 
@@ -46,7 +46,7 @@
     .param p2, "attrs"    # [I
 
     .prologue
-    .line 59
+    .line 64
     new-instance v0, Landroid/support/v7/widget/TintTypedArray;
 
     invoke-virtual {p0, p1, p2}, Landroid/content/Context;->obtainStyledAttributes(I[I)Landroid/content/res/TypedArray;
@@ -65,7 +65,7 @@
     .param p2, "attrs"    # [I
 
     .prologue
-    .line 49
+    .line 54
     new-instance v0, Landroid/support/v7/widget/TintTypedArray;
 
     invoke-virtual {p0, p1, p2}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
@@ -86,10 +86,10 @@
     .param p4, "defStyleRes"    # I
 
     .prologue
-    .line 54
+    .line 59
     new-instance v0, Landroid/support/v7/widget/TintTypedArray;
 
-    .line 55
+    .line 60
     invoke-virtual {p0, p1, p2, p3, p4}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v1
@@ -107,7 +107,7 @@
     .param p2, "defValue"    # Z
 
     .prologue
-    .line 116
+    .line 151
     iget-object v0, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
 
     invoke-virtual {v0, p1, p2}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
@@ -119,9 +119,12 @@
 
 .method public getChangingConfigurations()I
     .locals 1
+    .annotation build Landroid/support/annotation/RequiresApi;
+        value = 0x15
+    .end annotation
 
     .prologue
-    .line 214
+    .line 250
     iget-object v0, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
 
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->getChangingConfigurations()I
@@ -137,7 +140,7 @@
     .param p2, "defValue"    # I
 
     .prologue
-    .line 128
+    .line 163
     iget-object v0, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
 
     invoke-virtual {v0, p1, p2}, Landroid/content/res/TypedArray;->getColor(II)I
@@ -152,7 +155,7 @@
     .param p1, "index"    # I
 
     .prologue
-    .line 132
+    .line 167
     iget-object v2, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
 
     invoke-virtual {v2, p1}, Landroid/content/res/TypedArray;->hasValue(I)Z
@@ -161,7 +164,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 133
+    .line 168
     iget-object v2, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
 
     const/4 v3, 0x0
@@ -170,23 +173,23 @@
 
     move-result v0
 
-    .line 134
+    .line 169
     .local v0, "resourceId":I
     if-eqz v0, :cond_0
 
-    .line 135
+    .line 170
     iget-object v2, p0, Landroid/support/v7/widget/TintTypedArray;->mContext:Landroid/content/Context;
 
-    .line 136
+    .line 171
     invoke-static {v2, v0}, Landroid/support/v7/content/res/AppCompatResources;->getColorStateList(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
 
     move-result-object v1
 
-    .line 137
+    .line 172
     .local v1, "value":Landroid/content/res/ColorStateList;
     if-eqz v1, :cond_0
 
-    .line 142
+    .line 177
     .end local v0    # "resourceId":I
     .end local v1    # "value":Landroid/content/res/ColorStateList;
     :goto_0
@@ -208,7 +211,7 @@
     .param p2, "defValue"    # F
 
     .prologue
-    .line 150
+    .line 185
     iget-object v0, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
 
     invoke-virtual {v0, p1, p2}, Landroid/content/res/TypedArray;->getDimension(IF)F
@@ -224,7 +227,7 @@
     .param p2, "defValue"    # I
 
     .prologue
-    .line 154
+    .line 189
     iget-object v0, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
 
     invoke-virtual {v0, p1, p2}, Landroid/content/res/TypedArray;->getDimensionPixelOffset(II)I
@@ -240,7 +243,7 @@
     .param p2, "defValue"    # I
 
     .prologue
-    .line 158
+    .line 193
     iget-object v0, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
 
     invoke-virtual {v0, p1, p2}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
@@ -255,7 +258,7 @@
     .param p1, "index"    # I
 
     .prologue
-    .line 68
+    .line 73
     iget-object v1, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
 
     invoke-virtual {v1, p1}, Landroid/content/res/TypedArray;->hasValue(I)Z
@@ -264,7 +267,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 69
+    .line 74
     iget-object v1, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
 
     const/4 v2, 0x0
@@ -273,18 +276,18 @@
 
     move-result v0
 
-    .line 70
+    .line 75
     .local v0, "resourceId":I
     if-eqz v0, :cond_0
 
-    .line 71
+    .line 76
     iget-object v1, p0, Landroid/support/v7/widget/TintTypedArray;->mContext:Landroid/content/Context;
 
     invoke-static {v1, v0}, Landroid/support/v7/content/res/AppCompatResources;->getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
-    .line 74
+    .line 79
     .end local v0    # "resourceId":I
     :goto_0
     return-object v1
@@ -304,7 +307,7 @@
     .param p1, "index"    # I
 
     .prologue
-    .line 78
+    .line 83
     iget-object v1, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
 
     invoke-virtual {v1, p1}, Landroid/content/res/TypedArray;->hasValue(I)Z
@@ -313,7 +316,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 79
+    .line 84
     iget-object v1, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
 
     const/4 v2, 0x0
@@ -322,11 +325,11 @@
 
     move-result v0
 
-    .line 80
+    .line 85
     .local v0, "resourceId":I
     if-eqz v0, :cond_0
 
-    .line 81
+    .line 86
     invoke-static {}, Landroid/support/v7/widget/AppCompatDrawableManager;->get()Landroid/support/v7/widget/AppCompatDrawableManager;
 
     move-result-object v1
@@ -339,7 +342,7 @@
 
     move-result-object v1
 
-    .line 84
+    .line 89
     .end local v0    # "resourceId":I
     :goto_0
     return-object v1
@@ -356,7 +359,7 @@
     .param p2, "defValue"    # F
 
     .prologue
-    .line 124
+    .line 159
     iget-object v0, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
 
     invoke-virtual {v0, p1, p2}, Landroid/content/res/TypedArray;->getFloat(IF)F
@@ -364,6 +367,67 @@
     move-result v0
 
     return v0
+.end method
+
+.method public getFont(IILandroid/support/v4/content/res/ResourcesCompat$FontCallback;)Landroid/graphics/Typeface;
+    .locals 3
+    .param p1, "index"    # I
+        .annotation build Landroid/support/annotation/StyleableRes;
+        .end annotation
+    .end param
+    .param p2, "style"    # I
+    .param p3, "fontCallback"    # Landroid/support/v4/content/res/ResourcesCompat$FontCallback;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
+    .prologue
+    .line 112
+    iget-object v1, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, p1, v2}, Landroid/content/res/TypedArray;->getResourceId(II)I
+
+    move-result v0
+
+    .line 113
+    .local v0, "resourceId":I
+    if-nez v0, :cond_0
+
+    .line 114
+    const/4 v1, 0x0
+
+    .line 119
+    :goto_0
+    return-object v1
+
+    .line 116
+    :cond_0
+    iget-object v1, p0, Landroid/support/v7/widget/TintTypedArray;->mTypedValue:Landroid/util/TypedValue;
+
+    if-nez v1, :cond_1
+
+    .line 117
+    new-instance v1, Landroid/util/TypedValue;
+
+    invoke-direct {v1}, Landroid/util/TypedValue;-><init>()V
+
+    iput-object v1, p0, Landroid/support/v7/widget/TintTypedArray;->mTypedValue:Landroid/util/TypedValue;
+
+    .line 119
+    :cond_1
+    iget-object v1, p0, Landroid/support/v7/widget/TintTypedArray;->mContext:Landroid/content/Context;
+
+    iget-object v2, p0, Landroid/support/v7/widget/TintTypedArray;->mTypedValue:Landroid/util/TypedValue;
+
+    invoke-static {v1, v0, v2, p2, p3}, Landroid/support/v4/content/res/ResourcesCompat;->getFont(Landroid/content/Context;ILandroid/util/TypedValue;ILandroid/support/v4/content/res/ResourcesCompat$FontCallback;)Landroid/graphics/Typeface;
+
+    move-result-object v1
+
+    goto :goto_0
 .end method
 
 .method public getFraction(IIIF)F
@@ -374,7 +438,7 @@
     .param p4, "defValue"    # F
 
     .prologue
-    .line 170
+    .line 205
     iget-object v0, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
 
     invoke-virtual {v0, p1, p2, p3, p4}, Landroid/content/res/TypedArray;->getFraction(IIIF)F
@@ -389,7 +453,7 @@
     .param p1, "at"    # I
 
     .prologue
-    .line 96
+    .line 131
     iget-object v0, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
 
     invoke-virtual {v0, p1}, Landroid/content/res/TypedArray;->getIndex(I)I
@@ -403,7 +467,7 @@
     .locals 1
 
     .prologue
-    .line 92
+    .line 127
     iget-object v0, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
 
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->getIndexCount()I
@@ -419,7 +483,7 @@
     .param p2, "defValue"    # I
 
     .prologue
-    .line 120
+    .line 155
     iget-object v0, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
 
     invoke-virtual {v0, p1, p2}, Landroid/content/res/TypedArray;->getInt(II)I
@@ -435,7 +499,7 @@
     .param p2, "defValue"    # I
 
     .prologue
-    .line 146
+    .line 181
     iget-object v0, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
 
     invoke-virtual {v0, p1, p2}, Landroid/content/res/TypedArray;->getInteger(II)I
@@ -451,7 +515,7 @@
     .param p2, "defValue"    # I
 
     .prologue
-    .line 166
+    .line 201
     iget-object v0, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
 
     invoke-virtual {v0, p1, p2}, Landroid/content/res/TypedArray;->getLayoutDimension(II)I
@@ -467,7 +531,7 @@
     .param p2, "name"    # Ljava/lang/String;
 
     .prologue
-    .line 162
+    .line 197
     iget-object v0, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
 
     invoke-virtual {v0, p1, p2}, Landroid/content/res/TypedArray;->getLayoutDimension(ILjava/lang/String;)I
@@ -482,7 +546,7 @@
     .param p1, "index"    # I
 
     .prologue
-    .line 112
+    .line 147
     iget-object v0, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
 
     invoke-virtual {v0, p1}, Landroid/content/res/TypedArray;->getNonResourceString(I)Ljava/lang/String;
@@ -496,7 +560,7 @@
     .locals 1
 
     .prologue
-    .line 206
+    .line 241
     iget-object v0, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
 
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->getPositionDescription()Ljava/lang/String;
@@ -512,7 +576,7 @@
     .param p2, "defValue"    # I
 
     .prologue
-    .line 174
+    .line 209
     iget-object v0, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
 
     invoke-virtual {v0, p1, p2}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -526,7 +590,7 @@
     .locals 1
 
     .prologue
-    .line 100
+    .line 135
     iget-object v0, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
 
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->getResources()Landroid/content/res/Resources;
@@ -541,7 +605,7 @@
     .param p1, "index"    # I
 
     .prologue
-    .line 108
+    .line 143
     iget-object v0, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
 
     invoke-virtual {v0, p1}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
@@ -556,7 +620,7 @@
     .param p1, "index"    # I
 
     .prologue
-    .line 104
+    .line 139
     iget-object v0, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
 
     invoke-virtual {v0, p1}, Landroid/content/res/TypedArray;->getText(I)Ljava/lang/CharSequence;
@@ -571,7 +635,7 @@
     .param p1, "index"    # I
 
     .prologue
-    .line 178
+    .line 213
     iget-object v0, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
 
     invoke-virtual {v0, p1}, Landroid/content/res/TypedArray;->getTextArray(I)[Ljava/lang/CharSequence;
@@ -586,38 +650,38 @@
     .param p1, "index"    # I
 
     .prologue
-    .line 186
+    .line 221
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x15
 
     if-lt v0, v1, :cond_0
 
-    .line 187
+    .line 222
     iget-object v0, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
 
     invoke-virtual {v0, p1}, Landroid/content/res/TypedArray;->getType(I)I
 
     move-result v0
 
-    .line 193
+    .line 228
     :goto_0
     return v0
 
-    .line 189
+    .line 224
     :cond_0
     iget-object v0, p0, Landroid/support/v7/widget/TintTypedArray;->mTypedValue:Landroid/util/TypedValue;
 
     if-nez v0, :cond_1
 
-    .line 190
+    .line 225
     new-instance v0, Landroid/util/TypedValue;
 
     invoke-direct {v0}, Landroid/util/TypedValue;-><init>()V
 
     iput-object v0, p0, Landroid/support/v7/widget/TintTypedArray;->mTypedValue:Landroid/util/TypedValue;
 
-    .line 192
+    .line 227
     :cond_1
     iget-object v0, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
 
@@ -625,7 +689,7 @@
 
     invoke-virtual {v0, p1, v1}, Landroid/content/res/TypedArray;->getValue(ILandroid/util/TypedValue;)Z
 
-    .line 193
+    .line 228
     iget-object v0, p0, Landroid/support/v7/widget/TintTypedArray;->mTypedValue:Landroid/util/TypedValue;
 
     iget v0, v0, Landroid/util/TypedValue;->type:I
@@ -639,7 +703,7 @@
     .param p2, "outValue"    # Landroid/util/TypedValue;
 
     .prologue
-    .line 182
+    .line 217
     iget-object v0, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
 
     invoke-virtual {v0, p1, p2}, Landroid/content/res/TypedArray;->getValue(ILandroid/util/TypedValue;)Z
@@ -654,7 +718,7 @@
     .param p1, "index"    # I
 
     .prologue
-    .line 198
+    .line 233
     iget-object v0, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
 
     invoke-virtual {v0, p1}, Landroid/content/res/TypedArray;->hasValue(I)Z
@@ -668,7 +732,7 @@
     .locals 1
 
     .prologue
-    .line 88
+    .line 123
     iget-object v0, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
 
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->length()I
@@ -683,7 +747,7 @@
     .param p1, "index"    # I
 
     .prologue
-    .line 202
+    .line 237
     iget-object v0, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
 
     invoke-virtual {v0, p1}, Landroid/content/res/TypedArray;->peekValue(I)Landroid/util/TypedValue;
@@ -697,11 +761,11 @@
     .locals 1
 
     .prologue
-    .line 210
+    .line 245
     iget-object v0, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
 
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 211
+    .line 246
     return-void
 .end method

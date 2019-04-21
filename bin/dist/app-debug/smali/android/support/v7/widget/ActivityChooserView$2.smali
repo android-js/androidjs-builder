@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Landroid/support/v7/widget/ActivityChooserView;
 
     .prologue
-    .line 143
+    .line 148
     iput-object p1, p0, Landroid/support/v7/widget/ActivityChooserView$2;->this$0:Landroid/support/v7/widget/ActivityChooserView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .locals 2
 
     .prologue
-    .line 146
+    .line 151
     iget-object v0, p0, Landroid/support/v7/widget/ActivityChooserView$2;->this$0:Landroid/support/v7/widget/ActivityChooserView;
 
     invoke-virtual {v0}, Landroid/support/v7/widget/ActivityChooserView;->isShowingPopup()Z
@@ -50,7 +50,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 147
+    .line 152
     iget-object v0, p0, Landroid/support/v7/widget/ActivityChooserView$2;->this$0:Landroid/support/v7/widget/ActivityChooserView;
 
     invoke-virtual {v0}, Landroid/support/v7/widget/ActivityChooserView;->isShown()Z
@@ -59,7 +59,7 @@
 
     if-nez v0, :cond_1
 
-    .line 148
+    .line 153
     iget-object v0, p0, Landroid/support/v7/widget/ActivityChooserView$2;->this$0:Landroid/support/v7/widget/ActivityChooserView;
 
     invoke-virtual {v0}, Landroid/support/v7/widget/ActivityChooserView;->getListPopupWindow()Landroid/support/v7/widget/ListPopupWindow;
@@ -68,12 +68,12 @@
 
     invoke-virtual {v0}, Landroid/support/v7/widget/ListPopupWindow;->dismiss()V
 
-    .line 156
+    .line 161
     :cond_0
     :goto_0
     return-void
 
-    .line 150
+    .line 155
     :cond_1
     iget-object v0, p0, Landroid/support/v7/widget/ActivityChooserView$2;->this$0:Landroid/support/v7/widget/ActivityChooserView;
 
@@ -83,14 +83,14 @@
 
     invoke-virtual {v0}, Landroid/support/v7/widget/ListPopupWindow;->show()V
 
-    .line 151
+    .line 156
     iget-object v0, p0, Landroid/support/v7/widget/ActivityChooserView$2;->this$0:Landroid/support/v7/widget/ActivityChooserView;
 
     iget-object v0, v0, Landroid/support/v7/widget/ActivityChooserView;->mProvider:Landroid/support/v4/view/ActionProvider;
 
     if-eqz v0, :cond_0
 
-    .line 152
+    .line 157
     iget-object v0, p0, Landroid/support/v7/widget/ActivityChooserView$2;->this$0:Landroid/support/v7/widget/ActivityChooserView;
 
     iget-object v0, v0, Landroid/support/v7/widget/ActivityChooserView;->mProvider:Landroid/support/v4/view/ActionProvider;

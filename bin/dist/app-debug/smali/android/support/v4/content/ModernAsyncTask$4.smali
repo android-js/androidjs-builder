@@ -15,7 +15,7 @@
 
 
 # static fields
-.field static final synthetic $SwitchMap$android$support$v4$content$ModernAsyncTask$Status:[I
+.field static final synthetic $SwitchMap$androidx$loader$content$ModernAsyncTask$Status:[I
 
 
 # direct methods
@@ -23,7 +23,7 @@
     .locals 3
 
     .prologue
-    .line 431
+    .line 434
     invoke-static {}, Landroid/support/v4/content/ModernAsyncTask$Status;->values()[Landroid/support/v4/content/ModernAsyncTask$Status;
 
     move-result-object v0
@@ -32,10 +32,10 @@
 
     new-array v0, v0, [I
 
-    sput-object v0, Landroid/support/v4/content/ModernAsyncTask$4;->$SwitchMap$android$support$v4$content$ModernAsyncTask$Status:[I
+    sput-object v0, Landroid/support/v4/content/ModernAsyncTask$4;->$SwitchMap$androidx$loader$content$ModernAsyncTask$Status:[I
 
     :try_start_0
-    sget-object v0, Landroid/support/v4/content/ModernAsyncTask$4;->$SwitchMap$android$support$v4$content$ModernAsyncTask$Status:[I
+    sget-object v0, Landroid/support/v4/content/ModernAsyncTask$4;->$SwitchMap$androidx$loader$content$ModernAsyncTask$Status:[I
 
     sget-object v1, Landroid/support/v4/content/ModernAsyncTask$Status;->RUNNING:Landroid/support/v4/content/ModernAsyncTask$Status;
 
@@ -51,7 +51,7 @@
 
     :goto_0
     :try_start_1
-    sget-object v0, Landroid/support/v4/content/ModernAsyncTask$4;->$SwitchMap$android$support$v4$content$ModernAsyncTask$Status:[I
+    sget-object v0, Landroid/support/v4/content/ModernAsyncTask$4;->$SwitchMap$androidx$loader$content$ModernAsyncTask$Status:[I
 
     sget-object v1, Landroid/support/v4/content/ModernAsyncTask$Status;->FINISHED:Landroid/support/v4/content/ModernAsyncTask$Status;
 

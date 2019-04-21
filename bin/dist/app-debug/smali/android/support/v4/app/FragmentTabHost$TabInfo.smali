@@ -67,19 +67,19 @@
     .end annotation
 
     .prologue
-    .line 70
+    .line 71
     .local p2, "_class":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 71
+    .line 72
     iput-object p1, p0, Landroid/support/v4/app/FragmentTabHost$TabInfo;->tag:Ljava/lang/String;
 
-    .line 72
+    .line 73
     iput-object p2, p0, Landroid/support/v4/app/FragmentTabHost$TabInfo;->clss:Ljava/lang/Class;
 
-    .line 73
+    .line 74
     iput-object p3, p0, Landroid/support/v4/app/FragmentTabHost$TabInfo;->args:Landroid/os/Bundle;
 
-    .line 74
+    .line 75
     return-void
 .end method

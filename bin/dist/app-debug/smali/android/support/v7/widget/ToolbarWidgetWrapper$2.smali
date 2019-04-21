@@ -28,14 +28,14 @@
     .param p1, "this$0"    # Landroid/support/v7/widget/ToolbarWidgetWrapper;
 
     .prologue
-    .line 568
+    .line 569
     iput-object p1, p0, Landroid/support/v7/widget/ToolbarWidgetWrapper$2;->this$0:Landroid/support/v7/widget/ToolbarWidgetWrapper;
 
     iput p2, p0, Landroid/support/v7/widget/ToolbarWidgetWrapper$2;->val$visibility:I
 
     invoke-direct {p0}, Landroid/support/v4/view/ViewPropertyAnimatorListenerAdapter;-><init>()V
 
-    .line 569
+    .line 570
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/support/v7/widget/ToolbarWidgetWrapper$2;->mCanceled:Z
@@ -50,12 +50,12 @@
     .param p1, "view"    # Landroid/view/View;
 
     .prologue
-    .line 585
+    .line 586
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/support/v7/widget/ToolbarWidgetWrapper$2;->mCanceled:Z
 
-    .line 586
+    .line 587
     return-void
 .end method
 
@@ -64,12 +64,12 @@
     .param p1, "view"    # Landroid/view/View;
 
     .prologue
-    .line 578
+    .line 579
     iget-boolean v0, p0, Landroid/support/v7/widget/ToolbarWidgetWrapper$2;->mCanceled:Z
 
     if-nez v0, :cond_0
 
-    .line 579
+    .line 580
     iget-object v0, p0, Landroid/support/v7/widget/ToolbarWidgetWrapper$2;->this$0:Landroid/support/v7/widget/ToolbarWidgetWrapper;
 
     iget-object v0, v0, Landroid/support/v7/widget/ToolbarWidgetWrapper;->mToolbar:Landroid/support/v7/widget/Toolbar;
@@ -78,7 +78,7 @@
 
     invoke-virtual {v0, v1}, Landroid/support/v7/widget/Toolbar;->setVisibility(I)V
 
-    .line 581
+    .line 582
     :cond_0
     return-void
 .end method
@@ -88,7 +88,7 @@
     .param p1, "view"    # Landroid/view/View;
 
     .prologue
-    .line 573
+    .line 574
     iget-object v0, p0, Landroid/support/v7/widget/ToolbarWidgetWrapper$2;->this$0:Landroid/support/v7/widget/ToolbarWidgetWrapper;
 
     iget-object v0, v0, Landroid/support/v7/widget/ToolbarWidgetWrapper;->mToolbar:Landroid/support/v7/widget/Toolbar;
@@ -97,6 +97,6 @@
 
     invoke-virtual {v0, v1}, Landroid/support/v7/widget/Toolbar;->setVisibility(I)V
 
-    .line 574
+    .line 575
     return-void
 .end method

@@ -21,7 +21,9 @@
 
 .field public static final cancel_button_image_alpha:I = 0x7f0c0002
 
-.field public static final status_bar_notification_info_maxnum:I = 0x7f0c0003
+.field public static final config_tooltipAnimTime:I = 0x7f0c0003
+
+.field public static final status_bar_notification_info_maxnum:I = 0x7f0c0004
 
 
 # direct methods
@@ -29,7 +31,7 @@
     .locals 0
 
     .prologue
-    .line 651
+    .line 712
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

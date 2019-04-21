@@ -37,13 +37,13 @@
     .param p2, "object"    # Landroid/view/MenuItem$OnMenuItemClickListener;
 
     .prologue
-    .line 320
+    .line 391
     iput-object p1, p0, Landroid/support/v7/view/menu/MenuItemWrapperICS$OnMenuItemClickListenerWrapper;->this$0:Landroid/support/v7/view/menu/MenuItemWrapperICS;
 
-    .line 321
+    .line 392
     invoke-direct {p0, p2}, Landroid/support/v7/view/menu/BaseWrapper;-><init>(Ljava/lang/Object;)V
 
-    .line 322
+    .line 393
     return-void
 .end method
 
@@ -54,7 +54,7 @@
     .param p1, "item"    # Landroid/view/MenuItem;
 
     .prologue
-    .line 326
+    .line 397
     iget-object v0, p0, Landroid/support/v7/view/menu/MenuItemWrapperICS$OnMenuItemClickListenerWrapper;->mWrappedObject:Ljava/lang/Object;
 
     check-cast v0, Landroid/view/MenuItem$OnMenuItemClickListener;

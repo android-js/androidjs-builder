@@ -19,17 +19,7 @@
 
 .field fragments:Landroid/support/v4/app/FragmentManagerNonConfig;
 
-.field loaders:Landroid/support/v4/util/SimpleArrayMap;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Landroid/support/v4/util/SimpleArrayMap",
-            "<",
-            "Ljava/lang/String;",
-            "Landroid/support/v4/app/LoaderManager;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field viewModelStore:Landroid/arch/lifecycle/ViewModelStore;
 
 
 # direct methods
@@ -37,7 +27,7 @@
     .locals 0
 
     .prologue
-    .line 134
+    .line 130
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

@@ -12,6 +12,7 @@
 
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Landroid/support/v7/widget/AppCompatDrawableManager$AsldcInflateDelegate;,
         Landroid/support/v7/widget/AppCompatDrawableManager$AvdcInflateDelegate;,
         Landroid/support/v7/widget/AppCompatDrawableManager$VdcInflateDelegate;,
         Landroid/support/v7/widget/AppCompatDrawableManager$ColorFilterLruCache;,
@@ -39,7 +40,7 @@
 
 .field private static final SKIP_DRAWABLE_TAG:Ljava/lang/String; = "appcompat_skip_skip"
 
-.field private static final TAG:Ljava/lang/String; = "AppCompatDrawableManager"
+.field private static final TAG:Ljava/lang/String; = "AppCompatDrawableManag"
 
 .field private static final TINT_CHECKABLE_BUTTON_LIST:[I
 
@@ -60,8 +61,6 @@
         }
     .end annotation
 .end field
-
-.field private final mDrawableCacheLock:Ljava/lang/Object;
 
 .field private final mDrawableCaches:Ljava/util/WeakHashMap;
     .annotation system Ldalvik/annotation/Signature;
@@ -124,19 +123,19 @@
 
     const/4 v3, 0x0
 
-    .line 77
+    .line 78
     sget-object v0, Landroid/graphics/PorterDuff$Mode;->SRC_IN:Landroid/graphics/PorterDuff$Mode;
 
     sput-object v0, Landroid/support/v7/widget/AppCompatDrawableManager;->DEFAULT_MODE:Landroid/graphics/PorterDuff$Mode;
 
-    .line 105
+    .line 107
     new-instance v0, Landroid/support/v7/widget/AppCompatDrawableManager$ColorFilterLruCache;
 
     invoke-direct {v0, v7}, Landroid/support/v7/widget/AppCompatDrawableManager$ColorFilterLruCache;-><init>(I)V
 
     sput-object v0, Landroid/support/v7/widget/AppCompatDrawableManager;->COLOR_FILTER_CACHE:Landroid/support/v7/widget/AppCompatDrawableManager$ColorFilterLruCache;
 
-    .line 111
+    .line 113
     new-array v0, v6, [I
 
     sget v1, Landroid/support/v7/appcompat/R$drawable;->abc_textfield_search_default_mtrl_alpha:I
@@ -153,7 +152,7 @@
 
     sput-object v0, Landroid/support/v7/widget/AppCompatDrawableManager;->COLORFILTER_TINT_COLOR_CONTROL_NORMAL:[I
 
-    .line 121
+    .line 123
     const/4 v0, 0x7
 
     new-array v0, v0, [I
@@ -192,7 +191,7 @@
 
     sput-object v0, Landroid/support/v7/widget/AppCompatDrawableManager;->TINT_COLOR_CONTROL_NORMAL:[I
 
-    .line 135
+    .line 137
     const/16 v0, 0xa
 
     new-array v0, v0, [I
@@ -249,7 +248,7 @@
 
     sput-object v0, Landroid/support/v7/widget/AppCompatDrawableManager;->COLORFILTER_COLOR_CONTROL_ACTIVATED:[I
 
-    .line 152
+    .line 154
     new-array v0, v6, [I
 
     sget v1, Landroid/support/v7/appcompat/R$drawable;->abc_popup_background_mtrl_mult:I
@@ -266,7 +265,7 @@
 
     sput-object v0, Landroid/support/v7/widget/AppCompatDrawableManager;->COLORFILTER_COLOR_BACKGROUND_MULTIPLY:[I
 
-    .line 162
+    .line 164
     new-array v0, v5, [I
 
     sget v1, Landroid/support/v7/appcompat/R$drawable;->abc_tab_indicator_material:I
@@ -279,7 +278,7 @@
 
     sput-object v0, Landroid/support/v7/widget/AppCompatDrawableManager;->TINT_COLOR_CONTROL_STATE_LIST:[I
 
-    .line 172
+    .line 174
     new-array v0, v5, [I
 
     sget v1, Landroid/support/v7/appcompat/R$drawable;->abc_btn_check_material:I
@@ -299,17 +298,10 @@
     .locals 2
 
     .prologue
-    .line 68
+    .line 69
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 181
-    new-instance v0, Ljava/lang/Object;
-
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
-
-    iput-object v0, p0, Landroid/support/v7/widget/AppCompatDrawableManager;->mDrawableCacheLock:Ljava/lang/Object;
-
-    .line 182
+    .line 183
     new-instance v0, Ljava/util/WeakHashMap;
 
     const/4 v1, 0x0
@@ -318,7 +310,7 @@
 
     iput-object v0, p0, Landroid/support/v7/widget/AppCompatDrawableManager;->mDrawableCaches:Ljava/util/WeakHashMap;
 
-    .line 742
+    .line 800
     return-void
 .end method
 
@@ -334,29 +326,29 @@
     .end param
 
     .prologue
-    .line 494
+    .line 489
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatDrawableManager;->mDelegates:Landroid/support/v4/util/ArrayMap;
 
     if-nez v0, :cond_0
 
-    .line 495
+    .line 490
     new-instance v0, Landroid/support/v4/util/ArrayMap;
 
     invoke-direct {v0}, Landroid/support/v4/util/ArrayMap;-><init>()V
 
     iput-object v0, p0, Landroid/support/v7/widget/AppCompatDrawableManager;->mDelegates:Landroid/support/v4/util/ArrayMap;
 
-    .line 497
+    .line 492
     :cond_0
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatDrawableManager;->mDelegates:Landroid/support/v4/util/ArrayMap;
 
     invoke-virtual {v0, p1, p2}, Landroid/support/v4/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 498
+    .line 493
     return-void
 .end method
 
-.method private addDrawableToCache(Landroid/content/Context;JLandroid/graphics/drawable/Drawable;)Z
+.method private declared-synchronized addDrawableToCache(Landroid/content/Context;JLandroid/graphics/drawable/Drawable;)Z
     .locals 4
     .param p1, "context"    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
@@ -369,22 +361,19 @@
     .end param
 
     .prologue
-    .line 418
+    .line 415
+    monitor-enter p0
+
+    :try_start_0
     invoke-virtual {p4}, Landroid/graphics/drawable/Drawable;->getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
 
     move-result-object v1
 
-    .line 419
+    .line 416
     .local v1, "cs":Landroid/graphics/drawable/Drawable$ConstantState;
     if-eqz v1, :cond_1
 
-    .line 420
-    iget-object v3, p0, Landroid/support/v7/widget/AppCompatDrawableManager;->mDrawableCacheLock:Ljava/lang/Object;
-
-    monitor-enter v3
-
-    .line 421
-    :try_start_0
+    .line 417
     iget-object v2, p0, Landroid/support/v7/widget/AppCompatDrawableManager;->mDrawableCaches:Ljava/util/WeakHashMap;
 
     invoke-virtual {v2, p1}, Ljava/util/WeakHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -393,56 +382,55 @@
 
     check-cast v0, Landroid/support/v4/util/LongSparseArray;
 
-    .line 422
+    .line 418
     .local v0, "cache":Landroid/support/v4/util/LongSparseArray;, "Landroid/support/v4/util/LongSparseArray<Ljava/lang/ref/WeakReference<Landroid/graphics/drawable/Drawable$ConstantState;>;>;"
     if-nez v0, :cond_0
 
-    .line 423
+    .line 419
     new-instance v0, Landroid/support/v4/util/LongSparseArray;
 
     .end local v0    # "cache":Landroid/support/v4/util/LongSparseArray;, "Landroid/support/v4/util/LongSparseArray<Ljava/lang/ref/WeakReference<Landroid/graphics/drawable/Drawable$ConstantState;>;>;"
     invoke-direct {v0}, Landroid/support/v4/util/LongSparseArray;-><init>()V
 
-    .line 424
+    .line 420
     .restart local v0    # "cache":Landroid/support/v4/util/LongSparseArray;, "Landroid/support/v4/util/LongSparseArray<Ljava/lang/ref/WeakReference<Landroid/graphics/drawable/Drawable$ConstantState;>;>;"
     iget-object v2, p0, Landroid/support/v7/widget/AppCompatDrawableManager;->mDrawableCaches:Ljava/util/WeakHashMap;
 
     invoke-virtual {v2, p1, v0}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 426
+    .line 422
     :cond_0
     new-instance v2, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v2, v1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
     invoke-virtual {v0, p2, p3, v2}, Landroid/support/v4/util/LongSparseArray;->put(JLjava/lang/Object;)V
-
-    .line 427
-    monitor-exit v3
-
-    .line 428
-    const/4 v2, 0x1
-
-    .line 430
-    .end local v0    # "cache":Landroid/support/v4/util/LongSparseArray;, "Landroid/support/v4/util/LongSparseArray<Ljava/lang/ref/WeakReference<Landroid/graphics/drawable/Drawable$ConstantState;>;>;"
-    :goto_0
-    return v2
-
-    .line 427
-    :catchall_0
-    move-exception v2
-
-    monitor-exit v3
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v2
+    .line 423
+    const/4 v2, 0x1
 
-    .line 430
+    .line 425
+    .end local v0    # "cache":Landroid/support/v4/util/LongSparseArray;, "Landroid/support/v4/util/LongSparseArray<Ljava/lang/ref/WeakReference<Landroid/graphics/drawable/Drawable$ConstantState;>;>;"
+    :goto_0
+    monitor-exit p0
+
+    return v2
+
     :cond_1
     const/4 v2, 0x0
 
     goto :goto_0
+
+    .line 415
+    .end local v1    # "cs":Landroid/graphics/drawable/Drawable$ConstantState;
+    :catchall_0
+    move-exception v2
+
+    monitor-exit p0
+
+    throw v2
 .end method
 
 .method private addTintListToCache(Landroid/content/Context;ILandroid/content/res/ColorStateList;)V
@@ -461,19 +449,19 @@
     .end param
 
     .prologue
-    .line 573
+    .line 568
     iget-object v1, p0, Landroid/support/v7/widget/AppCompatDrawableManager;->mTintLists:Ljava/util/WeakHashMap;
 
     if-nez v1, :cond_0
 
-    .line 574
+    .line 569
     new-instance v1, Ljava/util/WeakHashMap;
 
     invoke-direct {v1}, Ljava/util/WeakHashMap;-><init>()V
 
     iput-object v1, p0, Landroid/support/v7/widget/AppCompatDrawableManager;->mTintLists:Ljava/util/WeakHashMap;
 
-    .line 576
+    .line 571
     :cond_0
     iget-object v1, p0, Landroid/support/v7/widget/AppCompatDrawableManager;->mTintLists:Ljava/util/WeakHashMap;
 
@@ -483,27 +471,27 @@
 
     check-cast v0, Landroid/support/v4/util/SparseArrayCompat;
 
-    .line 577
+    .line 572
     .local v0, "themeTints":Landroid/support/v4/util/SparseArrayCompat;, "Landroid/support/v4/util/SparseArrayCompat<Landroid/content/res/ColorStateList;>;"
     if-nez v0, :cond_1
 
-    .line 578
+    .line 573
     new-instance v0, Landroid/support/v4/util/SparseArrayCompat;
 
     .end local v0    # "themeTints":Landroid/support/v4/util/SparseArrayCompat;, "Landroid/support/v4/util/SparseArrayCompat<Landroid/content/res/ColorStateList;>;"
     invoke-direct {v0}, Landroid/support/v4/util/SparseArrayCompat;-><init>()V
 
-    .line 579
+    .line 574
     .restart local v0    # "themeTints":Landroid/support/v4/util/SparseArrayCompat;, "Landroid/support/v4/util/SparseArrayCompat<Landroid/content/res/ColorStateList;>;"
     iget-object v1, p0, Landroid/support/v7/widget/AppCompatDrawableManager;->mTintLists:Ljava/util/WeakHashMap;
 
     invoke-virtual {v1, p1, v0}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 581
+    .line 576
     :cond_1
     invoke-virtual {v0, p2, p3}, Landroid/support/v4/util/SparseArrayCompat;->append(ILjava/lang/Object;)V
 
-    .line 582
+    .line 577
     return-void
 .end method
 
@@ -515,7 +503,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 507
+    .line 502
     array-length v3, p0
 
     move v2, v1
@@ -525,19 +513,19 @@
 
     aget v0, p0, v2
 
-    .line 508
+    .line 503
     .local v0, "id":I
     if-ne v0, p1, :cond_1
 
-    .line 509
+    .line 504
     const/4 v1, 0x1
 
-    .line 512
+    .line 507
     .end local v0    # "id":I
     :cond_0
     return v1
 
-    .line 507
+    .line 502
     .restart local v0    # "id":I
     :cond_1
     add-int/lit8 v2, v2, 0x1
@@ -553,29 +541,29 @@
     .end param
 
     .prologue
-    .line 704
+    .line 746
     iget-boolean v1, p0, Landroid/support/v7/widget/AppCompatDrawableManager;->mHasCheckedVectorDrawableSetup:Z
 
     if-eqz v1, :cond_1
 
-    .line 717
+    .line 759
     :cond_0
     return-void
 
-    .line 710
+    .line 752
     :cond_1
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Landroid/support/v7/widget/AppCompatDrawableManager;->mHasCheckedVectorDrawableSetup:Z
 
-    .line 711
+    .line 753
     sget v1, Landroid/support/v7/appcompat/R$drawable;->abc_vector_test:I
 
     invoke-virtual {p0, p1, v1}, Landroid/support/v7/widget/AppCompatDrawableManager;->getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    .line 712
+    .line 754
     .local v0, "d":Landroid/graphics/drawable/Drawable;
     if-eqz v0, :cond_2
 
@@ -585,13 +573,13 @@
 
     if-nez v1, :cond_0
 
-    .line 713
+    .line 755
     :cond_2
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Landroid/support/v7/widget/AppCompatDrawableManager;->mHasCheckedVectorDrawableSetup:Z
 
-    .line 714
+    .line 756
     new-instance v1, Ljava/lang/IllegalStateException;
 
     const-string v2, "This app has been built with an incorrect configuration. Please configure your build for VectorDrawableCompat."
@@ -609,7 +597,7 @@
     .end param
 
     .prologue
-    .line 591
+    .line 586
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Landroid/support/v7/widget/AppCompatDrawableManager;->createButtonColorStateList(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
@@ -633,18 +621,18 @@
     .prologue
     const/4 v5, 0x4
 
-    .line 601
+    .line 596
     new-array v4, v5, [[I
 
-    .line 602
+    .line 597
     .local v4, "states":[[I
     new-array v1, v5, [I
 
-    .line 603
+    .line 598
     .local v1, "colors":[I
     const/4 v3, 0x0
 
-    .line 605
+    .line 600
     .local v3, "i":I
     sget v5, Landroid/support/v7/appcompat/R$attr;->colorControlHighlight:I
 
@@ -652,7 +640,7 @@
 
     move-result v0
 
-    .line 606
+    .line 601
     .local v0, "colorControlHighlight":I
     sget v5, Landroid/support/v7/appcompat/R$attr;->colorButtonNormal:I
 
@@ -660,60 +648,60 @@
 
     move-result v2
 
-    .line 609
+    .line 604
     .local v2, "disabledColor":I
     sget-object v5, Landroid/support/v7/widget/ThemeUtils;->DISABLED_STATE_SET:[I
 
     aput-object v5, v4, v3
 
-    .line 610
+    .line 605
     aput v2, v1, v3
 
-    .line 611
+    .line 606
     add-int/lit8 v3, v3, 0x1
 
-    .line 613
+    .line 608
     sget-object v5, Landroid/support/v7/widget/ThemeUtils;->PRESSED_STATE_SET:[I
 
     aput-object v5, v4, v3
 
-    .line 614
+    .line 609
     invoke-static {v0, p2}, Landroid/support/v4/graphics/ColorUtils;->compositeColors(II)I
 
     move-result v5
 
     aput v5, v1, v3
 
-    .line 615
+    .line 610
     add-int/lit8 v3, v3, 0x1
 
-    .line 617
+    .line 612
     sget-object v5, Landroid/support/v7/widget/ThemeUtils;->FOCUSED_STATE_SET:[I
 
     aput-object v5, v4, v3
 
-    .line 618
+    .line 613
     invoke-static {v0, p2}, Landroid/support/v4/graphics/ColorUtils;->compositeColors(II)I
 
     move-result v5
 
     aput v5, v1, v3
 
-    .line 619
+    .line 614
     add-int/lit8 v3, v3, 0x1
 
-    .line 622
+    .line 617
     sget-object v5, Landroid/support/v7/widget/ThemeUtils;->EMPTY_STATE_SET:[I
 
     aput-object v5, v4, v3
 
-    .line 623
+    .line 618
     aput p2, v1, v3
 
-    .line 624
+    .line 619
     add-int/lit8 v3, v3, 0x1
 
-    .line 626
+    .line 621
     new-instance v5, Landroid/content/res/ColorStateList;
 
     invoke-direct {v5, v4, v1}, Landroid/content/res/ColorStateList;-><init>([[I[I)V
@@ -726,7 +714,7 @@
     .param p0, "tv"    # Landroid/util/TypedValue;
 
     .prologue
-    .line 227
+    .line 226
     iget v0, p0, Landroid/util/TypedValue;->assetCookie:I
 
     int-to-long v0, v0
@@ -752,15 +740,15 @@
     .end param
 
     .prologue
-    .line 595
+    .line 590
     sget v0, Landroid/support/v7/appcompat/R$attr;->colorAccent:I
 
-    .line 596
+    .line 591
     invoke-static {p1, v0}, Landroid/support/v7/widget/ThemeUtils;->getThemeAttrColor(Landroid/content/Context;I)I
 
     move-result v0
 
-    .line 595
+    .line 590
     invoke-direct {p0, p1, v0}, Landroid/support/v7/widget/AppCompatDrawableManager;->createButtonColorStateList(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
 
     move-result-object v0
@@ -776,15 +764,15 @@
     .end param
 
     .prologue
-    .line 585
+    .line 580
     sget v0, Landroid/support/v7/appcompat/R$attr;->colorButtonNormal:I
 
-    .line 586
+    .line 581
     invoke-static {p1, v0}, Landroid/support/v7/widget/ThemeUtils;->getThemeAttrColor(Landroid/content/Context;I)I
 
     move-result v0
 
-    .line 585
+    .line 580
     invoke-direct {p0, p1, v0}, Landroid/support/v7/widget/AppCompatDrawableManager;->createButtonColorStateList(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
 
     move-result-object v0
@@ -806,23 +794,23 @@
     .prologue
     const/4 v8, 0x1
 
-    .line 232
+    .line 231
     iget-object v5, p0, Landroid/support/v7/widget/AppCompatDrawableManager;->mTypedValue:Landroid/util/TypedValue;
 
     if-nez v5, :cond_0
 
-    .line 233
+    .line 232
     new-instance v5, Landroid/util/TypedValue;
 
     invoke-direct {v5}, Landroid/util/TypedValue;-><init>()V
 
     iput-object v5, p0, Landroid/support/v7/widget/AppCompatDrawableManager;->mTypedValue:Landroid/util/TypedValue;
 
-    .line 235
+    .line 234
     :cond_0
     iget-object v4, p0, Landroid/support/v7/widget/AppCompatDrawableManager;->mTypedValue:Landroid/util/TypedValue;
 
-    .line 236
+    .line 235
     .local v4, "tv":Landroid/util/TypedValue;
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -830,30 +818,30 @@
 
     invoke-virtual {v5, p2, v4, v8}, Landroid/content/res/Resources;->getValue(ILandroid/util/TypedValue;Z)V
 
-    .line 237
+    .line 236
     invoke-static {v4}, Landroid/support/v7/widget/AppCompatDrawableManager;->createCacheKey(Landroid/util/TypedValue;)J
 
     move-result-wide v2
 
-    .line 239
+    .line 238
     .local v2, "key":J
     invoke-direct {p0, p1, v2, v3}, Landroid/support/v7/widget/AppCompatDrawableManager;->getCachedDrawable(Landroid/content/Context;J)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    .line 240
+    .line 239
     .local v0, "dr":Landroid/graphics/drawable/Drawable;
     if-eqz v0, :cond_1
 
     move-object v1, v0
 
-    .line 259
+    .line 258
     .end local v0    # "dr":Landroid/graphics/drawable/Drawable;
     .local v1, "dr":Landroid/graphics/drawable/Drawable;
     :goto_0
     return-object v1
 
-    .line 246
+    .line 245
     .end local v1    # "dr":Landroid/graphics/drawable/Drawable;
     .restart local v0    # "dr":Landroid/graphics/drawable/Drawable;
     :cond_1
@@ -861,7 +849,7 @@
 
     if-ne p2, v5, :cond_2
 
-    .line 247
+    .line 246
     new-instance v0, Landroid/graphics/drawable/LayerDrawable;
 
     .end local v0    # "dr":Landroid/graphics/drawable/Drawable;
@@ -873,7 +861,7 @@
 
     sget v7, Landroid/support/v7/appcompat/R$drawable;->abc_cab_background_internal_bg:I
 
-    .line 248
+    .line 247
     invoke-virtual {p0, p1, v7}, Landroid/support/v7/widget/AppCompatDrawableManager;->getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v7
@@ -882,7 +870,7 @@
 
     sget v6, Landroid/support/v7/appcompat/R$drawable;->abc_cab_background_top_mtrl_alpha:I
 
-    .line 249
+    .line 248
     invoke-virtual {p0, p1, v6}, Landroid/support/v7/widget/AppCompatDrawableManager;->getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v6
@@ -891,25 +879,175 @@
 
     invoke-direct {v0, v5}, Landroid/graphics/drawable/LayerDrawable;-><init>([Landroid/graphics/drawable/Drawable;)V
 
-    .line 253
+    .line 252
     .restart local v0    # "dr":Landroid/graphics/drawable/Drawable;
     :cond_2
     if-eqz v0, :cond_3
 
-    .line 254
+    .line 253
     iget v5, v4, Landroid/util/TypedValue;->changingConfigurations:I
 
     invoke-virtual {v0, v5}, Landroid/graphics/drawable/Drawable;->setChangingConfigurations(I)V
 
-    .line 256
+    .line 255
     invoke-direct {p0, p1, v2, v3, v0}, Landroid/support/v7/widget/AppCompatDrawableManager;->addDrawableToCache(Landroid/content/Context;JLandroid/graphics/drawable/Drawable;)Z
 
     :cond_3
     move-object v1, v0
 
-    .line 259
+    .line 258
     .end local v0    # "dr":Landroid/graphics/drawable/Drawable;
     .restart local v1    # "dr":Landroid/graphics/drawable/Drawable;
+    goto :goto_0
+.end method
+
+.method private createSwitchThumbColorStateList(Landroid/content/Context;)Landroid/content/res/ColorStateList;
+    .locals 6
+    .param p1, "context"    # Landroid/content/Context;
+
+    .prologue
+    const/4 v4, 0x3
+
+    .line 625
+    new-array v2, v4, [[I
+
+    .line 626
+    .local v2, "states":[[I
+    new-array v0, v4, [I
+
+    .line 627
+    .local v0, "colors":[I
+    const/4 v1, 0x0
+
+    .line 629
+    .local v1, "i":I
+    sget v4, Landroid/support/v7/appcompat/R$attr;->colorSwitchThumbNormal:I
+
+    invoke-static {p1, v4}, Landroid/support/v7/widget/ThemeUtils;->getThemeAttrColorStateList(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
+
+    move-result-object v3
+
+    .line 632
+    .local v3, "thumbColor":Landroid/content/res/ColorStateList;
+    if-eqz v3, :cond_0
+
+    invoke-virtual {v3}, Landroid/content/res/ColorStateList;->isStateful()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    .line 637
+    sget-object v4, Landroid/support/v7/widget/ThemeUtils;->DISABLED_STATE_SET:[I
+
+    aput-object v4, v2, v1
+
+    .line 638
+    aget-object v4, v2, v1
+
+    const/4 v5, 0x0
+
+    invoke-virtual {v3, v4, v5}, Landroid/content/res/ColorStateList;->getColorForState([II)I
+
+    move-result v4
+
+    aput v4, v0, v1
+
+    .line 639
+    add-int/lit8 v1, v1, 0x1
+
+    .line 641
+    sget-object v4, Landroid/support/v7/widget/ThemeUtils;->CHECKED_STATE_SET:[I
+
+    aput-object v4, v2, v1
+
+    .line 642
+    sget v4, Landroid/support/v7/appcompat/R$attr;->colorControlActivated:I
+
+    invoke-static {p1, v4}, Landroid/support/v7/widget/ThemeUtils;->getThemeAttrColor(Landroid/content/Context;I)I
+
+    move-result v4
+
+    aput v4, v0, v1
+
+    .line 643
+    add-int/lit8 v1, v1, 0x1
+
+    .line 646
+    sget-object v4, Landroid/support/v7/widget/ThemeUtils;->EMPTY_STATE_SET:[I
+
+    aput-object v4, v2, v1
+
+    .line 647
+    invoke-virtual {v3}, Landroid/content/res/ColorStateList;->getDefaultColor()I
+
+    move-result v4
+
+    aput v4, v0, v1
+
+    .line 648
+    add-int/lit8 v1, v1, 0x1
+
+    .line 667
+    :goto_0
+    new-instance v4, Landroid/content/res/ColorStateList;
+
+    invoke-direct {v4, v2, v0}, Landroid/content/res/ColorStateList;-><init>([[I[I)V
+
+    return-object v4
+
+    .line 653
+    :cond_0
+    sget-object v4, Landroid/support/v7/widget/ThemeUtils;->DISABLED_STATE_SET:[I
+
+    aput-object v4, v2, v1
+
+    .line 654
+    sget v4, Landroid/support/v7/appcompat/R$attr;->colorSwitchThumbNormal:I
+
+    invoke-static {p1, v4}, Landroid/support/v7/widget/ThemeUtils;->getDisabledThemeAttrColor(Landroid/content/Context;I)I
+
+    move-result v4
+
+    aput v4, v0, v1
+
+    .line 655
+    add-int/lit8 v1, v1, 0x1
+
+    .line 657
+    sget-object v4, Landroid/support/v7/widget/ThemeUtils;->CHECKED_STATE_SET:[I
+
+    aput-object v4, v2, v1
+
+    .line 658
+    sget v4, Landroid/support/v7/appcompat/R$attr;->colorControlActivated:I
+
+    invoke-static {p1, v4}, Landroid/support/v7/widget/ThemeUtils;->getThemeAttrColor(Landroid/content/Context;I)I
+
+    move-result v4
+
+    aput v4, v0, v1
+
+    .line 659
+    add-int/lit8 v1, v1, 0x1
+
+    .line 662
+    sget-object v4, Landroid/support/v7/widget/ThemeUtils;->EMPTY_STATE_SET:[I
+
+    aput-object v4, v2, v1
+
+    .line 663
+    sget v4, Landroid/support/v7/appcompat/R$attr;->colorSwitchThumbNormal:I
+
+    invoke-static {p1, v4}, Landroid/support/v7/widget/ThemeUtils;->getThemeAttrColor(Landroid/content/Context;I)I
+
+    move-result v4
+
+    aput v4, v0, v1
+
+    .line 664
+    add-int/lit8 v1, v1, 0x1
+
     goto :goto_0
 .end method
 
@@ -920,20 +1058,20 @@
     .param p2, "state"    # [I
 
     .prologue
-    .line 676
+    .line 717
     if-eqz p0, :cond_0
 
     if-nez p1, :cond_1
 
-    .line 677
+    .line 718
     :cond_0
     const/4 v1, 0x0
 
-    .line 680
+    .line 721
     :goto_0
     return-object v1
 
-    .line 679
+    .line 720
     :cond_1
     const/4 v1, 0x0
 
@@ -941,7 +1079,7 @@
 
     move-result v0
 
-    .line 680
+    .line 721
     .local v0, "color":I
     invoke-static {v0, p1}, Landroid/support/v7/widget/AppCompatDrawableManager;->getPorterDuffColorFilter(ILandroid/graphics/PorterDuff$Mode;)Landroid/graphics/PorterDuffColorFilter;
 
@@ -950,35 +1088,52 @@
     goto :goto_0
 .end method
 
-.method public static get()Landroid/support/v7/widget/AppCompatDrawableManager;
-    .locals 1
+.method public static declared-synchronized get()Landroid/support/v7/widget/AppCompatDrawableManager;
+    .locals 2
 
     .prologue
-    .line 85
+    .line 89
+    const-class v1, Landroid/support/v7/widget/AppCompatDrawableManager;
+
+    monitor-enter v1
+
+    :try_start_0
     sget-object v0, Landroid/support/v7/widget/AppCompatDrawableManager;->INSTANCE:Landroid/support/v7/widget/AppCompatDrawableManager;
 
     if-nez v0, :cond_0
 
-    .line 86
+    .line 90
     new-instance v0, Landroid/support/v7/widget/AppCompatDrawableManager;
 
     invoke-direct {v0}, Landroid/support/v7/widget/AppCompatDrawableManager;-><init>()V
 
     sput-object v0, Landroid/support/v7/widget/AppCompatDrawableManager;->INSTANCE:Landroid/support/v7/widget/AppCompatDrawableManager;
 
-    .line 87
+    .line 91
     sget-object v0, Landroid/support/v7/widget/AppCompatDrawableManager;->INSTANCE:Landroid/support/v7/widget/AppCompatDrawableManager;
 
     invoke-static {v0}, Landroid/support/v7/widget/AppCompatDrawableManager;->installDefaultInflateDelegates(Landroid/support/v7/widget/AppCompatDrawableManager;)V
 
-    .line 89
+    .line 93
     :cond_0
     sget-object v0, Landroid/support/v7/widget/AppCompatDrawableManager;->INSTANCE:Landroid/support/v7/widget/AppCompatDrawableManager;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
 
     return-object v0
+
+    .line 89
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method
 
-.method private getCachedDrawable(Landroid/content/Context;J)Landroid/graphics/drawable/Drawable;
+.method private declared-synchronized getCachedDrawable(Landroid/content/Context;J)Landroid/graphics/drawable/Drawable;
     .locals 6
     .param p1, "context"    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
@@ -990,56 +1145,55 @@
     const/4 v3, 0x0
 
     .line 394
-    iget-object v4, p0, Landroid/support/v7/widget/AppCompatDrawableManager;->mDrawableCacheLock:Ljava/lang/Object;
+    monitor-enter p0
 
-    monitor-enter v4
-
-    .line 395
     :try_start_0
-    iget-object v5, p0, Landroid/support/v7/widget/AppCompatDrawableManager;->mDrawableCaches:Ljava/util/WeakHashMap;
+    iget-object v4, p0, Landroid/support/v7/widget/AppCompatDrawableManager;->mDrawableCaches:Ljava/util/WeakHashMap;
 
-    .line 396
-    invoke-virtual {v5, p1}, Ljava/util/WeakHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, p1}, Ljava/util/WeakHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/support/v4/util/LongSparseArray;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 397
+    .line 395
     .local v0, "cache":Landroid/support/v4/util/LongSparseArray;, "Landroid/support/v4/util/LongSparseArray<Ljava/lang/ref/WeakReference<Landroid/graphics/drawable/Drawable$ConstantState;>;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
-    .line 398
-    monitor-exit v4
-
-    .line 413
+    .line 410
+    :cond_0
     :goto_0
+    monitor-exit p0
+
     return-object v3
 
-    .line 401
-    :cond_0
+    .line 399
+    :cond_1
+    :try_start_1
     invoke-virtual {v0, p2, p3}, Landroid/support/v4/util/LongSparseArray;->get(J)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Ljava/lang/ref/WeakReference;
 
-    .line 402
+    .line 400
     .local v2, "wr":Ljava/lang/ref/WeakReference;, "Ljava/lang/ref/WeakReference<Landroid/graphics/drawable/Drawable$ConstantState;>;"
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_0
 
-    .line 404
+    .line 402
     invoke-virtual {v2}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Landroid/graphics/drawable/Drawable$ConstantState;
 
-    .line 405
+    .line 403
     .local v1, "entry":Landroid/graphics/drawable/Drawable$ConstantState;
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
-    .line 406
+    .line 404
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
@@ -1048,73 +1202,78 @@
 
     move-result-object v3
 
-    monitor-exit v4
+    goto :goto_0
+
+    .line 407
+    :cond_2
+    invoke-virtual {v0, p2, p3}, Landroid/support/v4/util/LongSparseArray;->delete(J)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
 
-    .line 412
+    .line 394
     .end local v0    # "cache":Landroid/support/v4/util/LongSparseArray;, "Landroid/support/v4/util/LongSparseArray<Ljava/lang/ref/WeakReference<Landroid/graphics/drawable/Drawable$ConstantState;>;>;"
     .end local v1    # "entry":Landroid/graphics/drawable/Drawable$ConstantState;
     .end local v2    # "wr":Ljava/lang/ref/WeakReference;, "Ljava/lang/ref/WeakReference<Landroid/graphics/drawable/Drawable$ConstantState;>;"
     :catchall_0
     move-exception v3
 
-    monitor-exit v4
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    monitor-exit p0
 
     throw v3
-
-    .line 409
-    .restart local v0    # "cache":Landroid/support/v4/util/LongSparseArray;, "Landroid/support/v4/util/LongSparseArray<Ljava/lang/ref/WeakReference<Landroid/graphics/drawable/Drawable$ConstantState;>;>;"
-    .restart local v1    # "entry":Landroid/graphics/drawable/Drawable$ConstantState;
-    .restart local v2    # "wr":Ljava/lang/ref/WeakReference;, "Ljava/lang/ref/WeakReference<Landroid/graphics/drawable/Drawable$ConstantState;>;"
-    :cond_1
-    :try_start_1
-    invoke-virtual {v0, p2, p3}, Landroid/support/v4/util/LongSparseArray;->delete(J)V
-
-    .line 412
-    .end local v1    # "entry":Landroid/graphics/drawable/Drawable$ConstantState;
-    :cond_2
-    monitor-exit v4
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    goto :goto_0
 .end method
 
-.method public static getPorterDuffColorFilter(ILandroid/graphics/PorterDuff$Mode;)Landroid/graphics/PorterDuffColorFilter;
-    .locals 2
+.method public static declared-synchronized getPorterDuffColorFilter(ILandroid/graphics/PorterDuff$Mode;)Landroid/graphics/PorterDuffColorFilter;
+    .locals 3
     .param p0, "color"    # I
     .param p1, "mode"    # Landroid/graphics/PorterDuff$Mode;
 
     .prologue
-    .line 685
+    .line 727
+    const-class v2, Landroid/support/v7/widget/AppCompatDrawableManager;
+
+    monitor-enter v2
+
+    :try_start_0
     sget-object v1, Landroid/support/v7/widget/AppCompatDrawableManager;->COLOR_FILTER_CACHE:Landroid/support/v7/widget/AppCompatDrawableManager$ColorFilterLruCache;
 
     invoke-virtual {v1, p0, p1}, Landroid/support/v7/widget/AppCompatDrawableManager$ColorFilterLruCache;->get(ILandroid/graphics/PorterDuff$Mode;)Landroid/graphics/PorterDuffColorFilter;
 
     move-result-object v0
 
-    .line 687
+    .line 729
     .local v0, "filter":Landroid/graphics/PorterDuffColorFilter;
     if-nez v0, :cond_0
 
-    .line 689
+    .line 731
     new-instance v0, Landroid/graphics/PorterDuffColorFilter;
 
     .end local v0    # "filter":Landroid/graphics/PorterDuffColorFilter;
     invoke-direct {v0, p0, p1}, Landroid/graphics/PorterDuffColorFilter;-><init>(ILandroid/graphics/PorterDuff$Mode;)V
 
-    .line 690
+    .line 732
     .restart local v0    # "filter":Landroid/graphics/PorterDuffColorFilter;
     sget-object v1, Landroid/support/v7/widget/AppCompatDrawableManager;->COLOR_FILTER_CACHE:Landroid/support/v7/widget/AppCompatDrawableManager$ColorFilterLruCache;
 
     invoke-virtual {v1, p0, p1, v0}, Landroid/support/v7/widget/AppCompatDrawableManager$ColorFilterLruCache;->put(ILandroid/graphics/PorterDuff$Mode;Landroid/graphics/PorterDuffColorFilter;)Landroid/graphics/PorterDuffColorFilter;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 693
+    .line 735
     :cond_0
+    monitor-exit v2
+
     return-object v0
+
+    .line 727
+    .end local v0    # "filter":Landroid/graphics/PorterDuffColorFilter;
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v2
+
+    throw v1
 .end method
 
 .method private getTintListFromCache(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
@@ -1131,12 +1290,12 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 564
+    .line 559
     iget-object v2, p0, Landroid/support/v7/widget/AppCompatDrawableManager;->mTintLists:Ljava/util/WeakHashMap;
 
     if-eqz v2, :cond_0
 
-    .line 565
+    .line 560
     iget-object v2, p0, Landroid/support/v7/widget/AppCompatDrawableManager;->mTintLists:Ljava/util/WeakHashMap;
 
     invoke-virtual {v2, p1}, Ljava/util/WeakHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1145,7 +1304,7 @@
 
     check-cast v0, Landroid/support/v4/util/SparseArrayCompat;
 
-    .line 566
+    .line 561
     .local v0, "tints":Landroid/support/v4/util/SparseArrayCompat;, "Landroid/support/v4/util/SparseArrayCompat<Landroid/content/res/ColorStateList;>;"
     if-eqz v0, :cond_0
 
@@ -1155,7 +1314,7 @@
 
     check-cast v1, Landroid/content/res/ColorStateList;
 
-    .line 568
+    .line 563
     .end local v0    # "tints":Landroid/support/v4/util/SparseArrayCompat;, "Landroid/support/v4/util/SparseArrayCompat<Landroid/content/res/ColorStateList;>;"
     :cond_0
     return-object v1
@@ -1166,19 +1325,19 @@
     .param p0, "resId"    # I
 
     .prologue
-    .line 516
+    .line 511
     const/4 v0, 0x0
 
-    .line 518
+    .line 513
     .local v0, "mode":Landroid/graphics/PorterDuff$Mode;
     sget v1, Landroid/support/v7/appcompat/R$drawable;->abc_switch_thumb_material:I
 
     if-ne p0, v1, :cond_0
 
-    .line 519
+    .line 514
     sget-object v0, Landroid/graphics/PorterDuff$Mode;->MULTIPLY:Landroid/graphics/PorterDuff$Mode;
 
-    .line 522
+    .line 517
     :cond_0
     return-object v0
 .end method
@@ -1191,14 +1350,14 @@
     .end param
 
     .prologue
-    .line 96
+    .line 100
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x18
 
     if-ge v0, v1, :cond_0
 
-    .line 97
+    .line 101
     const-string v0, "vector"
 
     new-instance v1, Landroid/support/v7/widget/AppCompatDrawableManager$VdcInflateDelegate;
@@ -1207,14 +1366,7 @@
 
     invoke-direct {p0, v0, v1}, Landroid/support/v7/widget/AppCompatDrawableManager;->addDelegate(Ljava/lang/String;Landroid/support/v7/widget/AppCompatDrawableManager$InflateDelegate;)V
 
-    .line 98
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0xb
-
-    if-lt v0, v1, :cond_0
-
-    .line 100
+    .line 102
     const-string v0, "animated-vector"
 
     new-instance v1, Landroid/support/v7/widget/AppCompatDrawableManager$AvdcInflateDelegate;
@@ -1224,6 +1376,15 @@
     invoke-direct {p0, v0, v1}, Landroid/support/v7/widget/AppCompatDrawableManager;->addDelegate(Ljava/lang/String;Landroid/support/v7/widget/AppCompatDrawableManager$InflateDelegate;)V
 
     .line 103
+    const-string v0, "animated-selector"
+
+    new-instance v1, Landroid/support/v7/widget/AppCompatDrawableManager$AsldcInflateDelegate;
+
+    invoke-direct {v1}, Landroid/support/v7/widget/AppCompatDrawableManager$AsldcInflateDelegate;-><init>()V
+
+    invoke-direct {p0, v0, v1}, Landroid/support/v7/widget/AppCompatDrawableManager;->addDelegate(Ljava/lang/String;Landroid/support/v7/widget/AppCompatDrawableManager$InflateDelegate;)V
+
+    .line 105
     :cond_0
     return-void
 .end method
@@ -1236,14 +1397,14 @@
     .end param
 
     .prologue
-    .line 720
+    .line 762
     instance-of v0, p0, Landroid/support/graphics/drawable/VectorDrawableCompat;
 
     if-nez v0, :cond_0
 
     const-string v0, "android.graphics.drawable.VectorDrawable"
 
-    .line 721
+    .line 763
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v1
@@ -1282,7 +1443,7 @@
     .end param
 
     .prologue
-    .line 309
+    .line 308
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/support/v7/widget/AppCompatDrawableManager;->mDelegates:Landroid/support/v4/util/ArrayMap;
@@ -1299,14 +1460,14 @@
 
     if-nez v14, :cond_a
 
-    .line 310
+    .line 309
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/support/v7/widget/AppCompatDrawableManager;->mKnownDrawableIdTags:Landroid/support/v4/util/SparseArrayCompat;
 
     if-eqz v14, :cond_2
 
-    .line 311
+    .line 310
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/support/v7/widget/AppCompatDrawableManager;->mKnownDrawableIdTags:Landroid/support/v4/util/SparseArrayCompat;
@@ -1319,7 +1480,7 @@
 
     check-cast v3, Ljava/lang/String;
 
-    .line 312
+    .line 311
     .local v3, "cachedTagName":Ljava/lang/String;
     const-string v14, "appcompat_skip_skip"
 
@@ -1335,24 +1496,24 @@
 
     iget-object v14, v0, Landroid/support/v7/widget/AppCompatDrawableManager;->mDelegates:Landroid/support/v4/util/ArrayMap;
 
-    .line 313
+    .line 312
     invoke-virtual {v14, v3}, Landroid/support/v4/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v14
 
     if-nez v14, :cond_3
 
-    .line 320
+    .line 319
     :cond_0
     const/4 v5, 0x0
 
-    .line 390
+    .line 389
     .end local v3    # "cachedTagName":Ljava/lang/String;
     :cond_1
     :goto_0
     return-object v5
 
-    .line 324
+    .line 323
     :cond_2
     new-instance v14, Landroid/support/v4/util/SparseArrayCompat;
 
@@ -1362,7 +1523,7 @@
 
     iput-object v14, v0, Landroid/support/v7/widget/AppCompatDrawableManager;->mKnownDrawableIdTags:Landroid/support/v4/util/SparseArrayCompat;
 
-    .line 327
+    .line 326
     :cond_3
     move-object/from16 v0, p0
 
@@ -1370,7 +1531,7 @@
 
     if-nez v14, :cond_4
 
-    .line 328
+    .line 327
     new-instance v14, Landroid/util/TypedValue;
 
     invoke-direct {v14}, Landroid/util/TypedValue;-><init>()V
@@ -1379,19 +1540,19 @@
 
     iput-object v14, v0, Landroid/support/v7/widget/AppCompatDrawableManager;->mTypedValue:Landroid/util/TypedValue;
 
-    .line 330
+    .line 329
     :cond_4
     move-object/from16 v0, p0
 
     iget-object v12, v0, Landroid/support/v7/widget/AppCompatDrawableManager;->mTypedValue:Landroid/util/TypedValue;
 
-    .line 331
+    .line 330
     .local v12, "tv":Landroid/util/TypedValue;
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v10
 
-    .line 332
+    .line 331
     .local v10, "res":Landroid/content/res/Resources;
     const/4 v14, 0x1
 
@@ -1399,12 +1560,12 @@
 
     invoke-virtual {v10, v0, v12, v14}, Landroid/content/res/Resources;->getValue(ILandroid/util/TypedValue;Z)V
 
-    .line 334
+    .line 333
     invoke-static {v12}, Landroid/support/v7/widget/AppCompatDrawableManager;->createCacheKey(Landroid/util/TypedValue;)J
 
     move-result-wide v8
 
-    .line 336
+    .line 335
     .local v8, "key":J
     move-object/from16 v0, p0
 
@@ -1414,11 +1575,11 @@
 
     move-result-object v5
 
-    .line 337
+    .line 336
     .local v5, "dr":Landroid/graphics/drawable/Drawable;
     if-nez v5, :cond_1
 
-    .line 346
+    .line 345
     iget-object v14, v12, Landroid/util/TypedValue;->string:Ljava/lang/CharSequence;
 
     if-eqz v14, :cond_7
@@ -1437,7 +1598,7 @@
 
     if-eqz v14, :cond_7
 
-    .line 349
+    .line 348
     :try_start_0
     move/from16 v0, p2
 
@@ -1445,13 +1606,13 @@
 
     move-result-object v7
 
-    .line 350
+    .line 349
     .local v7, "parser":Lorg/xmlpull/v1/XmlPullParser;
     invoke-static {v7}, Landroid/util/Xml;->asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
 
     move-result-object v2
 
-    .line 352
+    .line 351
     .local v2, "attrs":Landroid/util/AttributeSet;
     :cond_5
     invoke-interface {v7}, Lorg/xmlpull/v1/XmlPullParser;->next()I
@@ -1467,13 +1628,13 @@
 
     if-ne v13, v14, :cond_5
 
-    .line 356
+    .line 355
     :cond_6
     const/4 v14, 0x2
 
     if-eq v13, v14, :cond_8
 
-    .line 357
+    .line 356
     new-instance v14, Lorg/xmlpull/v1/XmlPullParserException;
 
     const-string v15, "No start tag found"
@@ -1484,28 +1645,28 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 378
+    .line 377
     .end local v2    # "attrs":Landroid/util/AttributeSet;
     .end local v7    # "parser":Lorg/xmlpull/v1/XmlPullParser;
     .end local v13    # "type":I
     :catch_0
     move-exception v6
 
-    .line 379
+    .line 378
     .local v6, "e":Ljava/lang/Exception;
-    const-string v14, "AppCompatDrawableManager"
+    const-string v14, "AppCompatDrawableManag"
 
     const-string v15, "Exception while inflating drawable"
 
     invoke-static {v14, v15, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 382
+    .line 381
     .end local v6    # "e":Ljava/lang/Exception;
     :cond_7
     :goto_1
     if-nez v5, :cond_1
 
-    .line 385
+    .line 384
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/support/v7/widget/AppCompatDrawableManager;->mKnownDrawableIdTags:Landroid/support/v4/util/SparseArrayCompat;
@@ -1518,7 +1679,7 @@
 
     goto :goto_0
 
-    .line 360
+    .line 359
     .restart local v2    # "attrs":Landroid/util/AttributeSet;
     .restart local v7    # "parser":Lorg/xmlpull/v1/XmlPullParser;
     .restart local v13    # "type":I
@@ -1528,7 +1689,7 @@
 
     move-result-object v11
 
-    .line 362
+    .line 361
     .local v11, "tagName":Ljava/lang/String;
     move-object/from16 v0, p0
 
@@ -1538,7 +1699,7 @@
 
     invoke-virtual {v14, v0, v11}, Landroid/support/v4/util/SparseArrayCompat;->append(ILjava/lang/Object;)V
 
-    .line 365
+    .line 364
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/support/v7/widget/AppCompatDrawableManager;->mDelegates:Landroid/support/v4/util/ArrayMap;
@@ -1549,32 +1710,32 @@
 
     check-cast v4, Landroid/support/v7/widget/AppCompatDrawableManager$InflateDelegate;
 
-    .line 366
+    .line 365
     .local v4, "delegate":Landroid/support/v7/widget/AppCompatDrawableManager$InflateDelegate;
     if-eqz v4, :cond_9
 
-    .line 368
+    .line 367
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
     move-result-object v14
 
-    .line 367
+    .line 366
     move-object/from16 v0, p1
 
     invoke-interface {v4, v0, v7, v2, v14}, Landroid/support/v7/widget/AppCompatDrawableManager$InflateDelegate;->createFromXmlInner(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v5
 
-    .line 370
+    .line 369
     :cond_9
     if-eqz v5, :cond_7
 
-    .line 372
+    .line 371
     iget v14, v12, Landroid/util/TypedValue;->changingConfigurations:I
 
     invoke-virtual {v5, v14}, Landroid/graphics/drawable/Drawable;->setChangingConfigurations(I)V
 
-    .line 373
+    .line 372
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
@@ -1589,7 +1750,7 @@
 
     goto :goto_1
 
-    .line 390
+    .line 389
     .end local v2    # "attrs":Landroid/util/AttributeSet;
     .end local v4    # "delegate":Landroid/support/v7/widget/AppCompatDrawableManager$InflateDelegate;
     .end local v5    # "dr":Landroid/graphics/drawable/Drawable;
@@ -1617,7 +1778,7 @@
     .end param
 
     .prologue
-    .line 501
+    .line 496
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatDrawableManager;->mDelegates:Landroid/support/v4/util/ArrayMap;
 
     if-eqz v0, :cond_0
@@ -1630,12 +1791,12 @@
 
     if-ne v0, p2, :cond_0
 
-    .line 502
+    .line 497
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatDrawableManager;->mDelegates:Landroid/support/v4/util/ArrayMap;
 
     invoke-virtual {v0, p1}, Landroid/support/v4/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 504
+    .line 499
     :cond_0
     return-void
 .end method
@@ -1647,19 +1808,19 @@
     .param p2, "mode"    # Landroid/graphics/PorterDuff$Mode;
 
     .prologue
-    .line 697
+    .line 739
     invoke-static {p0}, Landroid/support/v7/widget/DrawableUtils;->canSafelyMutateDrawable(Landroid/graphics/drawable/Drawable;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 698
+    .line 740
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
 
     move-result-object p0
 
-    .line 700
+    .line 742
     :cond_0
     if-nez p2, :cond_1
 
@@ -1673,7 +1834,7 @@
 
     invoke-virtual {p0, v0}, Landroid/graphics/drawable/Drawable;->setColorFilter(Landroid/graphics/ColorFilter;)V
 
-    .line 701
+    .line 743
     return-void
 .end method
 
@@ -1700,55 +1861,55 @@
 
     const/high16 v5, 0x1020000
 
-    .line 264
+    .line 263
     invoke-virtual {p0, p1, p2}, Landroid/support/v7/widget/AppCompatDrawableManager;->getTintList(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
 
     move-result-object v1
 
-    .line 265
+    .line 264
     .local v1, "tintList":Landroid/content/res/ColorStateList;
     if-eqz v1, :cond_2
 
-    .line 267
+    .line 266
     invoke-static {p4}, Landroid/support/v7/widget/DrawableUtils;->canSafelyMutateDrawable(Landroid/graphics/drawable/Drawable;)Z
 
     move-result v4
 
     if-eqz v4, :cond_0
 
-    .line 268
+    .line 267
     invoke-virtual {p4}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
 
     move-result-object p4
 
-    .line 270
+    .line 269
     :cond_0
     invoke-static {p4}, Landroid/support/v4/graphics/drawable/DrawableCompat;->wrap(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
 
     move-result-object p4
 
-    .line 271
+    .line 270
     invoke-static {p4, v1}, Landroid/support/v4/graphics/drawable/DrawableCompat;->setTintList(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;)V
 
-    .line 274
+    .line 273
     invoke-static {p2}, Landroid/support/v7/widget/AppCompatDrawableManager;->getTintMode(I)Landroid/graphics/PorterDuff$Mode;
 
     move-result-object v2
 
-    .line 275
+    .line 274
     .local v2, "tintMode":Landroid/graphics/PorterDuff$Mode;
     if-eqz v2, :cond_1
 
-    .line 276
+    .line 275
     invoke-static {p4, v2}, Landroid/support/v4/graphics/drawable/DrawableCompat;->setTintMode(Landroid/graphics/drawable/Drawable;Landroid/graphics/PorterDuff$Mode;)V
 
-    .line 305
+    .line 304
     .end local v2    # "tintMode":Landroid/graphics/PorterDuff$Mode;
     :cond_1
     :goto_0
     return-object p4
 
-    .line 278
+    .line 277
     :cond_2
     sget v4, Landroid/support/v7/appcompat/R$drawable;->abc_seekbar_track_material:I
 
@@ -1756,10 +1917,10 @@
 
     move-object v0, p4
 
-    .line 279
+    .line 278
     check-cast v0, Landroid/graphics/drawable/LayerDrawable;
 
-    .line 280
+    .line 279
     .local v0, "ld":Landroid/graphics/drawable/LayerDrawable;
     invoke-virtual {v0, v5}, Landroid/graphics/drawable/LayerDrawable;->findDrawableByLayerId(I)Landroid/graphics/drawable/Drawable;
 
@@ -1767,53 +1928,53 @@
 
     sget v5, Landroid/support/v7/appcompat/R$attr;->colorControlNormal:I
 
-    .line 281
+    .line 280
     invoke-static {p1, v5}, Landroid/support/v7/widget/ThemeUtils;->getThemeAttrColor(Landroid/content/Context;I)I
 
     move-result v5
 
     sget-object v6, Landroid/support/v7/widget/AppCompatDrawableManager;->DEFAULT_MODE:Landroid/graphics/PorterDuff$Mode;
 
-    .line 280
+    .line 279
     invoke-static {v4, v5, v6}, Landroid/support/v7/widget/AppCompatDrawableManager;->setPorterDuffColorFilter(Landroid/graphics/drawable/Drawable;ILandroid/graphics/PorterDuff$Mode;)V
 
-    .line 282
+    .line 281
     invoke-virtual {v0, v8}, Landroid/graphics/drawable/LayerDrawable;->findDrawableByLayerId(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v4
 
     sget v5, Landroid/support/v7/appcompat/R$attr;->colorControlNormal:I
 
-    .line 283
+    .line 282
     invoke-static {p1, v5}, Landroid/support/v7/widget/ThemeUtils;->getThemeAttrColor(Landroid/content/Context;I)I
 
     move-result v5
 
     sget-object v6, Landroid/support/v7/widget/AppCompatDrawableManager;->DEFAULT_MODE:Landroid/graphics/PorterDuff$Mode;
 
-    .line 282
+    .line 281
     invoke-static {v4, v5, v6}, Landroid/support/v7/widget/AppCompatDrawableManager;->setPorterDuffColorFilter(Landroid/graphics/drawable/Drawable;ILandroid/graphics/PorterDuff$Mode;)V
 
-    .line 284
+    .line 283
     invoke-virtual {v0, v7}, Landroid/graphics/drawable/LayerDrawable;->findDrawableByLayerId(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v4
 
     sget v5, Landroid/support/v7/appcompat/R$attr;->colorControlActivated:I
 
-    .line 285
+    .line 284
     invoke-static {p1, v5}, Landroid/support/v7/widget/ThemeUtils;->getThemeAttrColor(Landroid/content/Context;I)I
 
     move-result v5
 
     sget-object v6, Landroid/support/v7/widget/AppCompatDrawableManager;->DEFAULT_MODE:Landroid/graphics/PorterDuff$Mode;
 
-    .line 284
+    .line 283
     invoke-static {v4, v5, v6}, Landroid/support/v7/widget/AppCompatDrawableManager;->setPorterDuffColorFilter(Landroid/graphics/drawable/Drawable;ILandroid/graphics/PorterDuff$Mode;)V
 
     goto :goto_0
 
-    .line 286
+    .line 285
     .end local v0    # "ld":Landroid/graphics/drawable/LayerDrawable;
     :cond_3
     sget v4, Landroid/support/v7/appcompat/R$drawable;->abc_ratingbar_material:I
@@ -1831,10 +1992,10 @@
     :cond_4
     move-object v0, p4
 
-    .line 289
+    .line 288
     check-cast v0, Landroid/graphics/drawable/LayerDrawable;
 
-    .line 290
+    .line 289
     .restart local v0    # "ld":Landroid/graphics/drawable/LayerDrawable;
     invoke-virtual {v0, v5}, Landroid/graphics/drawable/LayerDrawable;->findDrawableByLayerId(I)Landroid/graphics/drawable/Drawable;
 
@@ -1842,66 +2003,66 @@
 
     sget v5, Landroid/support/v7/appcompat/R$attr;->colorControlNormal:I
 
-    .line 291
+    .line 290
     invoke-static {p1, v5}, Landroid/support/v7/widget/ThemeUtils;->getDisabledThemeAttrColor(Landroid/content/Context;I)I
 
     move-result v5
 
     sget-object v6, Landroid/support/v7/widget/AppCompatDrawableManager;->DEFAULT_MODE:Landroid/graphics/PorterDuff$Mode;
 
-    .line 290
+    .line 289
     invoke-static {v4, v5, v6}, Landroid/support/v7/widget/AppCompatDrawableManager;->setPorterDuffColorFilter(Landroid/graphics/drawable/Drawable;ILandroid/graphics/PorterDuff$Mode;)V
 
-    .line 293
+    .line 292
     invoke-virtual {v0, v8}, Landroid/graphics/drawable/LayerDrawable;->findDrawableByLayerId(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v4
 
     sget v5, Landroid/support/v7/appcompat/R$attr;->colorControlActivated:I
 
-    .line 294
+    .line 293
     invoke-static {p1, v5}, Landroid/support/v7/widget/ThemeUtils;->getThemeAttrColor(Landroid/content/Context;I)I
 
     move-result v5
 
     sget-object v6, Landroid/support/v7/widget/AppCompatDrawableManager;->DEFAULT_MODE:Landroid/graphics/PorterDuff$Mode;
 
-    .line 293
+    .line 292
     invoke-static {v4, v5, v6}, Landroid/support/v7/widget/AppCompatDrawableManager;->setPorterDuffColorFilter(Landroid/graphics/drawable/Drawable;ILandroid/graphics/PorterDuff$Mode;)V
 
-    .line 295
+    .line 294
     invoke-virtual {v0, v7}, Landroid/graphics/drawable/LayerDrawable;->findDrawableByLayerId(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v4
 
     sget v5, Landroid/support/v7/appcompat/R$attr;->colorControlActivated:I
 
-    .line 296
+    .line 295
     invoke-static {p1, v5}, Landroid/support/v7/widget/ThemeUtils;->getThemeAttrColor(Landroid/content/Context;I)I
 
     move-result v5
 
     sget-object v6, Landroid/support/v7/widget/AppCompatDrawableManager;->DEFAULT_MODE:Landroid/graphics/PorterDuff$Mode;
 
-    .line 295
+    .line 294
     invoke-static {v4, v5, v6}, Landroid/support/v7/widget/AppCompatDrawableManager;->setPorterDuffColorFilter(Landroid/graphics/drawable/Drawable;ILandroid/graphics/PorterDuff$Mode;)V
 
     goto :goto_0
 
-    .line 298
+    .line 297
     .end local v0    # "ld":Landroid/graphics/drawable/LayerDrawable;
     :cond_5
     invoke-static {p1, p2, p4}, Landroid/support/v7/widget/AppCompatDrawableManager;->tintDrawableUsingColorFilter(Landroid/content/Context;ILandroid/graphics/drawable/Drawable;)Z
 
     move-result v3
 
-    .line 299
+    .line 298
     .local v3, "tinted":Z
     if-nez v3, :cond_1
 
     if-eqz p3, :cond_1
 
-    .line 302
+    .line 301
     const/4 p4, 0x0
 
     goto :goto_0
@@ -1914,33 +2075,33 @@
     .param p2, "state"    # [I
 
     .prologue
-    .line 652
+    .line 693
     invoke-static {p0}, Landroid/support/v7/widget/DrawableUtils;->canSafelyMutateDrawable(Landroid/graphics/drawable/Drawable;)Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 653
+    .line 694
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
     if-eq v0, p0, :cond_1
 
-    .line 654
-    const-string v0, "AppCompatDrawableManager"
+    .line 695
+    const-string v0, "AppCompatDrawableManag"
 
     const-string v1, "Mutated drawable is not the same instance as the input."
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 672
+    .line 713
     :cond_0
     :goto_0
     return-void
 
-    .line 658
+    .line 699
     :cond_1
     iget-boolean v0, p1, Landroid/support/v7/widget/TintInfo;->mHasTintList:Z
 
@@ -1950,7 +2111,7 @@
 
     if-eqz v0, :cond_5
 
-    .line 659
+    .line 700
     :cond_2
     iget-boolean v0, p1, Landroid/support/v7/widget/TintInfo;->mHasTintList:Z
 
@@ -1972,7 +2133,7 @@
 
     invoke-virtual {p0, v0}, Landroid/graphics/drawable/Drawable;->setColorFilter(Landroid/graphics/ColorFilter;)V
 
-    .line 667
+    .line 708
     :goto_3
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
@@ -1980,12 +2141,12 @@
 
     if-gt v0, v1, :cond_0
 
-    .line 670
+    .line 711
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
 
     goto :goto_0
 
-    .line 659
+    .line 700
     :cond_3
     const/4 v0, 0x0
 
@@ -1996,7 +2157,7 @@
 
     goto :goto_2
 
-    .line 664
+    .line 705
     :cond_5
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->clearColorFilter()V
 
@@ -2019,22 +2180,22 @@
     .end param
 
     .prologue
-    .line 447
+    .line 442
     sget-object v4, Landroid/support/v7/widget/AppCompatDrawableManager;->DEFAULT_MODE:Landroid/graphics/PorterDuff$Mode;
 
-    .line 448
+    .line 443
     .local v4, "tintMode":Landroid/graphics/PorterDuff$Mode;
     const/4 v3, 0x0
 
-    .line 449
+    .line 444
     .local v3, "colorAttrSet":Z
     const/4 v2, 0x0
 
-    .line 450
+    .line 445
     .local v2, "colorAttr":I
     const/4 v0, -0x1
 
-    .line 452
+    .line 447
     .local v0, "alpha":I
     sget-object v5, Landroid/support/v7/widget/AppCompatDrawableManager;->COLORFILTER_TINT_COLOR_CONTROL_NORMAL:[I
 
@@ -2044,36 +2205,36 @@
 
     if-eqz v5, :cond_3
 
-    .line 453
+    .line 448
     sget v2, Landroid/support/v7/appcompat/R$attr;->colorControlNormal:I
 
-    .line 454
+    .line 449
     const/4 v3, 0x1
 
-    .line 471
+    .line 466
     :cond_0
     :goto_0
     if-eqz v3, :cond_7
 
-    .line 472
+    .line 467
     invoke-static {p2}, Landroid/support/v7/widget/DrawableUtils;->canSafelyMutateDrawable(Landroid/graphics/drawable/Drawable;)Z
 
     move-result v5
 
     if-eqz v5, :cond_1
 
-    .line 473
+    .line 468
     invoke-virtual {p2}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
 
     move-result-object p2
 
-    .line 476
+    .line 471
     :cond_1
     invoke-static {p0, v2}, Landroid/support/v7/widget/ThemeUtils;->getThemeAttrColor(Landroid/content/Context;I)I
 
     move-result v1
 
-    .line 477
+    .line 472
     .local v1, "color":I
     invoke-static {v1, v4}, Landroid/support/v7/widget/AppCompatDrawableManager;->getPorterDuffColorFilter(ILandroid/graphics/PorterDuff$Mode;)Landroid/graphics/PorterDuffColorFilter;
 
@@ -2081,24 +2242,24 @@
 
     invoke-virtual {p2, v5}, Landroid/graphics/drawable/Drawable;->setColorFilter(Landroid/graphics/ColorFilter;)V
 
-    .line 479
+    .line 474
     const/4 v5, -0x1
 
     if-eq v0, v5, :cond_2
 
-    .line 480
+    .line 475
     invoke-virtual {p2, v0}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
 
-    .line 488
+    .line 483
     :cond_2
     const/4 v5, 0x1
 
-    .line 490
+    .line 485
     .end local v1    # "color":I
     :goto_1
     return v5
 
-    .line 455
+    .line 450
     :cond_3
     sget-object v5, Landroid/support/v7/widget/AppCompatDrawableManager;->COLORFILTER_COLOR_CONTROL_ACTIVATED:[I
 
@@ -2108,15 +2269,15 @@
 
     if-eqz v5, :cond_4
 
-    .line 456
+    .line 451
     sget v2, Landroid/support/v7/appcompat/R$attr;->colorControlActivated:I
 
-    .line 457
+    .line 452
     const/4 v3, 0x1
 
     goto :goto_0
 
-    .line 458
+    .line 453
     :cond_4
     sget-object v5, Landroid/support/v7/widget/AppCompatDrawableManager;->COLORFILTER_COLOR_BACKGROUND_MULTIPLY:[I
 
@@ -2126,30 +2287,30 @@
 
     if-eqz v5, :cond_5
 
-    .line 459
+    .line 454
     const v2, 0x1010031
 
-    .line 460
+    .line 455
     const/4 v3, 0x1
 
-    .line 461
+    .line 456
     sget-object v4, Landroid/graphics/PorterDuff$Mode;->MULTIPLY:Landroid/graphics/PorterDuff$Mode;
 
     goto :goto_0
 
-    .line 462
+    .line 457
     :cond_5
     sget v5, Landroid/support/v7/appcompat/R$drawable;->abc_list_divider_mtrl_alpha:I
 
     if-ne p1, v5, :cond_6
 
-    .line 463
+    .line 458
     const v2, 0x1010030
 
-    .line 464
+    .line 459
     const/4 v3, 0x1
 
-    .line 465
+    .line 460
     const v5, 0x42233333    # 40.8f
 
     invoke-static {v5}, Ljava/lang/Math;->round(F)I
@@ -2158,21 +2319,21 @@
 
     goto :goto_0
 
-    .line 466
+    .line 461
     :cond_6
     sget v5, Landroid/support/v7/appcompat/R$drawable;->abc_dialog_material_background:I
 
     if-ne p1, v5, :cond_0
 
-    .line 467
+    .line 462
     const v2, 0x1010031
 
-    .line 468
+    .line 463
     const/4 v3, 0x1
 
     goto :goto_0
 
-    .line 490
+    .line 485
     :cond_7
     const/4 v5, 0x0
 
@@ -2181,7 +2342,7 @@
 
 
 # virtual methods
-.method public getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
+.method public declared-synchronized getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
     .locals 1
     .param p1, "context"    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
@@ -2193,18 +2354,32 @@
     .end param
 
     .prologue
-    .line 190
+    .line 191
+    monitor-enter p0
+
     const/4 v0, 0x0
 
+    :try_start_0
     invoke-virtual {p0, p1, p2, v0}, Landroid/support/v7/widget/AppCompatDrawableManager;->getDrawable(Landroid/content/Context;IZ)Landroid/graphics/drawable/Drawable;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v0
 
+    monitor-exit p0
+
     return-object v0
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
 .end method
 
-.method getDrawable(Landroid/content/Context;IZ)Landroid/graphics/drawable/Drawable;
-    .locals 1
+.method declared-synchronized getDrawable(Landroid/content/Context;IZ)Landroid/graphics/drawable/Drawable;
+    .locals 2
     .param p1, "context"    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -2216,54 +2391,70 @@
     .param p3, "failIfNotKnown"    # Z
 
     .prologue
-    .line 195
+    .line 196
+    monitor-enter p0
+
+    :try_start_0
     invoke-direct {p0, p1}, Landroid/support/v7/widget/AppCompatDrawableManager;->checkVectorDrawableSetup(Landroid/content/Context;)V
 
-    .line 197
+    .line 198
     invoke-direct {p0, p1, p2}, Landroid/support/v7/widget/AppCompatDrawableManager;->loadDrawableFromDelegates(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    .line 198
+    .line 199
     .local v0, "drawable":Landroid/graphics/drawable/Drawable;
     if-nez v0, :cond_0
 
-    .line 199
+    .line 200
     invoke-direct {p0, p1, p2}, Landroid/support/v7/widget/AppCompatDrawableManager;->createDrawableIfNeeded(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    .line 201
+    .line 202
     :cond_0
     if-nez v0, :cond_1
 
-    .line 202
+    .line 203
     invoke-static {p1, p2}, Landroid/support/v4/content/ContextCompat;->getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    .line 205
+    .line 206
     :cond_1
     if-eqz v0, :cond_2
 
-    .line 207
+    .line 208
     invoke-direct {p0, p1, p2, p3, v0}, Landroid/support/v7/widget/AppCompatDrawableManager;->tintDrawable(Landroid/content/Context;IZLandroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    .line 209
+    .line 210
     :cond_2
     if-eqz v0, :cond_3
 
-    .line 211
+    .line 212
     invoke-static {v0}, Landroid/support/v7/widget/DrawableUtils;->fixDrawable(Landroid/graphics/drawable/Drawable;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 213
+    .line 214
     :cond_3
+    monitor-exit p0
+
     return-object v0
+
+    .line 196
+    .end local v0    # "drawable":Landroid/graphics/drawable/Drawable;
+    :catchall_0
+    move-exception v1
+
+    monitor-exit p0
+
+    throw v1
 .end method
 
-.method getTintList(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
+.method declared-synchronized getTintList(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
     .locals 2
     .param p1, "context"    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
@@ -2275,46 +2466,54 @@
     .end param
 
     .prologue
-    .line 527
+    .line 522
+    monitor-enter p0
+
+    :try_start_0
     invoke-direct {p0, p1, p2}, Landroid/support/v7/widget/AppCompatDrawableManager;->getTintListFromCache(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
 
     move-result-object v0
 
-    .line 529
+    .line 524
     .local v0, "tint":Landroid/content/res/ColorStateList;
     if-nez v0, :cond_1
 
-    .line 531
+    .line 526
     sget v1, Landroid/support/v7/appcompat/R$drawable;->abc_edit_text_material:I
 
     if-ne p2, v1, :cond_2
 
-    .line 532
+    .line 527
     sget v1, Landroid/support/v7/appcompat/R$color;->abc_tint_edittext:I
 
     invoke-static {p1, v1}, Landroid/support/v7/content/res/AppCompatResources;->getColorStateList(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
 
     move-result-object v0
 
-    .line 556
+    .line 551
     :cond_0
     :goto_0
     if-eqz v0, :cond_1
 
-    .line 557
+    .line 552
     invoke-direct {p0, p1, p2, v0}, Landroid/support/v7/widget/AppCompatDrawableManager;->addTintListToCache(Landroid/content/Context;ILandroid/content/res/ColorStateList;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 560
+    .line 555
     :cond_1
+    monitor-exit p0
+
     return-object v0
 
-    .line 533
+    .line 528
     :cond_2
+    :try_start_1
     sget v1, Landroid/support/v7/appcompat/R$drawable;->abc_switch_track_mtrl_alpha:I
 
     if-ne p2, v1, :cond_3
 
-    .line 534
+    .line 529
     sget v1, Landroid/support/v7/appcompat/R$color;->abc_tint_switch_track:I
 
     invoke-static {p1, v1}, Landroid/support/v7/content/res/AppCompatResources;->getColorStateList(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
@@ -2323,61 +2522,59 @@
 
     goto :goto_0
 
-    .line 535
+    .line 530
     :cond_3
     sget v1, Landroid/support/v7/appcompat/R$drawable;->abc_switch_thumb_material:I
 
     if-ne p2, v1, :cond_4
 
-    .line 536
-    sget v1, Landroid/support/v7/appcompat/R$color;->abc_tint_switch_thumb:I
-
-    invoke-static {p1, v1}, Landroid/support/v7/content/res/AppCompatResources;->getColorStateList(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
+    .line 531
+    invoke-direct {p0, p1}, Landroid/support/v7/widget/AppCompatDrawableManager;->createSwitchThumbColorStateList(Landroid/content/Context;)Landroid/content/res/ColorStateList;
 
     move-result-object v0
 
     goto :goto_0
 
-    .line 537
+    .line 532
     :cond_4
     sget v1, Landroid/support/v7/appcompat/R$drawable;->abc_btn_default_mtrl_shape:I
 
     if-ne p2, v1, :cond_5
 
-    .line 538
+    .line 533
     invoke-direct {p0, p1}, Landroid/support/v7/widget/AppCompatDrawableManager;->createDefaultButtonColorStateList(Landroid/content/Context;)Landroid/content/res/ColorStateList;
 
     move-result-object v0
 
     goto :goto_0
 
-    .line 539
+    .line 534
     :cond_5
     sget v1, Landroid/support/v7/appcompat/R$drawable;->abc_btn_borderless_material:I
 
     if-ne p2, v1, :cond_6
 
-    .line 540
+    .line 535
     invoke-direct {p0, p1}, Landroid/support/v7/widget/AppCompatDrawableManager;->createBorderlessButtonColorStateList(Landroid/content/Context;)Landroid/content/res/ColorStateList;
 
     move-result-object v0
 
     goto :goto_0
 
-    .line 541
+    .line 536
     :cond_6
     sget v1, Landroid/support/v7/appcompat/R$drawable;->abc_btn_colored_material:I
 
     if-ne p2, v1, :cond_7
 
-    .line 542
+    .line 537
     invoke-direct {p0, p1}, Landroid/support/v7/widget/AppCompatDrawableManager;->createColoredButtonColorStateList(Landroid/content/Context;)Landroid/content/res/ColorStateList;
 
     move-result-object v0
 
     goto :goto_0
 
-    .line 543
+    .line 538
     :cond_7
     sget v1, Landroid/support/v7/appcompat/R$drawable;->abc_spinner_mtrl_am_alpha:I
 
@@ -2387,7 +2584,7 @@
 
     if-ne p2, v1, :cond_9
 
-    .line 545
+    .line 540
     :cond_8
     sget v1, Landroid/support/v7/appcompat/R$color;->abc_tint_spinner:I
 
@@ -2397,7 +2594,7 @@
 
     goto :goto_0
 
-    .line 546
+    .line 541
     :cond_9
     sget-object v1, Landroid/support/v7/widget/AppCompatDrawableManager;->TINT_COLOR_CONTROL_NORMAL:[I
 
@@ -2407,7 +2604,7 @@
 
     if-eqz v1, :cond_a
 
-    .line 547
+    .line 542
     sget v1, Landroid/support/v7/appcompat/R$attr;->colorControlNormal:I
 
     invoke-static {p1, v1}, Landroid/support/v7/widget/ThemeUtils;->getThemeAttrColorStateList(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
@@ -2416,7 +2613,7 @@
 
     goto :goto_0
 
-    .line 548
+    .line 543
     :cond_a
     sget-object v1, Landroid/support/v7/widget/AppCompatDrawableManager;->TINT_COLOR_CONTROL_STATE_LIST:[I
 
@@ -2426,7 +2623,7 @@
 
     if-eqz v1, :cond_b
 
-    .line 549
+    .line 544
     sget v1, Landroid/support/v7/appcompat/R$color;->abc_tint_default:I
 
     invoke-static {p1, v1}, Landroid/support/v7/content/res/AppCompatResources;->getColorStateList(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
@@ -2435,7 +2632,7 @@
 
     goto :goto_0
 
-    .line 550
+    .line 545
     :cond_b
     sget-object v1, Landroid/support/v7/widget/AppCompatDrawableManager;->TINT_CHECKABLE_BUTTON_LIST:[I
 
@@ -2445,7 +2642,7 @@
 
     if-eqz v1, :cond_c
 
-    .line 551
+    .line 546
     sget v1, Landroid/support/v7/appcompat/R$color;->abc_tint_btn_checkable:I
 
     invoke-static {p1, v1}, Landroid/support/v7/content/res/AppCompatResources;->getColorStateList(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
@@ -2454,36 +2651,44 @@
 
     goto :goto_0
 
-    .line 552
+    .line 547
     :cond_c
     sget v1, Landroid/support/v7/appcompat/R$drawable;->abc_seekbar_thumb_material:I
 
     if-ne p2, v1, :cond_0
 
-    .line 553
+    .line 548
     sget v1, Landroid/support/v7/appcompat/R$color;->abc_tint_seek_thumb:I
 
     invoke-static {p1, v1}, Landroid/support/v7/content/res/AppCompatResources;->getColorStateList(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result-object v0
 
     goto :goto_0
+
+    .line 522
+    .end local v0    # "tint":Landroid/content/res/ColorStateList;
+    :catchall_0
+    move-exception v1
+
+    monitor-exit p0
+
+    throw v1
 .end method
 
-.method public onConfigurationChanged(Landroid/content/Context;)V
-    .locals 3
+.method public declared-synchronized onConfigurationChanged(Landroid/content/Context;)V
+    .locals 2
     .param p1, "context"    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
 
     .prologue
-    .line 217
-    iget-object v2, p0, Landroid/support/v7/widget/AppCompatDrawableManager;->mDrawableCacheLock:Ljava/lang/Object;
-
-    monitor-enter v2
-
     .line 218
+    monitor-enter p0
+
     :try_start_0
     iget-object v1, p0, Landroid/support/v7/widget/AppCompatDrawableManager;->mDrawableCaches:Ljava/util/WeakHashMap;
 
@@ -2499,27 +2704,26 @@
 
     .line 221
     invoke-virtual {v0}, Landroid/support/v4/util/LongSparseArray;->clear()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 223
     :cond_0
-    monitor-exit v2
+    monitor-exit p0
 
-    .line 224
     return-void
 
-    .line 223
+    .line 218
     .end local v0    # "cache":Landroid/support/v4/util/LongSparseArray;, "Landroid/support/v4/util/LongSparseArray<Ljava/lang/ref/WeakReference<Landroid/graphics/drawable/Drawable$ConstantState;>;>;"
     :catchall_0
     move-exception v1
 
-    monitor-exit v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    monitor-exit p0
 
     throw v1
 .end method
 
-.method onDrawableLoadedFromResources(Landroid/content/Context;Landroid/support/v7/widget/VectorEnabledTintResources;I)Landroid/graphics/drawable/Drawable;
+.method declared-synchronized onDrawableLoadedFromResources(Landroid/content/Context;Landroid/support/v7/widget/VectorEnabledTintResources;I)Landroid/graphics/drawable/Drawable;
     .locals 2
     .param p1, "context"    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
@@ -2535,37 +2739,53 @@
     .end param
 
     .prologue
-    .line 435
+    .line 430
+    monitor-enter p0
+
+    :try_start_0
     invoke-direct {p0, p1, p3}, Landroid/support/v7/widget/AppCompatDrawableManager;->loadDrawableFromDelegates(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    .line 436
+    .line 431
     .local v0, "drawable":Landroid/graphics/drawable/Drawable;
     if-nez v0, :cond_0
 
-    .line 437
+    .line 432
     invoke-virtual {p2, p3}, Landroid/support/v7/widget/VectorEnabledTintResources;->superGetDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    .line 439
+    .line 434
     :cond_0
     if-eqz v0, :cond_1
 
-    .line 440
+    .line 435
     const/4 v1, 0x0
 
     invoke-direct {p0, p1, p3, v1, v0}, Landroid/support/v7/widget/AppCompatDrawableManager;->tintDrawable(Landroid/content/Context;IZLandroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v1
 
-    .line 442
+    .line 437
     :goto_0
+    monitor-exit p0
+
     return-object v1
 
     :cond_1
     const/4 v1, 0x0
 
     goto :goto_0
+
+    .line 430
+    .end local v0    # "drawable":Landroid/graphics/drawable/Drawable;
+    :catchall_0
+    move-exception v1
+
+    monitor-exit p0
+
+    throw v1
 .end method

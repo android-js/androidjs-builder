@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Landroid/support/v7/view/menu/CascadingMenuPopup;
 
     .prologue
-    .line 95
+    .line 98
     iput-object p1, p0, Landroid/support/v7/view/menu/CascadingMenuPopup$1;->this$0:Landroid/support/v7/view/menu/CascadingMenuPopup;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .locals 4
 
     .prologue
-    .line 101
+    .line 104
     iget-object v2, p0, Landroid/support/v7/view/menu/CascadingMenuPopup$1;->this$0:Landroid/support/v7/view/menu/CascadingMenuPopup;
 
     invoke-virtual {v2}, Landroid/support/v7/view/menu/CascadingMenuPopup;->isShowing()Z
@@ -66,7 +66,7 @@
 
     const/4 v3, 0x0
 
-    .line 102
+    .line 105
     invoke-interface {v2, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v2
@@ -81,12 +81,12 @@
 
     if-nez v2, :cond_1
 
-    .line 103
+    .line 106
     iget-object v2, p0, Landroid/support/v7/view/menu/CascadingMenuPopup$1;->this$0:Landroid/support/v7/view/menu/CascadingMenuPopup;
 
     iget-object v0, v2, Landroid/support/v7/view/menu/CascadingMenuPopup;->mShownAnchorView:Landroid/view/View;
 
-    .line 104
+    .line 107
     .local v0, "anchor":Landroid/view/View;
     if-eqz v0, :cond_0
 
@@ -96,18 +96,18 @@
 
     if-nez v2, :cond_2
 
-    .line 105
+    .line 108
     :cond_0
     iget-object v2, p0, Landroid/support/v7/view/menu/CascadingMenuPopup$1;->this$0:Landroid/support/v7/view/menu/CascadingMenuPopup;
 
     invoke-virtual {v2}, Landroid/support/v7/view/menu/CascadingMenuPopup;->dismiss()V
 
-    .line 113
+    .line 116
     .end local v0    # "anchor":Landroid/view/View;
     :cond_1
     return-void
 
-    .line 108
+    .line 111
     .restart local v0    # "anchor":Landroid/view/View;
     :cond_2
     iget-object v2, p0, Landroid/support/v7/view/menu/CascadingMenuPopup$1;->this$0:Landroid/support/v7/view/menu/CascadingMenuPopup;
@@ -131,7 +131,7 @@
 
     check-cast v1, Landroid/support/v7/view/menu/CascadingMenuPopup$CascadingMenuInfo;
 
-    .line 109
+    .line 112
     .local v1, "info":Landroid/support/v7/view/menu/CascadingMenuPopup$CascadingMenuInfo;
     iget-object v3, v1, Landroid/support/v7/view/menu/CascadingMenuPopup$CascadingMenuInfo;->window:Landroid/support/v7/widget/MenuPopupWindow;
 

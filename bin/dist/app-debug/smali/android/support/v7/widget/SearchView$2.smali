@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Landroid/support/v7/widget/SearchView;
 
     .prologue
-    .line 199
+    .line 184
     iput-object p1, p0, Landroid/support/v7/widget/SearchView$2;->this$0:Landroid/support/v7/widget/SearchView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,14 +38,34 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .locals 2
 
     .prologue
-    .line 202
+    .line 187
     iget-object v0, p0, Landroid/support/v7/widget/SearchView$2;->this$0:Landroid/support/v7/widget/SearchView;
 
-    invoke-virtual {v0}, Landroid/support/v7/widget/SearchView;->updateFocusedState()V
+    iget-object v0, v0, Landroid/support/v7/widget/SearchView;->mSuggestionsAdapter:Landroid/support/v4/widget/CursorAdapter;
 
-    .line 203
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/support/v7/widget/SearchView$2;->this$0:Landroid/support/v7/widget/SearchView;
+
+    iget-object v0, v0, Landroid/support/v7/widget/SearchView;->mSuggestionsAdapter:Landroid/support/v4/widget/CursorAdapter;
+
+    instance-of v0, v0, Landroid/support/v7/widget/SuggestionsAdapter;
+
+    if-eqz v0, :cond_0
+
+    .line 188
+    iget-object v0, p0, Landroid/support/v7/widget/SearchView$2;->this$0:Landroid/support/v7/widget/SearchView;
+
+    iget-object v0, v0, Landroid/support/v7/widget/SearchView;->mSuggestionsAdapter:Landroid/support/v4/widget/CursorAdapter;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/support/v4/widget/CursorAdapter;->changeCursor(Landroid/database/Cursor;)V
+
+    .line 190
+    :cond_0
     return-void
 .end method

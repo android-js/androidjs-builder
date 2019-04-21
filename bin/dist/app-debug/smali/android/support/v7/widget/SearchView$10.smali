@@ -3,7 +3,7 @@
 .source "SearchView.java"
 
 # interfaces
-.implements Landroid/widget/AdapterView$OnItemClickListener;
+.implements Landroid/text/TextWatcher;
 
 
 # annotations
@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Landroid/support/v7/widget/SearchView;
 
     .prologue
-    .line 1454
+    .line 1708
     iput-object p1, p0, Landroid/support/v7/widget/SearchView$10;->this$0:Landroid/support/v7/widget/SearchView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,32 +37,40 @@
 
 
 # virtual methods
-.method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .locals 3
-    .param p2, "view"    # Landroid/view/View;
-    .param p3, "position"    # I
-    .param p4, "id"    # J
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/widget/AdapterView",
-            "<*>;",
-            "Landroid/view/View;",
-            "IJ)V"
-        }
-    .end annotation
+.method public afterTextChanged(Landroid/text/Editable;)V
+    .locals 0
+    .param p1, "s"    # Landroid/text/Editable;
 
     .prologue
-    .line 1462
-    .local p1, "parent":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
+    .line 1720
+    return-void
+.end method
+
+.method public beforeTextChanged(Ljava/lang/CharSequence;III)V
+    .locals 0
+    .param p1, "s"    # Ljava/lang/CharSequence;
+    .param p2, "start"    # I
+    .param p3, "before"    # I
+    .param p4, "after"    # I
+
+    .prologue
+    .line 1710
+    return-void
+.end method
+
+.method public onTextChanged(Ljava/lang/CharSequence;III)V
+    .locals 1
+    .param p1, "s"    # Ljava/lang/CharSequence;
+    .param p2, "start"    # I
+    .param p3, "before"    # I
+    .param p4, "after"    # I
+
+    .prologue
+    .line 1715
     iget-object v0, p0, Landroid/support/v7/widget/SearchView$10;->this$0:Landroid/support/v7/widget/SearchView;
 
-    const/4 v1, 0x0
+    invoke-virtual {v0, p1}, Landroid/support/v7/widget/SearchView;->onTextChanged(Ljava/lang/CharSequence;)V
 
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, p3, v1, v2}, Landroid/support/v7/widget/SearchView;->onItemClicked(IILjava/lang/String;)Z
-
-    .line 1463
+    .line 1716
     return-void
 .end method

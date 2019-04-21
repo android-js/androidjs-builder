@@ -22,10 +22,10 @@
     .locals 0
 
     .prologue
-    .line 40
+    .line 41
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 244
+    .line 245
     return-void
 .end method
 
@@ -50,7 +50,7 @@
     .locals 1
 
     .prologue
-    .line 70
+    .line 71
     iget-object v0, p0, Landroid/support/v7/view/ActionMode;->mTag:Ljava/lang/Object;
 
     return-object v0
@@ -63,7 +63,7 @@
     .locals 1
 
     .prologue
-    .line 144
+    .line 145
     iget-boolean v0, p0, Landroid/support/v7/view/ActionMode;->mTitleOptionalHint:Z
 
     return v0
@@ -76,7 +76,7 @@
     .locals 1
 
     .prologue
-    .line 152
+    .line 153
     const/4 v0, 0x0
 
     return v0
@@ -91,7 +91,7 @@
     .end annotation
 
     .prologue
-    .line 224
+    .line 225
     const/4 v0, 0x1
 
     return v0
@@ -111,10 +111,10 @@
     .param p1, "tag"    # Ljava/lang/Object;
 
     .prologue
-    .line 56
+    .line 57
     iput-object p1, p0, Landroid/support/v7/view/ActionMode;->mTag:Ljava/lang/Object;
 
-    .line 57
+    .line 58
     return-void
 .end method
 
@@ -129,9 +129,9 @@
     .param p1, "titleOptional"    # Z
 
     .prologue
-    .line 133
+    .line 134
     iput-boolean p1, p0, Landroid/support/v7/view/ActionMode;->mTitleOptionalHint:Z
 
-    .line 134
+    .line 135
     return-void
 .end method

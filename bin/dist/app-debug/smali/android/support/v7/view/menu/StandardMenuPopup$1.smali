@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Landroid/support/v7/view/menu/StandardMenuPopup;
 
     .prologue
-    .line 58
+    .line 61
     iput-object p1, p0, Landroid/support/v7/view/menu/StandardMenuPopup$1;->this$0:Landroid/support/v7/view/menu/StandardMenuPopup;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .locals 2
 
     .prologue
-    .line 64
+    .line 67
     iget-object v1, p0, Landroid/support/v7/view/menu/StandardMenuPopup$1;->this$0:Landroid/support/v7/view/menu/StandardMenuPopup;
 
     invoke-virtual {v1}, Landroid/support/v7/view/menu/StandardMenuPopup;->isShowing()Z
@@ -60,12 +60,12 @@
 
     if-nez v1, :cond_1
 
-    .line 65
+    .line 68
     iget-object v1, p0, Landroid/support/v7/view/menu/StandardMenuPopup$1;->this$0:Landroid/support/v7/view/menu/StandardMenuPopup;
 
     iget-object v0, v1, Landroid/support/v7/view/menu/StandardMenuPopup;->mShownAnchorView:Landroid/view/View;
 
-    .line 66
+    .line 69
     .local v0, "anchor":Landroid/view/View;
     if-eqz v0, :cond_0
 
@@ -75,19 +75,19 @@
 
     if-nez v1, :cond_2
 
-    .line 67
+    .line 70
     :cond_0
     iget-object v1, p0, Landroid/support/v7/view/menu/StandardMenuPopup$1;->this$0:Landroid/support/v7/view/menu/StandardMenuPopup;
 
     invoke-virtual {v1}, Landroid/support/v7/view/menu/StandardMenuPopup;->dismiss()V
 
-    .line 73
+    .line 76
     .end local v0    # "anchor":Landroid/view/View;
     :cond_1
     :goto_0
     return-void
 
-    .line 70
+    .line 73
     .restart local v0    # "anchor":Landroid/view/View;
     :cond_2
     iget-object v1, p0, Landroid/support/v7/view/menu/StandardMenuPopup$1;->this$0:Landroid/support/v7/view/menu/StandardMenuPopup;

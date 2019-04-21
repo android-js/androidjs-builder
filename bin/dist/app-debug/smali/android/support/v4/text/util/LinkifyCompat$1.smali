@@ -32,7 +32,7 @@
     .locals 0
 
     .prologue
-    .line 53
+    .line 59
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,7 +40,7 @@
 
 
 # virtual methods
-.method public final compare(Landroid/support/v4/text/util/LinkifyCompat$LinkSpec;Landroid/support/v4/text/util/LinkifyCompat$LinkSpec;)I
+.method public compare(Landroid/support/v4/text/util/LinkifyCompat$LinkSpec;Landroid/support/v4/text/util/LinkifyCompat$LinkSpec;)I
     .locals 4
     .param p1, "a"    # Landroid/support/v4/text/util/LinkifyCompat$LinkSpec;
     .param p2, "b"    # Landroid/support/v4/text/util/LinkifyCompat$LinkSpec;
@@ -50,19 +50,19 @@
 
     const/4 v0, -0x1
 
-    .line 56
+    .line 62
     iget v2, p1, Landroid/support/v4/text/util/LinkifyCompat$LinkSpec;->start:I
 
     iget v3, p2, Landroid/support/v4/text/util/LinkifyCompat$LinkSpec;->start:I
 
     if-ge v2, v3, :cond_1
 
-    .line 72
+    .line 78
     :cond_0
     :goto_0
     return v0
 
-    .line 60
+    .line 66
     :cond_1
     iget v2, p1, Landroid/support/v4/text/util/LinkifyCompat$LinkSpec;->start:I
 
@@ -72,10 +72,10 @@
 
     move v0, v1
 
-    .line 61
+    .line 67
     goto :goto_0
 
-    .line 64
+    .line 70
     :cond_2
     iget v2, p1, Landroid/support/v4/text/util/LinkifyCompat$LinkSpec;->end:I
 
@@ -85,10 +85,10 @@
 
     move v0, v1
 
-    .line 65
+    .line 71
     goto :goto_0
 
-    .line 68
+    .line 74
     :cond_3
     iget v1, p1, Landroid/support/v4/text/util/LinkifyCompat$LinkSpec;->end:I
 
@@ -96,7 +96,7 @@
 
     if-gt v1, v2, :cond_0
 
-    .line 72
+    .line 78
     const/4 v0, 0x0
 
     goto :goto_0
@@ -106,7 +106,7 @@
     .locals 1
 
     .prologue
-    .line 53
+    .line 59
     check-cast p1, Landroid/support/v4/text/util/LinkifyCompat$LinkSpec;
 
     check-cast p2, Landroid/support/v4/text/util/LinkifyCompat$LinkSpec;

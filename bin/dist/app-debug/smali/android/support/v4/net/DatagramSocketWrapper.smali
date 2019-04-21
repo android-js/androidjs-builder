@@ -12,7 +12,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljava/net/DatagramSocket;Ljava/io/FileDescriptor;)V
+.method constructor <init>(Ljava/net/DatagramSocket;Ljava/io/FileDescriptor;)V
     .locals 1
     .param p1, "socket"    # Ljava/net/DatagramSocket;
     .param p2, "fd"    # Ljava/io/FileDescriptor;

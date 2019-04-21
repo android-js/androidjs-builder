@@ -13,7 +13,7 @@
 
 
 # direct methods
-.method public constructor <init>([F)V
+.method protected constructor <init>([F)V
     .locals 2
     .param p1, "values"    # [F
 

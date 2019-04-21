@@ -40,16 +40,16 @@
     .end param
 
     .prologue
-    .line 276
+    .line 373
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 277
+    .line 374
     iput-object p1, p0, Landroid/support/v7/app/AppCompatViewInflater$DeclaredOnClickListener;->mHostView:Landroid/view/View;
 
-    .line 278
+    .line 375
     iput-object p2, p0, Landroid/support/v7/app/AppCompatViewInflater$DeclaredOnClickListener;->mMethodName:Ljava/lang/String;
 
-    .line 279
+    .line 376
     return-void
 .end method
 
@@ -67,11 +67,11 @@
     .end annotation
 
     .prologue
-    .line 300
+    .line 397
     :goto_0
     if-eqz p1, :cond_2
 
-    .line 302
+    .line 399
     :try_start_0
     invoke-virtual {p1}, Landroid/content/Context;->isRestricted()Z
 
@@ -79,7 +79,7 @@
 
     if-nez v3, :cond_0
 
-    .line 303
+    .line 400
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v3
@@ -100,33 +100,33 @@
 
     move-result-object v2
 
-    .line 304
+    .line 401
     .local v2, "method":Ljava/lang/reflect/Method;
     if-eqz v2, :cond_0
 
-    .line 305
+    .line 402
     iput-object v2, p0, Landroid/support/v7/app/AppCompatViewInflater$DeclaredOnClickListener;->mResolvedMethod:Ljava/lang/reflect/Method;
 
-    .line 306
+    .line 403
     iput-object p1, p0, Landroid/support/v7/app/AppCompatViewInflater$DeclaredOnClickListener;->mResolvedContext:Landroid/content/Context;
     :try_end_0
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 307
+    .line 404
     return-void
 
-    .line 310
+    .line 407
     .end local v2    # "method":Ljava/lang/reflect/Method;
     :catch_0
     move-exception v3
 
-    .line 314
+    .line 411
     :cond_0
     instance-of v3, p1, Landroid/content/ContextWrapper;
 
     if-eqz v3, :cond_1
 
-    .line 315
+    .line 412
     check-cast p1, Landroid/content/ContextWrapper;
 
     .end local p1    # "context":Landroid/content/Context;
@@ -137,13 +137,13 @@
     .restart local p1    # "context":Landroid/content/Context;
     goto :goto_0
 
-    .line 318
+    .line 415
     :cond_1
     const/4 p1, 0x0
 
     goto :goto_0
 
-    .line 322
+    .line 419
     :cond_2
     iget-object v3, p0, Landroid/support/v7/app/AppCompatViewInflater$DeclaredOnClickListener;->mHostView:Landroid/view/View;
 
@@ -151,7 +151,7 @@
 
     move-result v0
 
-    .line 323
+    .line 420
     .local v0, "id":I
     const/4 v3, -0x1
 
@@ -159,7 +159,7 @@
 
     const-string v1, ""
 
-    .line 325
+    .line 422
     .local v1, "idText":Ljava/lang/String;
     :goto_1
     new-instance v3, Ljava/lang/IllegalStateException;
@@ -194,7 +194,7 @@
 
     iget-object v5, p0, Landroid/support/v7/app/AppCompatViewInflater$DeclaredOnClickListener;->mHostView:Landroid/view/View;
 
-    .line 327
+    .line 424
     invoke-virtual {v5}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v5
@@ -215,7 +215,7 @@
 
     throw v3
 
-    .line 323
+    .line 420
     .end local v1    # "idText":Ljava/lang/String;
     :cond_3
     new-instance v3, Ljava/lang/StringBuilder;
@@ -230,7 +230,7 @@
 
     iget-object v4, p0, Landroid/support/v7/app/AppCompatViewInflater$DeclaredOnClickListener;->mHostView:Landroid/view/View;
 
-    .line 324
+    .line 421
     invoke-virtual {v4}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v4
@@ -270,12 +270,12 @@
     .end param
 
     .prologue
-    .line 283
+    .line 380
     iget-object v1, p0, Landroid/support/v7/app/AppCompatViewInflater$DeclaredOnClickListener;->mResolvedMethod:Ljava/lang/reflect/Method;
 
     if-nez v1, :cond_0
 
-    .line 284
+    .line 381
     iget-object v1, p0, Landroid/support/v7/app/AppCompatViewInflater$DeclaredOnClickListener;->mHostView:Landroid/view/View;
 
     invoke-virtual {v1}, Landroid/view/View;->getContext()Landroid/content/Context;
@@ -286,7 +286,7 @@
 
     invoke-direct {p0, v1, v2}, Landroid/support/v7/app/AppCompatViewInflater$DeclaredOnClickListener;->resolveMethod(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 288
+    .line 385
     :cond_0
     :try_start_0
     iget-object v1, p0, Landroid/support/v7/app/AppCompatViewInflater$DeclaredOnClickListener;->mResolvedMethod:Ljava/lang/reflect/Method;
@@ -306,14 +306,14 @@
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
 
-    .line 296
+    .line 393
     return-void
 
-    .line 289
+    .line 386
     :catch_0
     move-exception v0
 
-    .line 290
+    .line 387
     .local v0, "e":Ljava/lang/IllegalAccessException;
     new-instance v1, Ljava/lang/IllegalStateException;
 
@@ -323,12 +323,12 @@
 
     throw v1
 
-    .line 292
+    .line 389
     .end local v0    # "e":Ljava/lang/IllegalAccessException;
     :catch_1
     move-exception v0
 
-    .line 293
+    .line 390
     .local v0, "e":Ljava/lang/reflect/InvocationTargetException;
     new-instance v1, Ljava/lang/IllegalStateException;
 

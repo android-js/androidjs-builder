@@ -30,21 +30,17 @@
     .locals 1
 
     .prologue
-    .line 29
+    .line 30
     new-instance v0, Landroid/support/v4/view/AbsSavedState$1;
 
     invoke-direct {v0}, Landroid/support/v4/view/AbsSavedState$1;-><init>()V
 
     sput-object v0, Landroid/support/v4/view/AbsSavedState;->EMPTY_STATE:Landroid/support/v4/view/AbsSavedState;
 
-    .line 86
+    .line 88
     new-instance v0, Landroid/support/v4/view/AbsSavedState$2;
 
     invoke-direct {v0}, Landroid/support/v4/view/AbsSavedState$2;-><init>()V
-
-    invoke-static {v0}, Landroid/support/v4/os/ParcelableCompat;->newCreator(Landroid/support/v4/os/ParcelableCompatCreatorCallbacks;)Landroid/os/Parcelable$Creator;
-
-    move-result-object v0
 
     sput-object v0, Landroid/support/v4/view/AbsSavedState;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -55,47 +51,56 @@
     .locals 1
 
     .prologue
-    .line 36
+    .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 37
+    .line 38
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/support/v4/view/AbsSavedState;->mSuperState:Landroid/os/Parcelable;
 
-    .line 38
+    .line 39
     return-void
 .end method
 
 .method protected constructor <init>(Landroid/os/Parcel;)V
     .locals 1
     .param p1, "source"    # Landroid/os/Parcel;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .prologue
-    .line 58
+    .line 59
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Landroid/support/v4/view/AbsSavedState;-><init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
 
-    .line 59
+    .line 60
     return-void
 .end method
 
 .method protected constructor <init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
     .locals 1
     .param p1, "source"    # Landroid/os/Parcel;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .param p2, "loader"    # Ljava/lang/ClassLoader;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .prologue
-    .line 67
+    .line 68
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 68
+    .line 69
     invoke-virtual {p1, p2}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
 
     move-result-object v0
 
-    .line 69
+    .line 70
     .local v0, "superState":Landroid/os/Parcelable;
     if-eqz v0, :cond_0
 
@@ -103,10 +108,10 @@
     :goto_0
     iput-object v0, p0, Landroid/support/v4/view/AbsSavedState;->mSuperState:Landroid/os/Parcelable;
 
-    .line 70
+    .line 71
     return-void
 
-    .line 69
+    .line 70
     .restart local v0    # "superState":Landroid/os/Parcelable;
     :cond_0
     sget-object v0, Landroid/support/v4/view/AbsSavedState;->EMPTY_STATE:Landroid/support/v4/view/AbsSavedState;
@@ -117,15 +122,18 @@
 .method protected constructor <init>(Landroid/os/Parcelable;)V
     .locals 2
     .param p1, "superState"    # Landroid/os/Parcelable;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .prologue
-    .line 45
+    .line 46
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 46
+    .line 47
     if-nez p1, :cond_0
 
-    .line 47
+    .line 48
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "superState must not be null"
@@ -134,7 +142,7 @@
 
     throw v0
 
-    .line 49
+    .line 50
     :cond_0
     sget-object v0, Landroid/support/v4/view/AbsSavedState;->EMPTY_STATE:Landroid/support/v4/view/AbsSavedState;
 
@@ -144,10 +152,10 @@
     :goto_0
     iput-object p1, p0, Landroid/support/v4/view/AbsSavedState;->mSuperState:Landroid/os/Parcelable;
 
-    .line 50
+    .line 51
     return-void
 
-    .line 49
+    .line 50
     .restart local p1    # "superState":Landroid/os/Parcelable;
     :cond_1
     const/4 p1, 0x0
@@ -160,7 +168,7 @@
     .param p1, "x0"    # Landroid/support/v4/view/AbsSavedState$1;
 
     .prologue
-    .line 28
+    .line 29
     invoke-direct {p0}, Landroid/support/v4/view/AbsSavedState;-><init>()V
 
     return-void
@@ -172,7 +180,7 @@
     .locals 1
 
     .prologue
-    .line 78
+    .line 80
     const/4 v0, 0x0
 
     return v0
@@ -180,9 +188,11 @@
 
 .method public final getSuperState()Landroid/os/Parcelable;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .prologue
-    .line 73
+    .line 75
     iget-object v0, p0, Landroid/support/v4/view/AbsSavedState;->mSuperState:Landroid/os/Parcelable;
 
     return-object v0
@@ -194,11 +204,11 @@
     .param p2, "flags"    # I
 
     .prologue
-    .line 83
+    .line 85
     iget-object v0, p0, Landroid/support/v4/view/AbsSavedState;->mSuperState:Landroid/os/Parcelable;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 84
+    .line 86
     return-void
 .end method

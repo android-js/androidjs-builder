@@ -49,10 +49,10 @@
     .locals 0
 
     .prologue
-    .line 91
+    .line 92
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1359
+    .line 1368
     return-void
 .end method
 
@@ -81,6 +81,21 @@
     .end annotation
 .end method
 
+.method public closeOptionsMenu()Z
+    .locals 1
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
+
+    .prologue
+    .line 1074
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
 .method public collapseActionView()Z
     .locals 1
     .annotation build Landroid/support/annotation/RestrictTo;
@@ -90,7 +105,7 @@
     .end annotation
 
     .prologue
-    .line 1091
+    .line 1098
     const/4 v0, 0x0
 
     return v0
@@ -106,7 +121,7 @@
     .end annotation
 
     .prologue
-    .line 1056
+    .line 1057
     return-void
 .end method
 
@@ -120,7 +135,7 @@
     .locals 1
 
     .prologue
-    .line 1035
+    .line 1036
     const/4 v0, 0x0
 
     return v0
@@ -133,7 +148,7 @@
     .locals 1
 
     .prologue
-    .line 992
+    .line 993
     const/4 v0, 0x0
 
     return v0
@@ -181,7 +196,7 @@
     .locals 1
 
     .prologue
-    .line 858
+    .line 859
     const/4 v0, 0x0
 
     return-object v0
@@ -204,7 +219,7 @@
     .end annotation
 
     .prologue
-    .line 1073
+    .line 1080
     const/4 v0, 0x0
 
     return v0
@@ -214,7 +229,7 @@
     .locals 1
 
     .prologue
-    .line 979
+    .line 980
     const/4 v0, 0x0
 
     return v0
@@ -232,7 +247,7 @@
     .end annotation
 
     .prologue
-    .line 869
+    .line 870
     const/4 v0, 0x0
 
     return v0
@@ -253,7 +268,7 @@
     .end annotation
 
     .prologue
-    .line 1051
+    .line 1052
     return-void
 .end method
 
@@ -261,7 +276,7 @@
     .locals 0
 
     .prologue
-    .line 1112
+    .line 1121
     return-void
 .end method
 
@@ -276,7 +291,7 @@
     .end annotation
 
     .prologue
-    .line 1085
+    .line 1092
     const/4 v0, 0x0
 
     return v0
@@ -292,7 +307,7 @@
     .end annotation
 
     .prologue
-    .line 1079
+    .line 1086
     const/4 v0, 0x0
 
     return v0
@@ -307,7 +322,7 @@
     .end annotation
 
     .prologue
-    .line 1067
+    .line 1068
     const/4 v0, 0x0
 
     return v0
@@ -333,9 +348,14 @@
 
 .method requestFocus()Z
     .locals 1
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .prologue
-    .line 1105
+    .line 1114
     const/4 v0, 0x0
 
     return v0
@@ -372,7 +392,7 @@
     .end annotation
 
     .prologue
-    .line 1041
+    .line 1042
     return-void
 .end method
 
@@ -402,14 +422,14 @@
     .param p1, "elevation"    # F
 
     .prologue
-    .line 1020
+    .line 1021
     const/4 v0, 0x0
 
     cmpl-float v0, p1, v0
 
     if-eqz v0, :cond_0
 
-    .line 1021
+    .line 1022
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "Setting a non-zero elevation is not supported in this action bar configuration."
@@ -418,7 +438,7 @@
 
     throw v0
 
-    .line 1024
+    .line 1025
     :cond_0
     return-void
 .end method
@@ -428,10 +448,10 @@
     .param p1, "offset"    # I
 
     .prologue
-    .line 1005
+    .line 1006
     if-eqz p1, :cond_0
 
-    .line 1006
+    .line 1007
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "Setting an explicit action bar hide offset is not supported in this action bar configuration."
@@ -440,7 +460,7 @@
 
     throw v0
 
-    .line 1009
+    .line 1010
     :cond_0
     return-void
 .end method
@@ -450,10 +470,10 @@
     .param p1, "hideOnContentScroll"    # Z
 
     .prologue
-    .line 965
+    .line 966
     if-eqz p1, :cond_0
 
-    .line 966
+    .line 967
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "Hide on content scroll is not supported in this action bar configuration."
@@ -462,7 +482,7 @@
 
     throw v0
 
-    .line 969
+    .line 970
     :cond_0
     return-void
 .end method
@@ -475,7 +495,7 @@
     .end param
 
     .prologue
-    .line 949
+    .line 950
     return-void
 .end method
 
@@ -487,7 +507,7 @@
     .end param
 
     .prologue
-    .line 929
+    .line 930
     return-void
 .end method
 
@@ -499,7 +519,7 @@
     .end param
 
     .prologue
-    .line 910
+    .line 911
     return-void
 .end method
 
@@ -511,7 +531,7 @@
     .end param
 
     .prologue
-    .line 889
+    .line 890
     return-void
 .end method
 
@@ -520,7 +540,7 @@
     .param p1, "enabled"    # Z
 
     .prologue
-    .line 846
+    .line 847
     return-void
 .end method
 
@@ -569,7 +589,7 @@
     .end annotation
 
     .prologue
-    .line 1046
+    .line 1047
     return-void
 .end method
 
@@ -578,7 +598,7 @@
     .param p1, "d"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
-    .line 539
+    .line 540
     return-void
 .end method
 
@@ -587,7 +607,7 @@
     .param p1, "d"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
-    .line 529
+    .line 530
     return-void
 .end method
 
@@ -617,7 +637,7 @@
     .end annotation
 
     .prologue
-    .line 1097
+    .line 1104
     return-void
 .end method
 
@@ -634,7 +654,7 @@
     .end annotation
 
     .prologue
-    .line 1061
+    .line 1062
     const/4 v0, 0x0
 
     return-object v0

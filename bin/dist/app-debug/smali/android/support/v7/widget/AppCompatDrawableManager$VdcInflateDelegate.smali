@@ -22,10 +22,10 @@
     .locals 0
 
     .prologue
-    .line 725
+    .line 767
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 726
+    .line 768
     return-void
 .end method
 
@@ -49,15 +49,10 @@
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
-    .annotation build Landroid/annotation/SuppressLint;
-        value = {
-            "NewApi"
-        }
-    .end annotation
 
     .prologue
-    .line 733
-    .line 734
+    .line 774
+    .line 775
     :try_start_0
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -69,15 +64,15 @@
 
     move-result-object v1
 
-    .line 737
+    .line 778
     :goto_0
     return-object v1
 
-    .line 735
+    .line 776
     :catch_0
     move-exception v0
 
-    .line 736
+    .line 777
     .local v0, "e":Ljava/lang/Exception;
     const-string v1, "VdcInflateDelegate"
 
@@ -85,7 +80,7 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 737
+    .line 778
     const/4 v1, 0x0
 
     goto :goto_0

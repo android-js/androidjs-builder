@@ -45,31 +45,31 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 746
+    .line 756
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 747
+    .line 757
     const-wide/high16 v0, -0x8000000000000000L
 
     iput-wide v0, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mStartTime:J
 
-    .line 748
+    .line 758
     const-wide/16 v0, -0x1
 
     iput-wide v0, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mStopTime:J
 
-    .line 749
+    .line 759
     const-wide/16 v0, 0x0
 
     iput-wide v0, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mDeltaTime:J
 
-    .line 750
+    .line 760
     iput v2, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mDeltaX:I
 
-    .line 751
+    .line 761
     iput v2, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mDeltaY:I
 
-    .line 752
+    .line 762
     return-void
 .end method
 
@@ -82,18 +82,18 @@
 
     const/4 v4, 0x0
 
-    .line 790
+    .line 800
     iget-wide v6, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mStartTime:J
 
     cmp-long v5, p1, v6
 
     if-gez v5, :cond_0
 
-    .line 798
+    .line 808
     :goto_0
     return v4
 
-    .line 792
+    .line 802
     :cond_0
     iget-wide v6, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mStopTime:J
 
@@ -109,13 +109,13 @@
 
     if-gez v5, :cond_2
 
-    .line 793
+    .line 803
     :cond_1
     iget-wide v6, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mStartTime:J
 
     sub-long v2, p1, v6
 
-    .line 794
+    .line 804
     .local v2, "elapsedSinceStart":J
     const/high16 v5, 0x3f000000    # 0.5f
 
@@ -135,14 +135,14 @@
 
     goto :goto_0
 
-    .line 796
+    .line 806
     .end local v2    # "elapsedSinceStart":J
     :cond_2
     iget-wide v6, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mStopTime:J
 
     sub-long v0, p1, v6
 
-    .line 797
+    .line 807
     .local v0, "elapsedSinceEnd":J
     iget v5, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mStopValue:F
 
@@ -158,7 +158,7 @@
 
     div-float/2addr v7, v8
 
-    .line 798
+    .line 808
     invoke-static {v7, v4, v10}, Landroid/support/v4/widget/AutoScrollHelper;->constrain(FFF)F
 
     move-result v4
@@ -175,7 +175,7 @@
     .param p1, "value"    # F
 
     .prologue
-    .line 810
+    .line 820
     const/high16 v0, -0x3f800000    # -4.0f
 
     mul-float/2addr v0, p1
@@ -197,7 +197,7 @@
     .locals 10
 
     .prologue
-    .line 821
+    .line 831
     iget-wide v6, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mDeltaTime:J
 
     const-wide/16 v8, 0x0
@@ -206,7 +206,7 @@
 
     if-nez v6, :cond_0
 
-    .line 822
+    .line 832
     new-instance v6, Ljava/lang/RuntimeException;
 
     const-string v7, "Cannot compute scroll delta before calling start()"
@@ -215,35 +215,35 @@
 
     throw v6
 
-    .line 825
+    .line 835
     :cond_0
     invoke-static {}, Landroid/view/animation/AnimationUtils;->currentAnimationTimeMillis()J
 
     move-result-wide v0
 
-    .line 826
+    .line 836
     .local v0, "currentTime":J
     invoke-direct {p0, v0, v1}, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->getValueAt(J)F
 
     move-result v5
 
-    .line 827
+    .line 837
     .local v5, "value":F
     invoke-direct {p0, v5}, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->interpolateValue(F)F
 
     move-result v4
 
-    .line 828
+    .line 838
     .local v4, "scale":F
     iget-wide v6, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mDeltaTime:J
 
     sub-long v2, v0, v6
 
-    .line 830
+    .line 840
     .local v2, "elapsedSinceDelta":J
     iput-wide v0, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mDeltaTime:J
 
-    .line 831
+    .line 841
     long-to-float v6, v2
 
     mul-float/2addr v6, v4
@@ -256,7 +256,7 @@
 
     iput v6, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mDeltaX:I
 
-    .line 832
+    .line 842
     long-to-float v6, v2
 
     mul-float/2addr v6, v4
@@ -269,7 +269,7 @@
 
     iput v6, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mDeltaY:I
 
-    .line 833
+    .line 843
     return-void
 .end method
 
@@ -277,7 +277,7 @@
     .locals 1
 
     .prologue
-    .line 859
+    .line 869
     iget v0, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mDeltaX:I
 
     return v0
@@ -287,7 +287,7 @@
     .locals 1
 
     .prologue
-    .line 867
+    .line 877
     iget v0, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mDeltaY:I
 
     return v0
@@ -297,7 +297,7 @@
     .locals 2
 
     .prologue
-    .line 847
+    .line 857
     iget v0, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mTargetVelocityX:F
 
     iget v1, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mTargetVelocityX:F
@@ -317,7 +317,7 @@
     .locals 2
 
     .prologue
-    .line 851
+    .line 861
     iget v0, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mTargetVelocityY:F
 
     iget v1, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mTargetVelocityY:F
@@ -337,7 +337,7 @@
     .locals 6
 
     .prologue
-    .line 785
+    .line 795
     iget-wide v0, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mStopTime:J
 
     const-wide/16 v2, 0x0
@@ -346,7 +346,7 @@
 
     if-lez v0, :cond_0
 
-    .line 786
+    .line 796
     invoke-static {}, Landroid/view/animation/AnimationUtils;->currentAnimationTimeMillis()J
 
     move-result-wide v0
@@ -378,12 +378,12 @@
     .locals 5
 
     .prologue
-    .line 778
+    .line 788
     invoke-static {}, Landroid/view/animation/AnimationUtils;->currentAnimationTimeMillis()J
 
     move-result-wide v0
 
-    .line 779
+    .line 789
     .local v0, "currentTime":J
     iget-wide v2, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mStartTime:J
 
@@ -401,17 +401,17 @@
 
     iput v2, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mEffectiveRampDown:I
 
-    .line 780
+    .line 790
     invoke-direct {p0, v0, v1}, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->getValueAt(J)F
 
     move-result v2
 
     iput v2, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mStopValue:F
 
-    .line 781
+    .line 791
     iput-wide v0, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mStopTime:J
 
-    .line 782
+    .line 792
     return-void
 .end method
 
@@ -420,10 +420,10 @@
     .param p1, "durationMillis"    # I
 
     .prologue
-    .line 759
+    .line 769
     iput p1, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mRampDownDuration:I
 
-    .line 760
+    .line 770
     return-void
 .end method
 
@@ -432,10 +432,10 @@
     .param p1, "durationMillis"    # I
 
     .prologue
-    .line 755
+    .line 765
     iput p1, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mRampUpDuration:I
 
-    .line 756
+    .line 766
     return-void
 .end method
 
@@ -445,13 +445,13 @@
     .param p2, "y"    # F
 
     .prologue
-    .line 842
+    .line 852
     iput p1, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mTargetVelocityX:F
 
-    .line 843
+    .line 853
     iput p2, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mTargetVelocityY:F
 
-    .line 844
+    .line 854
     return-void
 .end method
 
@@ -461,34 +461,34 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 766
+    .line 776
     invoke-static {}, Landroid/view/animation/AnimationUtils;->currentAnimationTimeMillis()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mStartTime:J
 
-    .line 767
+    .line 777
     const-wide/16 v0, -0x1
 
     iput-wide v0, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mStopTime:J
 
-    .line 768
+    .line 778
     iget-wide v0, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mStartTime:J
 
     iput-wide v0, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mDeltaTime:J
 
-    .line 769
+    .line 779
     const/high16 v0, 0x3f000000    # 0.5f
 
     iput v0, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mStopValue:F
 
-    .line 770
+    .line 780
     iput v2, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mDeltaX:I
 
-    .line 771
+    .line 781
     iput v2, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mDeltaY:I
 
-    .line 772
+    .line 782
     return-void
 .end method

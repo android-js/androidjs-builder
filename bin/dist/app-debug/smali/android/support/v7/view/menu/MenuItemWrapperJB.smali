@@ -4,10 +4,6 @@
 
 
 # annotations
-.annotation build Landroid/annotation/TargetApi;
-    value = 0x10
-.end annotation
-
 .annotation build Landroid/support/annotation/RequiresApi;
     value = 0x10
 .end annotation
@@ -32,10 +28,10 @@
     .param p2, "object"    # Landroid/support/v4/internal/view/SupportMenuItem;
 
     .prologue
-    .line 40
+    .line 39
     invoke-direct {p0, p1, p2}, Landroid/support/v7/view/menu/MenuItemWrapperICS;-><init>(Landroid/content/Context;Landroid/support/v4/internal/view/SupportMenuItem;)V
 
-    .line 41
+    .line 40
     return-void
 .end method
 
@@ -46,7 +42,7 @@
     .param p1, "provider"    # Landroid/view/ActionProvider;
 
     .prologue
-    .line 45
+    .line 44
     new-instance v0, Landroid/support/v7/view/menu/MenuItemWrapperJB$ActionProviderWrapperJB;
 
     iget-object v1, p0, Landroid/support/v7/view/menu/MenuItemWrapperJB;->mContext:Landroid/content/Context;

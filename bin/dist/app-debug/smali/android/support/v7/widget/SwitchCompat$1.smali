@@ -1,102 +1,100 @@
-.class Landroid/support/v7/widget/SwitchCompat$1;
-.super Ljava/lang/Object;
+.class final Landroid/support/v7/widget/SwitchCompat$1;
+.super Landroid/util/Property;
 .source "SwitchCompat.java"
-
-# interfaces
-.implements Landroid/view/animation/Animation$AnimationListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/support/v7/widget/SwitchCompat;->animateThumbToCheckedState(Z)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/support/v7/widget/SwitchCompat;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x8
     name = null
 .end annotation
 
-
-# instance fields
-.field final synthetic this$0:Landroid/support/v7/widget/SwitchCompat;
-
-.field final synthetic val$newCheckedState:Z
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Landroid/util/Property",
+        "<",
+        "Landroid/support/v7/widget/SwitchCompat;",
+        "Ljava/lang/Float;",
+        ">;"
+    }
+.end annotation
 
 
 # direct methods
-.method constructor <init>(Landroid/support/v7/widget/SwitchCompat;Z)V
+.method constructor <init>(Ljava/lang/Class;Ljava/lang/String;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/support/v7/widget/SwitchCompat;
+    .param p2, "x1"    # Ljava/lang/String;
 
     .prologue
-    .line 1015
-    iput-object p1, p0, Landroid/support/v7/widget/SwitchCompat$1;->this$0:Landroid/support/v7/widget/SwitchCompat;
-
-    iput-boolean p2, p0, Landroid/support/v7/widget/SwitchCompat$1;->val$newCheckedState:Z
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    .line 102
+    .local p1, "x0":Ljava/lang/Class;, "Ljava/lang/Class<Ljava/lang/Float;>;"
+    invoke-direct {p0, p1, p2}, Landroid/util/Property;-><init>(Ljava/lang/Class;Ljava/lang/String;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/view/animation/Animation;)V
-    .locals 2
-    .param p1, "animation"    # Landroid/view/animation/Animation;
+.method public get(Landroid/support/v7/widget/SwitchCompat;)Ljava/lang/Float;
+    .locals 1
+    .param p1, "object"    # Landroid/support/v7/widget/SwitchCompat;
 
     .prologue
-    .line 1021
-    iget-object v0, p0, Landroid/support/v7/widget/SwitchCompat$1;->this$0:Landroid/support/v7/widget/SwitchCompat;
+    .line 105
+    iget v0, p1, Landroid/support/v7/widget/SwitchCompat;->mThumbPosition:F
 
-    iget-object v0, v0, Landroid/support/v7/widget/SwitchCompat;->mPositionAnimator:Landroid/support/v7/widget/SwitchCompat$ThumbAnimation;
+    invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    if-ne v0, p1, :cond_0
+    move-result-object v0
 
-    .line 1023
-    iget-object v1, p0, Landroid/support/v7/widget/SwitchCompat$1;->this$0:Landroid/support/v7/widget/SwitchCompat;
-
-    iget-boolean v0, p0, Landroid/support/v7/widget/SwitchCompat$1;->val$newCheckedState:Z
-
-    if-eqz v0, :cond_1
-
-    const/high16 v0, 0x3f800000    # 1.0f
-
-    :goto_0
-    invoke-virtual {v1, v0}, Landroid/support/v7/widget/SwitchCompat;->setThumbPosition(F)V
-
-    .line 1024
-    iget-object v0, p0, Landroid/support/v7/widget/SwitchCompat$1;->this$0:Landroid/support/v7/widget/SwitchCompat;
-
-    const/4 v1, 0x0
-
-    iput-object v1, v0, Landroid/support/v7/widget/SwitchCompat;->mPositionAnimator:Landroid/support/v7/widget/SwitchCompat$ThumbAnimation;
-
-    .line 1026
-    :cond_0
-    return-void
-
-    .line 1023
-    :cond_1
-    const/4 v0, 0x0
-
-    goto :goto_0
+    return-object v0
 .end method
 
-.method public onAnimationRepeat(Landroid/view/animation/Animation;)V
-    .locals 0
-    .param p1, "animation"    # Landroid/view/animation/Animation;
+.method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 1
 
     .prologue
-    .line 1029
+    .line 102
+    check-cast p1, Landroid/support/v7/widget/SwitchCompat;
+
+    invoke-virtual {p0, p1}, Landroid/support/v7/widget/SwitchCompat$1;->get(Landroid/support/v7/widget/SwitchCompat;)Ljava/lang/Float;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public set(Landroid/support/v7/widget/SwitchCompat;Ljava/lang/Float;)V
+    .locals 1
+    .param p1, "object"    # Landroid/support/v7/widget/SwitchCompat;
+    .param p2, "value"    # Ljava/lang/Float;
+
+    .prologue
+    .line 110
+    invoke-virtual {p2}, Ljava/lang/Float;->floatValue()F
+
+    move-result v0
+
+    invoke-virtual {p1, v0}, Landroid/support/v7/widget/SwitchCompat;->setThumbPosition(F)V
+
+    .line 111
     return-void
 .end method
 
-.method public onAnimationStart(Landroid/view/animation/Animation;)V
+.method public bridge synthetic set(Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 0
-    .param p1, "animation"    # Landroid/view/animation/Animation;
 
     .prologue
-    .line 1017
+    .line 102
+    check-cast p1, Landroid/support/v7/widget/SwitchCompat;
+
+    check-cast p2, Ljava/lang/Float;
+
+    invoke-virtual {p0, p1, p2}, Landroid/support/v7/widget/SwitchCompat$1;->set(Landroid/support/v7/widget/SwitchCompat;Ljava/lang/Float;)V
+
     return-void
 .end method

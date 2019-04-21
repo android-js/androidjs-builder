@@ -12,26 +12,20 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0xa
     name = "ActionMenuPresenterCallback"
 .end annotation
 
 
-# instance fields
-.field final synthetic this$0:Landroid/support/v7/widget/ActionMenuView;
-
-
 # direct methods
-.method constructor <init>(Landroid/support/v7/widget/ActionMenuView;)V
+.method constructor <init>()V
     .locals 0
 
     .prologue
-    .line 788
-    iput-object p1, p0, Landroid/support/v7/widget/ActionMenuView$ActionMenuPresenterCallback;->this$0:Landroid/support/v7/widget/ActionMenuView;
-
+    .line 793
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 789
+    .line 794
     return-void
 .end method
 
@@ -43,7 +37,7 @@
     .param p2, "allMenusAreClosing"    # Z
 
     .prologue
-    .line 793
+    .line 798
     return-void
 .end method
 
@@ -52,7 +46,7 @@
     .param p1, "subMenu"    # Landroid/support/v7/view/menu/MenuBuilder;
 
     .prologue
-    .line 797
+    .line 802
     const/4 v0, 0x0
 
     return v0

@@ -104,6 +104,75 @@
     return-void
 .end method
 
+.method public setGuidelineBegin(I)V
+    .locals 1
+    .param p1, "margin"    # I
+
+    .prologue
+    .line 102
+    invoke-virtual {p0}, Landroid/support/constraint/Guideline;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;
+
+    .line 103
+    .local v0, "params":Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iput p1, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->guideBegin:I
+
+    .line 104
+    invoke-virtual {p0, v0}, Landroid/support/constraint/Guideline;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    .line 105
+    return-void
+.end method
+
+.method public setGuidelineEnd(I)V
+    .locals 1
+    .param p1, "margin"    # I
+
+    .prologue
+    .line 113
+    invoke-virtual {p0}, Landroid/support/constraint/Guideline;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;
+
+    .line 114
+    .local v0, "params":Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iput p1, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->guideEnd:I
+
+    .line 115
+    invoke-virtual {p0, v0}, Landroid/support/constraint/Guideline;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    .line 116
+    return-void
+.end method
+
+.method public setGuidelinePercent(F)V
+    .locals 1
+    .param p1, "ratio"    # F
+
+    .prologue
+    .line 123
+    invoke-virtual {p0}, Landroid/support/constraint/Guideline;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;
+
+    .line 124
+    .local v0, "params":Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iput p1, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->guidePercent:F
+
+    .line 125
+    invoke-virtual {p0, v0}, Landroid/support/constraint/Guideline;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    .line 126
+    return-void
+.end method
+
 .method public setVisibility(I)V
     .locals 0
     .param p1, "visibility"    # I

@@ -1,5 +1,5 @@
 .class public Landroid/support/v4/app/NotificationCompat$Action;
-.super Landroid/support/v4/app/NotificationCompatBase$Action;
+.super Ljava/lang/Object;
 .source "NotificationCompat.java"
 
 
@@ -15,6 +15,7 @@
 
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Landroid/support/v4/app/NotificationCompat$Action$SemanticAction;,
         Landroid/support/v4/app/NotificationCompat$Action$WearableExtender;,
         Landroid/support/v4/app/NotificationCompat$Action$Extender;,
         Landroid/support/v4/app/NotificationCompat$Action$Builder;
@@ -23,13 +24,31 @@
 
 
 # static fields
-.field public static final FACTORY:Landroid/support/v4/app/NotificationCompatBase$Action$Factory;
-    .annotation build Landroid/support/annotation/RestrictTo;
-        value = {
-            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-        }
-    .end annotation
-.end field
+.field static final EXTRA_SEMANTIC_ACTION:Ljava/lang/String; = "android.support.action.semanticAction"
+
+.field static final EXTRA_SHOWS_USER_INTERFACE:Ljava/lang/String; = "android.support.action.showsUserInterface"
+
+.field public static final SEMANTIC_ACTION_ARCHIVE:I = 0x5
+
+.field public static final SEMANTIC_ACTION_CALL:I = 0xa
+
+.field public static final SEMANTIC_ACTION_DELETE:I = 0x4
+
+.field public static final SEMANTIC_ACTION_MARK_AS_READ:I = 0x2
+
+.field public static final SEMANTIC_ACTION_MARK_AS_UNREAD:I = 0x3
+
+.field public static final SEMANTIC_ACTION_MUTE:I = 0x6
+
+.field public static final SEMANTIC_ACTION_NONE:I = 0x0
+
+.field public static final SEMANTIC_ACTION_REPLY:I = 0x1
+
+.field public static final SEMANTIC_ACTION_THUMBS_DOWN:I = 0x9
+
+.field public static final SEMANTIC_ACTION_THUMBS_UP:I = 0x8
+
+.field public static final SEMANTIC_ACTION_UNMUTE:I = 0x7
 
 
 # instance fields
@@ -39,43 +58,37 @@
 
 .field private mAllowGeneratedReplies:Z
 
+.field private final mDataOnlyRemoteInputs:[Landroid/support/v4/app/RemoteInput;
+
 .field final mExtras:Landroid/os/Bundle;
 
 .field private final mRemoteInputs:[Landroid/support/v4/app/RemoteInput;
+
+.field private final mSemanticAction:I
+
+.field mShowsUserInterface:Z
 
 .field public title:Ljava/lang/CharSequence;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    .prologue
-    .line 2881
-    new-instance v0, Landroid/support/v4/app/NotificationCompat$Action$1;
-
-    invoke-direct {v0}, Landroid/support/v4/app/NotificationCompat$Action$1;-><init>()V
-
-    sput-object v0, Landroid/support/v4/app/NotificationCompat$Action;->FACTORY:Landroid/support/v4/app/NotificationCompatBase$Action$Factory;
-
-    return-void
-.end method
-
 .method public constructor <init>(ILjava/lang/CharSequence;Landroid/app/PendingIntent;)V
-    .locals 7
+    .locals 10
     .param p1, "icon"    # I
     .param p2, "title"    # Ljava/lang/CharSequence;
     .param p3, "intent"    # Landroid/app/PendingIntent;
 
     .prologue
-    .line 2452
+    const/4 v5, 0x0
+
+    const/4 v7, 0x1
+
+    .line 3157
     new-instance v4, Landroid/os/Bundle;
 
     invoke-direct {v4}, Landroid/os/Bundle;-><init>()V
 
-    const/4 v5, 0x0
-
-    const/4 v6, 0x1
+    const/4 v8, 0x0
 
     move-object v0, p0
 
@@ -85,55 +98,76 @@
 
     move-object v3, p3
 
-    invoke-direct/range {v0 .. v6}, Landroid/support/v4/app/NotificationCompat$Action;-><init>(ILjava/lang/CharSequence;Landroid/app/PendingIntent;Landroid/os/Bundle;[Landroid/support/v4/app/RemoteInput;Z)V
+    move-object v6, v5
 
-    .line 2453
+    move v9, v7
+
+    invoke-direct/range {v0 .. v9}, Landroid/support/v4/app/NotificationCompat$Action;-><init>(ILjava/lang/CharSequence;Landroid/app/PendingIntent;Landroid/os/Bundle;[Landroid/support/v4/app/RemoteInput;[Landroid/support/v4/app/RemoteInput;ZIZ)V
+
+    .line 3158
     return-void
 .end method
 
-.method constructor <init>(ILjava/lang/CharSequence;Landroid/app/PendingIntent;Landroid/os/Bundle;[Landroid/support/v4/app/RemoteInput;Z)V
+.method constructor <init>(ILjava/lang/CharSequence;Landroid/app/PendingIntent;Landroid/os/Bundle;[Landroid/support/v4/app/RemoteInput;[Landroid/support/v4/app/RemoteInput;ZIZ)V
     .locals 1
     .param p1, "icon"    # I
     .param p2, "title"    # Ljava/lang/CharSequence;
     .param p3, "intent"    # Landroid/app/PendingIntent;
     .param p4, "extras"    # Landroid/os/Bundle;
     .param p5, "remoteInputs"    # [Landroid/support/v4/app/RemoteInput;
-    .param p6, "allowGeneratedReplies"    # Z
+    .param p6, "dataOnlyRemoteInputs"    # [Landroid/support/v4/app/RemoteInput;
+    .param p7, "allowGeneratedReplies"    # Z
+    .param p8, "semanticAction"    # I
+    .param p9, "showsUserInterface"    # Z
 
     .prologue
-    .line 2456
-    invoke-direct {p0}, Landroid/support/v4/app/NotificationCompatBase$Action;-><init>()V
+    .line 3163
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 2457
+    .line 3138
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Landroid/support/v4/app/NotificationCompat$Action;->mShowsUserInterface:Z
+
+    .line 3164
     iput p1, p0, Landroid/support/v4/app/NotificationCompat$Action;->icon:I
 
-    .line 2458
+    .line 3165
     invoke-static {p2}, Landroid/support/v4/app/NotificationCompat$Builder;->limitCharSequenceLength(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/support/v4/app/NotificationCompat$Action;->title:Ljava/lang/CharSequence;
 
-    .line 2459
+    .line 3166
     iput-object p3, p0, Landroid/support/v4/app/NotificationCompat$Action;->actionIntent:Landroid/app/PendingIntent;
 
-    .line 2460
+    .line 3167
     if-eqz p4, :cond_0
 
     .end local p4    # "extras":Landroid/os/Bundle;
     :goto_0
     iput-object p4, p0, Landroid/support/v4/app/NotificationCompat$Action;->mExtras:Landroid/os/Bundle;
 
-    .line 2461
+    .line 3168
     iput-object p5, p0, Landroid/support/v4/app/NotificationCompat$Action;->mRemoteInputs:[Landroid/support/v4/app/RemoteInput;
 
-    .line 2462
-    iput-boolean p6, p0, Landroid/support/v4/app/NotificationCompat$Action;->mAllowGeneratedReplies:Z
+    .line 3169
+    iput-object p6, p0, Landroid/support/v4/app/NotificationCompat$Action;->mDataOnlyRemoteInputs:[Landroid/support/v4/app/RemoteInput;
 
-    .line 2463
+    .line 3170
+    iput-boolean p7, p0, Landroid/support/v4/app/NotificationCompat$Action;->mAllowGeneratedReplies:Z
+
+    .line 3171
+    iput p8, p0, Landroid/support/v4/app/NotificationCompat$Action;->mSemanticAction:I
+
+    .line 3172
+    iput-boolean p9, p0, Landroid/support/v4/app/NotificationCompat$Action;->mShowsUserInterface:Z
+
+    .line 3173
     return-void
 
-    .line 2460
+    .line 3167
     .restart local p4    # "extras":Landroid/os/Bundle;
     :cond_0
     new-instance p4, Landroid/os/Bundle;
@@ -150,7 +184,7 @@
     .locals 1
 
     .prologue
-    .line 2477
+    .line 3184
     iget-object v0, p0, Landroid/support/v4/app/NotificationCompat$Action;->actionIntent:Landroid/app/PendingIntent;
 
     return-object v0
@@ -160,17 +194,27 @@
     .locals 1
 
     .prologue
-    .line 2494
+    .line 3199
     iget-boolean v0, p0, Landroid/support/v4/app/NotificationCompat$Action;->mAllowGeneratedReplies:Z
 
     return v0
+.end method
+
+.method public getDataOnlyRemoteInputs()[Landroid/support/v4/app/RemoteInput;
+    .locals 1
+
+    .prologue
+    .line 3233
+    iget-object v0, p0, Landroid/support/v4/app/NotificationCompat$Action;->mDataOnlyRemoteInputs:[Landroid/support/v4/app/RemoteInput;
+
+    return-object v0
 .end method
 
 .method public getExtras()Landroid/os/Bundle;
     .locals 1
 
     .prologue
-    .line 2485
+    .line 3191
     iget-object v0, p0, Landroid/support/v4/app/NotificationCompat$Action;->mExtras:Landroid/os/Bundle;
 
     return-object v0
@@ -180,7 +224,7 @@
     .locals 1
 
     .prologue
-    .line 2467
+    .line 3176
     iget v0, p0, Landroid/support/v4/app/NotificationCompat$Action;->icon:I
 
     return v0
@@ -190,29 +234,37 @@
     .locals 1
 
     .prologue
-    .line 2503
+    .line 3208
     iget-object v0, p0, Landroid/support/v4/app/NotificationCompat$Action;->mRemoteInputs:[Landroid/support/v4/app/RemoteInput;
 
     return-object v0
 .end method
 
-.method public bridge synthetic getRemoteInputs()[Landroid/support/v4/app/RemoteInputCompatBase$RemoteInput;
+.method public getSemanticAction()I
     .locals 1
 
     .prologue
-    .line 2432
-    invoke-virtual {p0}, Landroid/support/v4/app/NotificationCompat$Action;->getRemoteInputs()[Landroid/support/v4/app/RemoteInput;
+    .line 3219
+    iget v0, p0, Landroid/support/v4/app/NotificationCompat$Action;->mSemanticAction:I
 
-    move-result-object v0
+    return v0
+.end method
 
-    return-object v0
+.method public getShowsUserInterface()Z
+    .locals 1
+
+    .prologue
+    .line 3241
+    iget-boolean v0, p0, Landroid/support/v4/app/NotificationCompat$Action;->mShowsUserInterface:Z
+
+    return v0
 .end method
 
 .method public getTitle()Ljava/lang/CharSequence;
     .locals 1
 
     .prologue
-    .line 2472
+    .line 3180
     iget-object v0, p0, Landroid/support/v4/app/NotificationCompat$Action;->title:Ljava/lang/CharSequence;
 
     return-object v0

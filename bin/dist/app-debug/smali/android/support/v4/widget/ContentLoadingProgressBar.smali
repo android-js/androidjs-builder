@@ -27,57 +27,66 @@
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
     .param p1, "context"    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .prologue
-    .line 65
+    .line 68
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Landroid/support/v4/widget/ContentLoadingProgressBar;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 66
+    .line 69
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 3
     .param p1, "context"    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .param p2, "attrs"    # Landroid/util/AttributeSet;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .prologue
     const/4 v2, 0x0
 
-    .line 69
+    .line 72
     invoke-direct {p0, p1, p2, v2}, Landroid/widget/ProgressBar;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 34
+    .line 37
     const-wide/16 v0, -0x1
 
     iput-wide v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mStartTime:J
 
-    .line 36
+    .line 39
     iput-boolean v2, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mPostedHide:Z
 
-    .line 38
+    .line 41
     iput-boolean v2, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mPostedShow:Z
 
-    .line 40
+    .line 43
     iput-boolean v2, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mDismissed:Z
 
-    .line 42
+    .line 45
     new-instance v0, Landroid/support/v4/widget/ContentLoadingProgressBar$1;
 
     invoke-direct {v0, p0}, Landroid/support/v4/widget/ContentLoadingProgressBar$1;-><init>(Landroid/support/v4/widget/ContentLoadingProgressBar;)V
 
     iput-object v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mDelayedHide:Ljava/lang/Runnable;
 
-    .line 52
+    .line 55
     new-instance v0, Landroid/support/v4/widget/ContentLoadingProgressBar$2;
 
     invoke-direct {v0, p0}, Landroid/support/v4/widget/ContentLoadingProgressBar$2;-><init>(Landroid/support/v4/widget/ContentLoadingProgressBar;)V
 
     iput-object v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mDelayedShow:Ljava/lang/Runnable;
 
-    .line 70
+    .line 73
     return-void
 .end method
 
@@ -85,39 +94,47 @@
     .locals 1
 
     .prologue
-    .line 85
+    .line 88
     iget-object v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mDelayedHide:Ljava/lang/Runnable;
 
     invoke-virtual {p0, v0}, Landroid/support/v4/widget/ContentLoadingProgressBar;->removeCallbacks(Ljava/lang/Runnable;)Z
 
-    .line 86
+    .line 89
     iget-object v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mDelayedShow:Ljava/lang/Runnable;
 
     invoke-virtual {p0, v0}, Landroid/support/v4/widget/ContentLoadingProgressBar;->removeCallbacks(Ljava/lang/Runnable;)Z
 
-    .line 87
+    .line 90
     return-void
 .end method
 
 
 # virtual methods
-.method public hide()V
-    .locals 10
+.method public declared-synchronized hide()V
+    .locals 8
 
     .prologue
-    const-wide/16 v8, 0x1f4
+    const-wide/16 v6, 0x1f4
 
-    const/4 v6, 0x1
+    .line 98
+    monitor-enter p0
 
-    .line 95
-    iput-boolean v6, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mDismissed:Z
+    const/4 v2, 0x1
 
-    .line 96
+    :try_start_0
+    iput-boolean v2, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mDismissed:Z
+
+    .line 99
     iget-object v2, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mDelayedShow:Ljava/lang/Runnable;
 
     invoke-virtual {p0, v2}, Landroid/support/v4/widget/ContentLoadingProgressBar;->removeCallbacks(Ljava/lang/Runnable;)Z
 
-    .line 97
+    .line 100
+    const/4 v2, 0x0
+
+    iput-boolean v2, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mPostedShow:Z
+
+    .line 101
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v2
@@ -126,9 +143,9 @@
 
     sub-long v0, v2, v4
 
-    .line 98
+    .line 102
     .local v0, "diff":J
-    cmp-long v2, v0, v8
+    cmp-long v2, v0, v6
 
     if-gez v2, :cond_0
 
@@ -140,47 +157,65 @@
 
     if-nez v2, :cond_2
 
-    .line 102
+    .line 106
     :cond_0
     const/16 v2, 0x8
 
     invoke-virtual {p0, v2}, Landroid/support/v4/widget/ContentLoadingProgressBar;->setVisibility(I)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 112
+    .line 116
     :cond_1
     :goto_0
+    monitor-exit p0
+
     return-void
 
-    .line 107
+    .line 111
     :cond_2
+    :try_start_1
     iget-boolean v2, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mPostedHide:Z
 
     if-nez v2, :cond_1
 
-    .line 108
+    .line 112
     iget-object v2, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mDelayedHide:Ljava/lang/Runnable;
 
-    sub-long v4, v8, v0
+    sub-long v4, v6, v0
 
     invoke-virtual {p0, v2, v4, v5}, Landroid/support/v4/widget/ContentLoadingProgressBar;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 109
-    iput-boolean v6, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mPostedHide:Z
+    .line 113
+    const/4 v2, 0x1
+
+    iput-boolean v2, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mPostedHide:Z
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
+
+    .line 98
+    .end local v0    # "diff":J
+    :catchall_0
+    move-exception v2
+
+    monitor-exit p0
+
+    throw v2
 .end method
 
 .method public onAttachedToWindow()V
     .locals 0
 
     .prologue
-    .line 74
+    .line 77
     invoke-super {p0}, Landroid/widget/ProgressBar;->onAttachedToWindow()V
 
-    .line 75
+    .line 78
     invoke-direct {p0}, Landroid/support/v4/widget/ContentLoadingProgressBar;->removeCallbacks()V
 
-    .line 76
+    .line 79
     return-void
 .end method
 
@@ -188,53 +223,73 @@
     .locals 0
 
     .prologue
-    .line 80
+    .line 83
     invoke-super {p0}, Landroid/widget/ProgressBar;->onDetachedFromWindow()V
 
-    .line 81
+    .line 84
     invoke-direct {p0}, Landroid/support/v4/widget/ContentLoadingProgressBar;->removeCallbacks()V
 
-    .line 82
+    .line 85
     return-void
 .end method
 
-.method public show()V
+.method public declared-synchronized show()V
     .locals 4
 
     .prologue
-    .line 120
+    .line 124
+    monitor-enter p0
+
     const-wide/16 v0, -0x1
 
+    :try_start_0
     iput-wide v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mStartTime:J
 
-    .line 121
+    .line 125
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mDismissed:Z
 
-    .line 122
+    .line 126
     iget-object v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mDelayedHide:Ljava/lang/Runnable;
 
     invoke-virtual {p0, v0}, Landroid/support/v4/widget/ContentLoadingProgressBar;->removeCallbacks(Ljava/lang/Runnable;)Z
 
-    .line 123
+    .line 127
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mPostedHide:Z
+
+    .line 128
     iget-boolean v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mPostedShow:Z
 
     if-nez v0, :cond_0
 
-    .line 124
+    .line 129
     iget-object v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mDelayedShow:Ljava/lang/Runnable;
 
     const-wide/16 v2, 0x1f4
 
     invoke-virtual {p0, v0, v2, v3}, Landroid/support/v4/widget/ContentLoadingProgressBar;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 125
+    .line 130
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mPostedShow:Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 127
+    .line 132
     :cond_0
+    monitor-exit p0
+
     return-void
+
+    .line 124
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
 .end method

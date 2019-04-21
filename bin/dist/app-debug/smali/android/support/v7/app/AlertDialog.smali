@@ -33,12 +33,12 @@
     .end param
 
     .prologue
-    .line 87
+    .line 88
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Landroid/support/v7/app/AlertDialog;-><init>(Landroid/content/Context;I)V
 
-    .line 88
+    .line 89
     return-void
 .end method
 
@@ -54,14 +54,14 @@
     .end param
 
     .prologue
-    .line 97
+    .line 98
     invoke-static {p1, p2}, Landroid/support/v7/app/AlertDialog;->resolveDialogTheme(Landroid/content/Context;I)I
 
     move-result v0
 
     invoke-direct {p0, p1, v0}, Landroid/support/v7/app/AppCompatDialog;-><init>(Landroid/content/Context;I)V
 
-    .line 98
+    .line 99
     new-instance v0, Landroid/support/v7/app/AlertController;
 
     invoke-virtual {p0}, Landroid/support/v7/app/AlertDialog;->getContext()Landroid/content/Context;
@@ -76,7 +76,7 @@
 
     iput-object v0, p0, Landroid/support/v7/app/AlertDialog;->mAlert:Landroid/support/v7/app/AlertController;
 
-    .line 99
+    .line 100
     return-void
 .end method
 
@@ -93,18 +93,18 @@
     .end param
 
     .prologue
-    .line 103
+    .line 104
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Landroid/support/v7/app/AlertDialog;-><init>(Landroid/content/Context;I)V
 
-    .line 104
+    .line 105
     invoke-virtual {p0, p2}, Landroid/support/v7/app/AlertDialog;->setCancelable(Z)V
 
-    .line 105
+    .line 106
     invoke-virtual {p0, p3}, Landroid/support/v7/app/AlertDialog;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)V
 
-    .line 106
+    .line 107
     return-void
 .end method
 
@@ -120,24 +120,28 @@
     .end param
 
     .prologue
-    .line 109
-    const/high16 v1, 0x1000000
+    const/4 v3, 0x1
 
-    if-lt p1, v1, :cond_0
+    .line 111
+    ushr-int/lit8 v1, p1, 0x18
 
-    .line 114
+    and-int/lit16 v1, v1, 0xff
+
+    if-lt v1, v3, :cond_0
+
+    .line 116
     .end local p1    # "resid":I
     :goto_0
     return p1
 
-    .line 112
+    .line 114
     .restart local p1    # "resid":I
     :cond_0
     new-instance v0, Landroid/util/TypedValue;
 
     invoke-direct {v0}, Landroid/util/TypedValue;-><init>()V
 
-    .line 113
+    .line 115
     .local v0, "outValue":Landroid/util/TypedValue;
     invoke-virtual {p0}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
@@ -145,11 +149,9 @@
 
     sget v2, Landroid/support/v7/appcompat/R$attr;->alertDialogTheme:I
 
-    const/4 v3, 0x1
-
     invoke-virtual {v1, v2, v0, v3}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
 
-    .line 114
+    .line 116
     iget p1, v0, Landroid/util/TypedValue;->resourceId:I
 
     goto :goto_0
@@ -162,7 +164,7 @@
     .param p1, "whichButton"    # I
 
     .prologue
-    .line 129
+    .line 131
     iget-object v0, p0, Landroid/support/v7/app/AlertDialog;->mAlert:Landroid/support/v7/app/AlertController;
 
     invoke-virtual {v0, p1}, Landroid/support/v7/app/AlertController;->getButton(I)Landroid/widget/Button;
@@ -176,7 +178,7 @@
     .locals 1
 
     .prologue
-    .line 138
+    .line 140
     iget-object v0, p0, Landroid/support/v7/app/AlertDialog;->mAlert:Landroid/support/v7/app/AlertController;
 
     invoke-virtual {v0}, Landroid/support/v7/app/AlertController;->getListView()Landroid/widget/ListView;
@@ -191,15 +193,15 @@
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
-    .line 256
+    .line 278
     invoke-super {p0, p1}, Landroid/support/v7/app/AppCompatDialog;->onCreate(Landroid/os/Bundle;)V
 
-    .line 257
+    .line 279
     iget-object v0, p0, Landroid/support/v7/app/AlertDialog;->mAlert:Landroid/support/v7/app/AlertController;
 
     invoke-virtual {v0}, Landroid/support/v7/app/AlertController;->installContent()V
 
-    .line 258
+    .line 280
     return-void
 .end method
 
@@ -209,7 +211,7 @@
     .param p2, "event"    # Landroid/view/KeyEvent;
 
     .prologue
-    .line 262
+    .line 284
     iget-object v0, p0, Landroid/support/v7/app/AlertDialog;->mAlert:Landroid/support/v7/app/AlertController;
 
     invoke-virtual {v0, p1, p2}, Landroid/support/v7/app/AlertController;->onKeyDown(ILandroid/view/KeyEvent;)Z
@@ -218,10 +220,10 @@
 
     if-eqz v0, :cond_0
 
-    .line 263
+    .line 285
     const/4 v0, 0x1
 
-    .line 265
+    .line 287
     :goto_0
     return v0
 
@@ -239,7 +241,7 @@
     .param p2, "event"    # Landroid/view/KeyEvent;
 
     .prologue
-    .line 270
+    .line 292
     iget-object v0, p0, Landroid/support/v7/app/AlertDialog;->mAlert:Landroid/support/v7/app/AlertController;
 
     invoke-virtual {v0, p1, p2}, Landroid/support/v7/app/AlertController;->onKeyUp(ILandroid/view/KeyEvent;)Z
@@ -248,10 +250,10 @@
 
     if-eqz v0, :cond_0
 
-    .line 271
+    .line 293
     const/4 v0, 0x1
 
-    .line 273
+    .line 295
     :goto_0
     return v0
 
@@ -264,52 +266,100 @@
 .end method
 
 .method public setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
-    .locals 2
+    .locals 6
     .param p1, "whichButton"    # I
     .param p2, "text"    # Ljava/lang/CharSequence;
     .param p3, "listener"    # Landroid/content/DialogInterface$OnClickListener;
 
     .prologue
-    .line 222
+    const/4 v4, 0x0
+
+    .line 226
     iget-object v0, p0, Landroid/support/v7/app/AlertDialog;->mAlert:Landroid/support/v7/app/AlertController;
 
-    const/4 v1, 0x0
+    move v1, p1
 
-    invoke-virtual {v0, p1, p2, p3, v1}, Landroid/support/v7/app/AlertController;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;Landroid/os/Message;)V
+    move-object v2, p2
 
-    .line 223
+    move-object v3, p3
+
+    move-object v5, v4
+
+    invoke-virtual/range {v0 .. v5}, Landroid/support/v7/app/AlertController;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;Landroid/os/Message;Landroid/graphics/drawable/Drawable;)V
+
+    .line 227
+    return-void
+.end method
+
+.method public setButton(ILjava/lang/CharSequence;Landroid/graphics/drawable/Drawable;Landroid/content/DialogInterface$OnClickListener;)V
+    .locals 6
+    .param p1, "whichButton"    # I
+    .param p2, "text"    # Ljava/lang/CharSequence;
+    .param p3, "icon"    # Landroid/graphics/drawable/Drawable;
+    .param p4, "listener"    # Landroid/content/DialogInterface$OnClickListener;
+
+    .prologue
+    .line 244
+    iget-object v0, p0, Landroid/support/v7/app/AlertDialog;->mAlert:Landroid/support/v7/app/AlertController;
+
+    const/4 v4, 0x0
+
+    move v1, p1
+
+    move-object v2, p2
+
+    move-object v3, p4
+
+    move-object v5, p3
+
+    invoke-virtual/range {v0 .. v5}, Landroid/support/v7/app/AlertController;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;Landroid/os/Message;Landroid/graphics/drawable/Drawable;)V
+
+    .line 245
     return-void
 .end method
 
 .method public setButton(ILjava/lang/CharSequence;Landroid/os/Message;)V
-    .locals 2
+    .locals 6
     .param p1, "whichButton"    # I
     .param p2, "text"    # Ljava/lang/CharSequence;
     .param p3, "msg"    # Landroid/os/Message;
 
     .prologue
-    .line 207
+    const/4 v3, 0x0
+
+    .line 211
     iget-object v0, p0, Landroid/support/v7/app/AlertDialog;->mAlert:Landroid/support/v7/app/AlertController;
 
-    const/4 v1, 0x0
+    move v1, p1
 
-    invoke-virtual {v0, p1, p2, v1, p3}, Landroid/support/v7/app/AlertController;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;Landroid/os/Message;)V
+    move-object v2, p2
 
-    .line 208
+    move-object v4, p3
+
+    move-object v5, v3
+
+    invoke-virtual/range {v0 .. v5}, Landroid/support/v7/app/AlertController;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;Landroid/os/Message;Landroid/graphics/drawable/Drawable;)V
+
+    .line 212
     return-void
 .end method
 
 .method setButtonPanelLayoutHint(I)V
     .locals 1
     .param p1, "layoutHint"    # I
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .prologue
-    .line 192
+    .line 196
     iget-object v0, p0, Landroid/support/v7/app/AlertDialog;->mAlert:Landroid/support/v7/app/AlertController;
 
     invoke-virtual {v0, p1}, Landroid/support/v7/app/AlertController;->setButtonPanelLayoutHint(I)V
 
-    .line 193
+    .line 197
     return-void
 .end method
 
@@ -318,12 +368,12 @@
     .param p1, "customTitleView"    # Landroid/view/View;
 
     .prologue
-    .line 153
+    .line 155
     iget-object v0, p0, Landroid/support/v7/app/AlertDialog;->mAlert:Landroid/support/v7/app/AlertController;
 
     invoke-virtual {v0, p1}, Landroid/support/v7/app/AlertController;->setCustomTitle(Landroid/view/View;)V
 
-    .line 154
+    .line 156
     return-void
 .end method
 
@@ -332,12 +382,12 @@
     .param p1, "resId"    # I
 
     .prologue
-    .line 231
+    .line 253
     iget-object v0, p0, Landroid/support/v7/app/AlertDialog;->mAlert:Landroid/support/v7/app/AlertController;
 
     invoke-virtual {v0, p1}, Landroid/support/v7/app/AlertController;->setIcon(I)V
 
-    .line 232
+    .line 254
     return-void
 .end method
 
@@ -346,12 +396,12 @@
     .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
-    .line 240
+    .line 262
     iget-object v0, p0, Landroid/support/v7/app/AlertDialog;->mAlert:Landroid/support/v7/app/AlertController;
 
     invoke-virtual {v0, p1}, Landroid/support/v7/app/AlertController;->setIcon(Landroid/graphics/drawable/Drawable;)V
 
-    .line 241
+    .line 263
     return-void
 .end method
 
@@ -360,12 +410,12 @@
     .param p1, "attrId"    # I
 
     .prologue
-    .line 249
+    .line 271
     new-instance v0, Landroid/util/TypedValue;
 
     invoke-direct {v0}, Landroid/util/TypedValue;-><init>()V
 
-    .line 250
+    .line 272
     .local v0, "out":Landroid/util/TypedValue;
     invoke-virtual {p0}, Landroid/support/v7/app/AlertDialog;->getContext()Landroid/content/Context;
 
@@ -379,14 +429,14 @@
 
     invoke-virtual {v1, p1, v0, v2}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
 
-    .line 251
+    .line 273
     iget-object v1, p0, Landroid/support/v7/app/AlertDialog;->mAlert:Landroid/support/v7/app/AlertController;
 
     iget v2, v0, Landroid/util/TypedValue;->resourceId:I
 
     invoke-virtual {v1, v2}, Landroid/support/v7/app/AlertController;->setIcon(I)V
 
-    .line 252
+    .line 274
     return-void
 .end method
 
@@ -395,12 +445,12 @@
     .param p1, "message"    # Ljava/lang/CharSequence;
 
     .prologue
-    .line 162
+    .line 164
     iget-object v0, p0, Landroid/support/v7/app/AlertDialog;->mAlert:Landroid/support/v7/app/AlertController;
 
     invoke-virtual {v0, p1}, Landroid/support/v7/app/AlertController;->setMessage(Ljava/lang/CharSequence;)V
 
-    .line 163
+    .line 165
     return-void
 .end method
 
@@ -409,15 +459,15 @@
     .param p1, "title"    # Ljava/lang/CharSequence;
 
     .prologue
-    .line 143
+    .line 145
     invoke-super {p0, p1}, Landroid/support/v7/app/AppCompatDialog;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 144
+    .line 146
     iget-object v0, p0, Landroid/support/v7/app/AlertDialog;->mAlert:Landroid/support/v7/app/AlertController;
 
     invoke-virtual {v0, p1}, Landroid/support/v7/app/AlertController;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 145
+    .line 147
     return-void
 .end method
 
@@ -426,12 +476,12 @@
     .param p1, "view"    # Landroid/view/View;
 
     .prologue
-    .line 170
+    .line 172
     iget-object v0, p0, Landroid/support/v7/app/AlertDialog;->mAlert:Landroid/support/v7/app/AlertController;
 
     invoke-virtual {v0, p1}, Landroid/support/v7/app/AlertController;->setView(Landroid/view/View;)V
 
-    .line 171
+    .line 173
     return-void
 .end method
 
@@ -444,7 +494,7 @@
     .param p5, "viewSpacingBottom"    # I
 
     .prologue
-    .line 185
+    .line 187
     iget-object v0, p0, Landroid/support/v7/app/AlertDialog;->mAlert:Landroid/support/v7/app/AlertController;
 
     move-object v1, p1
@@ -459,6 +509,6 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/support/v7/app/AlertController;->setView(Landroid/view/View;IIII)V
 
-    .line 186
+    .line 188
     return-void
 .end method

@@ -18,7 +18,7 @@
 
 .field private static final BUNDLE_SNAPSHOT_IMAGE_SCALETYPE:Ljava/lang/String; = "sharedElement:snapshot:imageScaleType"
 
-.field private static MAX_IMAGE_SIZE:I
+.field private static final MAX_IMAGE_SIZE:I = 0x100000
 
 
 # instance fields
@@ -26,18 +26,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    .prologue
-    .line 44
-    const/high16 v0, 0x100000
-
-    sput v0, Landroid/support/v4/app/SharedElementCallback;->MAX_IMAGE_SIZE:I
-
-    return-void
-.end method
-
 .method public constructor <init>()V
     .locals 0
 
@@ -85,9 +73,7 @@
     :cond_1
     const/high16 v12, 0x3f800000    # 1.0f
 
-    sget v13, Landroid/support/v4/app/SharedElementCallback;->MAX_IMAGE_SIZE:I
-
-    int-to-float v13, v13
+    const/high16 v13, 0x49800000    # 1048576.0f
 
     mul-int v14, v11, v6
 
@@ -339,9 +325,7 @@
     .line 193
     const/high16 v12, 0x3f800000    # 1.0f
 
-    sget v13, Landroid/support/v4/app/SharedElementCallback;->MAX_IMAGE_SIZE:I
-
-    int-to-float v13, v13
+    const/high16 v13, 0x49800000    # 1048576.0f
 
     mul-int v14, v4, v3
 

@@ -24,7 +24,7 @@
     .param p1, "this$0"    # Landroid/support/v4/view/ViewPager;
 
     .prologue
-    .line 3050
+    .line 3037
     iput-object p1, p0, Landroid/support/v4/view/ViewPager$MyAccessibilityDelegate;->this$0:Landroid/support/v4/view/ViewPager;
 
     invoke-direct {p0}, Landroid/support/v4/view/AccessibilityDelegateCompat;-><init>()V
@@ -38,7 +38,7 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 3103
+    .line 3087
     iget-object v1, p0, Landroid/support/v4/view/ViewPager$MyAccessibilityDelegate;->this$0:Landroid/support/v4/view/ViewPager;
 
     iget-object v1, v1, Landroid/support/v4/view/ViewPager;->mAdapter:Landroid/support/v4/view/PagerAdapter;
@@ -67,77 +67,71 @@
 
 # virtual methods
 .method public onInitializeAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
-    .locals 3
+    .locals 2
     .param p1, "host"    # Landroid/view/View;
     .param p2, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
     .prologue
-    .line 3054
+    .line 3041
     invoke-super {p0, p1, p2}, Landroid/support/v4/view/AccessibilityDelegateCompat;->onInitializeAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
 
-    .line 3055
-    const-class v1, Landroid/support/v4/view/ViewPager;
+    .line 3042
+    const-class v0, Landroid/support/v4/view/ViewPager;
 
-    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {p2, v1}, Landroid/view/accessibility/AccessibilityEvent;->setClassName(Ljava/lang/CharSequence;)V
-
-    .line 3057
-    invoke-static {p2}, Landroid/support/v4/view/accessibility/AccessibilityEventCompat;->asRecord(Landroid/view/accessibility/AccessibilityEvent;)Landroid/support/v4/view/accessibility/AccessibilityRecordCompat;
+    invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 3058
-    .local v0, "recordCompat":Landroid/support/v4/view/accessibility/AccessibilityRecordCompat;
+    invoke-virtual {p2, v0}, Landroid/view/accessibility/AccessibilityEvent;->setClassName(Ljava/lang/CharSequence;)V
+
+    .line 3043
     invoke-direct {p0}, Landroid/support/v4/view/ViewPager$MyAccessibilityDelegate;->canScroll()Z
 
-    move-result v1
+    move-result v0
 
-    invoke-virtual {v0, v1}, Landroid/support/v4/view/accessibility/AccessibilityRecordCompat;->setScrollable(Z)V
+    invoke-virtual {p2, v0}, Landroid/view/accessibility/AccessibilityEvent;->setScrollable(Z)V
 
-    .line 3059
+    .line 3044
     invoke-virtual {p2}, Landroid/view/accessibility/AccessibilityEvent;->getEventType()I
 
-    move-result v1
+    move-result v0
 
-    const/16 v2, 0x1000
+    const/16 v1, 0x1000
 
-    if-ne v1, v2, :cond_0
+    if-ne v0, v1, :cond_0
 
-    iget-object v1, p0, Landroid/support/v4/view/ViewPager$MyAccessibilityDelegate;->this$0:Landroid/support/v4/view/ViewPager;
+    iget-object v0, p0, Landroid/support/v4/view/ViewPager$MyAccessibilityDelegate;->this$0:Landroid/support/v4/view/ViewPager;
 
-    iget-object v1, v1, Landroid/support/v4/view/ViewPager;->mAdapter:Landroid/support/v4/view/PagerAdapter;
+    iget-object v0, v0, Landroid/support/v4/view/ViewPager;->mAdapter:Landroid/support/v4/view/PagerAdapter;
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    .line 3061
-    iget-object v1, p0, Landroid/support/v4/view/ViewPager$MyAccessibilityDelegate;->this$0:Landroid/support/v4/view/ViewPager;
+    .line 3045
+    iget-object v0, p0, Landroid/support/v4/view/ViewPager$MyAccessibilityDelegate;->this$0:Landroid/support/v4/view/ViewPager;
 
-    iget-object v1, v1, Landroid/support/v4/view/ViewPager;->mAdapter:Landroid/support/v4/view/PagerAdapter;
+    iget-object v0, v0, Landroid/support/v4/view/ViewPager;->mAdapter:Landroid/support/v4/view/PagerAdapter;
 
-    invoke-virtual {v1}, Landroid/support/v4/view/PagerAdapter;->getCount()I
+    invoke-virtual {v0}, Landroid/support/v4/view/PagerAdapter;->getCount()I
 
-    move-result v1
+    move-result v0
 
-    invoke-virtual {v0, v1}, Landroid/support/v4/view/accessibility/AccessibilityRecordCompat;->setItemCount(I)V
+    invoke-virtual {p2, v0}, Landroid/view/accessibility/AccessibilityEvent;->setItemCount(I)V
 
-    .line 3062
-    iget-object v1, p0, Landroid/support/v4/view/ViewPager$MyAccessibilityDelegate;->this$0:Landroid/support/v4/view/ViewPager;
+    .line 3046
+    iget-object v0, p0, Landroid/support/v4/view/ViewPager$MyAccessibilityDelegate;->this$0:Landroid/support/v4/view/ViewPager;
 
-    iget v1, v1, Landroid/support/v4/view/ViewPager;->mCurItem:I
+    iget v0, v0, Landroid/support/v4/view/ViewPager;->mCurItem:I
 
-    invoke-virtual {v0, v1}, Landroid/support/v4/view/accessibility/AccessibilityRecordCompat;->setFromIndex(I)V
+    invoke-virtual {p2, v0}, Landroid/view/accessibility/AccessibilityEvent;->setFromIndex(I)V
 
-    .line 3063
-    iget-object v1, p0, Landroid/support/v4/view/ViewPager$MyAccessibilityDelegate;->this$0:Landroid/support/v4/view/ViewPager;
+    .line 3047
+    iget-object v0, p0, Landroid/support/v4/view/ViewPager$MyAccessibilityDelegate;->this$0:Landroid/support/v4/view/ViewPager;
 
-    iget v1, v1, Landroid/support/v4/view/ViewPager;->mCurItem:I
+    iget v0, v0, Landroid/support/v4/view/ViewPager;->mCurItem:I
 
-    invoke-virtual {v0, v1}, Landroid/support/v4/view/accessibility/AccessibilityRecordCompat;->setToIndex(I)V
+    invoke-virtual {p2, v0}, Landroid/view/accessibility/AccessibilityEvent;->setToIndex(I)V
 
-    .line 3065
+    .line 3049
     :cond_0
     return-void
 .end method
@@ -148,10 +142,10 @@
     .param p2, "info"    # Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
 
     .prologue
-    .line 3069
+    .line 3053
     invoke-super {p0, p1, p2}, Landroid/support/v4/view/AccessibilityDelegateCompat;->onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;)V
 
-    .line 3070
+    .line 3054
     const-class v0, Landroid/support/v4/view/ViewPager;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
@@ -160,14 +154,14 @@
 
     invoke-virtual {p2, v0}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->setClassName(Ljava/lang/CharSequence;)V
 
-    .line 3071
+    .line 3055
     invoke-direct {p0}, Landroid/support/v4/view/ViewPager$MyAccessibilityDelegate;->canScroll()Z
 
     move-result v0
 
     invoke-virtual {p2, v0}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->setScrollable(Z)V
 
-    .line 3072
+    .line 3056
     iget-object v0, p0, Landroid/support/v4/view/ViewPager$MyAccessibilityDelegate;->this$0:Landroid/support/v4/view/ViewPager;
 
     const/4 v1, 0x1
@@ -178,12 +172,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 3073
+    .line 3057
     const/16 v0, 0x1000
 
     invoke-virtual {p2, v0}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->addAction(I)V
 
-    .line 3075
+    .line 3059
     :cond_0
     iget-object v0, p0, Landroid/support/v4/view/ViewPager$MyAccessibilityDelegate;->this$0:Landroid/support/v4/view/ViewPager;
 
@@ -195,12 +189,12 @@
 
     if-eqz v0, :cond_1
 
-    .line 3076
+    .line 3060
     const/16 v0, 0x2000
 
     invoke-virtual {p2, v0}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->addAction(I)V
 
-    .line 3078
+    .line 3062
     :cond_1
     return-void
 .end method
@@ -216,27 +210,27 @@
 
     const/4 v0, 0x1
 
-    .line 3082
+    .line 3066
     invoke-super {p0, p1, p2, p3}, Landroid/support/v4/view/AccessibilityDelegateCompat;->performAccessibilityAction(Landroid/view/View;ILandroid/os/Bundle;)Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
-    .line 3099
+    .line 3083
     :goto_0
     return v0
 
-    .line 3085
+    .line 3069
     :cond_0
     sparse-switch p2, :sswitch_data_0
 
     move v0, v1
 
-    .line 3099
+    .line 3083
     goto :goto_0
 
-    .line 3087
+    .line 3071
     :sswitch_0
     iget-object v2, p0, Landroid/support/v4/view/ViewPager$MyAccessibilityDelegate;->this$0:Landroid/support/v4/view/ViewPager;
 
@@ -246,7 +240,7 @@
 
     if-eqz v2, :cond_1
 
-    .line 3088
+    .line 3072
     iget-object v1, p0, Landroid/support/v4/view/ViewPager$MyAccessibilityDelegate;->this$0:Landroid/support/v4/view/ViewPager;
 
     iget-object v2, p0, Landroid/support/v4/view/ViewPager$MyAccessibilityDelegate;->this$0:Landroid/support/v4/view/ViewPager;
@@ -262,10 +256,10 @@
     :cond_1
     move v0, v1
 
-    .line 3091
+    .line 3075
     goto :goto_0
 
-    .line 3093
+    .line 3077
     :sswitch_1
     iget-object v2, p0, Landroid/support/v4/view/ViewPager$MyAccessibilityDelegate;->this$0:Landroid/support/v4/view/ViewPager;
 
@@ -277,7 +271,7 @@
 
     if-eqz v2, :cond_2
 
-    .line 3094
+    .line 3078
     iget-object v1, p0, Landroid/support/v4/view/ViewPager$MyAccessibilityDelegate;->this$0:Landroid/support/v4/view/ViewPager;
 
     iget-object v2, p0, Landroid/support/v4/view/ViewPager$MyAccessibilityDelegate;->this$0:Landroid/support/v4/view/ViewPager;
@@ -293,10 +287,10 @@
     :cond_2
     move v0, v1
 
-    .line 3097
+    .line 3081
     goto :goto_0
 
-    .line 3085
+    .line 3069
     nop
 
     :sswitch_data_0

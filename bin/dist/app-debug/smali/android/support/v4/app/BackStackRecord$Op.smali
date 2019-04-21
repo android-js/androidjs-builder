@@ -33,8 +33,28 @@
     .locals 0
 
     .prologue
-    .line 190
+    .line 200
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 201
+    return-void
+.end method
+
+.method constructor <init>(ILandroid/support/v4/app/Fragment;)V
+    .locals 0
+    .param p1, "cmd"    # I
+    .param p2, "fragment"    # Landroid/support/v4/app/Fragment;
+
+    .prologue
+    .line 203
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 204
+    iput p1, p0, Landroid/support/v4/app/BackStackRecord$Op;->cmd:I
+
+    .line 205
+    iput-object p2, p0, Landroid/support/v4/app/BackStackRecord$Op;->fragment:Landroid/support/v4/app/Fragment;
+
+    .line 206
     return-void
 .end method
