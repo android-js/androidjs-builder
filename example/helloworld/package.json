@@ -9,7 +9,7 @@
   "permission": ["android.permission.INTERNET"],
   "scripts": {
     "test": "node main.js",
-    "build": "androidjs build"
+    "build": "androidjs build -f"
   },
   "dist-path": "./dist",
   "author": "",
