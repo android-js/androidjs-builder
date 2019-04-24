@@ -1,6 +1,6 @@
 {
   "name": "androidjs-builder",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "",
   "main": "./bin/run.js",
   "scripts": {
@@ -12,9 +12,11 @@
   "author": "pankajdevesh3@gmail.com",
   "license": "MIT",
   "dependencies": {
-    "xml2js": "^0.4.19",
+    "array-differ": "^3.0.0",
     "commander": "^2.20.0",
     "copy-dir": "^0.4.0",
-    "recursive-copy": "^2.0.10"
+    "fs-extra": "^7.0.1",
+    "recursive-copy": "^2.0.10",
+    "xml2js": "^0.4.19"
   }
 }

@@ -287,3 +287,65 @@ app.camera = camera;
  }
 
  app.microphone = microphone;
+
+
+/**
+ * Notification API
+ */
+
+let notification = {
+    init: function(title, msg){
+        window.android.initNotification(title, msg);
+    },
+    initBig: function(title, msg){
+        if(typeof msg == "string") throw "Error: second parameter of initBig() should be an array of strings";
+        window.android.initBigNotification(title, msg);
+    },
+    show: function(id){
+        window.android.showNotification(id);
+    }
+}
+
+app.notification = notification;
+
+
+/**
+ * Toast API
+ */
+
+
+let toast = {
+    show: function(text, duration){
+        window.android.showToast(text, duration);
+    }
+}
+
+app.toast = toast;
+
+/**
+ * Call API
+ */
+
+let call = {
+    makeCall: function(number){
+        window.android.makeCall(number);
+    }
+}
+
+app.call = call;
+
+/**
+ * App Module
+ */
+
+app.getPath = function(name){
+    return window.android.getPath(name);
+}
+
+app.loadURL = function(url){
+    window.href = url;
+}
+
+app.reload = function(){
+    window.reload();
+}
