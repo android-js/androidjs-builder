@@ -1,3 +1,8 @@
 # dependencies
 /node_modules
+<<<<<<< HEAD
 .idea
+=======
+.idea
+.git
+>>>>>>> 9619e4f6942dae718794165ec91e7d30c84c8c8b

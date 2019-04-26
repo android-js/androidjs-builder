@@ -24,7 +24,11 @@
     .param p1, "this$0"    # Lcom/android/js/MainActivity;
 
     .prologue
+<<<<<<< HEAD
     .line 110
+=======
+    .line 113
+>>>>>>> 9619e4f6942dae718794165ec91e7d30c84c8c8b
     iput-object p1, p0, Lcom/android/js/MainActivity$2;->this$0:Lcom/android/js/MainActivity;
 
     invoke-direct {p0}, Landroid/webkit/WebChromeClient;-><init>()V
@@ -42,13 +46,21 @@
     .end annotation
 
     .prologue
+<<<<<<< HEAD
     .line 115
+=======
+    .line 118
+>>>>>>> 9619e4f6942dae718794165ec91e7d30c84c8c8b
     invoke-virtual {p1}, Landroid/webkit/PermissionRequest;->getResources()[Ljava/lang/String;
 
     move-result-object v0
 
     invoke-virtual {p1, v0}, Landroid/webkit/PermissionRequest;->grant([Ljava/lang/String;)V
 
+<<<<<<< HEAD
     .line 117
+=======
+    .line 120
+>>>>>>> 9619e4f6942dae718794165ec91e7d30c84c8c8b
     return-void
 .end method

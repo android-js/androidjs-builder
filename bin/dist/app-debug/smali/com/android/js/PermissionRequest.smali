@@ -212,6 +212,48 @@
 
     goto :goto_1
 
+<<<<<<< HEAD
+=======
+    :sswitch_9
+    const-string v9, "android.permission.ACCESS_WIFI_STATE"
+
+    invoke-virtual {v1, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_0
+
+    const/16 v5, 0x9
+
+    goto :goto_1
+
+    :sswitch_a
+    const-string v9, "android.permission.CHANGE_WIFI_STATE"
+
+    invoke-virtual {v1, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_0
+
+    const/16 v5, 0xa
+
+    goto :goto_1
+
+    :sswitch_b
+    const-string v9, "android.permission.WRITE_SETTINGS"
+
+    invoke-virtual {v1, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_0
+
+    const/16 v5, 0xb
+
+    goto/16 :goto_1
+
+>>>>>>> 9619e4f6942dae718794165ec91e7d30c84c8c8b
     .line 29
     :pswitch_0
     const-string v5, "Manigest"
@@ -227,7 +269,7 @@
 
     invoke-virtual {v3, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_2
+    goto/16 :goto_2
 
     .line 35
     :pswitch_1
@@ -244,7 +286,7 @@
 
     invoke-virtual {v3, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_2
+    goto/16 :goto_2
 
     .line 40
     :pswitch_2
@@ -365,7 +407,62 @@
 
     goto/16 :goto_2
 
+<<<<<<< HEAD
     .line 76
+=======
+    .line 75
+    :pswitch_9
+    const-string v5, "android.permission.ACCESS_WIFI_STATE"
+
+    invoke-static {p1, v5}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
+
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    .line 76
+    const-string v5, "android.permission.ACCESS_WIFI_STATE"
+
+    invoke-virtual {v3, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    .line 80
+    :pswitch_a
+    const-string v5, "android.permission.CHANGE_WIFI_STATE"
+
+    invoke-static {p1, v5}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
+
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    .line 81
+    const-string v5, "android.permission.CHANGE_WIFI_STATE"
+
+    invoke-virtual {v3, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    .line 85
+    :pswitch_b
+    const-string v5, "android.permission.WRITE_SETTINGS"
+
+    invoke-static {p1, v5}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
+
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    .line 86
+    const-string v5, "android.permission.WRITE_SETTINGS"
+
+    invoke-virtual {v3, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    .line 91
+>>>>>>> 9619e4f6942dae718794165ec91e7d30c84c8c8b
     .end local v1    # "permission":Ljava/lang/String;
     :cond_2
     invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
@@ -374,7 +471,11 @@
 
     new-array v2, v5, [Ljava/lang/String;
 
+<<<<<<< HEAD
     .line 77
+=======
+    .line 92
+>>>>>>> 9619e4f6942dae718794165ec91e7d30c84c8c8b
     .local v2, "permissions":[Ljava/lang/String;
     const/4 v0, 0x0
 
@@ -386,7 +487,11 @@
 
     if-ge v0, v5, :cond_3
 
+<<<<<<< HEAD
     .line 78
+=======
+    .line 93
+>>>>>>> 9619e4f6942dae718794165ec91e7d30c84c8c8b
     invoke-virtual {v3, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v5
@@ -395,19 +500,31 @@
 
     aput-object v5, v2, v0
 
+<<<<<<< HEAD
     .line 79
+=======
+    .line 94
+>>>>>>> 9619e4f6942dae718794165ec91e7d30c84c8c8b
     sget-object v5, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     aget-object v6, v2, v0
 
     invoke-virtual {v5, v6}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
+<<<<<<< HEAD
     .line 77
+=======
+    .line 92
+>>>>>>> 9619e4f6942dae718794165ec91e7d30c84c8c8b
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_3
 
+<<<<<<< HEAD
     .line 82
+=======
+    .line 97
+>>>>>>> 9619e4f6942dae718794165ec91e7d30c84c8c8b
     :cond_3
     return-object v2
 
@@ -416,14 +533,20 @@
 
     :sswitch_data_0
     .sparse-switch
+        -0x7be1381d -> :sswitch_b
         -0x70918bc1 -> :sswitch_3
         -0x6c756e8f -> :sswitch_7
         -0x1833add0 -> :sswitch_5
         -0x3c1ac56 -> :sswitch_2
         0x6afff6d -> :sswitch_8
+<<<<<<< HEAD
+=======
+        0x10424776 -> :sswitch_a
+>>>>>>> 9619e4f6942dae718794165ec91e7d30c84c8c8b
         0x1772a2a5 -> :sswitch_1
         0x1b9efa65 -> :sswitch_0
         0x516a29a7 -> :sswitch_4
+        0x63db4d42 -> :sswitch_9
         0x6d24f988 -> :sswitch_6
     .end sparse-switch
 
@@ -438,6 +561,12 @@
         :pswitch_6
         :pswitch_7
         :pswitch_8
+<<<<<<< HEAD
+=======
+        :pswitch_9
+        :pswitch_a
+        :pswitch_b
+>>>>>>> 9619e4f6942dae718794165ec91e7d30c84c8c8b
     .end packed-switch
 .end method
 
@@ -446,14 +575,23 @@
     .param p0, "context"    # Landroid/content/Context;
 
     .prologue
+<<<<<<< HEAD
     .line 87
     .line 88
+=======
+    .line 102
+    .line 103
+>>>>>>> 9619e4f6942dae718794165ec91e7d30c84c8c8b
     :try_start_0
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v1
 
+<<<<<<< HEAD
     .line 89
+=======
+    .line 104
+>>>>>>> 9619e4f6942dae718794165ec91e7d30c84c8c8b
     invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
     move-result-object v2
@@ -468,6 +606,7 @@
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
+<<<<<<< HEAD
     .line 87
     return-object v1
 
@@ -476,6 +615,16 @@
     move-exception v0
 
     .line 92
+=======
+    .line 102
+    return-object v1
+
+    .line 106
+    :catch_0
+    move-exception v0
+
+    .line 107
+>>>>>>> 9619e4f6942dae718794165ec91e7d30c84c8c8b
     .local v0, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     new-instance v1, Ljava/lang/RuntimeException;
 

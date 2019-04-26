@@ -27,7 +27,11 @@
     .param p1, "this$0"    # Lcom/android/js/MainActivity;
 
     .prologue
+<<<<<<< HEAD
     .line 61
+=======
+    .line 65
+>>>>>>> 9619e4f6942dae718794165ec91e7d30c84c8c8b
     iput-object p1, p0, Lcom/android/js/MainActivity$1;->this$0:Lcom/android/js/MainActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +45,11 @@
     .locals 7
 
     .prologue
+<<<<<<< HEAD
     .line 65
+=======
+    .line 69
+>>>>>>> 9619e4f6942dae718794165ec91e7d30c84c8c8b
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -74,7 +82,11 @@
 
     move-result-object v0
 
+<<<<<<< HEAD
     .line 66
+=======
+    .line 70
+>>>>>>> 9619e4f6942dae718794165ec91e7d30c84c8c8b
     .local v0, "nodeDir":Ljava/lang/String;
     iget-object v2, p0, Lcom/android/js/MainActivity$1;->this$0:Lcom/android/js/MainActivity;
 
@@ -88,12 +100,20 @@
 
     if-eqz v2, :cond_1
 
+<<<<<<< HEAD
     .line 68
+=======
+    .line 72
+>>>>>>> 9619e4f6942dae718794165ec91e7d30c84c8c8b
     new-instance v1, Ljava/io/File;
 
     invoke-direct {v1, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
+<<<<<<< HEAD
     .line 69
+=======
+    .line 73
+>>>>>>> 9619e4f6942dae718794165ec91e7d30c84c8c8b
     .local v1, "nodeDirReference":Ljava/io/File;
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
@@ -101,14 +121,22 @@
 
     if-eqz v2, :cond_0
 
+<<<<<<< HEAD
     .line 70
+=======
+    .line 74
+>>>>>>> 9619e4f6942dae718794165ec91e7d30c84c8c8b
     new-instance v2, Ljava/io/File;
 
     invoke-direct {v2, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     invoke-static {v2}, Lcom/android/js/Utils;->deleteFolderRecursively(Ljava/io/File;)Z
 
+<<<<<<< HEAD
     .line 73
+=======
+    .line 77
+>>>>>>> 9619e4f6942dae718794165ec91e7d30c84c8c8b
     :cond_0
     iget-object v2, p0, Lcom/android/js/MainActivity$1;->this$0:Lcom/android/js/MainActivity;
 
@@ -124,7 +152,11 @@
 
     invoke-static {v2, v3, v0}, Lcom/android/js/Utils;->copyAssetFolder(Landroid/content/res/AssetManager;Ljava/lang/String;Ljava/lang/String;)Z
 
+<<<<<<< HEAD
     .line 75
+=======
+    .line 79
+>>>>>>> 9619e4f6942dae718794165ec91e7d30c84c8c8b
     iget-object v2, p0, Lcom/android/js/MainActivity$1;->this$0:Lcom/android/js/MainActivity;
 
     invoke-virtual {v2}, Lcom/android/js/MainActivity;->getApplicationContext()Landroid/content/Context;
@@ -133,7 +165,11 @@
 
     invoke-static {v2}, Lcom/android/js/Utils;->saveLastUpdateTime(Landroid/content/Context;)V
 
+<<<<<<< HEAD
     .line 77
+=======
+    .line 81
+>>>>>>> 9619e4f6942dae718794165ec91e7d30c84c8c8b
     .end local v1    # "nodeDirReference":Ljava/io/File;
     :cond_1
     iget-object v2, p0, Lcom/android/js/MainActivity$1;->this$0:Lcom/android/js/MainActivity;
@@ -172,6 +208,10 @@
 
     invoke-virtual {v2, v3}, Lcom/android/js/MainActivity;->startNodeWithArguments([Ljava/lang/String;)Ljava/lang/Integer;
 
+<<<<<<< HEAD
     .line 80
+=======
+    .line 84
+>>>>>>> 9619e4f6942dae718794165ec91e7d30c84c8c8b
     return-void
 .end method

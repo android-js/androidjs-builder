@@ -8,7 +8,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
+<<<<<<< HEAD
   "build": "androidjs build -f"
+=======
+  "build": "androidjs build -f",
+>>>>>>> 9619e4f6942dae718794165ec91e7d30c84c8c8b
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

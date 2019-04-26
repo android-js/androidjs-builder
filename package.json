@@ -1,6 +1,10 @@
 {
   "name": "androidjs-builder",
+<<<<<<< HEAD
   "version": "1.0.6",
+=======
+  "version": "1.0.7",
+>>>>>>> 9619e4f6942dae718794165ec91e7d30c84c8c8b
   "description": "",
   "main": "./bin/run.js",
   "scripts": {
