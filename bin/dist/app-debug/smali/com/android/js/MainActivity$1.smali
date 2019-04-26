@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Lcom/android/js/MainActivity;
 
     .prologue
-    .line 61
+    .line 65
     iput-object p1, p0, Lcom/android/js/MainActivity$1;->this$0:Lcom/android/js/MainActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .locals 7
 
     .prologue
-    .line 65
+    .line 69
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -74,7 +74,7 @@
 
     move-result-object v0
 
-    .line 66
+    .line 70
     .local v0, "nodeDir":Ljava/lang/String;
     iget-object v2, p0, Lcom/android/js/MainActivity$1;->this$0:Lcom/android/js/MainActivity;
 
@@ -88,12 +88,12 @@
 
     if-eqz v2, :cond_1
 
-    .line 68
+    .line 72
     new-instance v1, Ljava/io/File;
 
     invoke-direct {v1, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 69
+    .line 73
     .local v1, "nodeDirReference":Ljava/io/File;
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
@@ -101,14 +101,14 @@
 
     if-eqz v2, :cond_0
 
-    .line 70
+    .line 74
     new-instance v2, Ljava/io/File;
 
     invoke-direct {v2, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     invoke-static {v2}, Lcom/android/js/Utils;->deleteFolderRecursively(Ljava/io/File;)Z
 
-    .line 73
+    .line 77
     :cond_0
     iget-object v2, p0, Lcom/android/js/MainActivity$1;->this$0:Lcom/android/js/MainActivity;
 
@@ -124,7 +124,7 @@
 
     invoke-static {v2, v3, v0}, Lcom/android/js/Utils;->copyAssetFolder(Landroid/content/res/AssetManager;Ljava/lang/String;Ljava/lang/String;)Z
 
-    .line 75
+    .line 79
     iget-object v2, p0, Lcom/android/js/MainActivity$1;->this$0:Lcom/android/js/MainActivity;
 
     invoke-virtual {v2}, Lcom/android/js/MainActivity;->getApplicationContext()Landroid/content/Context;
@@ -133,7 +133,7 @@
 
     invoke-static {v2}, Lcom/android/js/Utils;->saveLastUpdateTime(Landroid/content/Context;)V
 
-    .line 77
+    .line 81
     .end local v1    # "nodeDirReference":Ljava/io/File;
     :cond_1
     iget-object v2, p0, Lcom/android/js/MainActivity$1;->this$0:Lcom/android/js/MainActivity;
@@ -172,6 +172,6 @@
 
     invoke-virtual {v2, v3}, Lcom/android/js/MainActivity;->startNodeWithArguments([Ljava/lang/String;)Ljava/lang/Integer;
 
-    .line 80
+    .line 84
     return-void
 .end method
