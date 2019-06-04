@@ -1,0 +1,180 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "type": "select",
+      "question": "Which type of tax payer you are ?",
+      "options": ["individual"],
+      "children": []
+    },
+    {
+      "id": "2",
+      "type": "select",
+      "question": "What is your category ?",
+      "options": ["male", "female", "senior_citizen", "super_senior_citizen"],
+      "children": []
+    },
+    {
+      "id": "3",
+      "type": "select",
+      "question": "What is your residential status ?",
+      "options": ["resident", "non_resident", "not_ordinary_resident"],
+      "children": []
+    },
+    {
+      "id": "4",
+      "type": "any",
+      "question": "What are your sources of income ?",
+      "options": ["individual"],
+      "children": [
+        {
+          "id": "4-1",
+          "type": "input",
+          "question": "What is your salary ?",
+          "options": [],
+          "children": []
+        },
+        {
+          "id": "4-2",
+          "type": "select",
+          "question": "Houese Property",
+          "options": ["individual"],
+          "children": [
+            {
+              "id": "4-2-1",
+              "type": "any",
+              "question": "Interest Paid/Payable on Housing Loan for Current Financial Year",
+              "options": [],
+              "children": [
+                {
+                  "id": "4-2-1-1",
+                  "type": "input",
+                  "question": "Interest on Housing Loan",
+                  "options": [],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "id": "4-2-2",
+              "type": "any",
+              "question": "Income from Let-out Property",
+              "options": [],
+              "children": [
+                {
+                  "id": "4-2-2-1",
+                  "ref": "#a",
+                  "type": "input",
+                  "question": "Annual Letable Value/Rent Received or Receivable",
+                  "options": [],
+                  "children": []
+                },
+                {
+                  "id": "4-2-2-2",
+                  "ref": "#b",
+                  "type": "input",
+                  "question": "Less: Municipal Taxes Paid During the Year",
+                  "options": [],
+                  "children": []
+                },
+                {
+                  "id": "4-2-2-3",
+                  "ref": "#c",
+                  "type": "input",
+                  "question": "Less:Unrealized Rent",
+                  "options": [],
+                  "children": []
+                },
+                {
+                  "id": "4-2-2-4",
+                  "type": "output",
+                  "ref": "#d",
+                  "formula": "a - b - c",
+                  "question": "Net Annual Value (1-(2+3))",
+                  "options": [],
+                  "children": []
+                },
+                {
+                  "id": "4-2-2-5",
+                  "type": "any",
+                  "question": "Less: Deductions from Net Annual Value",
+                  "options": [],
+                  "children": [
+                    {
+                      "id": "4-2-2-5-1",
+                      "type": "output",
+                      "ref": "#e",
+                      "formula": "(d * 30) / 100",
+                      "question": "Standard Deduction @ 30% of Net Annual Value",
+                      "options": [],
+                      "children": []
+                    },
+                    {
+                      "id": "4-2-2-5-2",
+                      "type": "input",
+                      "ref": "#f",
+                      "question": "Interest on Housing Loan",
+                      "options": [],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "4-2-3",
+              "type": "output",
+              "formula": "e - f",
+              "question": "Income from Let-out House Property",
+              "options": [],
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "4-3",
+          "type": "any",
+          "question": "Income From Other Sources",
+          "options": [],
+          "children": [
+            {
+              "id": "4-3-1",
+              "type": "input",
+              "question": "Interest",
+              "options": [],
+              "children": []
+            },
+            {
+              "id": "4-3-2",
+              "type": "input",
+              "question": "Commission/Other Income",
+              "options": [],
+              "children": []
+            },
+            {
+              "id": "4-3-3",
+              "type": "input",
+              "question": "Winnings from Lottery, Crossword Puzzles, etc.",
+              "options": [],
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "4-4",
+          "type": "input",
+          "question": "Profits and Gains of Business or Profession (enter profit only)",
+          "options": [],
+          "children": []
+        },
+        {
+          "id": "4-5",
+          "type": "input",
+          "question": "Agricultural Income",
+          "options": [],
+          "children": []
+        }
+      ]
+    }
+  ]
+}

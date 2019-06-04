@@ -1,0 +1,6 @@
+{
+  "male": "male.json",
+  "female": "female.json",
+  "senior_citizen": "senior_citizen.json",
+  "super_senior_citizen": "super_senior_citizen.json"
+}
