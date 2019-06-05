@@ -5,7 +5,14 @@ function get_all_users(req, res){
     users.find({}, function(err, data){
         if(err) res.send(err);
         else res.json(data);
-    })
+    });
+}
+
+function get_user_by_id(res, user_id){
+    users.finyById(user_id, function(err, data){
+        if(err) res.send(err);
+        else res.json(data);
+    });
 }
 
 function insert(req, res){
@@ -25,6 +32,7 @@ function insert(req, res){
 }
 
 module.exports = {
-    insert:insert,
-    get_all_users:get_all_users
+    insert: insert,
+    get_all_users: get_all_users,
+    get_user_by_id: get_user_by_id
 }

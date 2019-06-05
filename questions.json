@@ -28,26 +28,26 @@
       "options": ["individual"],
       "children": [
         {
-          "id": "4-1",
+          "id": "4_1",
           "type": "input",
           "question": "What is your salary ?",
           "options": [],
           "children": []
         },
         {
-          "id": "4-2",
+          "id": "4_2",
           "type": "select",
           "question": "Houese Property",
           "options": ["individual"],
           "children": [
             {
-              "id": "4-2-1",
+              "id": "4_2_1",
               "type": "any",
               "question": "Interest Paid/Payable on Housing Loan for Current Financial Year",
               "options": [],
               "children": [
                 {
-                  "id": "4-2-1-1",
+                  "id": "4_2_1_1",
                   "type": "input",
                   "question": "Interest on Housing Loan",
                   "options": [],
@@ -56,13 +56,13 @@
               ]
             },
             {
-              "id": "4-2-2",
+              "id": "4_2_2",
               "type": "any",
-              "question": "Income from Let-out Property",
+              "question": "Income from Let_out Property",
               "options": [],
               "children": [
                 {
-                  "id": "4-2-2-1",
+                  "id": "4_2_2_1",
                   "ref": "#a",
                   "type": "input",
                   "question": "Annual Letable Value/Rent Received or Receivable",
@@ -70,7 +70,7 @@
                   "children": []
                 },
                 {
-                  "id": "4-2-2-2",
+                  "id": "4_2_2_2",
                   "ref": "#b",
                   "type": "input",
                   "question": "Less: Municipal Taxes Paid During the Year",
@@ -78,7 +78,7 @@
                   "children": []
                 },
                 {
-                  "id": "4-2-2-3",
+                  "id": "4_2_2_3",
                   "ref": "#c",
                   "type": "input",
                   "question": "Less:Unrealized Rent",
@@ -86,7 +86,7 @@
                   "children": []
                 },
                 {
-                  "id": "4-2-2-4",
+                  "id": "4_2_2_4",
                   "type": "output",
                   "ref": "#d",
                   "formula": "a - b - c",
@@ -95,13 +95,13 @@
                   "children": []
                 },
                 {
-                  "id": "4-2-2-5",
+                  "id": "4_2_2_5",
                   "type": "any",
                   "question": "Less: Deductions from Net Annual Value",
                   "options": [],
                   "children": [
                     {
-                      "id": "4-2-2-5-1",
+                      "id": "4_2_2_5_1",
                       "type": "output",
                       "ref": "#e",
                       "formula": "(d * 30) / 100",
@@ -110,7 +110,7 @@
                       "children": []
                     },
                     {
-                      "id": "4-2-2-5-2",
+                      "id": "4_2_2_5_2",
                       "type": "input",
                       "ref": "#f",
                       "question": "Interest on Housing Loan",
@@ -122,37 +122,37 @@
               ]
             },
             {
-              "id": "4-2-3",
+              "id": "4_2_3",
               "type": "output",
               "formula": "e - f",
-              "question": "Income from Let-out House Property",
+              "question": "Income from Let_out House Property",
               "options": [],
               "children": []
             }
           ]
         },
         {
-          "id": "4-3",
+          "id": "4_3",
           "type": "any",
           "question": "Income From Other Sources",
           "options": [],
           "children": [
             {
-              "id": "4-3-1",
+              "id": "4_3_1",
               "type": "input",
               "question": "Interest",
               "options": [],
               "children": []
             },
             {
-              "id": "4-3-2",
+              "id": "4_3_2",
               "type": "input",
               "question": "Commission/Other Income",
               "options": [],
               "children": []
             },
             {
-              "id": "4-3-3",
+              "id": "4_3_3",
               "type": "input",
               "question": "Winnings from Lottery, Crossword Puzzles, etc.",
               "options": [],
@@ -161,14 +161,14 @@
           ]
         },
         {
-          "id": "4-4",
+          "id": "4_4",
           "type": "input",
           "question": "Profits and Gains of Business or Profession (enter profit only)",
           "options": [],
           "children": []
         },
         {
-          "id": "4-5",
+          "id": "4_5",
           "type": "input",
           "question": "Agricultural Income",
           "options": [],
