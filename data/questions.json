@@ -36,9 +36,9 @@
         },
         {
           "id": "4_2",
-          "type": "select",
+          "type": "any",
           "question": "Houese Property",
-          "options": ["individual"],
+          "options": [],
           "children": [
             {
               "id": "4_2_1",
