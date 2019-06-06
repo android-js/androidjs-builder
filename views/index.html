@@ -1,0 +1,174 @@
+<html>
+
+<head>
+    <script src="./Vue/vue.js"></script>
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+    <script src="./Vue/axios.min.js"></script>
+
+</head>
+
+<body>
+
+    <div id="app">
+        <!-- <pre>{{questions | pretty}}</pre> -->
+        <!-- <li v-for="Q in (questions.data)" v-if="Q.type!='any'">
+            {{ Q.question }}
+        </li> -->
+
+        <!-- <tree-menu :nodes="tree.nodes" :depth="0" :label="tree.label"></tree-menu> -->
+
+        <my-tree :nodes="questions.data" style="width:400px"></my-tree>
+    </div>
+
+    <script type="text/x-template" id="my-tree">
+        <div class="my-tree">
+            <div v-for="n in nodes">
+                <div v-if="n.type!='any'">
+                    <p>Q:({{n.id}}) {{n.question}}</p>
+                    <select :id="n.id" v-if="n.type=='select'">
+                        <option :value="op" v-for="op in n.options">{{op}}</option>
+                    </select>
+                    <input type="text" v-if="n.type=='input'" :placeholder="n.question" v-bind:value="n.id">
+
+                </div>
+                <div class="question" v-if="n.type=='any'">
+                    <hr>
+                    Q:({{n.id}}){{n.question}}
+                    <my-tree v-if="n.type=='any'" :nodes="n.children"></my-tree>
+                </div>
+            </div>
+        </div>
+    </script>
+
+
+
+
+    <script type="text/x-template" id="tree-menu">
+        <div class="tree-menu">
+          <div class="label-wrapper" @click="toggleChildren">
+            <div :style="indent" :class="labelClasses">
+              <i v-if="nodes" class="fa" :class="iconClasses"></i>{{ label }}
+            </div>
+          </div>
+          <tree-menu 
+            v-if="showChildren"
+            v-for="node in nodes" 
+            :nodes="node.nodes" 
+            :label="node.label"
+            :depth="depth + 1"   
+          >
+          </tree-menu>
+        </div>
+      </script>
+
+    <script>
+        var url = "/static/questions.json";
+        let tree = {
+            label: 'Question no one ? it contains sub-Questions',
+            nodes: [
+                {
+                    label: 'Question no one ? sub q',
+                    nodes: [
+                        {
+                            label: 'item1.1'
+                        },
+                        {
+                            label: 'item1.2',
+                            nodes: [
+                                {
+                                    label: 'item1.2.1'
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    label: 'item2'
+                }
+            ]
+        }
+
+        Vue.component('my-tree', {
+            template: '#my-tree',
+            props: ['nodes'],
+            data() {
+                return {
+                    showChildren: false
+                }
+            },
+            computed: {
+
+            },
+            methods: {
+                toggleChildren() {
+                    this.showChildren = !this.showChildren;
+                }
+            }
+        });
+
+        Vue.component('tree-menu', {
+            template: '#tree-menu',
+            props: ['nodes', 'label', 'depth'],
+            data() {
+                return {
+                    showChildren: false
+                }
+            },
+            computed: {
+                iconClasses() {
+                    return {
+                        'fa-plus-square-o': !this.showChildren,
+                        'fa-minus-square-o': this.showChildren
+                    }
+                },
+                labelClasses() {
+                    return { 'has-children': this.nodes }
+                },
+                indent() {
+                    return { transform: `translate(${this.depth * 50}px)` }
+                }
+            },
+            methods: {
+                toggleChildren() {
+                    this.showChildren = !this.showChildren;
+                }
+            }
+        });
+
+
+        var app = new Vue({
+            el: "#app",
+            data: {
+                questions:[],
+                counter:0
+            },
+            // data() {
+            //     return {
+            //         questions: [],
+            //         counter: 0
+            //     }
+            // },
+            mounted() {
+                axios
+                    .get(url)
+                    .then(response => (this.questions = response.data))
+            },
+            methods: {
+                closeTab(x) {
+                    for (let i = 0; i < this.tabs.length; i++) {
+                        if (this.questions[i].id === x) {
+                            this.tabs.splice(i, 1)
+                        }
+                    }
+                },
+                newTab() {
+                    let tab = {};
+                    tab.id = this.tabCounter++;
+                    this.tabs.push(tab)
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
