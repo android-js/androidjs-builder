@@ -22,17 +22,18 @@ function get_user_by_email(res, user_email){
     });
 }
 
-function insert(req, res){
-    let user = new users({
-        name:'test',
-        email:'test@test.com',
-        password:'test',
+function insert(req, res, user){
+    console.log(user)
+    let new_user = new users({
+        name:user.name,
+        email:user.email,
+        password:user.password,
         record:{
             '2009':{}
         }
     });
 
-    user.save(function(err, data){
+    new_user.save(function(err, data){
         if(err) res.send(err);
         else res.json(data);
     })

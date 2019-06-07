@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+</head>
+<body>
+    <input id = "name" placeholder="name">
+    <input id = "email" placeholder="email">
+    <input id = "password" placeholder="password">
+    <button id = "submit">Submit</button>
+</body>
+
+<script>
+    $('#submit').click(function(){
+        let name = $('#name').val();
+        let email = $('#email').val();
+        let password = $('#password').val();
+        $.ajax({
+            url:"http://localhost:3000/newuser",
+            data:{name:name, email:email, password:password},
+            success:function(response){
+                console.log(response);
+            }
+        })
+    })
+</script>
+</html>

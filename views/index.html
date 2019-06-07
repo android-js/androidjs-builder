@@ -4,6 +4,24 @@
     <script src="./Vue/vue.js"></script>
     <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
     <script src="./Vue/axios.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 
 </head>
 
@@ -12,54 +30,54 @@
     <div id="app">
         <!-- <pre>{{questions | pretty}}</pre> -->
         <!-- <li v-for="Q in (questions.data)" v-if="Q.type!='any'">
-            {{ Q.question }}
-        </li> -->
+        {{ Q.question }}
+    </li> -->
 
-        <!-- <tree-menu :nodes="tree.nodes" :depth="0" :label="tree.label"></tree-menu> -->
-
-        <my-tree :nodes="questions.data" style="width:400px"></my-tree>
+        <!--<tree-menu :nodes="tree.nodes" :depth="0" :label="tree.label"></tree-menu>-->
+        <!---->
+        <!-- <my-tree :nodes="questions.data" style="width: 30%"></my-tree> -->
+        <side-bar fun="goo"></side-bar>
+        <div class="container">
+            {{formData}}
+        </div>
     </div>
 
+
     <script type="text/x-template" id="my-tree">
-        <div class="my-tree">
-            <div v-for="n in nodes">
-                <div v-if="n.type!='any'">
-                    <p>Q:({{n.id}}) {{n.question}}</p>
-                    <select :id="n.id" v-if="n.type=='select'">
-                        <option :value="op" v-for="op in n.options">{{op}}</option>
-                    </select>
-                    <input type="text" v-if="n.type=='input'" :placeholder="n.question" v-bind:value="n.id">
 
-                </div>
-                <div class="question" v-if="n.type=='any'">
-                    <hr>
-                    Q:({{n.id}}){{n.question}}
-                    <my-tree v-if="n.type=='any'" :nodes="n.children"></my-tree>
-                </div>
-            </div>
-        </div>
-    </script>
+    <ul class="my-tree list-group">
+        <li v-for="n in nodes" class="list-group-item" style="border: none;border-bottom: 2px solid grey">
+            <p @click="toggleChildren(n);openForm(n)">Q:({{n.id}}) {{ getText(n.question)}}</p>
+            <my-tree v-if="show[n.id]" :nodes="n.children"></my-tree>
+        </li>
+    </ul>
 
-
+</script>
 
 
     <script type="text/x-template" id="tree-menu">
-        <div class="tree-menu">
-          <div class="label-wrapper" @click="toggleChildren">
+    <div class="tree-menu">
+        <div class="label-wrapper" @click="toggleChildren">
             <div :style="indent" :class="labelClasses">
-              <i v-if="nodes" class="fa" :class="iconClasses"></i>{{ label }}
+                <i v-if="nodes" class="fa" :class="iconClasses"></i>{{ label }}
             </div>
-          </div>
-          <tree-menu 
-            v-if="showChildren"
-            v-for="node in nodes" 
-            :nodes="node.nodes" 
-            :label="node.label"
-            :depth="depth + 1"   
-          >
-          </tree-menu>
         </div>
-      </script>
+        <tree-menu
+                v-if="showChildren"
+                v-for="node in nodes"
+                :nodes="node.nodes"
+                :label="node.label"
+                :depth="depth + 1"
+        >
+        </tree-menu>
+    </div>
+</script>
+
+    <script type="text/x-template" id="side-bar">
+    <div class = "info">
+        <input type="text" @click="go()">
+    </div>
+</script>
 
     <script>
         var url = "/static/questions.json";
@@ -93,15 +111,22 @@
             props: ['nodes'],
             data() {
                 return {
-                    showChildren: false
+                    showChildren: false,
+                    show: {}
                 }
             },
-            computed: {
-
-            },
+            computed: {},
             methods: {
-                toggleChildren() {
-                    this.showChildren = !this.showChildren;
+                toggleChildren(n) {
+                    this.show[n.id] = !this.show[n.id];
+                    console.log(n, this.show);
+                    this.$forceUpdate();
+                },
+                getText(data) {
+                    return data.length > 20 ? (data.slice(0, (data.length > 20) ? 20 : data.length) + "...") : data.slice(0, (data.length > 20) ? 20 : data.length);
+                },
+                openForm(data) {
+                    this.formData = data;
                 }
             }
         });
@@ -134,13 +159,28 @@
                 }
             }
         });
-
+        
 
         var app = new Vue({
             el: "#app",
             data: {
-                questions:[],
-                counter:0
+                questions: [],
+                counter: 0,
+                formData: "Form"
+
+            },
+            components: {
+                'side-bar': {
+                    template: '#side-bar',
+                    props: ['fun'],
+                    methods: {
+                        go: () => {
+                            console.log('goooo');
+                            // this.$parent.goo();
+                            console.log(this.fun)
+                        }
+                    }
+                }
             },
             // data() {
             //     return {
@@ -154,6 +194,9 @@
                     .then(response => (this.questions = response.data))
             },
             methods: {
+                goo: () => {
+                    console.log('goooo');
+                },
                 closeTab(x) {
                     for (let i = 0; i < this.tabs.length; i++) {
                         if (this.questions[i].id === x) {
@@ -165,7 +208,8 @@
                     let tab = {};
                     tab.id = this.tabCounter++;
                     this.tabs.push(tab)
-                }
+                },
+
             }
         });
     </script>
