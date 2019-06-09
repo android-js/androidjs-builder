@@ -5,21 +5,62 @@
     <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
     <script src="./Vue/axios.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+
+    <script src="../assets/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../assets/bootstrap.min.css">
 
     <style>
         * {
             margin: 0;
             padding: 0;
+        }
+
+        .dark {
+            background-color: skyblue;
+        }
+
+        .side-bar {
+            width: 30%;
+            /*height: 100%;*/
+            background-color: gainsboro;
+            padding: 10px;
+        }
+        .side-bar-question {
+            margin: 10px;
+            font-size: 20px;
+        }
+
+        .question {
+            background-color: #e0cfcf;
+            padding-left: 10px;
+            padding-right: 10px;
+            cursor: grab;
+        }
+        .parent {
+            background-color: #249fd1;
+            padding-left: 10px;
+            padding-right: 10px;
+            cursor: pointer;
+        }
+
+        .form {
+            position: relative;
+            height: auto;
+            width: 70%;
+            background-color: #1c7430;
+        }
+        .active {
+            background-color: #005cbf;
         }
     </style>
 
@@ -27,22 +68,37 @@
 
 <body>
 
-    <div id="app">
-        <my-tree :register="register_question" :Questions="questions"></my-tree>
+<div id="app" class="">
+    <!--<my-tree :register="register_question" :Questions="questions"></my-tree>-->
 
-        <div v-for="(q, i) in Q_map">
-            <div :ref="`card-${i}`">
-                {{q.question}}
-            </div>
+    <!--<div v-for="(q, i) in Q_map">-->
+    <!--<div :ref=`card-${i}`>-->
+    <!--{{q.question}}-->
+    <!--</div>-->
+    <!--</div>-->
+
+    <div class="side-bar">
+        <div v-for="(Q, i) in Q_list" class="side-bar-question" :class="{'parent':Q_map[Q].type=='any', 'question':Q_map[Q].type!='any', 'active':Q==selected}">
+            <div @click="openForm(Q)">{{Q_map[Q].question}}</div>
         </div>
     </div>
 
+    <div class="form">
+        {{form}}
+    </div>
 
-    <script type="text/x-template" id="my-tree">
+    <div>
+        {{Q_ref}}
+    </div>
+
+</div>
+
+
+<script type="text/x-template" id="my-tree">
 
     <ul class="my-tree">
         <div v-for="Q in Questions">
-                {{register(Q)}}
+            {{register(Q)}}
             <p>{{Q}}</p><br>
         </div>
     </ul>
@@ -50,47 +106,86 @@
 </script>
 
 
-    <script>
+<script>
 
-        Vue.component('my-tree', {
-            template: '#my-tree',
-            props: ['Questions', 'register'],
-            data() {
-            },
-            computed: {},
-            methods: {
+    Vue.component('my-tree', {
+        template: '#my-tree',
+        props: ['Questions', 'register'],
+        data() {
+        },
+        computed: {},
+        methods: {}
+    });
+
+    var app = new Vue({
+        el: "#app",
+
+        data() {
+            return {
+                url: "/static/questions.json",
+                form: {},
+                selected: "",
+                questions: [],
+                Q_map: {},
+                Q_list: [],
+                Q_ref: {}
             }
-        });
+        },
 
-        var app = new Vue({
-            el: "#app",
+        mounted() {
+            axios.get(this.url).then(response => {
+                this.questions = response.data.data;
+                this.buildQuestionList(this.questions);
+                // this.$forceUpdate();
+            });
+        },
 
-            data() {
-                return {
-                    url: "/static/questions.json",
-                    form: {},
-                    questions: [],
-                    Q_map: {}
+        methods: {
+            register_question(Q) {
+                this.Q_map[Q.id] = Q;
+                this.$forceUpdate();
+            },
+
+            buildQuestionList(Qs_array) {
+                for (let i = 0; i < Qs_array.length; i++) {
+                    this.Q_list.push(Qs_array[i].id);
+                    this.Q_map[Qs_array[i].id] = Qs_array[i];
+
+
+
+                    if(Qs_array[i]['ref'] !== undefined){
+                        this.Q_ref[Qs_array[i]['ref'].slice(1)] = null;
+                    }
+
+
+                    // if(Qs_array[i]['formula'] !== undefined){
+                    //     console.log(this.evaluate_formula(Qs_array[i]['formula']));
+                    // }
+
+
+
+                    if (Qs_array[i]['type'] === "any") {
+                        this.buildQuestionList(Qs_array[i].children);
+                    }
                 }
+
             },
 
-            mounted() {
-                axios
-                    .get(this.url)
-                    .then(response => (this.questions = response.data.data))
+            evaluate_formula(str){
+                return eval(str.replace(/#/g,'this.Q_ref.'));
             },
 
-            methods: {
-                register_question(Q) {
-                    this.Q_map[Q.id] = Q;
-                    this.$forceUpdate();
+            openForm(form_id){
+                this.form = this.Q_map[form_id];
+                if(this.form.type === 'any'){
+                    this.selected = form_id;
                 }
-            },
-            watch: {
-
             }
-        });
-    </script>
+
+        },
+        watch: {}
+    });
+</script>
 </body>
 
 </html>
