@@ -15,13 +15,13 @@ function get_user_by_id(req, res, user_id){
     });
 }
 
-function update_user_record_by_id(req, res, user_id, record, year){
-    users.findById(user_id, function(err, data){
+function update_user_record_by_id(req, res, user_data){
+    users.findById(user_data.id, function(err, data){
         if(err) res.send(err);
         else {
             let new_data = data.record;
-            new_data[year] = record;
-            users.findOneAndUpdate(user_id, {record: new_data}, {upsert:true}, function(err, data){
+            new_data[user_data.year] = user_data.record;
+            users.findOneAndUpdate(user_data.id, {record: new_data}, {upsert:true}, function(err, data){
                 if(err) res.send(err);
                 else res.json(data);
             })
