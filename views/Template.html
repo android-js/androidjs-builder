@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <!-- saved from url=(0054)https://getbootstrap.com/docs/4.1/examples/dashboard/# -->
 <html lang="en">
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
@@ -23,258 +24,266 @@
 
     <!-- Custom styles for this template -->
     <link href="./Template_files/dashboard.css" rel="stylesheet">
-    <style type="text/css">/* Chart.js */
-    @-webkit-keyframes chartjs-render-animation {
-        from {
-            opacity: 0.99
-        }
-        to {
-            opacity: 1
-        }
-    }
+    <style type="text/css">
+        /* Chart.js */
+        @-webkit-keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
 
-    @keyframes chartjs-render-animation {
-        from {
-            opacity: 0.99
+            to {
+                opacity: 1
+            }
         }
-        to {
-            opacity: 1
-        }
-    }
 
-    .chartjs-render-monitor {
-        -webkit-animation: chartjs-render-animation 0.001s;
-        animation: chartjs-render-animation 0.001s;
-    }</style>
+        @keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        .chartjs-render-monitor {
+            -webkit-animation: chartjs-render-animation 0.001s;
+            animation: chartjs-render-animation 0.001s;
+        }
+    </style>
 </head>
 
 <body>
-<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="https://getbootstrap.com/docs/4.1/examples/dashboard/#">Praedico</a>
-    <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
-    <ul class="navbar-nav px-3">
-        <li class="nav-item text-nowrap">
-            <a class="nav-link" href="https://getbootstrap.com/docs/4.1/examples/dashboard/#">Sign out</a>
-        </li>
-    </ul>
-</nav>
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Praedico</a>
+        <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" href="#">Sign out</a>
+            </li>
+        </ul>
+    </nav>
 
-<div class="container-fluid" id="app">
-    <div class="row">
-        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-            <div class="sidebar-sticky">
-                <ul class="nav flex-column">
-
-
-                    <li class="nav-item" v-for="(Q, i) in Q_list"
-                        @click="openForm(Q)"
-                    >
-                        <span class="nav-link" :class="{'active':selected==Q}" href="#">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                 stroke-linejoin="round" class="feather feather-home"
-                                 v-if="Q_map[Q].type=='any'"
-                            >
-                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                            </svg>
-                            {{Q_map[Q].question}} <span class="sr-only">(current)</span>
-                        </span>
-                    </li>
+    <div class="container-fluid" id="app">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
 
 
-                </ul>
+                        <li class="nav-item" v-for="(Q, i) in Q_list" @click="openForm(Q)">
+                            <span class="nav-link" :class="{'active':selected==Q}" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-home" v-if="Q_map[Q].type=='any'">
 
-                <!--<h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">-->
-                <!--<span>Saved reports</span>-->
-                <!--<a class="d-flex align-items-center text-muted"-->
-                <!--href="https://getbootstrap.com/docs/4.1/examples/dashboard/#">-->
-                <!--<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"-->
-                <!--stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"-->
-                <!--class="feather feather-plus-circle">-->
-                <!--<circle cx="12" cy="12" r="10"></circle>-->
-                <!--<line x1="12" y1="8" x2="12" y2="16"></line>-->
-                <!--<line x1="8" y1="12" x2="16" y2="12"></line>-->
-                <!--</svg>-->
-                <!--</a>-->
-                <!--</h6>-->
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+
+                                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                                </svg>
+                                {{Q_map[Q].question}} <span class="sr-only">(current)</span>
+                            </span>
+                        </li>
 
 
-            </div>
-        </nav>
+                    </ul>
 
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-
-
-            <div class="chartjs-size-monitor"
-                 style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
-                <div class="chartjs-size-monitor-expand"
-                     style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-                    <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
-                </div>
-                <div class="chartjs-size-monitor-shrink"
-                     style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-                    <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
-                </div>
-            </div>
-
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2">Form</h1>
-                <div class="btn-toolbar mb-2 mb-md-0">
-                    <!--<div class="btn-group mr-2">-->
-                    <!--<button class="btn btn-sm btn-outline-secondary">Share</button>-->
-                    <!--<button class="btn btn-sm btn-outline-secondary">Export</button>-->
-                    <!--</div>-->
-                    <!--<button class="btn btn-sm btn-outline-secondary dropdown-toggle">-->
+                    <!--<h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">-->
+                    <!--<span>Saved reports</span>-->
+                    <!--<a class="d-flex align-items-center text-muted"-->
+                    <!--href="https://getbootstrap.com/docs/4.1/examples/dashboard/#">-->
                     <!--<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"-->
                     <!--stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"-->
-                    <!--class="feather feather-calendar">-->
-                    <!--<rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>-->
-                    <!--<line x1="16" y1="2" x2="16" y2="6"></line>-->
-                    <!--<line x1="8" y1="2" x2="8" y2="6"></line>-->
-                    <!--<line x1="3" y1="10" x2="21" y2="10"></line>-->
+                    <!--class="feather feather-plus-circle">-->
+                    <!--<circle cx="12" cy="12" r="10"></circle>-->
+                    <!--<line x1="12" y1="8" x2="12" y2="16"></line>-->
+                    <!--<line x1="8" y1="12" x2="16" y2="12"></line>-->
                     <!--</svg>-->
-                    <!--This week-->
-                    <!--</button>-->
+                    <!--</a>-->
+                    <!--</h6>-->
+
+
                 </div>
-            </div>
+            </nav>
 
-            <!--{{selected}}-->
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
 
-            <!--{{Q_map[selected]}}-->
 
-            <form>
+                <div class="chartjs-size-monitor"
+                    style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                    <div class="chartjs-size-monitor-expand"
+                        style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                        <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                    </div>
+                    <div class="chartjs-size-monitor-shrink"
+                        style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                        <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                    </div>
+                </div>
 
-                <div class="form-group" v-for="(Q, i) in Q_map[selected].children">
+                <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Form</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <input type="date">
+                        <!-- <div class="btn-group mr-2">
+                            <button class="btn btn-sm btn-outline-secondary">Share</button>
+                            <button class="btn btn-sm btn-outline-secondary">Export</button>
+                        </div>
+                        <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-calendar">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            This week
+                        </button> -->
+                    </div>
+                </div>
 
-                    <label :for="Q.id" v-if="Q.type!='any'">{{Q.question}}</label>
+                <!--{{selected}}-->
 
-                    <input v-if="Q.type=='input'" type="text" class="form-control" :id="Q.id"
-                           :aria-describedby="Q.question"
-                           :placeholder="Q.question" v-model="Q.value" @change="refresh">
+                <!--{{Q_map[selected]}}-->
 
-                    <!--<select >-->
+                <form>
+
+                    <div class="form-group" v-for="(Q, i) in Q_map[selected].children">
+
+                        <label :for="Q.id" v-if="Q.type!='any'">{{Q.question}}</label>
+
+                        <input v-if="Q.type=='input'" type="text" class="form-control" :id="Q.id"
+                            :aria-describedby="Q.question" :placeholder="Q.question" v-model="Q.value"
+                            @change="refresh">
+
+                        <!--<select >-->
                         <!--<option >{{op}}</option>-->
-                    <!--</select>-->
-                    <select v-if="Q.type=='select'" class="custom-select my-1 mr-sm-2" >
-                        <option selected>Choose...</option>
-                        <option v-for="(op, j) in Q.options" :value="j">{{op}}</option>
-                    </select>
+                        <!--</select>-->
+                        <select v-if="Q.type=='select'" class="custom-select my-1 mr-sm-2">
+                            <option selected>Choose...</option>
+                            <option v-for="(op, j) in Q.options" :value="j">{{op}}</option>
+                        </select>
 
-                    <!--<small v-if="Q.type!='any'" id="emailHelp" class="form-text text-muted">We'll never share your email-->
+                        <!--<small v-if="Q.type!='any'" id="emailHelp" class="form-text text-muted">We'll never share your email-->
                         <!--with anyone else.-->
-                    <!--</small>-->
+                        <!--</small>-->
 
-                    <a v-if="Q.type=='any'" style="background-color: #005cbf" @click="openForm(Q.id)">{{Q.question}}</a>
 
-                    <input v-if="Q.type=='output'" type="email" class="form-control"
-                           :placeholder="evaluate_formula(Q.formula)" disabled>
 
-                </div>
-                <!--<button type="submit" class="btn btn-primary">Save</button>-->
-                <!--<button type="submit" class="btn btn-primary">Next</button>-->
-            </form>
+                        <span v-if="Q.type=='any'" @click="openForm(Q.id)"
+                            class="badge badge-pill badge-info">{{Q.question}}</span>
 
-        </main>
+                        <input v-if="Q.type=='output'" type="email" class="form-control"
+                            :placeholder="evaluate_formula(Q.formula)" disabled>
+
+                    </div>
+                    <!--<button type="submit" class="btn btn-primary">Save</button>-->
+                    <!--<button type="submit" class="btn btn-primary">Next</button>-->
+                </form>
+
+            </main>
+        </div>
     </div>
-</div>
 
 
-<script>
+    <script>
 
-    Vue.component('my-tree', {
-        template: '#my-tree',
-        props: ['Questions', 'register'],
-        data() {
-        },
-        computed: {},
-        methods: {}
-    });
-
-    var app = new Vue({
-        el: "#app",
-
-        data() {
-            return {
-                url: "/static/questions.json",
-                form: [],
-                selected: "0",
-                questions: [],
-                Q_map: {},
-                Q_list: [],
-                Q_ref: {}
-            }
-        },
-
-        mounted() {
-            axios.get(this.url).then(response => {
-                this.questions = response.data.data;
-                this.Q_map['0'] = {question: "Welcome", type: "any", children: this.questions};
-
-                this.Q_list.push('0');
-                this.buildQuestionList(this.questions);
-                // this.$forceUpdate();
-            });
-        },
-
-        methods: {
-            register_question(Q) {
-                this.Q_map[Q.id] = Q;
-                this.$forceUpdate();
+        Vue.component('my-tree', {
+            template: '#my-tree',
+            props: ['Questions', 'register'],
+            data() {
             },
-            refresh(){
-                this.$forceUpdate();
+            computed: {},
+            methods: {}
+        });
+
+        var app = new Vue({
+            el: "#app",
+
+            data() {
+                return {
+                    url: "/static/questions.json",
+                    form: [],
+                    selected: "0",
+                    questions: [],
+                    Q_map: {},
+                    Q_list: [],
+                    Q_ref: {}
+                }
             },
-            computed:{
+
+            mounted() {
+                axios.get(this.url).then(response => {
+                    this.questions = response.data.data;
+                    this.Q_map['0'] = { question: "Welcome", type: "any", children: this.questions };
+
+                    this.Q_list.push('0');
+                    this.buildQuestionList(this.questions);
+                    // this.$forceUpdate();
+                });
             },
-            buildQuestionList(Qs_array) {
-                for (let i = 0; i < Qs_array.length; i++) {
+
+            methods: {
+                register_question(Q) {
+                    this.Q_map[Q.id] = Q;
+                    this.$forceUpdate();
+                },
+                refresh() {
+                    this.$forceUpdate();
+                },
+                computed: {
+                },
+                buildQuestionList(Qs_array) {
+                    for (let i = 0; i < Qs_array.length; i++) {
 
 
-                    // this.Q_list.push(Qs_array[i].id);
-                    this.Q_map[Qs_array[i].id] = Qs_array[i];
+                        // this.Q_list.push(Qs_array[i].id);
+                        this.Q_map[Qs_array[i].id] = Qs_array[i];
 
 
-                    if (Qs_array[i]['ref'] !== undefined) {
-                        this.Q_ref[Qs_array[i]['ref'].slice(1)] = null;
+                        if (Qs_array[i]['ref'] !== undefined) {
+                            this.Q_ref[Qs_array[i]['ref'].slice(1)] = null;
+                        }
+
+
+                        if (Qs_array[i]['formula'] !== undefined) {
+                            // this.$options.computed[Qs_array[i].ref] = ()=>{
+                            //     return this.evaluate_formula(Qs_array[i]['formula']);
+                            // };
+                            // console.log(this.evaluate_formula(Qs_array[i]['formula']));
+                        }
+
+
+                        if (Qs_array[i]['type'] === "any") {
+                            this.Q_list.push(Qs_array[i].id);
+                            this.buildQuestionList(Qs_array[i].children);
+                        }
                     }
 
+                },
 
-                    if(Qs_array[i]['formula'] !== undefined){
-                        // this.$options.computed[Qs_array[i].ref] = ()=>{
-                        //     return this.evaluate_formula(Qs_array[i]['formula']);
-                        // };
-                        // console.log(this.evaluate_formula(Qs_array[i]['formula']));
-                    }
+                evaluate_formula(str) {
+                    return eval(str.replace(/#/g, 'this.Q_ref.'));
+                },
+
+                openForm(form_id) {
 
 
-                    if (Qs_array[i]['type'] === "any") {
-                        this.Q_list.push(Qs_array[i].id);
-                        this.buildQuestionList(Qs_array[i].children);
+                    if (this.Q_map[form_id].type === 'any') {
+                        this.form = this.Q_map[form_id];
+                        this.selected = form_id;
                     }
                 }
 
             },
+            watch: {
 
-            evaluate_formula(str) {
-                return eval(str.replace(/#/g, 'this.Q_ref.'));
-            },
-
-            openForm(form_id) {
-
-
-                if (this.Q_map[form_id].type === 'any') {
-                    this.form = this.Q_map[form_id];
-                    this.selected = form_id;
-                }
             }
-
-        },
-        watch: {
-
-        }
-    });
-</script>
+        });
+    </script>
 
 </body>
+
 </html>
