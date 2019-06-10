@@ -19,10 +19,22 @@ module.exports = function(app){
 
     app.route('/getuser-id/:uid').get(function(req,res){
         console.log(req.params);
-        user_controller.get_user_by_id(res,req.params.uid);
+        user_controller.get_user_by_id(req, res,req.params.uid);
     });
     app.route('/getuser-email/:user_email').get(function(req,res){
         console.log(req.params);
-        user_controller.get_user_by_email(res,req.params.user_email);
+        user_controller.get_user_by_email(req, res,req.params.user_email);
     });
+
+    app.route('/update-record-id').get(function(req, res){
+        let user_data = {};
+        user_data.id = req.query.id;
+        user_data.year = req.query.year;
+        user_data.record = req.query.record;
+        user_controller.update_user_record_by_id(req,res, user_data);
+    })
+
+    app.route('/get-record-id').get(function(req,res){
+        user_controller.get_user_record_by_id(req, res, req.query.id);
+    })
 }
