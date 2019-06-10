@@ -9,30 +9,47 @@ function get_all_users(req, res){
 }
 
 function get_user_by_id(res, user_id){
-    users.finyById(user_id, function(err, data){
+    users.findById(user_id, function(err, data){
         if(err) res.send(err);
         else res.json(data);
     });
 }
 
-function insert(req, res){
-    let user = new users({
-        name:'test',
-        email:'test@test.com',
-        password:'test',
+function get_user_by_email(res, user_email){
+    users.find( {email: user_email}, function(err, data){
+        if(err) res.send(err);
+        else res.json(data);
+    });
+}
+
+function insert(req, res, user){
+    console.log(user)
+    let new_user = new users({
+        name:user.name,
+        email:user.email,
+        password:user.password,
         record:{
             '2009':{}
         }
     });
 
-    user.save(function(err, data){
+    new_user.save(function(err, data){
         if(err) res.send(err);
         else res.json(data);
     })
 }
 
+function delete_id(res, uid){
+    users.remove({_id: uid}, function(err){
+        if(err) res.send(err);
+        else res.send({success: true})
+    });
+}
+
 module.exports = {
     insert: insert,
     get_all_users: get_all_users,
-    get_user_by_id: get_user_by_id
+    get_user_by_id: get_user_by_id,
+    get_user_by_email,
+    delete_id
 }

@@ -36,9 +36,9 @@
         },
         {
           "id": "4_2",
-          "type": "select",
+          "type": "any",
           "question": "Houese Property",
-          "options": ["individual"],
+          "options": [],
           "children": [
             {
               "id": "4_2_1",
@@ -89,7 +89,7 @@
                   "id": "4_2_2_4",
                   "type": "output",
                   "ref": "#d",
-                  "formula": "a - b - c",
+                  "formula": "#a - #b - #c",
                   "question": "Net Annual Value (1-(2+3))",
                   "options": [],
                   "children": []
@@ -104,7 +104,7 @@
                       "id": "4_2_2_5_1",
                       "type": "output",
                       "ref": "#e",
-                      "formula": "(d * 30) / 100",
+                      "formula": "(#d * 30) / 100",
                       "question": "Standard Deduction @ 30% of Net Annual Value",
                       "options": [],
                       "children": []
@@ -124,7 +124,7 @@
             {
               "id": "4_2_3",
               "type": "output",
-              "formula": "e - f",
+              "formula": "#e - #f",
               "question": "Income from Let_out House Property",
               "options": [],
               "children": []
