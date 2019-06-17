@@ -12,6 +12,9 @@
     <meta name="author" content="">
     <link rel="icon" href="./favicon.png">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+
     <title>Dashboard Template for Bootstrap</title>
 
     <script src="./Vue/vue.js"></script>
@@ -127,7 +130,7 @@
                     class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Form</h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
-                        <input type="date">
+                        <input type="date" value="2019-06-16" v-model='date'>
                         <!-- <div class="btn-group mr-2">
                             <button class="btn btn-sm btn-outline-secondary">Share</button>
                             <button class="btn btn-sm btn-outline-secondary">Export</button>
@@ -163,9 +166,9 @@
                         <!--<select >-->
                         <!--<option >{{op}}</option>-->
                         <!--</select>-->
-                        <select v-if="Q.type=='select'" class="custom-select my-1 mr-sm-2">
+                        <select v-if="Q.type=='select'" class="custom-select my-1 mr-sm-2"  @change="onChange($event, Q)">
                             <option selected>Choose...</option>
-                            <option v-for="(op, j) in Q.options" :value="j">{{op}}</option>
+                            <option v-for="(op, j) in Q.options" :value="op">{{op}}</option>
                         </select>
 
                         <!--<small v-if="Q.type!='any'" id="emailHelp" class="form-text text-muted">We'll never share your email-->
@@ -184,8 +187,10 @@
                     <!--<button type="submit" class="btn btn-primary">Save</button>-->
                     <!--<button type="submit" class="btn btn-primary">Next</button>-->
                 </form>
-
+                <input type="button" class="btn btn-default" value="Save" id="save" @click="save()">
             </main>
+
+            
         </div>
     </div>
 
@@ -212,7 +217,9 @@
                     questions: [],
                     Q_map: {},
                     Q_list: [],
-                    Q_ref: {}
+                    Q_ref: {},
+                    userid: '5cf8c1deeacc48385f8ec826',
+                    date: '2019-06-16'
                 }
             },
 
@@ -226,8 +233,38 @@
                     // this.$forceUpdate();
                 });
             },
-
+            
             methods: {
+                sendAjaxRequest(data, url) {
+                    $.post(url, data, function(data, status){
+                        console.log(data,status);
+                        alert("Data: " + data + "\nStatus: " + status);
+                    });
+                },
+
+                save() {
+                    // let data = this.Q_map[this.selected].children;
+                    let data = this.Q_map;
+                    let context = {record:[], id:this.userid, year:this.date};
+
+                    for(let i in data){
+                        context.record.push(this.Q_map[i]);
+                    }
+
+                    // for(let i=0; i<data.length; i++){
+                    //     if(data[i].type != 'any'){
+                    //         context.record.push(data[i]);
+                    //     }
+                    // }
+                    console.log('Saving ...');
+                    console.log(context);
+                    
+                    this.sendAjaxRequest(context, '/update-record-id/');
+                },
+                onChange(event, Q) {
+                    Q.value = event.target.value;
+                    console.log(event.target.value, Q)
+                },
                 register_question(Q) {
                     this.Q_map[Q.id] = Q;
                     this.$forceUpdate();
