@@ -26,11 +26,13 @@ module.exports = function(app){
         user_controller.get_user_by_email(req, res,req.params.user_email);
     });
 
-    app.route('/update-record-id').get(function(req, res){
+    app.route('/update-record-id').post(function(req, res){
         let user_data = {};
-        user_data.id = req.query.id;
-        user_data.year = req.query.year;
-        user_data.record = req.query.record;
+        console.log(req.body);
+        user_data.id = req.body.id;
+        user_data.year = req.body.year.split('-')[0];
+        user_data.month = req.body.year.split('-')[1];
+        user_data.record = req.body.record;
         user_controller.update_user_record_by_id(req,res, user_data);
     })
 
