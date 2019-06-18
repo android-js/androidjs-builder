@@ -3,7 +3,7 @@ const db_connection = require('./connection');
 const bodyParser = require('body-parser');
 const path = require("path");
 const routes = require('./api/routes/users');
-const session = require('.express-session');
+const session = require('express-session');
 
 const settings = {
     port: 3000,
