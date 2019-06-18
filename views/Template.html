@@ -130,7 +130,7 @@
                     class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Form</h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
-                        <input type="date" value="2019-06-16" v-model='date'>
+                        <input type="date" value="2019-06-16" v-model='date' @change="updateOnDate()">
                         <!-- <div class="btn-group mr-2">
                             <button class="btn btn-sm btn-outline-secondary">Share</button>
                             <button class="btn btn-sm btn-outline-secondary">Export</button>
@@ -168,7 +168,7 @@
                         <!--<select >-->
                         <!--<option >{{op}}</option>-->
                         <!--</select>-->
-                        <select v-if="Q.type=='select'" class="custom-select my-1 mr-sm-2" :id="Q.id"  @change="onChange($event, Q)">
+                        <select v-if="Q.type=='select'" v-model="Q_values['id_'+Q.id]" class="custom-select my-1 mr-sm-2" :id="Q.id"  @change="onChange($event, Q)">
                             <option selected>Choose...</option>
                             <option v-for="(op, j) in Q.options" :value="op">{{op}}</option>
                         </select>
@@ -237,12 +237,23 @@
                     this.Q_map['0'] = { question: "Welcome", type: "any", children: this.questions };
 
                     this.Q_list.push('0');
+                    this.getUserRecord(this.userid, this.date);
                     this.buildQuestionList(this.questions);
                     // this.$forceUpdate();
                 });
             },
             
             methods: {
+                updateOnDate(){
+                    this.getUserRecord(this.userid, this.date);
+                },
+                getUserRecord(uid, date){
+                    $.get('/get-record-id/', {id: uid, date}, (data, status)=>{
+                        console.log(data, status);
+                        this.Q_values = data;
+                    });
+                },
+
                 sendAjaxRequest(data, url) {
                     $.post(url, data, function(data, status){
                         console.log(data,status);
