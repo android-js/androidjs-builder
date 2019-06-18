@@ -36,7 +36,13 @@ module.exports = function(app){
         user_controller.update_user_record_by_id(req,res, user_data);
     })
 
+    app.route("/clean-record-id").get(function(req, res){
+        user_controller.clean_user_record_by_id(req, res, req.query.id);
+    })
+
     app.route('/get-record-id').get(function(req,res){
-        user_controller.get_user_record_by_id(req, res, req.query.id);
+        let year = req.query.date.split('-')[0];
+        let month = req.query.date.split('-')[1];
+        user_controller.get_user_record_by_id(req, res, req.query.id, year, month);
     })
 }

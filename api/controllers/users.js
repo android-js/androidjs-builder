@@ -39,10 +39,23 @@ function update_user_record_by_id(req, res, user_data){
     });
 }
 
-function get_user_record_by_id(req, res, user_id){
-    users.findById(user_id, function(err, data){
+function clean_user_record_by_id(req, res, user_id){
+    users.findOneAndUpdate({_id:user_id}, {record:{}}, {upsert:true} ,function(err, data){
         if(err) res.send(err);
-        else res.jsong(data.record);
+        else res.json(data.record);
+    })
+}
+
+function get_user_record_by_id(req, res, user_id, year, month){
+    users.findById({_id:user_id}, function(err, data){
+        if(err) res.send(err);
+        else{
+            if(data.record.get(year) && data.record.get(year).get(month)){
+                res.json(data.record.get(year).get(month));
+            }else{
+                res.json({error:true, msg:"record not found"});
+            }
+        }
     })
 }
 
@@ -84,5 +97,6 @@ module.exports = {
     get_user_by_email,
     delete_id,
     update_user_record_by_id,
-    get_user_record_by_id
+    get_user_record_by_id,
+    clean_user_record_by_id
 }
