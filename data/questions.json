@@ -30,14 +30,14 @@
         {
           "id": "4_1",
           "type": "input",
-          "question": "What is your salary ?",
+          "question": "What is your income from salary ?",
           "options": [],
           "children": []
         },
         {
           "id": "4_2",
           "type": "any",
-          "question": "Houese Property",
+          "question": "What is your income from house property ?",
           "options": [],
           "children": [
             {

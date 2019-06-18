@@ -30,6 +30,7 @@ routes(app);
 
 app.use(express.static('./views'));
 app.use('/static', express.static(path.join(__dirname, 'data')));
+app.use('/static', express.static(path.join(__dirname, 'assets')));
 
 app.listen(settings.port, settings.host, function(){
     console.log(`Server is listening on port :\n${settings.proto}://${settings.host}:${settings.port}`);
