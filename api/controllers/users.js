@@ -61,8 +61,11 @@ function get_user_record_by_id(req, res, user_id, year, month){
 
 function get_user_by_email_and_password(req, res, user_email, password){
     users.find( {email: user_email, password:password}, function(err, data){
-        if(err) res.send(err);
-        else res.json(data);
+        if(err) res.json({error:true, msg:"invalid details"});
+        else {
+            res.json({error:false, msg:"login success"});
+            req.session.id = data._id;
+        }
     });
 }
 

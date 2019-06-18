@@ -3,6 +3,7 @@ const db_connection = require('./connection');
 const bodyParser = require('body-parser');
 const path = require("path");
 const routes = require('./api/routes/users');
+const session = require('.express-session');
 
 const settings = {
     port: 3000,
@@ -11,6 +12,14 @@ const settings = {
 };
 
 const app = express();
+
+app.set('trust proxy', 1);
+app.use(session({
+    secret: "Chhekur@Pankaj@Pawan",
+    resave: false,
+    saveUninitialized: true,
+    cookie: {secure: true}
+}))
 
 db_connection.connect();
 
