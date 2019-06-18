@@ -57,6 +57,8 @@
 </head>
 
 <body>
+
+    
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
         <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Praedico</a>
         <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
@@ -157,14 +159,16 @@
 
                         <label :for="Q.id" v-if="Q.type!='any'">{{Q.question}}</label>
 
-                        <input v-if="Q.type=='input'" type="text" class="form-control" :id="Q.id"
-                            :aria-describedby="Q.question" :placeholder="Q.question" v-model="Q.value"
-                            @change="refresh">
+                        <input v-if="Q.type=='input'" type="number" class="form-control" :id="Q.id"
+                            :aria-describedby="Q.question" :placeholder="Q.question" v-model="Q_values[`id_${Q.id}`]"
+                            @change="refresh"
+                            
+                            >
 
                         <!--<select >-->
                         <!--<option >{{op}}</option>-->
                         <!--</select>-->
-                        <select v-if="Q.type=='select'" class="custom-select my-1 mr-sm-2"  @change="onChange($event, Q)">
+                        <select v-if="Q.type=='select'" class="custom-select my-1 mr-sm-2" :id="Q.id"  @change="onChange($event, Q)">
                             <option selected>Choose...</option>
                             <option v-for="(op, j) in Q.options" :value="op">{{op}}</option>
                         </select>
@@ -178,14 +182,18 @@
                         <span v-if="Q.type=='any'" @click="openForm(Q.id)"
                             class="badge badge-pill badge-info">{{Q.question}}</span>
 
-                        <input v-if="Q.type=='output'" type="email" class="form-control"
-                            :placeholder="evaluate_formula(Q.formula)" disabled>
+                        <!-- <input v-if="Q.type=='output'" type="email" class="form-control"
+                            :placeholder="evaluate_formula(Q.formula)" disabled> -->
+
+                        <input v-if="Q.type=='output'" type="number" class="form-control"
+                            :placeholder="answer.formula(Q)" :value="Q_values['id_'+Q.id]" disabled>
 
                     </div>
                     <!--<button type="submit" class="btn btn-primary">Save</button>-->
                     <!--<button type="submit" class="btn btn-primary">Next</button>-->
                 </form>
                 <input type="button" class="btn btn-default" value="Save" id="save" @click="save()">
+                <!-- <input type="text" v-model='ans'>{{answer}} -->
             </main>
 
             
@@ -216,8 +224,10 @@
                     Q_map: {},
                     Q_list: [],
                     Q_ref: {},
+                    Q_values: {},
                     userid: '5cf8c1deeacc48385f8ec826',
-                    date: '2019-06-16'
+                    date: '2019-06-16',
+                    ans: "hello"
                 }
             },
 
@@ -242,12 +252,12 @@
 
                 save() {
                     // let data = this.Q_map[this.selected].children;
-                    let data = this.Q_map;
-                    let context = {record:[], id:this.userid, year:this.date};
+                    // let data = this.Q_map;
+                    let context = {record:this.Q_values, id:this.userid, year:this.date};
 
-                    for(let i in data){
-                        context.record.push(this.Q_map[i]);
-                    }
+                    // for(let i in data){
+                    //     context.record.push(this.Q_map[i]);
+                    // }
 
                     // for(let i=0; i<data.length; i++){
                     //     if(data[i].type != 'any'){
@@ -260,7 +270,8 @@
                     this.sendAjaxRequest(context, '/update-record-id/');
                 },
                 onChange(event, Q) {
-                    Q.value = event.target.value;
+                    // Q.value = event.target.value;
+                    this.Q_values[`id_${Q.id}`] = event.target.value;
                     console.log(event.target.value, Q)
                 },
                 register_question(Q) {
@@ -270,7 +281,9 @@
                 refresh() {
                     this.$forceUpdate();
                 },
-                computed: {
+
+                created() {
+                    
                 },
                 buildQuestionList(Qs_array) {
                     for (let i = 0; i < Qs_array.length; i++) {
@@ -278,18 +291,28 @@
 
                         // this.Q_list.push(Qs_array[i].id);
                         this.Q_map[Qs_array[i].id] = Qs_array[i];
+                        this.Q_values[`id_${Qs_array[i].id}`] = '';
 
 
                         if (Qs_array[i]['ref'] !== undefined) {
-                            this.Q_ref[Qs_array[i]['ref'].slice(1)] = null;
+                            this.Q_ref[Qs_array[i]['ref']] = {id:Qs_array[i].id};
                         }
 
 
                         if (Qs_array[i]['formula'] !== undefined) {
-                            // this.$options.computed[Qs_array[i].ref] = ()=>{
-                            //     return this.evaluate_formula(Qs_array[i]['formula']);
-                            // };
+
+                            if(Qs_array[i].ref !== undefined){
+                                this.$options.computed['formula_'+Qs_array[i].ref.slice(1)] = {
+                                get() {
+                                    return this.evaluate_formula(Qs_array[i]['formula']);
+                                },
+                                set(val) {
+                                    console.log('Can not update formula');
+                                }
+                                
+                            };
                             // console.log(this.evaluate_formula(Qs_array[i]['formula']));
+                            }
                         }
 
 
@@ -301,12 +324,7 @@
 
                 },
 
-                evaluate_formula(str) {
-                    return eval(str.replace(/#/g, 'this.Q_ref.'));
-                },
-
                 openForm(form_id) {
-
 
                     if (this.Q_map[form_id].type === 'any') {
                         this.form = this.Q_map[form_id];
@@ -314,6 +332,28 @@
                     }
                 }
 
+            },
+            computed:{
+                evaluate_formula(str) {
+                    return eval(str.replace(/#/g, 'this.Q_values.id_'));
+                },
+                answer: {
+                    get(){
+                        //this function will determine what is displayed in the input
+                        // return this.ans + this.ans;
+                        return {formula:(Q)=> {
+                            let ans = Q.formula.replace(/#/g, 'this.Q_values.id_');
+                            // this.Q_ref[a] = ans;
+                            ans = eval(ans);
+                            this.Q_values[`id_${Q.id}`] = ans;
+                            return Q.ref;
+                        }}
+                    },
+                    set(newVal){
+                        //this function will run whenever the input changes
+                        this.value = newVal/2;
+                    }
+                }
             },
             watch: {
 
