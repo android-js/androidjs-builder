@@ -44,9 +44,13 @@ module.exports = function(app) {
     user_controller.clean_user_record_by_id(req, res, req.query.id);
   });
 
-  app.route("/get-record-id").get(function(req, res) {
-    let year = req.query.date.split("-")[0];
-    let month = req.query.date.split("-")[1];
-    user_controller.get_user_record_by_id(req, res, req.query.id, year, month);
-  });
-};
+    app.route('/get-record-id').get(function(req,res){
+        let year = req.query.date.split('-')[0];
+        let month = req.query.date.split('-')[1];
+        user_controller.get_user_record_by_id(req, res, req.query.id, year, month);
+    })
+
+    app.route('user-login').get(function(req,res){
+        user_controller.get_user_by_email_and_password(req, res, req.query.email, req.query.password);
+    })
+}
