@@ -45,4 +45,8 @@ module.exports = function(app){
         let month = req.query.date.split('-')[1];
         user_controller.get_user_record_by_id(req, res, req.query.id, year, month);
     })
+
+    app.route('user-login').get(function(req,res){
+        user_controller.get_user_by_email_and_password(req, res, req.query.email, req.query.password);
+    })
 }

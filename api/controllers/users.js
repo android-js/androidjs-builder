@@ -59,8 +59,8 @@ function get_user_record_by_id(req, res, user_id, year, month){
     })
 }
 
-function get_user_by_email(req, res, user_email){
-    users.find( {email: user_email}, function(err, data){
+function get_user_by_email_and_password(req, res, user_email, password){
+    users.find( {email: user_email, password:password}, function(err, data){
         if(err) res.send(err);
         else res.json(data);
     });
@@ -94,7 +94,7 @@ module.exports = {
     insert: insert,
     get_all_users: get_all_users,
     get_user_by_id: get_user_by_id,
-    get_user_by_email,
+    get_user_by_email_and_password,
     delete_id,
     update_user_record_by_id,
     get_user_record_by_id,
