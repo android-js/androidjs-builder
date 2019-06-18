@@ -46,10 +46,16 @@ function clean_user_record_by_id(req, res, user_id){
     })
 }
 
-function get_user_record_by_id(req, res, user_id){
-    users.findById(user_id, function(err, data){
+function get_user_record_by_id(req, res, user_id, year, month){
+    users.findById({_id:user_id}, function(err, data){
         if(err) res.send(err);
-        else res.jsong(data.record);
+        else{
+            if(data.record.get(year) && data.record.get(year).get(month)){
+                res.json(data.record.get(year).get(month));
+            }else{
+                res.json({error:true, msg:"record not found"});
+            }
+        }
     })
 }
 
