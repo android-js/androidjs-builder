@@ -49,9 +49,10 @@ module.exports = function(app){
     })
 
     app.route('/user-login').get(function(req,res){
-        if(req.session.id){
-            console.log(req.session.id);
+        if(req.session.user_id){
+            console.log(req.session.user_id);
+        }else if(req.query.email){
+            user_controller.get_user_by_email_and_password(req, res, req.query.email, req.query.password);
         }
-        user_controller.get_user_by_email_and_password(req, res, req.query.email, req.query.password);
     })
 }
