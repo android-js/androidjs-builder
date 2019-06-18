@@ -21,10 +21,10 @@ module.exports = function(app){
         console.log(req.params);
         user_controller.get_user_by_id(req, res,req.params.uid);
     });
-    app.route('/getuser-email/:user_email').get(function(req,res){
-        console.log(req.params);
-        user_controller.get_user_by_email(req, res,req.params.user_email);
-    });
+    // app.route('/getuser-email/:user_email').get(function(req,res){
+    //     console.log(req.params);
+    //     user_controller.get_user_by_email(req, res,req.params.user_email);
+    // });
 
     app.route('/update-record-id').post(function(req, res){
         let user_data = {};
@@ -49,4 +49,4 @@ module.exports = function(app){
     app.route('user-login').get(function(req,res){
         user_controller.get_user_by_email_and_password(req, res, req.query.email, req.query.password);
     })
-}
+} 
