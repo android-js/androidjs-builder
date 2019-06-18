@@ -91,5 +91,6 @@ module.exports = {
     get_user_by_email,
     delete_id,
     update_user_record_by_id,
-    get_user_record_by_id
+    get_user_record_by_id,
+    clean_user_record_by_id
 }
