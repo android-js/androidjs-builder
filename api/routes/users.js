@@ -47,6 +47,9 @@ module.exports = function(app){
     })
 
     app.route('/user-login').get(function(req,res){
+        if(req.session.id){
+            console.log(req.session.id);
+        }
         user_controller.get_user_by_email_and_password(req, res, req.query.email, req.query.password);
     })
 } 
