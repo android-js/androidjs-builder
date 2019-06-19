@@ -14,11 +14,11 @@ const settings = {
 
 const app = express();
 
-// app.set('trust proxy', 1);
+app.set('trust proxy', 1);
 
 app.use(session({
     name:'session',
-    keys: ["Chhekur@Pankaj@Pawan"],
+    keys: ["Chhekur@Pankaj@Pawan", 'gjhgjhgjh'],
 }))
 
 db_connection.connect();

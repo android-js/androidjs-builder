@@ -63,13 +63,10 @@ function get_user_by_email_and_password(req, res, user_email, password){
     users.find( {email: user_email, password:password}, function(err, data){
         if(err) res.json({error:true, msg:"invalid details"});
         else {
-            res.json({error:false, msg:"login success"});
             // console.log(data);
             req.session.user_id = data[0]._id;
-            req.session.save(function(err){
-                if(err) throw err;
-            })
-            console.log(req.session);
+            console.log(req.session.user_id);
+            res.json({error:false, msg:"login success"});
             // console.log(data[0]._id, req.session.user_id);
         }
     });
