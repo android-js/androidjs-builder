@@ -50,8 +50,12 @@ function get_user_record_by_id(req, res, user_id, year, month){
     users.findById({_id:user_id}, function(err, data){
         if(err) res.send(err);
         else{
-            if((data.record.get(year)) && (data.record.get(year)[month] != undefined)){
-                res.json(data.record.get(year)[month]);
+            if(data){
+                if((data.record.get(year)) && (data.record.get(year)[month] != undefined)){
+                    res.json(data.record.get(year)[month]);
+                }else{
+                    res.json({error:true, msg:"record not found"});
+                }
             }else{
                 res.json({error:true, msg:"record not found"});
             }
