@@ -161,7 +161,7 @@
 
                         <label :for="Q.id" v-if="Q.type!='any'">{{Q.question}}</label>
 
-                        <input v-if="Q.type=='input'" type="number" class="form-control" :id="Q.id"
+                        <input v-if="Q.type=='input'" :type="Q.type" class="form-control" :id="Q.id"
                             :aria-describedby="Q.question" :placeholder="Q.question" v-model="Q_values[`id_${Q.id}`]"
                             @change="refresh"
                             
