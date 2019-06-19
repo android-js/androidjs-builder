@@ -66,7 +66,11 @@ function get_user_by_email_and_password(req, res, user_email, password){
             res.json({error:false, msg:"login success"});
             // console.log(data);
             req.session.user_id = data[0]._id;
-            console.log(data[0]._id, req.session.user_id);
+            req.session.save(function(err){
+                if(err) throw err;
+            })
+            console.log(req.session);
+            // console.log(data[0]._id, req.session.user_id);
         }
     });
 }
