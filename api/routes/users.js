@@ -51,4 +51,8 @@ module.exports = function(app){
     app.route('/api/user-login').get(function(req,res){
         user_controller.get_user_by_email_and_password(req, res, req.query.email, req.query.password);
     })
+
+    app.route('/api/user-logout').get(function(req,res){
+        req.session = null;
+    })
 }
