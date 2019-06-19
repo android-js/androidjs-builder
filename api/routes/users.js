@@ -2,7 +2,7 @@
 const user_controller = require('../controllers/users');
 
 module.exports = function(app){
-    app.route('/newuser').get(function(req, res){
+    app.route('/api/newuser').get(function(req, res){
         let user = {}
         user.name = req.query.name;
         user.email = req.query.email;
@@ -10,15 +10,15 @@ module.exports = function(app){
 
         user_controller.insert(req, res, user);
     });
-    app.route('/delete-id/:uid').get(function(req, res){
+    app.route('/api/delete-id/:uid').get(function(req, res){
         user_controller.delete_id(res, req.params.uid);
     });
 
-    app.route('/showusers').get(function(req,res){
+    app.route('/api/showusers').get(function(req,res){
         user_controller.get_all_users(req,res);
     });
 
-    app.route('/getuser-id/:uid').get(function(req,res){
+    app.route('/api/getuser-id/:uid').get(function(req,res){
         console.log(req.params);
         user_controller.get_user_by_id(req, res,req.params.uid);
     });
@@ -27,7 +27,7 @@ module.exports = function(app){
     //     user_controller.get_user_by_email(req, res,req.params.user_email);
     // });
 
-    app.route('/update-record-id').post(function(req, res){
+    app.route('/api/update-record-id').post(function(req, res){
         let user_data = {};
         console.log(req.body);
         user_data.id = req.body.id;
@@ -37,21 +37,18 @@ module.exports = function(app){
         user_controller.update_user_record_by_id(req,res, user_data);
     })
 
-    app.route("/clean-record-id").get(function(req, res){
+    app.route("/api/clean-record-id").get(function(req, res){
         user_controller.clean_user_record_by_id(req, res, req.query.id);
     })
 
 
-    app.route('/get-record-id').get(function(req,res){
+    app.route('/api/get-record-id').get(function(req,res){
         let year = req.query.date.split('-')[0];
         let month = req.query.date.split('-')[1];
         user_controller.get_user_record_by_id(req, res, req.query.id, year, month);
     })
 
-    app.route('/user-login').get(function(req,res){
-        if(req.session.id){
-            console.log(req.session.id);
-        }
+    app.route('/api/user-login').get(function(req,res){
         user_controller.get_user_by_email_and_password(req, res, req.query.email, req.query.password);
     })
 }
