@@ -54,6 +54,6 @@ module.exports = function(app){
 
     app.route('/api/user-logout').get(function(req,res){
         req.session = null;
-        res.send({error:false});
+        res.send({status: "success"});
     })
 }
