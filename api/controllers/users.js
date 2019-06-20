@@ -50,8 +50,12 @@ function get_user_record_by_id(req, res, user_id, year, month){
     users.findById({_id:user_id}, function(err, data){
         if(err) res.send(err);
         else{
-            if((data.record.get(year)) && (data.record.get(year)[month] != undefined)){
-                res.json(data.record.get(year)[month]);
+            if(data){
+                if((data.record.get(year)) && (data.record.get(year)[month] != undefined)){
+                    res.json(data.record.get(year)[month]);
+                }else{
+                    res.json({error:true, msg:"record not found"});
+                }
             }else{
                 res.json({error:true, msg:"record not found"});
             }
@@ -62,7 +66,17 @@ function get_user_record_by_id(req, res, user_id, year, month){
 function get_user_by_email_and_password(req, res, user_email, password){
     users.find( {email: user_email, password:password}, function(err, data){
         if(err) res.send(err);
-        else res.json(data);
+        else {
+            // console.log(data);
+            if(data[0]){
+                req.session.user_id = data[0]._id;
+                console.log(req.session.user_id);
+                res.json({error:false, msg:"login success"});
+                // console.log(data[0]._id, req.session.user_id);
+            }else{
+                res.send({error:true, msg:"invalid details"});
+            }
+        }
     });
 }
 
