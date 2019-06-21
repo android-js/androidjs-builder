@@ -48,11 +48,7 @@ module.exports = function(app){
         user_controller.get_user_record_by_id(req, res, req.query.id, year, month);
     })
 
-<<<<<<< HEAD
-    app.route('/user-login').get(function(req,res){
-=======
     app.route('/api/user-login').get(function(req,res){
->>>>>>> 26f55eb395c0624753639ab9ea2ab7b15a45f51a
         user_controller.get_user_by_email_and_password(req, res, req.query.email, req.query.password);
     })
 
