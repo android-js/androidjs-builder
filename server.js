@@ -2,7 +2,9 @@ const express = require('express');
 const db_connection = require('./connection');
 const bodyParser = require('body-parser');
 const path = require("path");
-const routes = require('./api/routes/users');
+const api_routes = require('./api/routes/users');
+const routes = require('./routes/web');
+const session = require('cookie-session');
 
 const settings = {
     port: 3000,
@@ -12,11 +14,19 @@ const settings = {
 
 const app = express();
 
+app.set('trust proxy', 1);
+
+app.use(session({
+    name:'session',
+    keys: ["Chhekur@Pankaj@Pawan", 'gjhgjhgjh'],
+}))
+
 db_connection.connect();
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
+api_routes(app);
 routes(app);
 
 app.use(express.static('./views'));
