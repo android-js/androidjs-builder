@@ -1,0 +1,48 @@
+{
+    "data": [
+        {
+            "id": "e1",
+            "type": "number",
+            "question": "Expenses on rent",
+            "options": [],
+            "children": []
+        },
+        {
+            "id": "e2",
+            "type": "number",
+            "question": "Expenses on chilf fees",
+            "options": [],
+            "children": []
+        },
+        {
+            "id": "e3",
+            "type": "number",
+            "question": "Expenses on home loan",
+            "options": [],
+            "children": []
+        },
+        {
+            "id": "e4",
+            "type": "number",
+            "question": "Expenses on medical claim",
+            "options": [],
+            "children": []
+        },
+        {
+            "id": "e5",
+            "type": "number",
+            "question": "Miscellaneous expenses",
+            "options": [],
+            "children": []
+        },
+        {
+            "id": "e6",
+            "type": "output",
+            "question": "Total expenses",
+            "formula": "#e1 + #e2 + #e3 + #e4 + #e5",
+            "options": [],
+            "children": []
+        }
+
+    ]
+}

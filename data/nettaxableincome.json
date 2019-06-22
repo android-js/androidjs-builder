@@ -1,0 +1,21 @@
+{
+    "data": [
+        {
+            "id": "nti1",
+            "type": "output",
+            "question": "Total taxable income",
+            "formula": "#i13 - #e6",
+            "options": [],
+            "children": []
+        },
+        {
+            "id": "nti2",
+            "type": "output",
+            "question": "Total payable tax",
+            "formula": "@myfunction( #nti1 )",
+            "options": [],
+            "children": []
+        }
+        
+    ]
+}

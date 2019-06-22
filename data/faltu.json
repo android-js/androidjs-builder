@@ -1,0 +1,94 @@
+{
+    "data": [
+        {
+            "id": "i1",
+            "type": "number",
+            "question": "What is your income from salary ?",
+            "options": [],
+            "children": []
+        },
+        {
+            "id": "i2",
+            "type": "number",
+            "question": "What is your income from FD ?",
+            "options": [],
+            "children": []
+        },
+        {
+            "id": "i3",
+            "type": "number",
+            "question": "What is your income from business (profit only) ?",
+            "options": [],
+            "children": []
+        },{
+            "id": "i4",
+            "type": "number",
+            "question": "What is your income from other sources ?",
+            "options": [],
+            "children": []
+        },{
+            "id": "i5",
+            "type": "number",
+            "question": "What is your income from house property ?",
+            "options": [],
+            "children": []
+        },{
+            "id": "i6",
+            "type": "number",
+            "question": "Interest Paid/Payable on Housing Loan for Current Financial Year ?",
+            "options": [],
+            "children": []
+        },{
+            "id": "i7",
+            "type": "number",
+            "question": "Interest on Housing Loan ?",
+            "options": [],
+            "children": []
+        },
+        {
+            "id": "i8",
+            "type": "number",
+            "question": "Income from Let_out Property ?",
+            "options": [],
+            "children": []
+        },{
+            "id": "i9",
+            "type": "number",
+            "question": "Annual Letable Value/Rent Received or Receivable ?",
+            "options": [],
+            "children": []
+        },
+        {
+            "id": "i10",
+            "type": "number",
+            "question": "Less: Municipal Taxes Paid During the Year",
+            "options": [],
+            "children": []
+        },
+        {
+            "id": "i11",
+            "type": "number",
+            "question": "Less:Unrealized Rent",
+            "options": [],
+            "children": []
+        },
+        {
+            "id": "i12",
+            "type": "output",
+            "formula": "#i9 - #i10 - #i11",
+            "question": "Net Annual Value (1-(2+3))",
+            "options": [],
+            "children": []
+        },
+        {
+            "id" : "i13",
+            "type": "output",
+            "formula": "#i1 + #i2 + #i3 + #i4 + #i5 + #i6 + #i7 + #i8 + #i12 ",
+            "question": "Total Income ",
+            "options": [],
+            "children": []
+
+        }
+
+    ]
+}
