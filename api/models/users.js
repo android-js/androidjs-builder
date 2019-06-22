@@ -11,6 +11,7 @@ const users = new schema({
     password:{ type: String, required: true },
     category:String,
     taxpayer:String,
+    mobile:String,
     record: Map
 });
 

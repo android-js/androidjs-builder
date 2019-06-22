@@ -2,11 +2,14 @@
 const user_controller = require('../controllers/users');
 
 module.exports = function(app){
-    app.route('/api/newuser').get(function(req, res){
+    app.route('/api/newuser').post(function(req, res){
         let user = {}
-        user.name = req.query.name;
-        user.email = req.query.email;
-        user.password = req.query.password;
+        user.name = req.body.name;
+        user.email = req.body.email;
+        user.password = req.body.password;
+        user.mobile = req.body.mobile;
+        user.category = req.body.category;
+        user.texpayer = req.body.texpayer;
 
         user_controller.insert(req, res, user);
     });
@@ -56,4 +59,5 @@ module.exports = function(app){
         req.session = null;
         res.send({status: "success"});
     })
+
 }
