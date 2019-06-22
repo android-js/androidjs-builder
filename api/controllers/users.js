@@ -71,7 +71,7 @@ function get_user_by_email_and_password(req, res, user_email, password){
             if(data[0]){
                 req.session.user_id = data[0]._id;
                 console.log(req.session.user_id);
-                res.json({error:false, msg:"login success"});
+                res.json({error:false, msg:"login success", user_id: data[0]._id});
                 // console.log(data[0]._id, req.session.user_id);
             }else{
                 res.send({error:true, msg:"invalid details"});

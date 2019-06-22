@@ -9,7 +9,7 @@ module.exports = function(app){
         user.password = req.body.password;
         user.mobile = req.body.mobile;
         user.category = req.body.category;
-        user.texpayer = req.body.texpayer;
+        user.taxpayer = req.body.texpayer;
 
         user_controller.insert(req, res, user);
     });
