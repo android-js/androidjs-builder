@@ -86,6 +86,9 @@ function insert(req, res, user){
         name:user.name,
         email:user.email,
         password:user.password,
+        mobile:user.mobile,
+        category:user.category,
+        taxpayer:user.taxpayer,
         record:{
             '2009':{}
         }
