@@ -10,7 +10,7 @@
         {
             "id": "e2",
             "type": "number",
-            "question": "Expenses on chilf fees",
+            "question": "Expenses on child fees",
             "options": [],
             "children": []
         },
@@ -24,22 +24,52 @@
         {
             "id": "e4",
             "type": "number",
-            "question": "Expenses on medical claim",
+            "question": "Less: Municipal Taxes Paid During the Year",
             "options": [],
             "children": []
         },
         {
             "id": "e5",
             "type": "number",
-            "question": "Miscellaneous expenses",
+            "question": "Less:Unrealized Rent",
             "options": [],
             "children": []
         },
         {
             "id": "e6",
             "type": "output",
+            "formula": "#i5 - #e4 - #e5",
+            "question": "Net Annual Value (1-(2+3))",
+            "options": [],
+            "children": []
+        },
+        {
+            "id": "e7",
+            "type": "number",
+            "question": "Expenses on medical claim",
+            "options": [],
+            "children": []
+        },
+        {
+            "id": "e8",
+            "type": "number",
+            "question": "Miscellaneous expenses",
+            "options": [],
+            "children": []
+        },
+        {
+            "id": "e9",
+            "type": "output",
+            "question": "Total income",
+            "formula": "#i1 + #i2 + #i3 + #i4 + #i5",
+            "options": [],
+            "children": []
+        },
+        {
+            "id": "e10",
+            "type": "output",
             "question": "Total expenses",
-            "formula": "#e1 + #e2 + #e3 + #e4 + #e5",
+            "formula": "#e1 + #e2 + #e3 + #e6 + #e7 + #e8",
             "options": [],
             "children": []
         }

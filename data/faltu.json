@@ -1,94 +1,150 @@
 {
     "data": [
         {
-            "id": "i1",
-            "type": "number",
-            "question": "What is your income from salary ?",
-            "options": [],
-            "children": []
+            "id": "form1",
+            "type": "any",
+            "question": "Income",
+            "children": [
+                {
+                    "id": "i1",
+                    "type": "number",
+                    "question": "What is your income from salary ?",
+                    "options": [],
+                    "children": []
+                },
+                {
+                    "id": "i2",
+                    "type": "number",
+                    "question": "What is your income from FD ?",
+                    "options": [],
+                    "children": []
+                },
+                {
+                    "id": "i3",
+                    "type": "number",
+                    "question": "What is your income from business (profit only) ?",
+                    "options": [],
+                    "children": []
+                },
+                {
+                    "id": "i4",
+                    "type": "number",
+                    "question": "What is your income from other sources ?",
+                    "options": [],
+                    "children": []
+                },
+                {
+                    "id": "i5",
+                    "type": "number",
+                    "question": "What is your income from house property ?",
+                    "options": [],
+                    "children": []
+                }
+            ]
         },
-        {
-            "id": "i2",
-            "type": "number",
-            "question": "What is your income from FD ?",
-            "options": [],
-            "children": []
-        },
-        {
-            "id": "i3",
-            "type": "number",
-            "question": "What is your income from business (profit only) ?",
-            "options": [],
-            "children": []
-        },{
-            "id": "i4",
-            "type": "number",
-            "question": "What is your income from other sources ?",
-            "options": [],
-            "children": []
-        },{
-            "id": "i5",
-            "type": "number",
-            "question": "What is your income from house property ?",
-            "options": [],
-            "children": []
-        },{
-            "id": "i6",
-            "type": "number",
-            "question": "Interest Paid/Payable on Housing Loan for Current Financial Year ?",
-            "options": [],
-            "children": []
-        },{
-            "id": "i7",
-            "type": "number",
-            "question": "Interest on Housing Loan ?",
-            "options": [],
-            "children": []
-        },
-        {
-            "id": "i8",
-            "type": "number",
-            "question": "Income from Let_out Property ?",
-            "options": [],
-            "children": []
-        },{
-            "id": "i9",
-            "type": "number",
-            "question": "Annual Letable Value/Rent Received or Receivable ?",
-            "options": [],
-            "children": []
-        },
-        {
-            "id": "i10",
-            "type": "number",
-            "question": "Less: Municipal Taxes Paid During the Year",
-            "options": [],
-            "children": []
-        },
-        {
-            "id": "i11",
-            "type": "number",
-            "question": "Less:Unrealized Rent",
-            "options": [],
-            "children": []
-        },
-        {
-            "id": "i12",
-            "type": "output",
-            "formula": "#i9 - #i10 - #i11",
-            "question": "Net Annual Value (1-(2+3))",
-            "options": [],
-            "children": []
-        },
-        {
-            "id" : "i13",
-            "type": "output",
-            "formula": "#i1 + #i2 + #i3 + #i4 + #i5 + #i6 + #i7 + #i8 + #i12 ",
-            "question": "Total Income ",
-            "options": [],
-            "children": []
 
+        {
+            "id": "form2",
+            "type": "any",
+            "question": "Expenditures ",
+            "children": [
+                {
+                    "id": "e1",
+                    "type": "number",
+                    "question": "Expenses on rent",
+                    "options": [],
+                    "children": []
+                },
+                {
+                    "id": "e2",
+                    "type": "number",
+                    "question": "Expenses on child fees",
+                    "options": [],
+                    "children": []
+                },
+                {
+                    "id": "e3",
+                    "type": "number",
+                    "question": "Expenses on home loan",
+                    "options": [],
+                    "children": []
+                },
+                {
+                    "id": "e4",
+                    "type": "number",
+                    "question": "Less: Municipal Taxes Paid During the Year",
+                    "options": [],
+                    "children": []
+                },
+                {
+                    "id": "e5",
+                    "type": "number",
+                    "question": "Less:Unrealized Rent",
+                    "options": [],
+                    "children": []
+                },
+                {
+                    "id": "e6",
+                    "type": "output",
+                    "formula": "#i5 - #e4 - #e5",
+                    "question": "Net Annual Value (1-(2+3))",
+                    "options": [],
+                    "children": []
+                },
+                {
+                    "id": "e7",
+                    "type": "number",
+                    "question": "Expenses on medical claim",
+                    "options": [],
+                    "children": []
+                },
+                {
+                    "id": "e8",
+                    "type": "number",
+                    "question": "Miscellaneous expenses",
+                    "options": [],
+                    "children": []
+                },
+                {
+                    "id": "e9",
+                    "type": "output",
+                    "question": "Total income",
+                    "formula": "#i1 + #i2 + #i3 + #i4 + #i5",
+                    "options": [],
+                    "children": []
+                },
+                {
+                    "id": "e10",
+                    "type": "output",
+                    "question": "Total expenses",
+                    "formula": "#e1 + #e2 + #e3 + #e6 + #e7 + #e8",
+                    "options": [],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "id": "form3",
+            "type": "any",
+            "question": "Net Taxable Income",
+            "children": [
+                {
+                    "id": "nti1",
+                    "type": "output",
+                    "question": "Total taxable income",
+                    "formula": "#e9 - #e10",
+                    "options": [],
+                    "children": []
+                },
+                {
+                    "id": "nti2",
+                    "type": "output",
+                    "question": "Total payable tax",
+                    "formula": "@myfunction( #nti1 )",
+                    "options": [],
+                    "children": []
+                }
+            ]
         }
-
     ]
 }

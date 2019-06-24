@@ -4,7 +4,7 @@
             "id": "nti1",
             "type": "output",
             "question": "Total taxable income",
-            "formula": "#i13 - #e6",
+            "formula": "#e9 - #e10",
             "options": [],
             "children": []
         },

@@ -29,6 +29,9 @@
 
     <!-- Custom styles for this template -->
     <link href="./Template_files/dashboard.css" rel="stylesheet">
+
+    <script src="./session.js"></script>
+
     <style type="text/css">
         /* Chart.js */
         @-webkit-keyframes chartjs-render-animation {
@@ -66,7 +69,7 @@
         <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
-                <a class="nav-link" href="#" @click="signout()">Sign out</a>
+                <a class="nav-link" href="#" onclick="signout()">Sign out</a>
             </li>
         </ul>
     </nav>
@@ -93,6 +96,15 @@
                         </li>
 
 
+                    </ul>
+
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <span class="nav-link"><a href="/Template.html">Form</a></span>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-link"><a href="/Template2.html">Form 2</a></span>
+                        </li>
                     </ul>
 
                     <!--<h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">-->
@@ -163,7 +175,7 @@
 
                         <input v-if="Q.type=='number'" :type="Q.type" class="form-control" :id="Q.id"
                             :aria-describedby="Q.question" :placeholder="Q.question" v-model="Q_values[`id_${Q.id}`]"
-                            @change="refresh" type = "number" >
+                            @change="refresh" type="number">
 
                         <input v-if="Q.type=='input'" :type="Q.type" class="form-control" :id="Q.id"
                             :aria-describedby="Q.question" :placeholder="Q.question" v-model="Q_values[`id_${Q.id}`]"
@@ -206,6 +218,14 @@
 
 
     <script>
+        function signout() {
+            console.log('Signout');
+            $.get('/api/user-logout/', (data, status) => {
+                console.log(data, status)
+                eraseCookie('userid');
+                location.href = '/login/';
+            });
+        }
         Vue.component('my-tree', {
             template: '#my-tree',
             props: ['Questions', 'register'],
@@ -227,7 +247,7 @@
                     Q_list: [],
                     Q_ref: {},
                     Q_values: {},
-                    userid: '5cf8c1deeacc48385f8ec826',
+                    userid: getCookie('userid'),
                     date: '2019-06-16',
                     ans: "hello",
                     dic: {
@@ -238,8 +258,8 @@
                     },
                     fun: {
                         myfunction: (val) => {
-                            
-                            
+
+
                             let ans = (val * 5) / 100;
                             return ans;
                         }
@@ -261,12 +281,25 @@
                     this.buildQuestionList(this.questions);
                     // this.$forceUpdate();
                 });
+
+                axios.get('/api/getuser-id/' + getCookie('userid')).then(data => {
+                    this.category = data.data.category;
+                    this.taxpayer = data.data.taxpayer;
+                    
+                    let taxrates = `/static/${this.taxpayer}.json`;
+                    $.get(taxrates, (data, status) => {
+                        this.tax_rate = data.tax_rate;
+                    });
+                });
             },
 
             methods: {
                 signout() {
+                    console.log('Signout');
                     $.get('/api/user-logout/', (data, status) => {
-
+                        console.log(data, status)
+                        eraseCookie('userid');
+                        location.href = '/login/';
                     });
                 },
 
@@ -389,7 +422,7 @@
                         // return this.ans + this.ans;
                         return {
                             formula: (Q) => {
-                                for (i in this.Q_values){
+                                for (i in this.Q_values) {
                                     // if(typeof this.Q_values[i] !== 'int')
                                     // conso
                                     this.Q_values[i] = parseInt(this.Q_values[i]);

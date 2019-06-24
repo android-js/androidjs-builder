@@ -12,6 +12,7 @@
     <meta name="author" content="">
     <link rel="icon" href="./favicon.png">
 
+    <script src="/static/jquery.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
 
@@ -29,6 +30,9 @@
 
     <!-- Custom styles for this template -->
     <link href="./Template_files/dashboard.css" rel="stylesheet">
+
+    <script src="./session.js"></script>
+
     <style type="text/css">
         /* Chart.js */
         @-webkit-keyframes chartjs-render-animation {
@@ -66,7 +70,7 @@
         <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
-                <a class="nav-link" href="#" @click="signout()">Sign out</a>
+                <a class="nav-link" href="#" onclick="signout()">Sign out</a>
             </li>
         </ul>
     </nav>
@@ -94,6 +98,15 @@
 
 
                     </ul>
+
+                    <!-- <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <span class="nav-link"><a href="/Template.html">Form </a></span>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-link"><a href="/Template1.html">Form 1</a></span>
+                        </li>
+                    </ul> -->
 
                     <!--<h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">-->
                     <!--<span>Saved reports</span>-->
@@ -163,7 +176,7 @@
 
                         <input v-if="Q.type=='number'" :type="Q.type" class="form-control" :id="Q.id"
                             :aria-describedby="Q.question" :placeholder="Q.question" v-model="Q_values[`id_${Q.id}`]"
-                            @change="refresh" type = "number" >
+                            @change="refresh" type="number">
 
                         <input v-if="Q.type=='input'" :type="Q.type" class="form-control" :id="Q.id"
                             :aria-describedby="Q.question" :placeholder="Q.question" v-model="Q_values[`id_${Q.id}`]"
@@ -206,6 +219,14 @@
 
 
     <script>
+        function signout() {
+            console.log('Signout');
+            $.get('/api/user-logout/', (data, status) => {
+                console.log(data, status)
+                eraseCookie('userid');
+                location.href = '/login/';
+            });
+        }
         Vue.component('my-tree', {
             template: '#my-tree',
             props: ['Questions', 'register'],
@@ -227,21 +248,54 @@
                     Q_list: [],
                     Q_ref: {},
                     Q_values: {},
-                    userid: '5cf8c1deeacc48385f8ec826',
+                    userid: getCookie('userid'),
                     date: '2019-06-16',
+                    category: '',
                     ans: "hello",
-                    dic: {
-                        "0-300000": "0+0%",
-                        "300001-500000": "0+5%",
-                        "500001-1000000": "0+20%",
-                        "1000001-inf": "0+30%"
-                    },
+                    dic: [
+                        {
+                            l:0,
+                            r:300000,
+                            val: "0+0%"
+                        },
+                        {
+                            l:300001,
+                            r:500000,
+                            val: "0+5%"
+                        },
+                        {
+                            l:500001,
+                            r:1000000,
+                            val: "0+20%"
+                        },
+                        {
+                            l:1000001,
+                            r:-1,
+                            val: "0+30%"
+                        }
+                    ],
                     fun: {
                         myfunction: (val) => {
+                            let rate = "";
+
+                            for (i in this.tax_rate) {
+                                let l = this.tax_rate[i].l;
+                                let r = this.tax_rate[i].r;
+                                
+                                if(val >= l && val <= r) {
+                                    // console.log(this.tax_rate[i]);
+                                    rate = this.tax_rate[i].val;
+                                    break;
+                                }
+                                if(val >= l && r == -1){
+                                    rate = this.tax_rate[i].val;
+                                    break;
+                                }
+                            }
+
+                            console.log(val, rate, eval(rate));
                             
-                            
-                            let ans = (val * 5) / 100;
-                            return ans;
+                            return eval(rate)
                         }
                     }
                 }
@@ -251,7 +305,7 @@
                 axios.get(this.url).then(response => {
                     this.questions = response.data.data;
                     this.Q_map['0'] = {
-                        question: "Welcome",
+                        question: "All",
                         type: "any",
                         children: this.questions
                     };
@@ -261,15 +315,19 @@
                     this.buildQuestionList(this.questions);
                     // this.$forceUpdate();
                 });
+
+                axios.get('/api/getuser-id/' + getCookie('userid')).then(data => {
+                    this.category = data.data.category;
+                    this.taxpayer = data.data.taxpayer;
+
+                    let taxrates = `/static/${this.taxpayer}.json`;
+                    $.get(taxrates, (data, status) => {
+                        this.tax_rate = data.tax_rate;
+                    });
+                })
             },
 
             methods: {
-                signout() {
-                    $.get('/api/user-logout/', (data, status) => {
-
-                    });
-                },
-
                 updateOnDate() {
                     this.getUserRecord(this.userid, this.date);
                 },
@@ -389,7 +447,7 @@
                         // return this.ans + this.ans;
                         return {
                             formula: (Q) => {
-                                for (i in this.Q_values){
+                                for (i in this.Q_values) {
                                     // if(typeof this.Q_values[i] !== 'int')
                                     // conso
                                     this.Q_values[i] = parseInt(this.Q_values[i]);
