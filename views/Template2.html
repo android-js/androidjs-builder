@@ -82,7 +82,7 @@
                     <ul class="nav flex-column">
 
 
-                        <li class="nav-item" v-for="(Q, i) in Q_list" @click="openForm(Q)">
+                        <li class="nav-item" v-for="(Q, i) in Q_list" @click="openForm(Q)" style="cursor: pointer">
                             <span class="nav-link" :class="{'active':selected==Q}" href="#">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -197,7 +197,7 @@
 
 
 
-                        <span v-if="Q.type=='any'" @click="openForm(Q.id)"
+                        <span v-if="Q.type=='any'" @click="openForm(Q.id)" style="cursor: pointer; font-size: 25px"
                             class="badge badge-pill badge-info">{{Q.question}}</span>
 
                         <!-- <input v-if="Q.type=='output'" type="email" class="form-control"
@@ -275,6 +275,7 @@
                         }
                     ],
                     fun: {
+                        
                         myfunction: (val) => {
                             let rate = "";
 
@@ -294,7 +295,7 @@
                             }
 
                             console.log(val, rate, eval(rate));
-                            
+
                             return eval(rate)
                         }
                     }

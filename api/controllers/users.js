@@ -20,17 +20,17 @@ function update_user_record_by_id(req, res, user_data){
         if(err) res.send(err);
         else {
             let new_data = data.record;
-            if(new_data[user_data.year] == undefined){
+            if(!new_data.get(user_data.year)){
                 console.log('hello');
-                new_data.set(user_data.year, new Map())
+                new_data.set(user_data.year, {})
                 // new_data[user_data.year] = {"asfs":{}}
-                console.log(new_data);
+                // console.log(new_data);
             }
             // console.log(user_data.year, new_data[user_data.year])
-            new_data.get(user_data.year).set(user_data.month, user_data.record);
+            new_data.get(user_data.year)[user_data.month] = user_data.record;
             // new_data[user_data.year][user_data.month] =  user_data.record;
 
-            console.log(new_data);
+            // console.log(new_data);
             users.findOneAndUpdate({_id:user_data.id}, {record: new_data}, {upsert:true}, function(err, data){
                 if(err) res.send(err);
                 else res.json(data);

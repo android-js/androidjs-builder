@@ -8,7 +8,7 @@ const session = require('cookie-session');
 
 const settings = {
     port: 3000,
-    host: 'localhost',
+    host: '127.0.0.1',
     proto: 'http'
 };
 
