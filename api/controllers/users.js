@@ -107,6 +107,43 @@ function delete_id(req, res, uid){
     });
 }
 
+function get_net_taxable_income(req,res, date){
+    let year = date.split('-')[0];
+    let month = parseInt(date.split('-')[1]);
+    console.log(month)
+    console.log(req.session.user_id);
+    users.find({_id:req.session.user_id}, function(err, data){
+        if(err) res.send(err);
+        else{
+            data = data[0];
+            console.log(data);
+            let net_taxable_income = 0;
+            if(month >= 4){
+                console.log(year);
+                for(let i = month - 1; i >= 4; i--){
+                    if(data.record.get(year)[(i > 9)?i.toString():"0"+i]){
+                        net_taxable_income += parseInt(data.record.get(year)[(i > 9)?i.toString():"0"+i]['id_nti1']);
+                    }else break;
+                }
+            }else{
+                for(let i = month - 1; i > 0; i--){
+                    if(data.record.get(year)[(i > 9)?i.toString():"0"+i]){
+                        net_taxable_income += parseInt(data.record.get(year)[(i > 9)?i.toString():"0"+i]['id_nti1']);
+                    }else break;
+                }
+                for(let i = 12; i >= 4; i--){
+                    let new_year = (parseInt(year) + 1).toString();
+                    if(data.record.get(new_year)[(i > 9)?i.toString():"0"+i]){
+                        net_taxable_income += parseInt(data.record.get(year)[(i > 9)?i.toString():"0"+i]['id_nti1']);
+                    }else break;
+                }
+            }
+            res.json({net_taxable_income});
+        }
+    });
+
+}
+
 module.exports = {
     insert: insert,
     get_all_users: get_all_users,
@@ -115,5 +152,6 @@ module.exports = {
     delete_id,
     update_user_record_by_id,
     get_user_record_by_id,
-    clean_user_record_by_id
+    clean_user_record_by_id,
+    get_net_taxable_income
 }
