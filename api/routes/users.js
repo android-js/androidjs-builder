@@ -60,4 +60,8 @@ module.exports = function(app){
         res.send({status: "success"});
     })
 
+    app.route('/api/get-net-taxable-income').get(function(req,res){
+        user_controller.get_net_taxable_income(req,res, req.query.date);
+    })
+
 }
