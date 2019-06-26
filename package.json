@@ -12,6 +12,7 @@
   "dependencies": {
     "cookie-parser": "^1.4.4",
     "cookie-session": "^1.3.3",
+    "ejs": "^2.6.2",
     "express": "^4.17.1",
     "express-session": "^1.16.2",
     "mongoose": "^5.5.12",

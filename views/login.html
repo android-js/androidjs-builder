@@ -6,23 +6,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!--===============================================================================================-->
-  <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+  <link rel="icon" type="image/png" href="/static/images/icons/favicon.ico" />
   <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="/static/vendor/bootstrap/css/bootstrap.min.css" />
   <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" type="text/css" href="/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css" />
   <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css" />
+  <link rel="stylesheet" type="text/css" href="/static/vendor/animate/animate.css" />
   <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css" />
+  <link rel="stylesheet" type="text/css" href="/static/vendor/css-hamburgers/hamburgers.min.css" />
   <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css" />
+  <link rel="stylesheet" type="text/css" href="/static/vendor/select2/select2.min.css" />
   <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="css/util.css" />
-  <link rel="stylesheet" type="text/css" href="css/main.css" />
+  <link rel="stylesheet" type="text/css" href="/static/CSS/util.css" />
+  <link rel="stylesheet" type="text/css" href="/static/CSS/main.css" />
   <!--===============================================================================================-->
 
-  <script src="../session.js"></script>
+  <script src="/static/JS/session.js"></script>
 </head>
 
 <body>
@@ -30,7 +30,7 @@
     <div class="container-login100">
       <div class="wrap-login100">
         <div class="login100-pic js-tilt" data-tilt>
-          <img src="images/img-01.png" alt="IMG" />
+          <img src="/static/images/img-01.png" alt="IMG" />
         </div>
 
         <div class="login100-form validate-form">
@@ -81,9 +81,9 @@
   </div>
 
   <script>
-    if(getCookie('userid')){
-      location.href = '/Template.html';
-    }
+    // if(getCookie('userid')){
+    //   location.href = '/Template.html';
+    // }
     function login() {
       let email = $("#email").val();
       let password = $("#password").val();
@@ -91,7 +91,7 @@
       $.get("/api/user-login", { email, password}, (data, status) => {
         console.log(data, status);
         if (data.error == false) {
-          setCookie('userid', data.user_id, 1);
+          // setCookie('userid', data.user_id, 1);
           location.href = '/Template2.html';
         }
       });
@@ -99,14 +99,14 @@
   </script>
 
   <!--===============================================================================================-->
-  <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+  <script src="/static/vendor/jquery/jquery-3.2.1.min.js"></script>
   <!--===============================================================================================-->
-  <script src="vendor/bootstrap/js/popper.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/static/vendor/bootstrap/js/popper.js"></script>
+  <script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
   <!--===============================================================================================-->
-  <script src="vendor/select2/select2.min.js"></script>
+  <script src="/static/vendor/select2/select2.min.js"></script>
   <!--===============================================================================================-->
-  <script src="vendor/tilt/tilt.jquery.min.js"></script>
+  <script src="/static/vendor/tilt/tilt.jquery.min.js"></script>
   <script>
     $(".js-tilt").tilt({
       scale: 1.1

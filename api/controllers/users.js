@@ -144,6 +144,11 @@ function get_net_taxable_income(req,res, date){
 
 }
 
+function current_login_user(req,res){
+    if(req.session.user_id) res.json({error:false, user_id: req.session.user_id});
+    else res.json({error: true, msg: "no login user found.."});
+}
+
 module.exports = {
     insert: insert,
     get_all_users: get_all_users,
@@ -153,5 +158,6 @@ module.exports = {
     update_user_record_by_id,
     get_user_record_by_id,
     clean_user_record_by_id,
-    get_net_taxable_income
+    get_net_taxable_income,
+    current_login_user
 }

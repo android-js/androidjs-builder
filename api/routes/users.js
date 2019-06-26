@@ -64,4 +64,8 @@ module.exports = function(app){
         user_controller.get_net_taxable_income(req,res, req.query.date);
     })
 
+    app.route('/api/current-login-user').get(function(req,res){
+        user_controller.current_login_user(req, res);
+    })
+
 }
