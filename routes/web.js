@@ -12,7 +12,14 @@ module.exports = function(app){
     })
 
     app.route('/').get(function(req,res){
-        if(req.session.user_id) res.sendFile(path.join(__dirname,'../views/Template2.html'));
+        if(req.session.user_id) res.sendFile(path.join(__dirname,'../views/main.html'));
         else res.redirect('/login');
-    })
+    });
+
+    app.route('/signup').get(function(req,res){
+        if(req.session.user_id) res.redirect('/login'); 
+        else res.sendFile(path.join(__dirname,'../views/signup.html'));
+    });
+
+
 }

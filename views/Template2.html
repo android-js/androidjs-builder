@@ -70,7 +70,7 @@
         <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
-                <a class="nav-link" href="#" onclick="signout()">Sign out</a>
+                <a class="nav-link" onclick="signout()">Sign out</a>
             </li>
         </ul>
     </nav>
@@ -226,9 +226,13 @@
         function signout() {
             console.log('Signout');
             $.get('/api/user-logout/', (data, status) => {
-                console.log(data, status)
-                eraseCookie('userid');
-                location.href = '/login/';
+                // console.log(data, status)
+                // eraseCookie('userid');
+                if(data.redirect){
+                    location.href = data.redirect;
+                }else{
+                    location.href = '/login/';
+                }
             });
         }
         Vue.component('my-tree', {

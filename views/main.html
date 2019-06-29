@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="icon" href="/assets/images/favicon.png" type="image/gif">
+    <title>Bootstrap Example</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="/assets/CSS/main.css">
+
+    <script src="/assets/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <!--<script src="/assets/bootstrap.min.js"></script>-->
+
+
+    <script src="/assets/Vue/vue.js"></script>
+    <script src="/assets/Vue/axios.min.js"></script>
+
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" onclick="signout()" style="cursor: pointer">Sign out</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<script>
+function signout() {
+    $.get('/api/user-logout', (data, success) => {
+        if(data.status === "success") {
+            if(data.redirect) {
+                location.href = data.redirect;
+            }else{
+                location.href = '/';
+            }
+        }
+        console.log(data);
+    });
+}
+</script>
+<!--<nav class="navbar sticky-top navbar-dark bg-dark">-->
+<!--<div class="container-fluid">-->
+<!--<div class="navbar-header">-->
+<!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">-->
+<!--<span class="icon-bar"></span>-->
+<!--<span class="icon-bar"></span>-->
+<!--<span class="icon-bar"></span>-->
+<!--</button>-->
+<!--<a class="navbar-brand" href="#">Logo</a>-->
+<!--</div>-->
+<!--<div class="collapse navbar-collapse" id="myNavbar">-->
+<!--<ul class="nav navbar-nav">-->
+<!--<li class="active"><a href="#">Home</a></li>-->
+<!--<li><a href="#">About</a></li>-->
+<!--<li><a href="#">Projects</a></li>-->
+<!--<li><a href="#">Contact</a></li>-->
+<!--</ul>-->
+<!--<ul class="nav navbar-nav navbar-right">-->
+<!--<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>-->
+<!--</ul>-->
+<!--</div>-->
+<!--</div>-->
+<!--</nav>-->
+
+<!--<div class="pos-f-t">-->
+<!--<div class="collapse" id="navbarToggleExternalContent">-->
+<!--<div class="bg-dark p-4">-->
+<!--<h5 class="text-white h4">Collapsed content</h5>-->
+<!--<span class="text-muted">Toggleable via the navbar brand.</span>-->
+<!--</div>-->
+<!--</div>-->
+<!--<nav class="navbar sticky-top navbar-dark bg-dark">-->
+<!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--<span class="navbar-toggler-icon"></span>-->
+<!--</button>-->
+<!--</nav>-->
+<!--</div>-->
+
+
+<div class="container-fluid text-center" id="app">
+    <div class="row content">
+
+        <!-- SideBar start -->
+        <div class="col-sm-3 sidenav text-left">
+            <div class="list-group list-group-flush">
+
+                <a v-for="(question, index) in Q_list"
+                   class="list-group-item d-flex justify-content-between align-items-center list-group-item-action"
+                   v-bind:class="{'list-group-item-success':selected_form===index}"
+                   @click="selected_form=index"
+                >
+                    {{question.text}}
+                    <span v-if="question.alert"
+                          class="badge badge-pill"
+                          v-bind:class="question.alert_status">
+                        {{question.alert}}
+                    </span>
+                </a>
+
+                <button type="button" class="btn btn-success" @click="save()">Save</button>
+
+                <div class="card text-white mb-3" v-bind:class="Status[currentStatus]" style="margin-top: 10px">
+                    <div class="card-header">Status</div>
+                    <div class="card-body" >
+
+                        <div v-for="(out, index) in OUTPUTS" v-if="out.id!=='e6'">
+                            <h5 class="card-title">{{out.question}}</h5>
+                            <p class="card-text" style="color: aliceblue">{{evelFormula(out)}}</p>
+                            <hr>
+                        </div>
+
+                        <div>
+                            <h5 class="card-title">Expected taxable income for current year</h5>
+                            <p class="card-text" style="color: aliceblue">{{(months * getCurrentTotal())+net_taxable_income}}</p>
+                            <hr>
+                        </div>
+
+                        <div>
+                            <h5 class="card-title">Expected payable tax for current year</h5>
+                            <p class="card-text" style="color: aliceblue">{{predict()}}</p>
+                            <hr>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- SideBar end-->
+
+        <div class="col-sm-7 text-left" style="margin-top: 10px">
+
+            <!--<div class="alert alert-success" role="alert">-->
+            <!--<h4 class="alert-heading">Well done!</h4>-->
+            <!--<p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit-->
+            <!--longer so that you can see how spacing within an alert works with this kind of content.</p>-->
+            <!--<hr>-->
+            <!--<p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>-->
+            <!--</div>-->
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{Q_list[selected_form].text}}</h5>
+
+                    <form>
+                        <div class="form-row">
+                            <div class="col-8">
+                                <!--<input type="text" class="form-control" placeholder="City">-->
+                            </div>
+                            <div class="col">
+                                <input type="date" class="form-control" v-model="date" @change="reloadValues()">
+                            </div>
+                        </div>
+                    </form>
+
+                    <form>
+                        <div class="form-group" v-for="question in FORMS[selected_form]">
+                            <label :for="question.id">
+                                {{question.id}} )
+                                {{question.question}}</label>
+                            <input v-if="question.type=='number' || question.type=='text'"
+                                   :type="question.type"
+                                   class="form-control"
+                                   :id="question.id"
+                                   :placeholder="question.help"
+                                   v-model="values[`id_${question.id}`]"
+                            >
+
+                            <input v-if="question.type=='output'"
+                                   type="text"
+                                   class="form-control"
+                                   :id="question.id"
+                                   :placeholder="question.help"
+
+                                   v-model="evelFormula(question)"
+
+                                   disabled
+                            >
+                            <p class="card-text">
+                                <small class="text-muted">{{question._formula}}</small>
+                            </p>
+                        </div>
+                    </form>
+
+                    <p class="card-text">
+                        <small class="text-muted">Don't forget to gave when you are done!!</small>
+
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-2 sidenav">
+            <!--<ul class="list-group">-->
+            <!--<li class="list-group-item d-flex justify-content-between align-items-center">-->
+            <!--Cras justo odio-->
+            <!--<span class="badge badge-primary badge-pill">14</span>-->
+            <!--</li>-->
+            <!--</ul>-->
+        </div>
+    </div>
+
+    <nav class="navbar fixed-bottom navbar-light bg-light" style="border-top: 1px solid black" style="width: 400px" hidden>
+        <!--<a class="navbar-brand" href="#">Footer</a>-->
+
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Hi {{name}}!</strong> You should check in on some of those fields below.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 400px; margin-left:50%">
+        <strong>Hi {{name}}!</strong> 
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+</div>
+
+
+<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"-->
+<!--integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"-->
+<!--crossorigin="anonymous"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+<script src="/assets/final/main.js"></script>
+
+</body>
+</html>

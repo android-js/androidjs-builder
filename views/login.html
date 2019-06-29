@@ -61,16 +61,16 @@
           </div>
 
           <div class="text-center p-t-12">
-            <span class="txt1">
+            <!-- <span class="txt1">
               Forgot
             </span>
             <a class="txt2" href="#">
               Username / Password?
-            </a>
+            </a> -->
           </div>
 
           <div class="text-center p-t-136">
-            <a class="txt2" href="#">
+            <a class="txt2" href="/signup">
               Create your Account
               <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
             </a>
@@ -92,7 +92,11 @@
         console.log(data, status);
         if (data.error == false) {
           // setCookie('userid', data.user_id, 1);
-          location.href = '/Template2.html';
+          if(data.redirect){
+            location.href = data.redirect;
+          }else{
+            location.href = '/';
+          }
         }
       });
     }

@@ -32,6 +32,7 @@ app.use(bodyParser.json());
 api_routes(app);
 routes(app);
 
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
 app.use('/static', express.static(path.join(__dirname, 'assets')));
 
 app.listen(settings.port, settings.host, function(){
