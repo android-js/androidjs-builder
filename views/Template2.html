@@ -10,27 +10,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="./favicon.png">
+    <link rel="icon" href="/static/images/favicon.png">
 
+    <script src="/static/jquery.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
 
     <title>Dashboard Template for Bootstrap</title>
 
-    <script src="./Vue/vue.js"></script>
+    <script src="/static/Vue/vue.js"></script>
     <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
-    <script src="./Vue/axios.min.js"></script>
+    <script src="/static/Vue/axios.min.js"></script>
 
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.1/examples/dashboard/">
 
     <!-- Bootstrap core CSS -->
-    <link href="./Template_files/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/Template_files/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="./Template_files/dashboard.css" rel="stylesheet">
+    <link href="/static/Template_files/dashboard.css" rel="stylesheet">
 
-    <script src="./session.js"></script>
+    <script src="/static/JS/session.js"></script>
+
     <style type="text/css">
         /* Chart.js */
         @-webkit-keyframes chartjs-render-animation {
@@ -68,7 +70,7 @@
         <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
-                <a class="nav-link" href="#" onclick="signout()">Sign out</a>
+                <a class="nav-link" onclick="signout()">Sign out</a>
             </li>
         </ul>
     </nav>
@@ -80,7 +82,7 @@
                     <ul class="nav flex-column">
 
 
-                        <li class="nav-item" v-for="(Q, i) in Q_list" @click="openForm(Q)">
+                        <li class="nav-item" v-for="(Q, i) in Q_list" @click="openForm(Q)" style="cursor: pointer">
                             <span class="nav-link" :class="{'active':selected==Q}" href="#">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -97,14 +99,14 @@
 
                     </ul>
 
-                    <ul class="nav flex-column">
+                    <!-- <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <span class="nav-link"><a href="/Template.html">Form </a></span>
+                        </li>
                         <li class="nav-item">
                             <span class="nav-link"><a href="/Template1.html">Form 1</a></span>
                         </li>
-                        <li class="nav-item">
-                            <span class="nav-link"><a href="/Template2.html">Form 2</a></span>
-                        </li>
-                    </ul>
+                    </ul> -->
 
                     <!--<h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">-->
                     <!--<span>Saved reports</span>-->
@@ -143,6 +145,7 @@
                     class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Form</h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
+
                         <input type="date" value="2019-06-16" v-model='date' @change="updateOnDate()">
                         <!-- <div class="btn-group mr-2">
                             <button class="btn btn-sm btn-outline-secondary">Share</button>
@@ -195,7 +198,7 @@
 
 
 
-                        <span v-if="Q.type=='any'" @click="openForm(Q.id)"
+                        <span v-if="Q.type=='any'" @click="openForm(Q.id)" style="cursor: pointer; font-size: 25px"
                             class="badge badge-pill badge-info">{{Q.question}}</span>
 
                         <!-- <input v-if="Q.type=='output'" type="email" class="form-control"
@@ -209,6 +212,9 @@
                     <!--<button type="submit" class="btn btn-primary">Next</button>-->
                 </form>
                 <input type="button" class="btn btn-default" value="Save" id="save" @click="save()">
+                <div style="font-size: 25px">
+                    <div>(net: {{net_tax + predict}}) => {{getPrediction}}</div>
+                </div>
                 <!-- <input type="text" v-model='ans'>{{answer}} -->
             </main>
 
@@ -220,12 +226,15 @@
         function signout() {
             console.log('Signout');
             $.get('/api/user-logout/', (data, status) => {
-                console.log(data, status)
-                eraseCookie('userid');
-                location.href = '/login/';
+                // console.log(data, status)
+                // eraseCookie('userid');
+                if(data.redirect){
+                    location.href = data.redirect;
+                }else{
+                    location.href = '/login/';
+                }
             });
         }
-
         Vue.component('my-tree', {
             template: '#my-tree',
             props: ['Questions', 'register'],
@@ -239,7 +248,10 @@
 
             data() {
                 return {
-                    url: "/static/nettaxableincome.json",
+                    url: "/static/data/faltu.json",
+                    net_tax: 0,
+                    months: 0,
+                    predict: 0,
                     form: [],
                     selected: "0",
                     questions: [],
@@ -247,32 +259,94 @@
                     Q_list: [],
                     Q_ref: {},
                     Q_values: {},
-                    userid: getCookie('userid'),
+                    userid: '',
                     date: '2019-06-16',
+                    category: '',
                     ans: "hello",
-                    dic: {
-                        "0-300000": "0+0%",
-                        "300001-500000": "0+5%",
-                        "500001-1000000": "0+20%",
-                        "1000001-inf": "0+30%"
-                    },
+                    dic: [{
+                            l: 0,
+                            r: 300000,
+                            val: "0+0%"
+                        },
+                        {
+                            l: 300001,
+                            r: 500000,
+                            val: "0+5%"
+                        },
+                        {
+                            l: 500001,
+                            r: 1000000,
+                            val: "0+20%"
+                        },
+                        {
+                            l: 1000001,
+                            r: -1,
+                            val: "0+30%"
+                        }
+                    ],
                     fun: {
+
                         myfunction: (val) => {
-                            // for(i in this.tax_rate){
-                            //     console.log(i)
-                            // }
-                            let ans = (val * 5) / 100;
-                            return ans;
+                            let rate = "";
+                            val = parseInt(val);
+                            if (val < 0) return 0;
+
+                            else {
+                                for (i in this.tax_rate) {
+                                    let l = this.tax_rate[i].l;
+                                    let r = this.tax_rate[i].r;
+
+                                    if (val >= l && val <= r) {
+                                        // console.log(this.tax_rate[i]);
+                                        rate = this.tax_rate[i].val;
+                                        break;
+                                    }
+                                    if (val >= l && r == -1) {
+                                        rate = this.tax_rate[i].val;
+                                        break;
+                                    }
+                                }
+
+                                console.log(val, rate, eval(rate));
+
+                                return eval(rate)
+                            }
                         }
                     }
                 }
             },
 
             mounted() {
+
+                axios.get('/api/current-login-user/').then(response => {
+                    console.log(response.data);
+                    if (response.data.error) console.warn('Error: no user login detail found');
+                    else this.userid = response.data.user_id;
+
+
+                    axios.get('/api/getuser-id/' + this.userid).then(data => {
+                        this.category = data.data.category;
+                        this.taxpayer = data.data.taxpayer;
+
+                        let taxrates = `/static/data/${this.taxpayer}.json`;
+
+                        $.get(taxrates, (data, status) => {
+                            this.tax_rate = data.tax_rate;
+
+                            axios.get('/api/get-net-taxable-income/?date=' + this.date)
+                                .then(data => {
+                                    this.net_tax = data.data.net_taxable_income;
+                                    // this.fun.predict_();
+                                });
+                        });
+
+                    });
+                });
+
                 axios.get(this.url).then(response => {
                     this.questions = response.data.data;
                     this.Q_map['0'] = {
-                        question: "Welcome",
+                        question: "All",
                         type: "any",
                         children: this.questions
                     };
@@ -283,22 +357,23 @@
                     // this.$forceUpdate();
                 });
 
-                axios.get('/api/getuser-id/' + getCookie('userid')).then(data => {
-                    this.category = data.data.category;
-                    this.taxpayer = data.data.taxpayer;
-                    
-                    let taxrates = `/static/${this.taxpayer}.json`;
-                    $.get(taxrates, (data, status) => {
-                        this.tax_rate = data.tax_rate;
-                    });
-                })
+
+
+
             },
 
             methods: {
-
                 updateOnDate() {
                     this.getUserRecord(this.userid, this.date);
                 },
+                predict_() {
+                    this.months = (12 - (parseInt(this.date.split('-')[1]) - 4));
+                    this.predict = this.months * parseInt(this.Q_values.id_nti1);
+                    console.log(parseInt(this.Q_values.id_nti1))
+                    return this.fun.myfunction(this.predict +
+                        parseInt(this.net_tax));
+                },
+
                 getUserRecord(uid, date) {
                     $.get('/api/get-record-id/', {
                         id: uid,
@@ -409,6 +484,13 @@
                 evaluate_formula(str) {
                     return eval(str.replace(/#/g, 'this.Q_values.id_'));
                 },
+
+                getPrediction: {
+                    get() {
+                        return this.predict_();
+                    }
+                },
+
                 answer: {
                     get() {
                         //this function will determine what is displayed in the input

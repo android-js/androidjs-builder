@@ -8,11 +8,14 @@ const session = require('cookie-session');
 
 const settings = {
     port: 3000,
-    host: 'localhost',
+    host: '127.0.0.1',
     proto: 'http'
 };
 
 const app = express();
+
+// app.set('views', path.join('./assets/views/'));
+// app.set('view engine', 'ejs');
 
 app.set('trust proxy', 1);
 
@@ -29,8 +32,7 @@ app.use(bodyParser.json());
 api_routes(app);
 routes(app);
 
-app.use(express.static('./views'));
-app.use('/static', express.static(path.join(__dirname, 'data')));
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
 app.use('/static', express.static(path.join(__dirname, 'assets')));
 
 app.listen(settings.port, settings.host, function(){

@@ -9,8 +9,7 @@ module.exports = function(app){
         user.password = req.body.password;
         user.mobile = req.body.mobile;
         user.category = req.body.category;
-        user.taxpayer = req.body.texpayer;
-
+        user.taxpayer = req.body.taxpayer;
         user_controller.insert(req, res, user);
     });
     app.route('/api/delete-id/:uid').get(function(req, res){
@@ -62,6 +61,11 @@ module.exports = function(app){
 
     app.route('/api/get-net-taxable-income').get(function(req,res){
         user_controller.get_net_taxable_income(req,res, req.query.date);
+    })
+
+    app.route('/api/current-login-user').get(function(req,res){
+        if (req.session.user_id) res.json({error: false, user_id: req.session.user_id, name: req.session.name, email: req.session.email,category: req.session.category, taxpayer:req.session.taxpayer});
+        else res.json({error: true, msg: "no login user found..", redirect: '/'});
     })
 
 }

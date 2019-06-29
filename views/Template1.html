@@ -31,6 +31,7 @@
     <link href="./Template_files/dashboard.css" rel="stylesheet">
 
     <script src="./session.js"></script>
+
     <style type="text/css">
         /* Chart.js */
         @-webkit-keyframes chartjs-render-animation {
@@ -99,7 +100,7 @@
 
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <span class="nav-link"><a href="/Template1.html">Form 1</a></span>
+                            <span class="nav-link"><a href="/Template.html">Form</a></span>
                         </li>
                         <li class="nav-item">
                             <span class="nav-link"><a href="/Template2.html">Form 2</a></span>
@@ -225,7 +226,6 @@
                 location.href = '/login/';
             });
         }
-
         Vue.component('my-tree', {
             template: '#my-tree',
             props: ['Questions', 'register'],
@@ -239,7 +239,7 @@
 
             data() {
                 return {
-                    url: "/static/nettaxableincome.json",
+                    url: "/static/expenditure.json",
                     form: [],
                     selected: "0",
                     questions: [],
@@ -258,9 +258,8 @@
                     },
                     fun: {
                         myfunction: (val) => {
-                            // for(i in this.tax_rate){
-                            //     console.log(i)
-                            // }
+
+
                             let ans = (val * 5) / 100;
                             return ans;
                         }
@@ -291,10 +290,18 @@
                     $.get(taxrates, (data, status) => {
                         this.tax_rate = data.tax_rate;
                     });
-                })
+                });
             },
 
             methods: {
+                signout() {
+                    console.log('Signout');
+                    $.get('/api/user-logout/', (data, status) => {
+                        console.log(data, status)
+                        eraseCookie('userid');
+                        location.href = '/login/';
+                    });
+                },
 
                 updateOnDate() {
                     this.getUserRecord(this.userid, this.date);
