@@ -110,7 +110,7 @@
           "id": "e9",
           "type": "output",
           "question": "Total income for current month",
-          "formula": "#i1 + #i2 + #i3 + #i4 + #i5",
+          "formula": "#i1 + #i2 + #i3 + #i4 + (#i5 - #e4 - #e5)",
           "options": [],
           "children": []
         },
@@ -118,7 +118,7 @@
           "id": "e10",
           "type": "output",
           "question": "Total expenses for current month",
-          "formula": "#e1 + #e2 + #e3 + #e7 + #e8",
+          "formula": "#e1 + #e2 + #e3 + #e7",
           "options": [],
           "children": []
         }
@@ -142,6 +142,41 @@
           "type": "output",
           "question": "Total payable tax for current month",
           "formula": "@calculate_tax( (#i1 + #i2 + #i3 + #i4 + (#i5 - #e4 - #e5)) - (#e1 + #e2 + #e3 + #e7) )",
+          "options": [],
+          "children": []
+        }
+      ]
+    },
+    {
+      "id" : "form4",
+      "type" :"any",
+      "question": "Miscellaneous",
+      "children" :[
+        {
+          "id": "m1",
+          "type": "number",
+          "question": "Food expenses for current month",
+          "options": [],
+          "children": []
+        },
+        {
+          "id": "m2",
+          "type": "number",
+          "question": "Transport expenses for current month",
+          "options": [],
+          "children": []
+        },
+        {
+          "id": "m3",
+          "type": "number",
+          "question": "Entertainment expenses for current month",
+          "options": [],
+          "children": []
+        },
+        {
+          "id": "m4",
+          "type": "number",
+          "question": "Utilities expenses for current month",
           "options": [],
           "children": []
         }
