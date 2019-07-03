@@ -179,15 +179,17 @@
 
                                 <input v-if="question.type=='output'" type="text" class="form-control" :id="question.id"
                                     :placeholder="question.help" v-model="evelFormula(question)" disabled>
+
+                                    
                                 <p class="card-text">
-                                    <small class="text-muted">{{question._formula}}</small>
+                                    <!-- <small class="text-muted">{{question._formula}}</small> -->
+                                    <small class="text-muted" v-if="question.eval">{{evelFormula(question, 1)}}</small>
                                 </p>
                             </div>
                         </form>
 
                         <p class="card-text">
                             <small class="text-muted">Don't forget to gave when you are done!!</small>
-
                         </p>
                     </div>
                 </div>

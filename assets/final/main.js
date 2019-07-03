@@ -207,13 +207,21 @@ let app = new Vue({
             });
         },
 
-        evelFormula(question) {
+        evelFormula(question, flag=false) {
             for (i in this.values) {
                 this.values[i] = parseInt(this.values[i]);
             }
             console.log(question);
-            let ans = eval(question.formula) || 0;
+
+            let ans ;
+            if(flag){
+                ans = eval(question.eval) || 0;
+            }else{
+                ans = eval(question.formula) || 0;
+            }
+
             window[`id_${question.id}`] = ans;
+
             // this.values[`id_${question.id}`] = ans;
             this.temp[`id_${question.id}`] = ans;
             console.log(ans);
@@ -264,7 +272,12 @@ let app = new Vue({
 
                         this.QUESTIONS[i].children[j].formula = this.QUESTIONS[i].children[j].formula.replace(/#/g, 'this.values.id_');
                         this.QUESTIONS[i].children[j].formula = this.QUESTIONS[i].children[j].formula.replace(/@/g, "this.");
+                        
                         this.OUTPUTS.push(this.QUESTIONS[i].children[j]);
+                    }
+                    if(this.QUESTIONS[i].children[j]['eval']){
+                        this.QUESTIONS[i].children[j].eval = this.QUESTIONS[i].children[j].eval.replace(/#/g, 'this.values.id_');
+                        this.QUESTIONS[i].children[j].eval = this.QUESTIONS[i].children[j].eval.replace(/@/g, "this.");
                     }
                     // this.all.push(this.QUESTIONS[i].children[j]);
                 }
