@@ -1,5 +1,7 @@
-window.onload = function(){
+$(function(){
+    console.log(document);
     let individual = document.getElementById('individual_graph').getContext('2d');
+    console.log(individual);
     window.individual_chart = new Chart(individual, {
         // The type of chart we want to create
         type: 'bar',
@@ -49,7 +51,7 @@ window.onload = function(){
         // Configuration options go here
         options: {}
     });
-}
+});
 
 let mp =  ['', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'Augest', 'September', 'October', 'November', 'December'];
 function updateData(chart, labels, data) {
@@ -74,6 +76,7 @@ function fillGraph(chart, data) {
 }
 
 function setLabels(chart, labels) {
+    console.log(chart);
     chart.data.labels = labels;
     chart.update();
 }

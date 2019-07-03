@@ -218,12 +218,13 @@ let app = new Vue({
                 ans = eval(question.eval) || 0;
             }else{
                 ans = eval(question.formula) || 0;
+                this.temp[`id_${question.id}`] = ans;
             }
 
             window[`id_${question.id}`] = ans;
 
             // this.values[`id_${question.id}`] = ans;
-            this.temp[`id_${question.id}`] = ans;
+            
             console.log(ans);
             return ans;
         },
