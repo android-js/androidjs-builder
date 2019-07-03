@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const users = require('../models/users');
 
 function get_all_users(req, res) {
+    // console.log(users);
     users.find({}, function (err, data) {
         if (err) res.send(err);
         else res.json(data);

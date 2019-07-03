@@ -1,12 +1,12 @@
 const appointment = require('../models/appointments');
 
 function open(req,res){
-    let new_appointments = new appointment({
+    let new_appointment = new appointment({
         user_id: req.session.user_id,
         date: req.body.date,
         open: true
     });
-    new_appointments.save(function(err, data){
+    new_appointment.save(function(err, data){
         if(err) res.send(err);
         else res.json(data);
     })
@@ -26,6 +26,20 @@ function view_all(req, res){
     })
 }
 
+function view_all_open(req,res){
+    appointment.find({open:true}, function(err, data){
+        if(err) res.send(err);
+        else res.json(data);
+    })
+}
+
+function view_all_closed(req, res){
+    appointment.find({open:false}, function(err, data){
+        if(err) res.send(err);
+        else res.json(data);
+    })
+}
+
 function view_by_id(req, res){
     appointment.findById(req.body.appointment_id, function(err, data){
         if(err) res.send(err);
@@ -33,4 +47,4 @@ function view_by_id(req, res){
     })
 }
 
-module.exports = {open, close, view_all, view_by_id}
+module.exports = {open, close, view_all, view_by_id, view_all_open, view_all_closed}
