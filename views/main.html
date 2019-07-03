@@ -22,6 +22,8 @@
 
     <script src="/assets/Vue/vue.js"></script>
     <script src="/assets/Vue/axios.min.js"></script>
+    <script src = "/assets/JS/chart.js"></script>
+    
 
 
 </head>
@@ -100,7 +102,7 @@
 
                     <a v-for="(question, index) in Q_list" style="cursor: pointer"
                         class="list-group-item d-flex justify-content-between align-items-center list-group-item-action"
-                        v-bind:class="{'list-group-item-success':selected_form===index}" @click="selected_form=index">
+                        v-bind:class="{'list-group-item-success':selected_form===index}" @click="selected_form=index;updateFormGraph()">
                         {{question.text}}
                         <span v-if="question.alert" class="badge badge-pill" v-bind:class="question.alert_status">
                             {{question.alert}}
@@ -171,7 +173,9 @@
                                     {{question.question}}</label>
                                 <input v-if="question.type=='number' || question.type=='text'" :type="question.type"
                                     class="form-control" :id="question.id" :placeholder="question.help"
-                                    v-model="values[`id_${question.id}`]">
+                                    v-model="values[`id_${question.id}`]" @click='updateGraph(question.id)'>
+                                    <input v-if="question.type=='number'" type="checkbox" v-model="checked[question.id]" v-on:change="updateCompareGraph()">
+
 
                                 <input v-if="question.type=='output'" type="text" class="form-control" :id="question.id"
                                     :placeholder="question.help" v-model="evelFormula(question)" disabled>
@@ -193,12 +197,13 @@
             <div class="col-sm-5 sidenav" style="margin-top: 10px">
                 <ul class="list-group">
                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Cras justo odio
-                        <span class="badge badge-primary badge-pill">14</span>
+                        <canvas id="individual_graph"></canvas>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Cras justo odio
-                        <span class="badge badge-primary badge-pill">14</span>
+                        <canvas id = "all_graph"></canvas>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <canvas id = "compare_graph"></canvas>
                     </li>
                 </ul>
             </div>
@@ -230,6 +235,7 @@
     </script>
 
     <script src="/assets/final/main.js"></script>
+    <script src = "/assets/JS/graph.js"></script>
 
 </body>
 

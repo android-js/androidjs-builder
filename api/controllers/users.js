@@ -181,6 +181,43 @@ function get_net_taxable_income(req, res, date) {
 
 }
 
+function get_record_question_id(req,res){
+    let month = parseInt(req.query.date.split('-')[1]);
+    let year = req.query.date.split('-')[0];
+    let labels = [], data = [];
+    let question_id = req.query.question_id;
+
+    console.log(req.session.user_id);
+    users.find({_id: req.session.user_id}, function(err, user_data){
+        if(err) res.send(err);
+        else{
+            // console.log(user_data.record, year);
+            user_data = user_data[0];
+            if(user_data.record.get(year)){
+                for(let i = 4; i <= 12; i++){
+                    let current_month = '';
+                    if(i < 10) current_month = '0' + i.toString();
+                    else current_month = i.toString();
+                    if(user_data.record.get(year)[current_month]){
+                        labels.push(i);
+                        data.push(user_data.record.get(year)[current_month][question_id]);
+                    }
+                }
+                for(let i = 1; i < 4; i++){
+                    let current_month = '';
+                    if(i < 10) current_month = '0' + i.toString();
+                    else current_month = i.toString();
+                    if(user_data.record.get(year)[current_month]){
+                        labels.push(i);
+                        data.push(user_data.record.get(year)[current_month][question_id]);
+                    }
+                }
+                res.json({error:false, labels, data});
+            }else res.json({error:true, msg:'record not found..'});
+        }
+    })
+}
+
 function current_login_user(req, res) {
     if (req.session.user_id) res.json({
         error: false,
@@ -202,5 +239,6 @@ module.exports = {
     get_user_record_by_id,
     clean_user_record_by_id,
     get_net_taxable_income,
-    current_login_user
+    current_login_user,
+    get_record_question_id
 }

@@ -68,4 +68,8 @@ module.exports = function(app){
         else res.json({error: true, msg: "no login user found..", redirect: '/'});
     })
 
+    app.route('/api/query-id').get(function(req,res){
+        user_controller.get_record_question_id(req,res);
+    })
+
 }
