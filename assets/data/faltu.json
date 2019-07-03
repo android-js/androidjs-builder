@@ -75,6 +75,7 @@
           "type": "number",
           "question": "Expenses on rent",
           "options": [],
+          "eval":"#b1 - #e1",
           "children": []
         },
         {
@@ -82,6 +83,7 @@
           "type": "number",
           "question": "Expenses on child fees",
           "options": [],
+          "eval":"#b2 - #e2",
           "children": []
         },
         {
@@ -89,6 +91,7 @@
           "type": "number",
           "question": "Expenses on home loan",
           "options": [],
+          "eval":"#b3 - #e3",
           "children": []
         },
         
@@ -97,6 +100,7 @@
           "type": "number",
           "question": "Expenses on medical claim",
           "options": [],
+          "eval":"#b7 - #e7",
           "children": []
         },
         {
@@ -104,6 +108,7 @@
           "type": "number",
           "question": "Miscellaneous expenses",
           "options": [],
+          "eval":"#b8 - #e8",
           "children": []
         },
         {
@@ -120,6 +125,7 @@
           "question": "Total expenses for current month",
           "formula": "#e1 + #e2 + #e3 + #e7",
           "options": [],
+          "eval":"#b10 - #e10",
           "children": []
         }
       ]
@@ -177,6 +183,57 @@
           "id": "m4",
           "type": "number",
           "question": "Utilities expenses for current month",
+          "options": [],
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "form5",
+      "type": "any",
+      "question": "Budget Planning ",
+      "children": [
+        {
+          "id": "b1",
+          "type": "number",
+          "question": "Expenses on rent",
+          "options": [],
+          "children": []
+        },
+        {
+          "id": "b2",
+          "type": "number",
+          "question": "Expenses on child fees",
+          "options": [],
+          "children": []
+        },
+        {
+          "id": "b3",
+          "type": "number",
+          "question": "Expenses on home loan",
+          "options": [],
+          "children": []
+        },
+        
+        {
+          "id": "b7",
+          "type": "number",
+          "question": "Expenses on medical claim",
+          "options": [],
+          "children": []
+        },
+        {
+          "id": "b8",
+          "type": "number",
+          "question": "Miscellaneous expenses",
+          "options": [],
+          "children": []
+        },
+        {
+          "id": "b10",
+          "type": "output",
+          "question": "Total expenses for current month",
+          "formula": "#b1 + #b2 + #b3 + #b7 + #b8",
           "options": [],
           "children": []
         }

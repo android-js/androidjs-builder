@@ -24,6 +24,8 @@ let app = new Vue({
             selected_form: 0,
             net_taxable_income: 0,
             QUESTIONS: {},
+            Q_map:{},
+            checked: {},
             values: {},
             FORMS: [],
             OUTPUTS: [],
@@ -38,6 +40,108 @@ let app = new Vue({
     },
 
     methods: {
+        updateCompareGraph(){
+            console.log(this.checked, "Hello");
+            let ggg = function(name, data) {
+                let color = `rgb(${Math.random()*250 + 5}, ${Math.random()*250 + 5}, ${Math.random()*250 + 5})`;
+                return {
+                    label: name,
+                    fill:false,
+                    backgroundColor: color,
+                    borderColor: color,
+                    data
+                };
+            };
+
+            clearGraph(window.compare_chart);
+            let ans = [], labels;
+            for(let i in this.checked) {
+                if(this.checked[i]){
+                    console.log(i, this.checked[i], "world");
+                    let final_id = `id_${i}`;
+                    console.log(final_id);
+                    let name = this.Q_map[final_id].question;
+                    $.ajax({
+                        url:'/api/query-id',
+                        async: false,
+                        data: {date:this.date, question_id:final_id},
+                        success: function(response){
+                            console.warn('Response',  response);
+                            if(!response.error){
+                                console.log(name);
+                                ans.push(new ggg(name, response.data));
+                                labels = response.labels;
+                            }else{
+                                console.log(response);
+                                clearGraph(window.compare_chart);
+                            }
+                        }
+                    });
+                }
+            }
+            console.log(labels, ans);
+            setLabels(window.compare_chart, labels);
+            fillGraph(window.compare_chart, ans);
+        },
+
+        updateFormGraph() {
+            console.log("form changed")
+
+            let ggg = function(name, data) {
+                let color = `rgb(${Math.random()*250 + 5}, ${Math.random()*250 + 5}, ${Math.random()*250 + 5})`;
+                return {
+                    label: name,
+                    fill:false,
+                    backgroundColor: color,
+                    borderColor: color,
+                    data
+                };
+            };
+
+            clearGraph(window.all_chart);
+
+            let ans = [], labels;
+            for(i in this.FORMS[this.selected_form]){
+                let final_id = `id_${this.FORMS[this.selected_form][i].id}`;
+                console.log(final_id);
+                let name = this.FORMS[this.selected_form][i].question;
+                $.ajax({
+                    url:'/api/query-id',
+                    async: false,
+                    data: {date:this.date, question_id:final_id},
+                    success: function(response){
+                        if(!response.error){    
+                            console.log(name);
+                            ans.push(new ggg(name, response.data));
+                            console.log('response - ', response);
+                            if(i == 0) labels = response.labels;
+                        }else{
+                            console.log(response);
+                            clearGraph(window.all_chart);
+                        }
+                    }
+                });
+            }
+            setLabels(window.all_chart, map_months(labels));
+            fillGraph(window.all_chart, ans);
+            console.log(ans);
+        },
+
+        updateGraph(id){
+            let final_id = `id_${id}`;
+            $.ajax({
+                url:'/api/query-id',
+                data: {date:this.date, question_id:final_id},
+                success: function(response){
+                    if(!response.error){
+                        updateData(window.individual_chart, response.labels, response.data);
+                    }else{
+                        console.log(response);
+                        updateData(window.individual_chart, [], []);
+                    }
+                }
+            });
+        },
 
         predict() {
             this.months = (12 - (parseInt(this.date.split('-')[1]) - 4));
@@ -103,13 +207,21 @@ let app = new Vue({
             });
         },
 
-        evelFormula(question) {
+        evelFormula(question, flag=false) {
             for (i in this.values) {
                 this.values[i] = parseInt(this.values[i]);
             }
             console.log(question);
-            let ans = eval(question.formula) || 0;
+
+            let ans ;
+            if(flag){
+                ans = eval(question.eval) || 0;
+            }else{
+                ans = eval(question.formula) || 0;
+            }
+
             window[`id_${question.id}`] = ans;
+
             // this.values[`id_${question.id}`] = ans;
             this.temp[`id_${question.id}`] = ans;
             console.log(ans);
@@ -153,13 +265,19 @@ let app = new Vue({
                 this.FORMS.push(this.QUESTIONS[i].children);
                 for (j in this.QUESTIONS[i].children) {
                     this.values[`id_${this.QUESTIONS[i].children[j].id}`] = 0;
+                    this.Q_map[`id_${this.QUESTIONS[i].children[j].id}`] = this.QUESTIONS[i].children[j]; 
                     if (this.QUESTIONS[i].children[j].type === "output") {
 
                         this.QUESTIONS[i].children[j]._formula = this.QUESTIONS[i].children[j].formula;
 
                         this.QUESTIONS[i].children[j].formula = this.QUESTIONS[i].children[j].formula.replace(/#/g, 'this.values.id_');
                         this.QUESTIONS[i].children[j].formula = this.QUESTIONS[i].children[j].formula.replace(/@/g, "this.");
+                        
                         this.OUTPUTS.push(this.QUESTIONS[i].children[j]);
+                    }
+                    if(this.QUESTIONS[i].children[j]['eval']){
+                        this.QUESTIONS[i].children[j].eval = this.QUESTIONS[i].children[j].eval.replace(/#/g, 'this.values.id_');
+                        this.QUESTIONS[i].children[j].eval = this.QUESTIONS[i].children[j].eval.replace(/@/g, "this.");
                     }
                     // this.all.push(this.QUESTIONS[i].children[j]);
                 }
