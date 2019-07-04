@@ -23,7 +23,7 @@ window.onload = function(){
     let all_graph = document.getElementById('all_graph').getContext('2d');
     window.all_chart = new Chart(all_graph, {
         // The type of chart we want to create
-        type: 'bar',
+        type: 'line',
 
         // The data for our dataset
         data: {
