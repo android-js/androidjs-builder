@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const users = require('../models/users');
 
 function get_all_users(req, res) {
-    // console.log(users);
     users.find({}, function (err, data) {
         if (err) res.send(err);
         else res.json(data);
@@ -22,7 +21,7 @@ function update_user_record_by_id(req, res, user_data) {
         else {
             let new_data = data.record;
             if (!new_data.get(user_data.year)) {
-                // console.log('hello');
+                console.log('hello');
                 new_data.set(user_data.year, {})
                 // new_data[user_data.year] = {"asfs":{}}
                 // console.log(new_data);
@@ -32,7 +31,13 @@ function update_user_record_by_id(req, res, user_data) {
             // new_data[user_data.year][user_data.month] =  user_data.record;
 
             // console.log(new_data);
-            users.findOneAndUpdate({_id: user_data.id}, { record: new_data}, {upsert: true }, function (err, data) {
+            users.findOneAndUpdate({
+                _id: user_data.id
+            }, {
+                record: new_data
+            }, {
+                upsert: true
+            }, function (err, data) {
                 if (err) res.send(err);
                 else res.json(data);
             })
@@ -41,7 +46,13 @@ function update_user_record_by_id(req, res, user_data) {
 }
 
 function clean_user_record_by_id(req, res, user_id) {
-    users.findOneAndUpdate({_id: user_id}, {record: {}}, {upsert: true}, function (err, data) {
+    users.findOneAndUpdate({
+        _id: user_id
+    }, {
+        record: {}
+    }, {
+        upsert: true
+    }, function (err, data) {
         if (err) res.send(err);
         else res.json(data.record);
     })
