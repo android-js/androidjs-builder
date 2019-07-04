@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 
 const appointments = new schema({
-    user_id: String,
+    user_id: { type: Schema.Types.ObjectId, ref: 'users' },
     date: String,
     open: Boolean
 });
