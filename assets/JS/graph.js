@@ -1,4 +1,5 @@
-$(function(){
+function go(){
+// $(function(){
     console.log(document);
     let individual = document.getElementById('individual_graph').getContext('2d');
     console.log(individual);
@@ -51,7 +52,8 @@ $(function(){
         // Configuration options go here
         options: {}
     });
-});
+// });
+}
 
 let mp =  ['', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'Augest', 'September', 'October', 'November', 'December'];
 function updateData(chart, labels, data) {

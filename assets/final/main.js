@@ -236,6 +236,8 @@ let app = new Vue({
     },
     created() {
 
+        go();
+
 
         axios.get(this.getCurrentUserInfoURL).then(response => {
             this.userid = response.data.user_id;
