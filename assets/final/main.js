@@ -224,6 +224,7 @@ let app = new Vue({
             window[`id_${question.id}`] = ans;
 
             // this.values[`id_${question.id}`] = ans;
+
             
             console.log(ans);
             return ans;
