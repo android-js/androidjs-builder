@@ -3,9 +3,8 @@
 
 - Quick start
     - install android js from 'npm' ``$ sudo npm i -g androidjs-builder ``
-    - create new folder/dir & cd into it ``$ mkdir myapp && cd myapp``
-    - generate project structure ``$ androidjs g``
-    - build apk ``$ androidjs b``
+    - generate project structure ``$ androidjs init``
+    - build apk ``$ androidjs build``
 
 ## install from npm
 ```bash
@@ -15,10 +14,7 @@ Since we have installed 'androidjs-builder' globally , it will provide all neces
 
 ## Generate new project
 ```bash
-$ mkdir myapp
-$ cd myapp
-$ androidjs g
-$ androidjs generate
+$ androidjs init
 ```
 This command will generate a basic structure for quick start
 
@@ -46,14 +42,11 @@ This command will generate a basic structure for quick start
 ```bash
 $ cd myfirstapp
 $ androidjs build
+$ androidjs build --installesh
 ```
 it will create apk inside ``./myapp/dist/``
 
 
 ## Other examples
-```commandline
-$ androidjs g --example helloworld
-$ androidjs g --example myapp
-$ androidjs g --example camera
-$ androidjs g --example story
-```
+Download from [github](https://github.com/android-js/sample-app)
+
