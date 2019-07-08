@@ -17,8 +17,9 @@ const Spinner = require('cli-spinner').Spinner;
 const jsonfile = require('jsonfile');
 const {Copy} = require('./lib/copy');
 const {checkForUpdate} = require('./lib/check_for_update');
-
-
+const _ = require('lodash');
+var progress = require('request-progress');
+var ProgressBar = require('progress');
 // const center = require('center-align');
 // const npm = require('npm');
 
@@ -76,8 +77,7 @@ var androidjs = {
     }
 };
 
-
-init_builder(androidjs);
+init_builder(_.cloneDeep(androidjs));
 loadConfig(androidjs);
 checkForUpdate(androidjs);
 
@@ -161,41 +161,50 @@ program
 
         console.log(chalk.green('updating ... '));
 
-        let spinner = new Spinner(chalk.green('downloading androidjs-sdk %s'));
-        spinner.setSpinnerString('▁▂▃▄▅▆▇█▇▆▅▄▃▂▁');
-        spinner.start();
-        const request = require('superagent');
+        // let spinner = new Spinner(chalk.green('downloading androidjs-sdk %s'));
+        // spinner.setSpinnerString('▁▂▃▄▅▆▇█▇▆▅▄▃▂▁');
+        // spinner.start();
 
-        let config = {...androidjs.builder.config.github};
+        const request = require('request');
+
+        let config = {...androidjs.builder.config};
         config.github.repo = androidjs.builder.config.github.repo.native_app;
 
         let href = `https://github.com/${config.github.username}/${config.github.repo}/archive/master.zip`;
 
-        request
-            .get(href)
-            .on('error', function (error) {
-                console.log(error);
-                spinner.stop();
-            })
-            .pipe(fs.createWriteStream(path.join(androidjs.builder.paths.cache, androidjs.builder.config.github.repo.native_app+'.zip')))
-            .on('finish', function () {
-                spinner.onTick('downloaded');
-                const admZip = require('adm-zip');
+        let bar = null, prev;
+        let re = request(href);
+        progress(re, {}).on('progress', function (state) {
+            if (bar === null) {
+                bar = new ProgressBar(` downloading sdk [${chalk.green(' :bar ')}] :current/:total :rate/bps :percent :etas`, {
+                    complete: '=',
+                    incomplete: ' ',
+                    width: 40,
+                    total: state.size.total
+                });
+                prev = state.size.transferred;
+                bar.tick(state.size.transferred);
+            } else {
+                bar.tick(state.size.transferred - prev);
+                prev = state.size.transferred;
+            }
+        }).on('end', function () {
+            const admZip = require('adm-zip');
 
-                let zip = new admZip(path.join(androidjs.builder.paths.cache, androidjs.builder.config.github.repo.native_app + '.zip'));
-                spinner.setSpinnerTitle('extracting %s');
+            let file = path.join(androidjs.builder.paths.cache, androidjs.builder.config.github.repo + '.zip');
+            let zip = new admZip(file);
 
-                zip.extractEntryTo(androidjs.builder.config.github.repo.native_app + '-master/', androidjs.builder.paths.dist);
-                console.log('zip extracted!');
-                spinner.onTick('done');
-                fs.removeSync(path.join(androidjs.builder.paths.dist, androidjs.builder.config.github.repo.native_app));
-                fs.renameSync(path.join(androidjs.builder.paths.dist, androidjs.builder.config.github.repo.native_app+'-master'), path.join(androidjs.builder.paths.dist, androidjs.builder.config.github.repo.native_app));
-                spinner.stop();
+            let entry = androidjs.builder.config.github.repo + '-master/';
+            console.log('extracting', file, entry);
+            zip.extractEntryTo(entry, androidjs.builder.paths.dist);
+            console.log('done');
 
-            });
+            fs.removeSync(path.join(androidjs.builder.paths.dist, config.github.repo));
+            fs.renameSync(path.join(androidjs.builder.paths.dist, config.github.repo + '-master'), path.join(androidjs.builder.paths.dist, config.github.repo));
+        }).pipe(fs.createWriteStream(path.join(androidjs.builder.paths.cache, androidjs.builder.config.github.repo.native_app + '.zip')))
+
 
         // fs.mkdirSync(path.join(androidjs.builder.paths.dist, androidjs.builder.config.github.repo.native_app));
-
 
 
         /*
@@ -248,6 +257,16 @@ program
         run();
     });
 
+program
+    .command('generate')
+    .alias('g')
+    .description('Create new project '+chalk.red('will be deprecate soon'))
+    .action(function (env) {
+        console.warn(chalk.yellow('`generate` command will be deprecate soon; use `init`'));
+        init();
+        run();
+    });
+
 
 program
     .command('serve')
@@ -279,7 +298,7 @@ program
 program
     .command('build')
     .alias('b')
-    .description(chalk.green('Build the .akp'))
+    .description(chalk.green('Build the .akp for webapp'))
     .option("-f, --force [mode]", "Force to replace the current dist folder")
     .option("-i, --install [mode]", "install using adb")
     .action(function (cmd, options) {
@@ -315,11 +334,12 @@ function buildApp(cmd, options) {
             const n = new Native(androidjs);
             console.log('webview:', androidjs.project.pkg.name);
             n.build();
-        }
+        } else {
+        console.log(chalk.red("Not a androidjs project"));
+    }
 
     } else {
-        console.log(chalk.red("Not a androidjs project"));
-        console.log(chalk.blue(`package.json not found in ${androidjs.project.paths.__dirname}`));
+        console.log(chalk.red(`package.json not found in ${androidjs.project.paths.__dirname}`));
     }
 }
 

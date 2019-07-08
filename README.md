@@ -42,9 +42,17 @@ This command will generate a basic structure for quick start
 ```bash
 $ cd myfirstapp
 $ androidjs build
-$ androidjs build --installesh
+$ androidjs build --install
 ```
 it will create apk inside ``./myapp/dist/``
+
+build and install uses system 'adb' command.
+
+## Update androidjs-sdk
+```bash
+$ androidjs u
+$ androidjs update
+```
 
 
 ## Other examples
