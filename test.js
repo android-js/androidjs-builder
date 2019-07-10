@@ -57,9 +57,9 @@ var androidjs = {
             build_tools: path.join(__dirname, 'build_tools'),
             apktool: path.join(__dirname, 'build_tools', 'apktool.jar'),
             apksigner: path.join(__dirname, 'build_tools', 'uber-apk-signer-1.0.0.jar'),
-            dist: path.join(process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE, '.androidjs'),
-            cache: path.join(process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE, '.androidjs', 'cache'),
-            config: path.join(process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE, '.androidjs', 'config')
+            dist: path.join(process.env.HOME || process.env.USERPROFILE || process.env.HOMEPATH, '.androidjs'),
+            cache: path.join(process.env.HOME || process.env.USERPROFILE || process.env.HOMEPATH , '.androidjs', 'cache'),
+            config: path.join(process.env.HOME || process.env.USERPROFILE || process.env.HOMEPATH , '.androidjs', 'config')
         },
         config: {
             github: {
@@ -298,7 +298,7 @@ program
 program
     .command('build')
     .alias('b')
-    .description(chalk.green('Build the .akp for webapp'))
+    .description(chalk.green('Build the .apk for webapp'))
     .option("-f, --force [mode]", "Force to replace the current dist folder")
     .option("-i, --install [mode]", "install using adb")
     .action(function (cmd, options) {
@@ -317,7 +317,7 @@ program
 
 if (process.argv.length < 3) {
     init();
-    console.log(chalk.green(`$ ${androidjs.name}`), chalk.gray('--help'));
+    console.log(chalk.green(`$ androidjs`), chalk.gray('--help'));
 }
 program.parse(process.argv);
 
