@@ -51,8 +51,7 @@ commander.version(pkg.version, '-v, --version')
 
 
 commander
-    .command('create')
-    .alias('c')
+    .command('init')
     .description('Create new project')
     .option('-f, --force-build', 'Build force')
     .option('-d, --debug', 'Enable debug')
