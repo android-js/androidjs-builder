@@ -1,0 +1,37 @@
+{
+    "default": true,
+    "no-bare-urls": true,
+    "no-alt-text": false,
+    "heading-increment": false,
+    "MD002": {
+        "level": 1
+    },
+    "MD003": {
+        "style": "atx"
+    },
+    "MD004": {
+        "style": "sublist"
+    },
+    "MD007": {
+        "indent": 4
+    },
+    "MD009": {
+        "br_spaces": 4,
+        "list_item_empty_lines": true
+    },
+    "MD013": {
+        "code_blocks": false,
+        "headings": false
+    },
+    "MD024": {
+        "siblings_only": true
+    },
+    "MD026": {
+        "punctuation": ".,;:"
+    },
+    "MD033": {
+        "allowed_elements": [
+            "br"
+        ]
+    }
+}

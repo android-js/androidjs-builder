@@ -1,5 +1,13 @@
-# dependencies
-/node_modules
-.idea
-.git
-testing.js
+node_modules/
+npm-debug.log
+
+coverage/
+dist/
+
+!.vscode/
+test/
+dist/
+.idea/
+TEST_FOLDER/
+package-lock.json
+
