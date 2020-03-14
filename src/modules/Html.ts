@@ -1,20 +1,17 @@
 import '../Interfaces';
 import {Interfaces} from '../Interfaces';
-import * as request from 'request';
 import * as path from 'path';
-import {lsGit, getDownloadLink, getFileDownloadLink} from '../GitListDir';
-import IPackage = Interfaces.IPackage;
+import {getDownloadLink, getFileDownloadLink} from '../GitListDir';
+
 import * as fs from 'fs-extra';
 import {spawn} from 'child_process';
 import {getManifest} from './Html/ManifestBuilder';
 import {updateIcon} from './Html/updateIcon';
 import {updateAppName} from './Html/updateAppName';
-import {Command} from 'commander';
-import {downloadSDK} from './Html/downloadSDK';
 import {createIfNotExist} from './Html/createIfNotExist';
 import {downloadGithubFile} from './Html/downloadGithubFile';
 import {downloadGithubRepo} from './Html/downloadGithubRepo';
-import {LoadingBar, ProgressBar} from './Html/ProgressBar';
+import {LoadingBar} from './Html/ProgressBar';
 import {javaVersion} from './Html/getJavaVersion';
 import {getUpdate, getUpdateMessage} from './Html/checkForUpdates';
 import {updateTheme} from "./Html/updateAppTheme";
@@ -207,6 +204,21 @@ export class Html implements Interfaces.IBuilderModule {
         const sdkFolder = path.join(this.env.builder.cache);
 
         if (fs.existsSync(sdkZip)) {
+            // checking if the sdk file is extracted or not
+            if(!fs.existsSync(path.join(sdkFolder, this.sdk.repo))) {
+                try{
+                    let zip = new admZip(sdkZip);
+                    if(fs.existsSync(path.join(sdkFolder, this.sdk.repo + '-master'))){
+                        fs.rmdirSync(path.join(sdkFolder, this.sdk.repo + '-master'), {recursive: true});
+                    }
+                    zip.extractEntryTo(this.sdk.repo + '-master/', sdkFolder, true, true);
+                    fs.renameSync(path.join(sdkFolder, this.sdk.repo + '-master'), path.join(sdkFolder, this.sdk.repo));
+                }
+                catch(e) {
+                    console.log(chalk.red('Invalid file format'), sdkZip);
+                }
+            }
+            // skip if force command is not enabled
             if (!this.env.force) {
                 callback();
                 return;
@@ -226,6 +238,8 @@ export class Html implements Interfaces.IBuilderModule {
                     callback();
                 } catch (e) {
                     console.log("Failed to extract sdk");
+                    console.log(chalk.red("Retry using '--force' command"));
+                    console.log("$ androidjs build --force");
                     process.exit();
                 }
             }
@@ -247,13 +261,24 @@ export class Html implements Interfaces.IBuilderModule {
             process.exit();
         }
 
-        // creating myapp folder
-        if (!fs.existsSync(assetsFolder)) {
-            fs.mkdirSync(assetsFolder);
-            fs.mkdirSync(myappFolder);
-        } else {
-            fs.rmdirSync(myappFolder, {recursive: true});
-            fs.mkdirSync(myappFolder);
+        try{
+            // creating myapp folder
+            if (!fs.existsSync(assetsFolder)) {
+                fs.mkdirSync(assetsFolder);
+                fs.mkdirSync(myappFolder);
+            } else {
+                fs.rmdirSync(myappFolder, {recursive: true});
+                fs.mkdirSync(myappFolder);
+            }
+        }catch(e){
+            if(!fs.existsSync(sdkFolder)){
+                console.log(chalk.red('Can not find '+ sdkFolder));
+                console.log("Try using '--force' command");
+                console.log("$ androidjs build --force");
+            }else{
+                console.log("Failed to create assets");
+            }
+            process.exit();
         }
 
         // copy assets
@@ -319,39 +344,45 @@ export class Html implements Interfaces.IBuilderModule {
         let args_ = ['-jar', apkToolFilePath, 'b', sdkFolderPath, '-o', buildApkFilePath, '--frame-path', cacheFolderPath];
         const proc = spawn('java', args_, {cwd: cacheFolderPath});
 
-        proc.stdout.on('data', data => {
-            if (progress.isRunning === false) {
-                if (this.env.builder.debug) {
-                    console.log("Build process started:");
+
+        console.log("Building Apk ...");
+        try{
+
+            proc.stdout.on('data', data => {
+                if (progress.isRunning === false) {
+                    if (this.env.builder.debug) {
+                        console.log("Build process started:");
+                    }
+                    progress.message = 'building ...';
+                    progress.start();
+                } else {
+                    progress.chunksDownloaded++;
                 }
-                progress.message = 'building ...';
-                progress.start();
-            } else {
-                progress.chunksDownloaded++;
-            }
-        });
+            });
 
-        proc.stderr.on('data', (data) => {
-            // progress.stop({message: 'failed to build apk'});
-            // console.log(this.env, `${data}`);
-            // if(this.env.builder.debug === true){
-            //     console.log(`${data}`);
-            //     process.exit();
-            // }else {
-            //     process.exit();
-            // }
-        });
+            proc.stderr.on('data', (data) => {
+                progress.stop({message: `failed to build apk ${data}`});
+                if(this.env.builder.debug === true){
+                    console.log(chalk.red(`${data}`));
+                    process.exit();
+                }else {
+                    process.exit();
+                }
+            });
 
-        proc.on('close', (code) => {
-            if (code === 0) {
-                progress.stop();
-                progress.clear();
-                callback();
-            } else {
-                progress.stop({message: 'non zero exit code: failed to build apk'});
-                process.exit();
-            }
-        });
+            proc.on('close', (code) => {
+                if (code === 0) {
+                    progress.stop();
+                    progress.clear();
+                    callback();
+                } else {
+                    progress.stop({message: 'non zero exit code: failed to build apk'});
+                    process.exit();
+                }
+            });
+        }catch(e){
+            console.log("Hii");
+        }
     }
 
     downloadBuildTools(callback) {

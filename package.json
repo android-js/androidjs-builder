@@ -36,6 +36,7 @@
     "replace-in-files": "^2.0.3",
     "request": "^2.88.2",
     "semver": "^7.1.3",
+    "superagent": "^5.2.2",
     "ts-node": "^8.4.1",
     "typedoc": "^0.16.10",
     "typescript": "^3.6.4",
@@ -48,7 +49,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:deveshpankaj/<not yet created>"
+    "url": "git@github.com:deveshpankaj/androidjs-builder"
   },
   "files": [
     "src",

@@ -1,4 +1,3 @@
-import * as fs from 'fs';
 import * as path from 'path';
 import {Interfaces} from "../../Interfaces";
 import IEnv = Interfaces.IEnv;

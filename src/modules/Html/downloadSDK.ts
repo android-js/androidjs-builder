@@ -1,10 +1,8 @@
 #!/usr/bin/env node
 
-import * as path from "path";
-import {getDownloadLink} from '../../GitListDir';
 import * as fs from 'fs';
-import * as request from 'request';
-import {ProgressBar, LoadingBar} from './ProgressBar';
+const request = require('superagent');
+import {LoadingBar} from './ProgressBar';
 
 export function downloadSDK(env, url, to, callback: Function) {
     // process.stdout.write(`Downloading ${link}`);

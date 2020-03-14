@@ -1,5 +1,5 @@
 import {LoadingBar} from './ProgressBar';
-import * as request from 'request';
+const request = require('superagent');
 import {lsGit, getDownloadLink, getFileDownloadLink} from '../../GitListDir';
 import * as fs from 'fs-extra';
 import {Interfaces} from "../../Interfaces";

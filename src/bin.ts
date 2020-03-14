@@ -18,7 +18,7 @@ const project: Interfaces.IProject = {
 const builder: Interfaces.IBuilder = {
     dir: __dirname,
     commander: new Command(),
-    cache: path.join(process.env.HOME || process.env.USERPROFILE || process.env.HOMEPATH, '.android-js', 'cache'),
+    cache: path.join(process.env.HOME || process.env.USERPROFILE || process.env.HOMEPATH, '.androidjs', 'cache'),
     debug: false
 };
 
@@ -53,7 +53,7 @@ commander.version(pkg.version, '-v, --version')
 commander
     .command('init')
     .description('Create new project')
-    .option('-f, --force-build', 'Build force')
+    .option('-f, --force', 'Force to download the required modules and examples')
     .option('-d, --debug', 'Enable debug')
     .action((args) => {
         let ans = inquirer.prompt(questions);
@@ -76,13 +76,13 @@ commander
 commander
     .command('build')
     .alias('b')
-    .option('-f, --force-build', 'Build force')
+    .option('-f, --force', 'Force to download sdk and build tools')
     .option('-d, --debug', 'Enable debug')
     .description('Build project')
     .action((args) => {
         if(fs.existsSync(path.join(env.project.dir, 'package.json'))){
             let _package = require(path.join(env.project.dir, 'package.json'));
-            env.force = args.forceBuild ? true : false;
+            env.force = args.force ? true : false;
             env.builder.debug = args.debug ? true : false;
             loadModules(env, context);
             context[_package['project-type']].build();

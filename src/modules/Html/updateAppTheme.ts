@@ -17,6 +17,7 @@ export function updateTheme(env, callback) {
 
         let data = fs.readFileSync(stylesXML);
         parser.parseString(data, function (err, result) {
+
             if (err) {
                 console.log("Failed to update theme");
                 process.exit();

@@ -1,9 +1,7 @@
 import {Interfaces} from "../../Interfaces";
 import * as path from "path";
 import * as fs from 'fs';
-// import * as xml2js from 'xml2js';
 import { parse, render } from 'modify-xml';
-import {getIntentFilter} from './create_intent_filter';
 
 export function update(env: Interfaces.IEnv): number {
     try {
