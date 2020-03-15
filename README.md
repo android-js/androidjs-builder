@@ -27,7 +27,7 @@ $ androidjs update
 
 ---
 # Build from source
-## Download from [![androidjs-builder][androidjs-builder-badge]][androidjs-builder-github]
+## Download from github [![androidjs-builder][androidjs-builder-badge]][androidjs-builder-github]
 ```shell script
 $ git clone https://github.com/android-js/androidjs-builder.git
 ```
