@@ -224,7 +224,7 @@ export class Webview implements Interfaces.IBuilderModule {
         //         try{
         //             let zip = new admZip(sdkZip);
         //             if(fs.existsSync(path.join(sdkFolder, this.sdk.repo + '-master'))){
-        //                 fs.rmdirSync(path.join(sdkFolder, this.sdk.repo + '-master'), {recursive: true});
+        //                 fs.removeSync(path.join(sdkFolder, this.sdk.repo + '-master'), {recursive: true});
         //             }
         //             zip.extractEntryTo(this.sdk.repo + '-master/', sdkFolder, true, true);
         //             fs.renameSync(path.join(sdkFolder, this.sdk.repo + '-master'), path.join(sdkFolder, this.sdk.repo));
@@ -282,7 +282,7 @@ export class Webview implements Interfaces.IBuilderModule {
                 fs.mkdirSync(assetsFolder);
                 fs.mkdirSync(myappFolder);
             } else {
-                fs.rmdirSync(myappFolder, {recursive: true});
+                fs.removeSync(myappFolder);
                 fs.mkdirSync(myappFolder);
             }
         } catch (e) {
@@ -291,7 +291,7 @@ export class Webview implements Interfaces.IBuilderModule {
                 console.log("Try using '--force' command");
                 console.log("$ androidjs build --force");
             } else {
-                console.log("Failed to create assets");
+                console.log("Failed to create assets", e);
             }
             process.exit();
         }
@@ -300,13 +300,16 @@ export class Webview implements Interfaces.IBuilderModule {
         try {
             console.log('copying assets ...');
             fs.copySync(this.env.project.dir, myappFolder);
+
         } catch (e) {
-            console.log(`failed to copy assets:`, e.message);
+            console.log(`failed to copy assets:`, e);
             process.exit();
         }
 
         // removing dist folder from copied filed if exist.
-        fs.rmdirSync(path.join(myappFolder, 'dist'), {recursive: true});
+        if(fs.existsSync(path.join(myappFolder, 'dist'))){
+            fs.removeSync(path.join(myappFolder, 'dist'))
+        }
 
         // adding permissions
         let permissions = [];
@@ -474,11 +477,10 @@ export class Webview implements Interfaces.IBuilderModule {
 
 
         // check Java version
-        javaVersion((error, version) => {
+        javaVersion((error, home) => {
             if (error) {
                 console.log(error.message);
                 process.exit();
-
             } else {
                 this.downloadSDK(() => {
                     // this.downloadBuildTools(() => {
@@ -568,7 +570,7 @@ export class Webview implements Interfaces.IBuilderModule {
     //
     //     // removing previous sdk folder before updating new sdk folder
     //     if (fs.existsSync(this.sdk)) {
-    //         fs.rmdirSync(this.sdk, {recursive: true});
+    //         fs.removeSync(this.sdk);
     //     }
     //     fs.renameSync(path.join(this.env.builder.cache, this.sdk_repo + '-master'), this.sdk);
     //
@@ -607,6 +609,8 @@ function downloadsdk(args: downloadGithubArgs, callback) {
                 //@ts-ignore
                 if(args.recursive){
                     console.log(`re-trying`);
+                    state.progress.message = "Downloading:";
+                    state.progress.start();
                 }else {
                     console.log("Downloading:", args.url);
                     state.progress.message = "Downloading:";
@@ -616,7 +620,7 @@ function downloadsdk(args: downloadGithubArgs, callback) {
         })
         .on('data', data => {
             state.data += data.length;
-            state.progress.chunksDownloaded = `${state.data * 0.001} KB`;
+            state.progress.chunksDownloaded = `${Math.floor(state.data * 0.001)} KB`;
             state.progress.message = `Data: `;
         })
         .on('error', error => {
@@ -633,11 +637,11 @@ function downloadsdk(args: downloadGithubArgs, callback) {
             try {
                 let zip = new admZip(args.targetZip);
                 if (fs.existsSync(path.join(args.targetFolder, args.zipFolder))) {
-                    fs.rmdirSync(path.join(args.targetFolder, args.zipFolder), {recursive: true});
+                    fs.removeSync(path.join(args.targetFolder, args.zipFolder));
                 }
                 zip.extractEntryTo(args.zipFolder, args.targetFolder, true, true);
                 if (fs.existsSync(path.join(args.targetFolder, args.repo))) {
-                    fs.rmdirSync(path.join(args.targetFolder, args.repo), {recursive: true});
+                    fs.removeSync(path.join(args.targetFolder, args.repo));
                 }
                 fs.renameSync(path.join(args.targetFolder, args.zipFolder), path.join(args.targetFolder, args.repo));
                 state.progress.stop();

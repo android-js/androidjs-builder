@@ -1,7 +1,7 @@
 {
   "name": "androidjs-builder",
   "description": "",
-  "version": "1.0.4",
+  "version": "2.1.0",
   "license": "MIT",
   "author": {
     "name": "Pankaj Devesh",
@@ -27,6 +27,7 @@
     "adm-zip": "^0.4.14",
     "chalk": "^3.0.0",
     "chokidar": "^3.3.1",
+    "find-java-home": "^1.1.0",
     "fs-extra": "^8.1.0",
     "inquirer": "^7.0.5",
     "invalidate-module": "^1.0.0",

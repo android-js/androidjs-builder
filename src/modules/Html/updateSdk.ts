@@ -18,7 +18,7 @@ export function updateSdk(env, callback?:Function) {
             try {
                 let zip = new admZip(sdkZip);
                 zip.extractEntryTo(env.sdk.repo + '-master/', sdkFolder, true, true);
-                fs.rmdirSync(path.join(sdkFolder, env.sdk.repo), {recursive: true});
+                fs.removeSync(path.join(sdkFolder, env.sdk.repo));
                 fs.renameSync(path.join(sdkFolder, env.sdk.repo + '-master'), path.join(sdkFolder, env.sdk.repo));
                 if(callback){
                     callback();
