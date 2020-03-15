@@ -1,5 +1,5 @@
 import {LoadingBar} from './ProgressBar';
-const request = require('superagent');
+import * as request from 'request';
 import {lsGit, getFileDownloadLink} from '../../GitListDir';
 import * as fs from 'fs-extra';
 import {Interfaces} from "../../Interfaces";
@@ -27,18 +27,19 @@ export function downloadGithubFile(githubFileLink: Interfaces.GithubFileLink, fi
         .on('data', (chunk)=> {
             progress.chunksDownloaded += chunk.length;
         })
-        .on('end', (code)=> {
-            if(showProgress) {
-                progress.stop();
-            }
-            callback();
-        })
         .on('error', (error)=> {
             if(showProgress) {
                 progress.stop();
             }
             callback(error);
         })
+        .on('end', (code)=> {
+            if(showProgress) {
+                progress.stop();
+            }
+            callback();
+        })
+
         .pipe(writeStream);
 }
 

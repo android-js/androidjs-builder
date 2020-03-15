@@ -39,7 +39,7 @@ dns.lookupService('8.8.8.8', 53, function(err, hostname, service){
 
 
 function getSdkVersion(env, callback) {
-    let tempFilePath = path.join(env.builder.cache, 'TEMP-'+Date.now().toString()+'.json');
+    let tempFilePath = path.join(env.builder.cache, 'TEMP-sdk-config.json');
     let sdkConfigFileLink = getFileDownloadLink(env.sdk.user, env.sdk.repo, 'config.json');
     let _sdkConfigFileLink:Interfaces.GithubFileLink = {
         user: env.sdk.user,
@@ -51,7 +51,6 @@ function getSdkVersion(env, callback) {
     downloadGithubFile(_sdkConfigFileLink, tempFilePath, ()=>{
         try {
             let sdkConfig = require(tempFilePath);
-            fs.unlinkSync(tempFilePath);
             callback(sdkConfig.version);
         }catch (e) {
             ///...

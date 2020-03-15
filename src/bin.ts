@@ -3,16 +3,18 @@
 import {Command} from 'commander';
 import {Interfaces} from './Interfaces';
 import * as path from 'path';
-import {IContext, loadModules} from './loadModules';
+// import {IContext, loadModules, getClassName} from './loadModules';
 import * as fs from 'fs';
 import * as inquirer from "inquirer";
+import {Webview} from './modules/webview';
+import {symlink} from "fs";
 
 const pkg = require('../../package.json');
 
 const project: Interfaces.IProject = {
     dir: process.cwd(),
     name: 'myapp',
-    type: 'Html'
+    type: 'webview'
 };
 
 const builder: Interfaces.IBuilder = {
@@ -41,9 +43,12 @@ if (!fs.existsSync(path.join(env.builder.cache, '..'))) {
 }
 
 export interface IContext {
-    [key: string]: Interfaces.IBuilderModule
+    [key: string]: typeof Webview
 }
-const context: IContext = {};
+
+const context: IContext = {
+    webview: Webview
+};
 
 let commander = new Command();
 commander.version(pkg.version, '-v, --version')
@@ -65,11 +70,12 @@ commander
             env.force = args.forceBuild ? true : false;
             env.builder.debug = args.debug ? true : false;
 
-            // load modules
-            loadModules(env, context);
-
-            // exec creat command
-            context[APPTYPE].create();
+            // load module
+            if(context.hasOwnProperty(APPTYPE)){
+                let mod = new context[APPTYPE]();
+                mod.installModule(env, {});
+                mod.create();
+            }
         });
     });
 
@@ -84,8 +90,15 @@ commander
             let _package = require(path.join(env.project.dir, 'package.json'));
             env.force = args.force ? true : false;
             env.builder.debug = args.debug ? true : false;
-            loadModules(env, context);
-            context[_package['project-type']].build();
+
+            // check for the project type
+            if(context.hasOwnProperty(_package['project-type'])){
+                let mod = new context[_package['project-type']]();
+                mod.installModule(env, {});
+                mod.build();
+            }else {
+                console.log("Invalid project type:", _package['project-type']);
+            }
         }
         else {
             console.log('can not find package.json');
@@ -93,39 +106,20 @@ commander
         }
     });
 
-
-
-
-
 commander
     .command('update')
     .alias('u')
-    .option('-t, --type <sdk-type>', 'SDK type (Example: Html)')
     .description('Update module')
     .action((args) => {
-        let sdkType = args.type;
-        if(sdkType){
-            loadModules(env, context);
-            if(context.hasOwnProperty(sdkType) && context[sdkType]._.hasOwnProperty('updateSdk')){
-                let updateSdk = context[sdkType]._.updateSdk;
-                updateSdk();
+        let mod = new context['webview']();
+        mod.installModule(env, {});
+        mod.downloadSDK((error)=>{
+            if(error){
+                console.log("error:", error)
             }else {
-                console.log(`invalid module name ${sdkType}`);
-                let modules = '';
-                for(const moduleName in context) {
-                    modules += moduleName + '/';
-                }
-                console.log(`Use: ${modules.slice(0, modules.length-1)}`);
+                console.log("Update complete");
             }
-        }else {
-            console.log(`invalid module name ${sdkType}`);
-            let modules = '';
-            for(const moduleName in context) {
-                modules += moduleName + '/';
-            }
-            console.log(`Use: ${modules.slice(0, modules.length-1)}`);
-        }
-
+        }, true);
     });
 
 
@@ -157,7 +151,7 @@ const questions = [
         choices: [
             // chalk.yellow("React"),
             // chalk.green("Flutter"),
-            "Html"
+            "webview"
         ],
         // filter: function (val) {
         //     return val.split(".")[1];
@@ -168,5 +162,5 @@ const questions = [
 
 commander.parse(process.argv);
 // env.builder.commander.parse(process.argv);
-// context.Html.create();
-// context.Html.build();
+// context.Webview.create();
+// context.Webview.build();

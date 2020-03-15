@@ -3,6 +3,10 @@ import {Command} from 'commander';
 import { readdirSync } from 'fs';
 import * as path from 'path';
 
+export function getClassName(name) {
+    return `${name[0].toUpperCase()}${name.slice(1, name.length)}`;
+}
+
 export interface IContext {[key: string]: Interfaces.IBuilderModule}
 
 export function loadModules(env: Interfaces.IEnv, context:IContext): IContext {
@@ -15,7 +19,8 @@ export function loadModules(env: Interfaces.IEnv, context:IContext): IContext {
             if(ls[i].slice(ls[i].length-3) !== '.js' && ls[i].slice(ls[i].length-3) !== '.ts') {
                 continue;
             }
-            let mod_instance: Interfaces.IBuilderModule = new mod[ls[i].slice(0, ls[i].length - 3)]();
+            let moduleClassName = getClassName(ls[i].slice(0, ls[i].length-3));
+            let mod_instance: Interfaces.IBuilderModule = new mod[moduleClassName]();
 
             if(env.builder.debug) {
                 console.log(`loading '${mod_instance.constructor.name}' module ...`);

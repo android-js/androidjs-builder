@@ -11,7 +11,7 @@ export class LoadingBar{
     flip: number;
     success: string;
     failed: string;
-    chunksDownloaded: number;
+    chunksDownloaded: string;
     message: string;
     constructor() {
         this.interval = 100;
@@ -21,7 +21,7 @@ export class LoadingBar{
         this.bar_length = 50;
         this.loop = null;
         this.flip = 1;
-        this.chunksDownloaded=0;
+        this.chunksDownloaded="0";
         this.isRunning = false;
         this.success = ' √';
         this.failed = ' X';
@@ -64,7 +64,7 @@ export class LoadingBar{
                     console.log(`${this.message}${this.chunksDownloaded} :` + chalk.green(this.fill.repeat(this.bar_length)+this.success));
                 } else {
                     this.clear();
-                    console.log(chalk.red(error.message + ' ' +this.failed));
+                    console.log(chalk.red(error.message));
                 }
             }
         }

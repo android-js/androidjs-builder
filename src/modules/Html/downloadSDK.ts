@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import * as fs from 'fs';
-const request = require('superagent');
+import * as request from 'request';
 import {LoadingBar} from './ProgressBar';
 
 export function downloadSDK(env, url, to, callback: Function) {
