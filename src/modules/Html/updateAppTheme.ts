@@ -28,7 +28,7 @@ export function updateTheme(env, callback) {
                     let thm = result.resources.style[6].item;
                     thm[3] = {_: 'true', '$': {name: 'android:windowNoTitle'}};
                     thm[4] = {_: 'true', '$': {name: 'android:windowFullscreen'}};
-                    thm[5] = {_: 'false', '$': {name: 'android:windowActionBar'}};
+                    // thm[5] = {_: 'false', '$': {name: 'android:windowActionBar'}};
 
 
                     thm[0]._ = pkg.theme.colorAccent || '@color/colorAccent'; // colorAccent

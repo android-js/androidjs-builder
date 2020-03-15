@@ -9,7 +9,7 @@ import * as inquirer from "inquirer";
 import {Webview} from './modules/webview';
 import {symlink} from "fs";
 
-const pkg = require('../../package.json');
+const pkg = require('../package.json');
 
 const project: Interfaces.IProject = {
     dir: process.cwd(),
