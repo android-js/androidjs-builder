@@ -39,7 +39,7 @@ export function updateTheme(env, callback) {
                         thm[3]._ = true; //{ _: 'true', '$': { name: 'android:windowNoTitle' } };
                         thm[4]._ = true; //{ _: 'true', '$': { name: 'android:windowFullscreen' } };
                     } else {
-                        thm[3]._ = false;
+                        thm[3]._ = true;
                         thm[4]._ = false;
                     }
 

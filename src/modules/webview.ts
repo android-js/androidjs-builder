@@ -189,8 +189,10 @@ export class Webview implements Interfaces.IBuilderModule {
         _package.name = this.env.project.name;
         _package['app-name'] = this.env.project.name;
         _package['project-type'] = this.env.project.type;
+        _package['project-name'] = this.env.project.name;
         _package['scripts']['build'] = 'androidjs build';
         _package["dist-path"] = "./dist";
+        // _package["screenOrientation"] = "portrait";
         _package['theme'] = {
             "fullScreen": true
         };
@@ -330,6 +332,9 @@ export class Webview implements Interfaces.IBuilderModule {
             ];
         }
 
+        // Screen Orientation
+        let screenOrientation = this.env.project.package['screenOrientation'] || null;
+
         // updating icon
         updateIcon(this.env, this);
 
@@ -337,7 +342,7 @@ export class Webview implements Interfaces.IBuilderModule {
         updateAppName(this.env, this);
 
         // generate Android Manifest file
-        const manifestFileData = getManifest(this.env, this, permissions, deep_links);
+        const manifestFileData = getManifest(this.env, this, permissions, deep_links, screenOrientation);
         fs.writeFileSync(path.join(sdkFolder, 'AndroidManifest.xml'), manifestFileData);
 
 

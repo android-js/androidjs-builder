@@ -77,7 +77,7 @@ function createDeepLink(deep_link:IDeepLink): Node {
     return filter;
 }
 
-export function getManifest(env: IEnv, args, permissions: Array<string>, deep_links: Array<Interfaces.IDeepLink>): string {
+export function getManifest(env: IEnv, args, permissions: Array<string>, deep_links: Array<Interfaces.IDeepLink>, screenOrientation: String = null): string {
     let package_name = env.project.package["package-name"];
     const sdkPath = path.join(env.builder.cache, args.sdk.repo);
 
@@ -89,7 +89,7 @@ export function getManifest(env: IEnv, args, permissions: Array<string>, deep_li
         name: 'manifest',
         keys: {
             'xmlns:android': "http://schemas.android.com/apk/res/android",
-            'package':`com.android.js.${package_name}`,
+            'package':`com.androidjs.${package_name}`,
             platformBuildVersionCode:"28",
             platformBuildVersionName:"9"
         }
@@ -117,6 +117,11 @@ export function getManifest(env: IEnv, args, permissions: Array<string>, deep_li
             'android:name':"com.android.js.webview.MainActivity"
         }
     });
+
+    if(screenOrientation !== null) {
+        // @ts-ignore
+        activity.keys['android:screenOrientation'] = screenOrientation;
+    }
 
     let intent_filter = new Node({name: 'intent-filter'});
     intent_filter.children.push(new Node({
