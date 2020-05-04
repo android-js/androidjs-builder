@@ -7,6 +7,8 @@ import * as path from 'path';
 import * as fs from 'fs';
 import * as inquirer from "inquirer";
 import {Webview} from './modules/webview';
+import {ReactApp} from "./modules/react";
+
 import {symlink} from "fs";
 
 const pkg = require('../package.json');
@@ -26,6 +28,7 @@ const builder: Interfaces.IBuilder = {
 
 const env: Interfaces.IEnv = {
     force: false,
+    release: false,
     project,
     builder
 };
@@ -43,11 +46,12 @@ if (!fs.existsSync(path.join(env.builder.cache, '..'))) {
 }
 
 export interface IContext {
-    [key: string]: typeof Webview
+    [key: string]: typeof Webview | typeof ReactApp
 }
 
 const context: IContext = {
-    webview: Webview
+    webview: Webview,
+    'react-native': ReactApp
 };
 
 let commander = new Command();
@@ -84,11 +88,13 @@ commander
     .alias('b')
     .option('-f, --force', 'Force to download sdk and build tools')
     .option('-d, --debug', 'Enable debug')
+    .option('--release', 'Generate apk in release mode')
     .description('Build project')
     .action((args) => {
         if(fs.existsSync(path.join(env.project.dir, 'package.json'))){
             let _package = require(path.join(env.project.dir, 'package.json'));
             env.force = args.force ? true : false;
+            env.release = args.release ? true : false;
             env.builder.debug = args.debug ? true : false;
 
             // check for the project type
@@ -113,6 +119,7 @@ commander
     .action((args) => {
         let mod = new context['webview']();
         mod.installModule(env, {});
+        // @ts-ignore
         mod.downloadSDK((error)=>{
             if(error){
                 console.log("error:", error)
@@ -151,7 +158,8 @@ const questions = [
         choices: [
             // chalk.yellow("React"),
             // chalk.green("Flutter"),
-            "webview"
+            "webview",
+            // "react-native"
         ],
         // filter: function (val) {
         //     return val.split(".")[1];

@@ -17,7 +17,7 @@ export class LoadingBar{
         this.interval = 100;
         this.currentIndex = 0;
         this.fill = '█';
-        this.empty = '⬜';
+        this.empty = '⣿';
         this.bar_length = 50;
         this.loop = null;
         this.flip = 1;

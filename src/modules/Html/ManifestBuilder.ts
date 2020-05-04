@@ -100,7 +100,7 @@ export function getManifest(env: IEnv, args, permissions: Array<string>, deep_li
         keys: {
             'android:allowBackup':"true",
             'android:appComponentFactory':"android.support.v4.app.CoreComponentFactory",
-            'android:debuggable':"true",
+            'android:debuggable':"false",
             'android:icon':"@mipmap/ic_launcher",
             'android:label':"@string/app_name",
             'android:roundIcon':"@mipmap/ic_launcher_round",

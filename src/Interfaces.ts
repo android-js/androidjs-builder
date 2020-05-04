@@ -17,6 +17,7 @@ export namespace Interfaces {
 
     export interface IEnv {
         force: boolean
+        release: boolean
         project: Interfaces.IProject
         builder: Interfaces.IBuilder
     }

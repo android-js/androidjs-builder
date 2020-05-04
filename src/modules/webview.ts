@@ -18,6 +18,9 @@ import {LoadingBar} from './Html/ProgressBar';
 import {javaVersion} from './Html/getJavaVersion';
 import {getUpdate, getUpdateMessage} from './Html/checkForUpdates';
 import {updateTheme} from "./Html/updateAppTheme";
+import {updateApkVersion} from './Html/updateApkVersion';
+
+
 
 const chalk = require('chalk');
 
@@ -341,6 +344,9 @@ export class Webview implements Interfaces.IBuilderModule {
         // updating app name
         updateAppName(this.env, this);
 
+        // updating app version
+        updateApkVersion(this.env, this);
+
         // generate Android Manifest file
         const manifestFileData = getManifest(this.env, this, permissions, deep_links, screenOrientation);
         fs.writeFileSync(path.join(sdkFolder, 'AndroidManifest.xml'), manifestFileData);
@@ -379,6 +385,7 @@ export class Webview implements Interfaces.IBuilderModule {
         let args_ = ['-jar', apkToolFilePath, 'b', sdkFolderPath, '-o', buildApkFilePath, '--frame-path', cacheFolderPath];
         const proc = spawn('java', args_, {cwd: cacheFolderPath});
 
+        let log = "";
 
         if(sdkConfig.version){
             console.log(`Using SDK: ${sdkConfig.version}`);
@@ -407,6 +414,7 @@ export class Webview implements Interfaces.IBuilderModule {
                 //     console.log(chalk.red(`${data}`));
                 // }
                 // process.exit();
+                log += `${data}`;
             });
 
             proc.on('close', (code) => {
@@ -416,11 +424,12 @@ export class Webview implements Interfaces.IBuilderModule {
                     callback();
                 } else {
                     progress.stop({message: 'non zero exit code: failed to build apk'});
+                    console.error(log);
                     process.exit();
                 }
             });
         } catch (e) {
-            console.log("Hii");
+            console.log(e);
         }
     }
 
@@ -516,7 +525,7 @@ export class Webview implements Interfaces.IBuilderModule {
                             });
                         });
                     });
-                });
+                }, this.env.force||false);
 
                 // });
             }
@@ -535,7 +544,14 @@ export class Webview implements Interfaces.IBuilderModule {
         let apk_file_path = path.join(this.env.builder.cache, this.env.project.package.name + '.apk');
         let build_working_dir = path.join(this.env.builder.cache);
 
-        let args_: Array<string> = ['-jar', apksigner_path, '--apks', apk_file_path, '--debug'];
+        let args_: Array<string> = ['-jar', apksigner_path, '--apks', apk_file_path];
+
+        if(this.env.release === false) {
+            args_.push('--debug');
+            console.log("Generating apk in debug mode. use '--release' to generate release build");
+        } else {
+            console.log("Generating apk in release mode.");
+        }
 
         // @ts-ignore
         const proc = spawn('java', args_, {cwd: build_working_dir});
@@ -559,6 +575,11 @@ export class Webview implements Interfaces.IBuilderModule {
         proc.on('close', (code) => {
             if (code === 0) { // process exit successfully
                 progress.stop();
+                if(this.env.release) {
+                    /// TODO: -
+                    console.log(chalk.green(` Resign the apk with your own private keystore.`));
+                    // console.log(`$ java -jar ${apksigner_path} -a ./dist/${this.env.project.package.name}.apk --ks <my-key.keystore> --ksAlias <alias_name> --allowResign`);
+                }
                 callback();
             } else {
                 progress.stop({message: "failed to sign apk", code});
