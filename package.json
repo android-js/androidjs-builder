@@ -43,7 +43,8 @@
     "typedoc": "^0.16.10",
     "typescript": "^3.6.4",
     "xml2js": "^0.4.23",
-    "yargs": "^14.2.0"
+    "yargs": "^14.2.0",
+    "commander": "^6.0.0"
   },
   "maintainers": [],
   "devDependencies": {
