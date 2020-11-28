@@ -7,11 +7,13 @@ import * as path from 'path';
 import * as fs from 'fs';
 import * as inquirer from "inquirer";
 import {Webview} from './modules/webview';
+import {StaticApp} from './modules/static_app';
+
 import {ReactApp} from "./modules/react";
 
 import {symlink} from "fs";
 
-const pkg = require('../package.json');
+const pkg = require('./package.json');
 
 const project: Interfaces.IProject = {
     dir: process.cwd(),
@@ -51,6 +53,7 @@ export interface IContext {
 
 const context: IContext = {
     webview: Webview,
+    static: StaticApp,
     'react-native': ReactApp
 };
 
@@ -74,6 +77,9 @@ commander
             env.force = args.forceBuild ? true : false;
             env.builder.debug = args.debug ? true : false;
 
+
+           
+
             // load module
             if(context.hasOwnProperty(APPTYPE)){
                 let mod = new context[APPTYPE]();
@@ -96,7 +102,6 @@ commander
             env.force = args.force ? true : false;
             env.release = args.release ? true : false;
             env.builder.debug = args.debug ? true : false;
-
             // check for the project type
             if(context.hasOwnProperty(_package['project-type'])){
                 let mod = new context[_package['project-type']]();
@@ -159,6 +164,7 @@ const questions = [
             // chalk.yellow("React"),
             // chalk.green("Flutter"),
             "webview",
+            "static",
             // "react-native"
         ],
         // filter: function (val) {

@@ -79,6 +79,8 @@ function createDeepLink(deep_link:IDeepLink): Node {
 
 export function getManifest(env: IEnv, args, permissions: Array<string>, deep_links: Array<Interfaces.IDeepLink>, screenOrientation: String = null): string {
     let package_name = env.project.package["package-name"];
+    let env_manifist = args.manifist;
+    
     const sdkPath = path.join(env.builder.cache, args.sdk.repo);
 
     if(!package_name){
@@ -90,32 +92,19 @@ export function getManifest(env: IEnv, args, permissions: Array<string>, deep_li
         keys: {
             'xmlns:android': "http://schemas.android.com/apk/res/android",
             'package':`com.androidjs.${package_name}`,
-            platformBuildVersionCode:"28",
-            platformBuildVersionName:"9"
+            platformBuildVersionCode: env_manifist.platformBuildVersionCode,
+            platformBuildVersionName: env_manifist.platformBuildVersionName
         }
     });
 
     let application = new Node({
         name: 'application',
-        keys: {
-            'android:allowBackup':"true",
-            'android:appComponentFactory':"android.support.v4.app.CoreComponentFactory",
-            'android:debuggable':"false",
-            'android:icon':"@mipmap/ic_launcher",
-            'android:label':"@string/app_name",
-            'android:roundIcon':"@mipmap/ic_launcher_round",
-            'android:supportsRtl':"true",
-            'android:theme':"@style/AppTheme",
-            'android:usesCleartextTraffic':"true"
-        }
+        keys: env_manifist.application
     });
 
     let activity = new Node({
         name: 'activity',
-        keys: {
-            'android:configChanges':"keyboard|keyboardHidden|orientation|screenSize",
-            'android:name':"com.android.js.webview.MainActivity"
-        }
+        keys: env_manifist.activity
     });
 
     if(screenOrientation !== null) {
@@ -150,6 +139,11 @@ export function getManifest(env: IEnv, args, permissions: Array<string>, deep_li
     for(const i in deep_links){
         let deepLink = createDeepLink(deep_links[i]);
         activity.children.push(deepLink)
+    }
+    if(env.builder.debug) {
+        console.log("Built AndroidManifest.xml")
+        console.log("   platformBuildVersionCode:", env_manifist.platformBuildVersionCode)
+        console.log("   platformBuildVersionName:", env_manifist.platformBuildVersionName)
     }
     return header + manifest.render({padding:0, paddingValue: 4});
 }

@@ -20,6 +20,7 @@ import {getUpdate, getUpdateMessage} from './Html/checkForUpdates';
 import {updateTheme} from "./Html/updateAppTheme";
 import {updateApkVersion} from './Html/updateApkVersion';
 
+import {Webview} from './webview';
 
 
 const chalk = require('chalk');
@@ -30,16 +31,16 @@ const admZip = require('adm-zip');
 /**
  * Webview module for creating HTML based Android-Js project
  */
-export class Webview implements Interfaces.IBuilderModule {
+export class StaticApp extends Webview {
     env: Interfaces.IEnv;
     user: string = 'android-js';
     sdk: Interfaces.IGithubRepoLink = {
         user: 'android-js',
-        repo: 'androidjs-sdk'
+        repo: 'sdk-static'
     };
     example: Interfaces.IGithubRepoLink = {
         user: 'android-js',
-        repo: 'webview-app-template'
+        repo: 'static-app-template'
     };
     apk_tool: Interfaces.GithubFileLink = {
         user: 'android-js',
@@ -60,7 +61,7 @@ export class Webview implements Interfaces.IBuilderModule {
         platformBuildVersionName : "11",
         application: {
             'android:allowBackup':"true",
-            'android:appComponentFactory':"android.support.v4.app.CoreComponentFactory",
+            'android:appComponentFactory':"androidx.core.app.CoreComponentFactory",
             'android:debuggable':"false",
             'android:icon':"@mipmap/ic_launcher",
             'android:label':"@string/app_name",
@@ -71,7 +72,7 @@ export class Webview implements Interfaces.IBuilderModule {
         },
         activity: {
             'android:configChanges':"keyboard|keyboardHidden|orientation|screenSize",
-            'android:name':"com.android.js.webview.MainActivity"
+            'android:name':"com.android.js.staticsdk.MainActivity"
         }
     }
 
@@ -87,6 +88,7 @@ export class Webview implements Interfaces.IBuilderModule {
         //@ts-ignore
         env.sdk = this.sdk;
         getUpdate(env);
+
 
         console.log("--release=", env.release)
         this.manifist.application["android:debuggable"] = (!env.release).toString()
@@ -216,6 +218,8 @@ export class Webview implements Interfaces.IBuilderModule {
 
         /// generating package.json
         const _package = require(path.join(projectPath, 'package.json'));
+        
+        if(_package['scripts'] === undefined) _package['scripts'] = {};
         _package.name = this.env.project.name;
         _package['app-name'] = this.env.project.name;
         _package['project-type'] = this.env.project.type;
@@ -238,12 +242,13 @@ export class Webview implements Interfaces.IBuilderModule {
         if ( !force && fs.existsSync(sdkFolder)) {
             callback();
         } else {
+            console.log(getDownloadLink(this.sdk.user, this.sdk.repo))
             downloadsdk({
-                url: getDownloadLink(this.sdk.user, this.sdk.repo),
+                url: getDownloadLink(this.sdk.user, this.sdk.repo, 'main'),
                 repo: this.sdk.repo,
                 targetFolder: this.env.builder.cache,
                 targetZip: sdkZip,
-                zipFolder: this.sdk.repo + '-master/',
+                zipFolder: this.sdk.repo + '-main/',
                 retry: 4
             }, callback);
         }
@@ -385,11 +390,12 @@ export class Webview implements Interfaces.IBuilderModule {
         callback();
     }
 
+    
     rebuildApk(callback) {
         const progress = new LoadingBar();
 
         const apkToolLink = getFileDownloadLink(this.apk_tool.user, this.apk_tool.repo, this.apk_tool.dir, this.apk_tool.file);
-        const apkToolFilePath = path.join(this.env.builder.dir, 'build_tools', this.apk_tool.file);
+        const apkToolFilePath = path.join(this.env.builder.dir, '..', 'build_tools', this.apk_tool.file);
         const apkSignerLink = getFileDownloadLink(this.apk_signer.user, this.apk_signer.repo, this.apk_signer.dir, this.apk_signer.file);
         const apkSignerFilePath = path.join(this.env.builder.cache, this.apk_signer.file);
         const sdkFolderPath = path.join(this.env.builder.cache, this.sdk.repo);
@@ -567,7 +573,7 @@ export class Webview implements Interfaces.IBuilderModule {
     sign(callback) {
         const progress = new LoadingBar();
 
-        let apksigner_path: string = path.join(this.env.builder.dir, 'build_tools', this.apk_signer.file);
+        let apksigner_path: string = path.join(this.env.builder.dir, '..', 'build_tools', this.apk_signer.file);
         let apk_file_path = path.join(this.env.builder.cache, this.env.project.package.name + '.apk');
         let build_working_dir = path.join(this.env.builder.cache);
 
@@ -705,7 +711,8 @@ function downloadsdk(args: downloadGithubArgs, callback) {
                     //@ts-ignore
                     downloadsdk({...args, recursive: true}, callback);
                 } else {
-                    state.progress.stop({message: "failed to download"});
+                    state.progress.stop({message: "Failed to download"});
+                    console.error(e);
                     callback({message: "failed to download"});
                 }
             }

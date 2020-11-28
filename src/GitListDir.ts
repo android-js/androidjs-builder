@@ -16,8 +16,8 @@ export function lsGit(user: string, repo: string, dir: string, callback) {
 }
 
 
-export function getDownloadLink(user: string, repo: string) {
-    return `https://github.com/${user}/${repo}/archive/master.zip`;
+export function getDownloadLink(user: string, repo: string, branch ="master") {
+    return `https://github.com/${user}/${repo}/archive/${branch}.zip`;
 }
 
 /// TODO: need to update this function

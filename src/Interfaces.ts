@@ -12,7 +12,7 @@ export namespace Interfaces {
         dir: string
         debug?: boolean
         cache: string
-        commander: Command
+        commander: Command | any
     }
 
     export interface IEnv {
@@ -20,6 +20,7 @@ export namespace Interfaces {
         release: boolean
         project: Interfaces.IProject
         builder: Interfaces.IBuilder
+        debuggable?: boolean
     }
 
     export interface IContext {
