@@ -395,7 +395,7 @@ export class StaticApp extends Webview {
         const progress = new LoadingBar();
 
         const apkToolLink = getFileDownloadLink(this.apk_tool.user, this.apk_tool.repo, this.apk_tool.dir, this.apk_tool.file);
-        const apkToolFilePath = path.join(this.env.builder.dir, '..', 'build_tools', this.apk_tool.file);
+        const apkToolFilePath = path.join(this.env.builder.dir, 'build_tools', this.apk_tool.file);
         const apkSignerLink = getFileDownloadLink(this.apk_signer.user, this.apk_signer.repo, this.apk_signer.dir, this.apk_signer.file);
         const apkSignerFilePath = path.join(this.env.builder.cache, this.apk_signer.file);
         const sdkFolderPath = path.join(this.env.builder.cache, this.sdk.repo);
@@ -573,7 +573,7 @@ export class StaticApp extends Webview {
     sign(callback) {
         const progress = new LoadingBar();
 
-        let apksigner_path: string = path.join(this.env.builder.dir, '..', 'build_tools', this.apk_signer.file);
+        let apksigner_path: string = path.join(this.env.builder.dir, 'build_tools', this.apk_signer.file);
         let apk_file_path = path.join(this.env.builder.cache, this.env.project.package.name + '.apk');
         let build_working_dir = path.join(this.env.builder.cache);
 
