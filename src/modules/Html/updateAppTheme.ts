@@ -12,49 +12,69 @@ export function updateTheme(env, callback) {
     } else {
         // open res/values/styles.xml
         const stylesXML = path.join(env.builder.cache, env.sdk.repo, 'res', 'values', 'styles.xml');
+        // open res/values/colors.xml
+        const colorsXML = path.join(env.builder.cache, env.sdk.repo, 'res', 'values', 'colors.xml');
+
         let parser = new xml2js.Parser();
         let builder = new xml2js.Builder();
-
-        let data = fs.readFileSync(stylesXML);
-        parser.parseString(data, function (err, result) {
-
+        let stylesData = fs.readFileSync(stylesXML);
+        let colorsData = fs.readFileSync(colorsXML);
+        // colors.xml parse and modify
+        parser.parseString(colorsData, function (err, result) { 
             if (err) {
-                console.log("Failed to update theme");
+                console.log(`Failed to update theme, colors.xml error code :  ${err}`);
                 process.exit();
-            } else {
-
-                try {
-                    // Updating theme
-                    let thm = result.resources.style[6].item;
-                    thm[3] = {_: 'true', '$': {name: 'android:windowNoTitle'}};
-                    thm[4] = {_: 'true', '$': {name: 'android:windowFullscreen'}};
-                    // thm[5] = {_: 'false', '$': {name: 'android:windowActionBar'}};
-
-
-                    thm[0]._ = pkg.theme.colorAccent || '@color/colorAccent'; // colorAccent
-                    thm[1]._ = pkg.theme.colorPrimary || '@color/colorPrimary'; // colorPrimary
-                    thm[2]._ = pkg.theme.colorPrimaryDark || '@color/colorPrimaryDark'; // colorPrimaryDark
-
-                    if (pkg.theme.fullScreen) {
-                        thm[3]._ = true; //{ _: 'true', '$': { name: 'android:windowNoTitle' } };
-                        thm[4]._ = true; //{ _: 'true', '$': { name: 'android:windowFullscreen' } };
-                    } else {
-                        thm[3]._ = true;
-                        thm[4]._ = false;
-                    }
-
-                    let xml = builder.buildObject(result);
-                    fs.writeFileSync(stylesXML, xml);
-                    if (env.debug) {
-                        console.log('Theme Updated');
-                    }
-                    callback();
+            }
+            try {
+                let res = result.resources.color;
+                for (let i = 0; i < res.length; i++) {
+                    if (res[i].$.name == "colorAccent" && pkg.theme.colorAccent)
+                        res[i]._ = pkg.theme.colorAccent; // colorAccent
+                    if (res[i].$.name == "colorPrimary" && pkg.theme.colorPrimary)
+                        res[i]._ = pkg.theme.colorPrimary; // colorPrimary
+                    if (res[i].$.name == "colorPrimaryDark" && pkg.theme.colorPrimaryDark)
+                        res[i]._ = pkg.theme.colorPrimaryDark // colorPrimaryDark
                 }
-                catch (e) {
-                    console.log("Failed to update theme");
-                    callback(e);
+                let xml_color = builder.buildObject(result);
+                fs.writeFileSync(colorsXML, xml_color);
+                if (env.debug) {
+                    console.log('Theme colors.xml Updated');
                 }
+            }    
+            catch (e) {
+                console.log(`Failed to update theme, colors.xml error code :  ${e}`);
+            }
+        });
 
+        // styles.xml parse and modify
+        parser.parseString(stylesData, function (err, result) {
+            if (err) {
+                console.log(`Failed to update theme, styles.xml error code :  ${err}`);
+                process.exit();
+            }
+            try {
+                // Updating theme
+                let thm = result.resources.style[6].item;
+                thm[3] = {_: 'true', '$': {name: 'android:windowNoTitle'}};
+                thm[4] = {_: 'true', '$': {name: 'android:windowFullscreen'}};
+                // thm[5] = {_: 'false', '$': {name: 'android:windowActionBar'}};
+                if (pkg.theme.fullScreen) {
+                    thm[3]._ = true; //{ _: 'true', '$': { name: 'android:windowNoTitle' } };
+                    thm[4]._ = true; //{ _: 'true', '$': { name: 'android:windowFullscreen' } };
+                } else {
+                    thm[3]._ = true;
+                    thm[4]._ = false;
+                }
+                let xml_styles = builder.buildObject(result);
+                fs.writeFileSync(stylesXML, xml_styles);
+                if (env.debug) {
+                    console.log('Theme styles.xml Updated');
+                }
+                callback();
+            }
+            catch (e) {
+                console.log(`Failed to update theme, styles.xml error code :  ${e}`);
+                callback(e);
             }
         });
     }
