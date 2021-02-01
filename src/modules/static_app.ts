@@ -68,7 +68,8 @@ export class StaticApp extends Webview {
             'android:roundIcon':"@mipmap/ic_launcher_round",
             'android:supportsRtl':"true",
             'android:theme':"@style/AppTheme",
-            'android:usesCleartextTraffic':"true"
+            'android:usesCleartextTraffic': "true",
+            'android:requestLegacyExternalStorage':"true"
         },
         activity: {
             'android:configChanges':"keyboard|keyboardHidden|orientation|screenSize",
