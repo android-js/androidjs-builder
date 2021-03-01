@@ -19,7 +19,7 @@
     "docs": "./node_modules/.bin/typedoc.cmd --out dist/docs --mode modules ./src/"
   },
   "bin": {
-    "androidjs": "./dist/bin.js"
+    "androidjs": "./dist/src/bin.js"
   },
   "dependencies": {
     "@types/jest": "^25.1.3",
