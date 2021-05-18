@@ -2,6 +2,12 @@
 ---
 This is official builder for creating [Androidjs](https://android-js.github.io/) apps. Builder provides required commands for creating Androidjs project and to build the project and generate Apk for [android](https://developer.android.com/about) devices.
 
+## Prerequisites
+A Java Development Kit (JDK) is required, for Ubuntu and Debian-based operating systems, do:
+```shell script
+$ sudo apt install default-jdk -y
+```
+
 ## Installing from [npm](https://www.npmjs.com/). [![androidjs-builder][androidjs-builder-badge]][androidjs-builder-npm]
 ```shell script
 $ npm install -g androidjs-builder
