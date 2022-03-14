@@ -39,8 +39,7 @@ export class LoadingBar{
         let _left = this.currentIndex - 1;
         _left = _left < 0 ? 0 : _left;
         let _right = this.bar_length - _left - 1;
-        if (process.stdout.write)
-            process.stdout.write(`${this.message}${this.chunksDownloaded} :` + chalk.green(` ${this.empty.repeat(_left)}${this.fill}${this.empty.repeat(_right)}`));
+        process.stdout?.write(`${this.message}${this.chunksDownloaded} :` + chalk.green(` ${this.empty.repeat(_left)}${this.fill}${this.empty.repeat(_right)}`));
     }
     clear(){
         if (process.stdout.clearLine)
