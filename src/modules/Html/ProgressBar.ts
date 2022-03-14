@@ -42,12 +42,10 @@ export class LoadingBar{
         process.stdout?.write(`${this.message}${this.chunksDownloaded} :` + chalk.green(` ${this.empty.repeat(_left)}${this.fill}${this.empty.repeat(_right)}`));
     }
     clear(){
-        if (process.stdout.clearLine)
-            //@ts-ignore
-            process.stdout.clearLine();
-        if (process.stdout.cursorTo)
-            //@ts-ignore
-            process.stdout.cursorTo(0);
+        //@ts-ignore
+        process.stdout?.clearLine();
+        //@ts-ignore
+        process.stdout?.cursorTo(0);
     }
 
     start(speed?:number) {
