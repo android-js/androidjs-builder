@@ -100,11 +100,9 @@ export class ProgressBar {
         // console.log(_left, _right)
     }
     clearLine() {
-        if (process.stdout.clearLine)
-            //@ts-ignore
-            process.stdout.clearLine();
-        if (process.stdout.cursorTo)
-            //@ts-ignore
-            process.stdout.cursorTo(0);
+        //@ts-ignore
+        process.stdout?.clearLine();
+        //@ts-ignore
+        process.stdout?.cursorTo(0);
     }
 }
