@@ -96,8 +96,7 @@ export class ProgressBar {
 
         this.clearLine();
         const _str = `  ${_p}% : ${chalk.green(this.bar_fill.repeat(_left-1)+_in_progress_code)}${ this.barr_empty.repeat(_right)}`;
-        if (process.stdout.write)
-            process.stdout.write(_str);
+        process.stdout?.write(_str);
         // console.log(_left, _right)
     }
     clearLine() {
