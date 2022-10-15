@@ -107,6 +107,9 @@ export function getManifest(env: IEnv, args, permissions: Array<string>, deep_li
         keys: env_manifist.activity
     });
 
+    // required for Android 12+
+    activity.keys['android:exported'] = "true";
+
     if(screenOrientation !== null) {
         // @ts-ignore
         activity.keys['android:screenOrientation'] = screenOrientation;

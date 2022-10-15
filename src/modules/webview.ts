@@ -51,13 +51,13 @@ export class Webview implements Interfaces.IBuilderModule {
         user: 'android-js',
         repo: 'androidjs-builder',
         dir: 'build_tools',
-        file: 'uber-apk-signer-1.0.0.jar'
+        file: 'uber-apk-signer.jar'
     };
 
     // ManifistBuilder args
     manifist = {
-        platformBuildVersionCode : "30",
-        platformBuildVersionName : "11",
+        platformBuildVersionCode : "33",
+        platformBuildVersionName : "13",
         application: {
             'android:allowBackup':"true",
             'android:appComponentFactory':"android.support.v4.app.CoreComponentFactory",
