@@ -48,7 +48,7 @@
   },
   "maintainers": [],
   "devDependencies": {
-    "jest": "^25.1.0"
+    "jest": "^29.2.0"
   },
   "repository": {
     "type": "git",
