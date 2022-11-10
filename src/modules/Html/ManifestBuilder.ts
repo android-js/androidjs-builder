@@ -91,7 +91,7 @@ export function getManifest(env: IEnv, args, permissions: Array<string>, deep_li
         name: 'manifest',
         keys: {
             'xmlns:android': "http://schemas.android.com/apk/res/android",
-            'package':`com.androidjs.${package_name}`,
+            'package': package_name,
             platformBuildVersionCode: env_manifist.platformBuildVersionCode,
             platformBuildVersionName: env_manifist.platformBuildVersionName
         }
